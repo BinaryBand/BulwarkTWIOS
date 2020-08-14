@@ -10,6 +10,7 @@
 #import "ViewOne.h"
 #import "viewReports.h"
 #import "viewRouteMaps.h"
+#import "PayrollDetailReportsService.h"
 
 //#import “MessageUI.h” 
 //#import “MFMailComposeViewController.h”
@@ -133,6 +134,7 @@
         vDriving = [[viewDriving alloc] initWithNibName:@"viewDriving" bundle:nil];
     
 
+            viewPayrollDetailReports = [[PayrollDetailReportsService alloc] init];
 	return YES;
 	
 	
@@ -792,6 +794,7 @@
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
+    NSLog(@"DidRegisterUserNotificationSettings");
     //register to receive notifications
     [[UIApplication sharedApplication]  registerForRemoteNotifications];
 }
@@ -818,6 +821,7 @@
     NSString *deviceId = [deviceIdUUID UUIDString];
     deviceId = [deviceId stringByReplacingOccurrencesOfString:@" " withString:@""];
     
+    [viewPayrollDetailReports updatePushToken:deviceToken :deviceId];
     
   //  UIDevice *deviceInfo = [UIDevice currentDevice];
     
@@ -1127,6 +1131,11 @@
 	[viewOne sendFilesToServerAsync];
     
     
+    bool payrollDetailReportAvailable = [viewPayrollDetailReports techHasPendingCommisionReport];
+    if(payrollDetailReportAvailable){
+        NSLog(@"Tech Has CommissionReport Available");
+        [viewPayrollDetailReports openReport:window];
+    }
 }
 
 

@@ -148,6 +148,7 @@
 		B3DC569B2099058E000C1847 /* money.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B3DC569A2099058E000C1847 /* money.jpeg */; };
 		B3F309851FABB762008AD53F /* viewMissedClockIn.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F309831FABB762008AD53F /* viewMissedClockIn.m */; };
 		B3F309861FABB762008AD53F /* viewMissedClockIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F309841FABB762008AD53F /* viewMissedClockIn.xib */; };
+		E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */ = {isa = PBXBuildFile; fileRef = E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -333,6 +334,8 @@
 		B3F309821FABB762008AD53F /* viewMissedClockIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewMissedClockIn.h; sourceTree = "<group>"; };
 		B3F309831FABB762008AD53F /* viewMissedClockIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = viewMissedClockIn.m; sourceTree = "<group>"; };
 		B3F309841FABB762008AD53F /* viewMissedClockIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewMissedClockIn.xib; sourceTree = "<group>"; };
+		E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayrollDetailReportsService.m; sourceTree = "<group>"; };
+		E55EAD1724E1E56200063BD5 /* PayrollDetailReportsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayrollDetailReportsService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +403,8 @@
 				B3A030151AA8B7770097AACD /* ReportProblemEmailViewController.xib */,
 				B3A030181AA918280097AACD /* TermiteEmail.swift */,
 				B3A030191AA918280097AACD /* TermiteEmail.xib */,
+				E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */,
+				E55EAD1724E1E56200063BD5 /* PayrollDetailReportsService.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -857,6 +862,7 @@
 				B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B38DFC18212E783C004CCBEF /* JDFTooltipManager.m in Sources */,
+				E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */,
 				1D3623260D0F684500981E51 /* BulwarkTWAppDelegate.m in Sources */,
 				B348C8AD1C7ACD48000BDC7A /* viewSchedule.m in Sources */,
 				348DA0E912CA6F9F00FB51D0 /* ViewOne.m in Sources */,

@@ -14,6 +14,7 @@
 #import "viewDriving.h"
 #import <CoreLocation/CoreLocation.h> 
 #import "VideoTableView.h"
+#import "PayrollDetailReportsService.h"
 
 @class ViewOne;
 @class viewReports;
@@ -37,6 +38,7 @@
     AVAudioPlayer *audioPlayer;
     UIBackgroundTaskIdentifier counterTask;
     
+    PayrollDetailReportsService *viewPayrollDetailReports;
 }
 
 
