@@ -8,9 +8,12 @@
 #import "PayrollDetailReportsService.h"
 #import <BulwarkTW-Swift.h>
 #import "BulwarkTWAppDelegate.h"
+#import "ViewOne.h"
+
 
 @implementation PayrollDetailReportsService{
     BulwarkTWAppDelegate *delegate2;
+
     UIButton *webviewbutton;
     UIAlertView *askOpenReport;
     UIWindow *window2;
@@ -184,11 +187,36 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
         }
         if(buttonIndex > 0){
             
+            
+            NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
+                  BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
+               NSString *hrempid = del.hrEmpId;
+             
+                 NSString *url = [NSString stringWithFormat:ReportUrl, hrempid,hrempid];
+                 
+            NSURL *qurl = [NSURL URLWithString:url];
+                 
+            [del.viewOne btnMyPay];
+            //  NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
+           // [del.viewOne handleOpenURL:qurl];
+            /*  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+              {
+                  [del.viewOne handleOpenURL:qurl];
+                  PopUpWebView.hidden = NO;
+                  [PopUpWebView loadRequest:request];
+              }else{
+                  [webView loadRequest:request];
+              }*/
+            
+            
+            
+            
+            
             // CommissionReportsService *ss = [[CommissionReportsService alloc] init];
             // delegate = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
-            UIWindow *wind =  [[UIApplication sharedApplication] keyWindow];
+         /*   UIWindow *wind =  [[UIApplication sharedApplication] keyWindow];
             UIViewController *rootc = [wind rootViewController];
-            [rootc.view addSubview:self.view];
+            [rootc.view addSubview:self.view];*/
             //[window2 addSubview:self.view];
         }
         
@@ -329,8 +357,7 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
         NSUInteger dataLength = data.length;
         if (dataLength == 0) {
             return nil;
-        }
-        
+        }        
         const unsigned char *dataBuffer = (const unsigned char *)data.bytes;
         NSMutableString *hexString  = [NSMutableString stringWithCapacity:(dataLength * 2)];
         for (int i = 0; i < dataLength; ++i) {

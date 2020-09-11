@@ -176,6 +176,7 @@
 -(IBAction)btnSearch;
 -(IBAction)btnMap;
 -(IBAction)btnAvaliableRoutes;
+-(IBAction)btnMyPay;
 -(IBAction)btnVideo;
 -(IBAction)btnFixClockOut;
 -(IBAction)btncancelClockOut;

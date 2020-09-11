@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZD-ft-dfV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZD-ft-dfV">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -633,6 +633,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0g4-Kw-Y4P"/>
+                                    <barButtonItem title="My Pay" id="C4H-4k-2NZ">
+                                        <connections>
+                                            <action selector="btnMyPay" destination="6KB-OD-dpC" id="jOk-bm-TcF"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="rRz-to-MJK">
                                         <connections>
                                             <action selector="btnScreenShot" destination="6KB-OD-dpC" id="Ny8-3S-iAQ"/>
@@ -818,7 +823,7 @@
         <image name="arrow_left.png" width="32" height="32"/>
         <image name="blue_close.png" width="48" height="48"/>
         <image name="calendar-32.png" width="32" height="32"/>
-        <image name="camera.fill" catalog="system" width="64" height="48"/>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="clockin.png" width="22.5" height="22.5"/>
         <image name="clockout.png" width="22.5" height="22.5"/>
         <image name="document-32.png" width="39.724136352539062" height="39.724136352539062"/>

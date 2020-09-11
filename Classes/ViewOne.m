@@ -1207,7 +1207,32 @@ return @"42";
     
     
 }
-
+-(IBAction)btnMyPay{
+    NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
+         BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
+      NSString *hrempid = del.hrEmpId;
+    
+        NSString *url = [NSString stringWithFormat:ReportUrl, hrempid,hrempid];
+        
+   NSURL *qurl = [NSURL URLWithString:url];
+        
+       
+     NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
+     
+     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+     {
+         PopUpWebView.hidden = NO;
+         [PopUpWebView loadRequest:request];
+     }else{
+         [webView loadRequest:request];
+     }
+    
+    /*PayrollDetailReportsService *viewPayrollDetailReports = [[PayrollDetailReportsService alloc] init];
+       UIWindow *wind =  [[UIApplication sharedApplication] keyWindow];
+            UIViewController *rootc = [wind rootViewController];
+            [rootc.view addSubview:viewPayrollDetailReports.view];*/
+   
+}
 -(IBAction)btnAvaliableRoutes{
     /*
     hrEmpId = @"12345";
