@@ -182,7 +182,7 @@
 -(IBAction)btncancelClockOut;
 -(IBAction)btnScreenShot;
     -(IBAction)btnFastComm;
-
+-(IBAction)btnMyStats;
 -(IBAction)btnTest;
 
 @end

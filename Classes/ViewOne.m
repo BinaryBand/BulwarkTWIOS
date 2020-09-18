@@ -128,7 +128,7 @@ return @"42";
     PopUpWebView = [[WKWebView alloc]init] ;
     PopUpWebView.UIDelegate = self;
     PopUpWebView.navigationDelegate = self;
-    PopUpWebView.frame = CGRectMake(115,152, 538, 661);
+    PopUpWebView.frame = CGRectMake(75,102, 630, 830);
     [self.view addSubview:PopUpWebView];
     
     
@@ -1233,6 +1233,35 @@ return @"42";
             [rootc.view addSubview:viewPayrollDetailReports.view];*/
    
 }
+
+
+-(IBAction)btnMyStats{
+    
+     NSString *ReportUrl = @"https://fbf.bulwarkapp.com/MgrApp/TechStatsIpad.aspx?fromSup=0&t=1&h=%@&viewedby=%@";
+          BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
+       NSString *hrempid = del.hrEmpId;
+     
+         NSString *url = [NSString stringWithFormat:ReportUrl, hrempid,hrempid];
+         
+    NSURL *qurl = [NSURL URLWithString:url];
+         
+        
+      NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
+      
+      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+      {
+          PopUpWebView.hidden = NO;
+          [PopUpWebView loadRequest:request];
+      }else{
+          [webView loadRequest:request];
+      }
+    
+    
+    
+}
+
+
+
 -(IBAction)btnAvaliableRoutes{
     /*
     hrEmpId = @"12345";

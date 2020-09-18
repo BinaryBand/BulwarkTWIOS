@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZD-ft-dfV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZD-ft-dfV">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -336,18 +336,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zn-SB-49I">
-                                <rect key="frame" x="0.0" y="735" width="208" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.039246536791324615" green="0.3207709789276123" blue="0.52887749671936035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="24 Month Compare">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnTMLeaderboard" destination="D2X-lp-NNU" eventType="touchDown" id="vpU-6y-exy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oc-Y5-tfO">
                                 <rect key="frame" x="0.0" y="340" width="208" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -511,19 +499,6 @@
                                     <action selector="btnontime" destination="D2X-lp-NNU" eventType="touchDown" id="0L8-Co-6bP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bt7-97-2kM">
-                                <rect key="frame" x="-1" y="771" width="208" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.039246536791324615" green="0.3207709789276123" blue="0.52887749671936035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Pay History">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnTMLeaderboard" destination="D2X-lp-NNU" eventType="touchDown" id="J7q-fH-qGW"/>
-                                    <action selector="btnTermiteFup" destination="D2X-lp-NNU" eventType="touchDown" id="N4e-Cx-1nJ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ht-Pk-14N">
                                 <rect key="frame" x="102" y="82" width="565" height="702"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -643,7 +618,11 @@
                                             <action selector="btnScreenShot" destination="6KB-OD-dpC" id="Ny8-3S-iAQ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GTP-Yv-dRH"/>
+                                    <barButtonItem title="My Stats" style="plain" id="GTP-Yv-dRH">
+                                        <connections>
+                                            <action selector="btnMyStats" destination="6KB-OD-dpC" id="VrJ-S5-cSP"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="fixedSpace" id="dPb-kS-uzG">
                                         <connections>
                                             <action selector="btnTest" destination="6KB-OD-dpC" id="x9Y-22-kNw"/>
@@ -823,7 +802,7 @@
         <image name="arrow_left.png" width="32" height="32"/>
         <image name="blue_close.png" width="48" height="48"/>
         <image name="calendar-32.png" width="32" height="32"/>
-        <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="camera.fill" catalog="system" width="64" height="48"/>
         <image name="clockin.png" width="22.5" height="22.5"/>
         <image name="clockout.png" width="22.5" height="22.5"/>
         <image name="document-32.png" width="39.724136352539062" height="39.724136352539062"/>
