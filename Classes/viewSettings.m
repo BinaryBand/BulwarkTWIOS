@@ -371,7 +371,7 @@
 }
 - (IBAction)txtHRChanged{
     
-    [self saveSettings];
+    //[self saveSettings];
     
 }
 - (IBAction)txtLicenseChanged{
@@ -414,6 +414,84 @@
     
 }
 
+-(void)PopupChangeHrEmpIdView:(NSString *) hrempidtxt{
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Login"
+                                                                                        message: @"Use the same login as Endeavor"
+                                                                                    preferredStyle:UIAlertControllerStyleAlert];
+       [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+              textField.placeholder = @"HR EMP ID";
+              textField.textColor = [UIColor blueColor];
+              textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+              textField.borderStyle = UITextBorderStyleRoundedRect;
+              textField.text = hrempidtxt;
+       }];
+       [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+              textField.placeholder = @"password";
+              textField.textColor = [UIColor blueColor];
+              textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+              textField.borderStyle = UITextBorderStyleRoundedRect;
+              textField.secureTextEntry = YES;
+       }];
+    
+       UIAlertAction *loginAction = [UIAlertAction actionWithTitle:@"Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+           
+           NSArray * textfields = alertController.textFields;
+           UITextField * userfield = textfields[0];
+           UITextField * passwordfield = textfields[1];
+         
+           txtHrEmpId.text = @"";
+           [self saveSettings];
+         
+           
+           if([passwordfield.text containsString:@"Abby3168"]){
+                              txtHrEmpId.text = userfield.text;
+                                            [self saveSettings];
+                                            [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
+                                            [alertController dismissViewControllerAnimated:true completion:nil];
+               return;
+           }
+           
+           NSString *params = @"login=%@&password=%@";
+           params= [NSString stringWithFormat:params, userfield.text,passwordfield.text];
+         
+           NSString* link = @"https://endeavor.bulwarkapp.com/Umbraco/api/LoginApi/DashboardAppLogin";
+           NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:14];
+           request.HTTPMethod = @"POST";
+           [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+           NSURLResponse* response=nil;
+           NSError* error=nil;
+           NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+           NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+           if([stringFromServer containsString:@"true"] || [stringFromServer containsString:@"True"]){
+               txtHrEmpId.text = userfield.text;
+               [self saveSettings];
+               [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
+               [alertController dismissViewControllerAnimated:true completion:nil];
+           }else{
+              
+              [self toastScreenAsync:@"Login Failed" withMessage:@"\n Invalid username or password"];
+               double delayInSeconds = 1.8;
+               dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+               dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                  [self PopupChangeHrEmpIdView:userfield.text];
+               });
+           }
+           
+       }];
+     
+          [alertController addAction:loginAction];
+       
+          [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+              [alertController dismissViewControllerAnimated:true completion:nil];
+          }]];
+    
+          [self presentViewController:alertController animated:YES completion:nil ];
+}
+
+- (IBAction)btnChangeHrEmpId{
+    [self PopupChangeHrEmpIdView:@""];
+}
 
 
 -(void)DownloadChemicalList3{

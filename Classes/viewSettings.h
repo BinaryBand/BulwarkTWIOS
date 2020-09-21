@@ -37,6 +37,7 @@
 - (IBAction)btnReportProblem;
 - (IBAction)btnCallSupport;
 - (IBAction)btnDownloadChemicals;
+- (IBAction)btnChangeHrEmpId;
 
 - (IBAction)txtNameChanged;
 - (IBAction)txtHRChanged;
