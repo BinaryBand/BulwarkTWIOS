@@ -71,6 +71,41 @@
     [self getSettings];
     
     
+    webView = [[WKWebView alloc]init] ;
+     webView.UIDelegate = self;
+     webView.navigationDelegate = self;
+     webView.frame = CGRectMake(300,64, 467, 910);
+     [self.view addSubview:webView];
+     
+     PopUpWebView = [[WKWebView alloc]init] ;
+     PopUpWebView.UIDelegate = self;
+     PopUpWebView.navigationDelegate = self;
+     PopUpWebView.frame = CGRectMake(75,102, 630, 830);
+     [self.view addSubview:PopUpWebView];
+    
+     [[PopUpWebView layer] setCornerRadius:10];
+     [PopUpWebView setClipsToBounds:YES];
+     [[PopUpWebView layer] setBorderColor:
+      [[UIColor colorWithRed:0.52 green:0.09 blue:0.07 alpha:1] CGColor]];
+     [[PopUpWebView layer] setBorderWidth:2.75];
+     [super viewDidLoad];
+     
+     //[[webView layer] setCornerRadius:10];
+     [webView setClipsToBounds:YES];
+     [[webView layer] setBorderColor:
+      [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1] CGColor]];
+     [[webView layer] setBorderWidth:2.75];
+     
+       if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+       {
+       }else{
+           webView.UIDelegate = self;
+       }
+     PopUpWebView.hidden = YES;
+    webView.hidden = YES;
+       [PopUpWebView loadHTMLString:@"" baseURL:nil];
+       
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -493,6 +528,29 @@
     [self PopupChangeHrEmpIdView:@""];
 }
 
+- (IBAction)btnForgotPassword{
+    [self PopupForgotPasswordView];
+}
+
+-(void)PopupForgotPasswordView{
+              
+             NSString *url =@"https://endeavor.bulwarkapp.com?pronly=1";
+             
+        NSURL *qurl = [NSURL URLWithString:url];
+                  BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
+            
+          NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
+          
+          if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+          {
+             
+              PopUpWebView.hidden = NO;
+              [PopUpWebView loadRequest:request];
+          }else{
+              [webView loadRequest:request];
+          }
+}
+
 
 -(void)DownloadChemicalList3{
     @autoreleasepool {
@@ -827,4 +885,47 @@ numberOfRowsInComponent:(NSInteger)component
 }
 */
 
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+  NSLog(@"didFailNavigation: %@, error %@", navigation, error);
+}
+
+- (void)_webViewWebProcessDidCrash:(WKWebView *)webView {
+    NSLog(@"WebContent process crashed; reloading");
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
+    dispatch_async(dispatch_get_main_queue(), ^{
+      
+    });
+   NSLog(@"didFinishNavigation");
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    NSLog(@"decidePolicyForNavigationResponse");
+   decisionHandler(WKNavigationResponsePolicyAllow);
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+    NSLog(@"decidePolicyForNavigationAction");
+    UIApplication *app1 = [UIApplication sharedApplication];
+      NSURL         *url = navigationAction.request.URL;
+    if ([url.scheme isEqualToString:@"bulwarktw"])
+      {
+          NSString *URLString = [url absoluteString];
+                    NSArray *paramater = [URLString componentsSeparatedByString:@"?"];
+                    NSString *urlParamater = [paramater objectAtIndex: 2];
+                    NSString *spage =[paramater objectAtIndex: 1];
+                    double dpage = [spage doubleValue];
+      
+    if (dpage==32){
+        //close PopupWindow
+        PopUpWebView.hidden=YES;
+        [PopUpWebView loadHTMLString:@"" baseURL:nil];
+               decisionHandler(WKNavigationActionPolicyCancel);
+               return;
+    }
+      }
+     decisionHandler(WKNavigationResponsePolicyAllow);
+}
 @end

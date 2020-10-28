@@ -12,6 +12,8 @@
 #import "iToast.h"
 
 
+#import "ViewOne.h"
+
 @interface viewSettings : UIViewController  <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,MFMailComposeViewControllerDelegate>{
     
    IBOutlet UITextField *txtName;
@@ -28,6 +30,9 @@
 
     IBOutlet UIPickerView *picker;
     
+    IBOutlet WKWebView *webView;
+    IBOutlet WKWebView *PopUpWebView;
+    
     
 }
 
@@ -38,7 +43,7 @@
 - (IBAction)btnCallSupport;
 - (IBAction)btnDownloadChemicals;
 - (IBAction)btnChangeHrEmpId;
-
+- (IBAction)btnForgotPassword;
 - (IBAction)txtNameChanged;
 - (IBAction)txtHRChanged;
 - (IBAction)txtLicenseChanged;
