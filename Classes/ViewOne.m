@@ -175,7 +175,7 @@ return @"42";
     
     //[self cycleTheGlobalMailComposer];
     
-    [self registerForNotifications];
+    //[self registerForNotifications];
 
     
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
@@ -309,8 +309,8 @@ return @"42";
     
 
     
-    rscMgr = [[RscMgr alloc] init];
-    [rscMgr setDelegate:self];
+   // rscMgr = [[RscMgr alloc] init];
+    //[rscMgr setDelegate:self];
     
     
     
@@ -3427,8 +3427,8 @@ return @"42";
         //memcpy(txBuffer, [someString UTF8String], [someString length]+1);
         
         //txBuffer[0] = esc ;
-        [rscMgr setDtr:NO];
-        [rscMgr setRts:YES];
+       // [rscMgr setDtr:NO];
+       // [rscMgr setRts:YES];
         //[NSThread sleepForTimeInterval:2];
         
         
@@ -3561,10 +3561,10 @@ return @"42";
             
             int le = (int)[cup length] +1;
             
-            memcpy(txBuffer, [cup UTF8String], le);
+           // memcpy(txBuffer, [cup UTF8String], le);
             
             
-            [rscMgr write:txBuffer length:le];
+           // [rscMgr write:txBuffer length:le];
             
             //[rscMgr write:txBuffer Length:le];
             
@@ -3581,8 +3581,8 @@ return @"42";
         }
         
         [NSThread sleepForTimeInterval:1];
-          [rscMgr setRts:NO];
-        [rscMgr setDtr:YES];
+       //   [rscMgr setRts:NO];
+        //[rscMgr setDtr:YES];
 
         
     }
@@ -7659,9 +7659,9 @@ return @"42";
 
 
 
-- (void) registerForNotifications {
+//- (void) registerForNotifications {
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
+   /* [[NSNotificationCenter defaultCenter] addObserver:self
     selector:@selector(_accessoryConnected:)
      name:EAAccessoryDidConnectNotification
       object:nil];
@@ -7670,31 +7670,32 @@ return @"42";
      name:EAAccessoryDidDisconnectNotification
      object:nil];
     [[EAAccessoryManager sharedAccessoryManager] registerForLocalNotifications];
-}
+    */
+//}
 
 
 
-- (void) _accessoryConnected:(NSNotification *)notification {
+//- (void) _accessoryConnected:(NSNotification *)notification {
 
    // EAAccessory* connectedAccessory = [[notification userInfo] objectForKey:EAAccessoryKey];
     
     //NSString* accessoryName = [[NSString alloc] initWithString:[connectedAccessory name]];
    
-}
-- (void) _accessoryDisconnected:(NSNotification *)notification {
+//}
+//- (void) _accessoryDisconnected:(NSNotification *)notification {
    
    // EAAccessory* disconnectedAccessory = [[notification userInfo]
    //                                       objectForKey:EAAccessoryKey];
-}
+//}
 
-- (void) accessoryDidDisconnect:(EAAccessory *)accessory {
+//- (void) accessoryDidDisconnect:(EAAccessory *)accessory {
 
    // [self dispatchDelegate:@selector(scanToolDidDisconnect:)
               //  withObject:nil];
-}
+//}
 
 
-
+/*
 
 #pragma mark - RscMgrDelegate methods
 
@@ -8121,7 +8122,7 @@ return @"42";
     
     
 }
-
+*/
 
 #pragma mark- TWBlunoDelegate
 

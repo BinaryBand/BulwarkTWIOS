@@ -13,7 +13,7 @@
 #import <Foundation/Foundation.h>
 #import <Availability.h>
 
-#import "RscMgr.h"
+//#import "RscMgr.h"
 
 #import <CoreTelephony/CoreTelephonyDefines.h>
 #import <MediaPlayer/MediaPlayer.h>
@@ -30,7 +30,7 @@
 @class MBProgressHUD;
 //@class ReportProblemEmailViewController;
 
-@interface ViewOne : UIViewController<UIPrintInteractionControllerDelegate,UIGestureRecognizerDelegate,WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, RscMgrDelegate,CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITabBarDelegate, DFBlunoDelegate, TWBlunoDelegate, viewMissedClockOutDelegate, viewMissedClockInDelegate > {
+@interface ViewOne : UIViewController<UIPrintInteractionControllerDelegate,UIGestureRecognizerDelegate,WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITabBarDelegate, DFBlunoDelegate, TWBlunoDelegate, viewMissedClockOutDelegate, viewMissedClockInDelegate > {
 
     
     WKWebViewConfiguration *configuration;
@@ -112,9 +112,9 @@
     
 	MBProgressHUD *HUD;
     
-    RscMgr *rscMgr;
-    UInt8 rxBuffer[BUFFER_LEN];
-    UInt8 txBuffer[BUFFER_LEN];
+   // RscMgr *rscMgr;
+   // UInt8 rxBuffer[BUFFER_LEN];
+    //UInt8 txBuffer[BUFFER_LEN];
     
    // viewVideo *vid;
    // SalesMap *sMap;

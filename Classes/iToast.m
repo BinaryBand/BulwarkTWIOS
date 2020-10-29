@@ -219,7 +219,10 @@ static iToastSettings *sharedSettings = nil;
 
 	UIView *currentToast = [window viewWithTag:CURRENT_TOAST_TAG];
 	if (currentToast != nil) {
-    	[currentToast removeFromSuperview];
+        dispatch_async(dispatch_get_main_queue(), ^{                // Code
+            [currentToast removeFromSuperview];
+        });
+    	
 	}
 
 	v.alpha = 0;

@@ -93,7 +93,6 @@
 		B348C8C21C7B7291000BDC7A /* VideoTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B348C8B91C7B7291000BDC7A /* VideoTableCell.m */; };
 		B348C8C31C7B7291000BDC7A /* VideoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B348C8BB1C7B7291000BDC7A /* VideoTableView.m */; };
 		B34BB2AD1ABBD6B4004BBC55 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B34BB2AC1ABBD6B4004BBC55 /* MapKit.framework */; };
-		B356B06219D0CA8500D1B2E6 /* libRscMgrUniv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B356B06119D0CA8500D1B2E6 /* libRscMgrUniv.a */; };
 		B36C62CC1962366000482AC1 /* glossy_button_blank_blue_rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = B36C62CB1962366000482AC1 /* glossy_button_blank_blue_rectangle.png */; };
 		B36C62CE1962388100482AC1 /* glossy_button_blank_black_rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = B36C62CD1962388100482AC1 /* glossy_button_blank_black_rectangle.png */; };
 		B36C62D51963588200482AC1 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36C62D41963588200482AC1 /* MainWindow-iPad.xib */; };
@@ -257,9 +256,6 @@
 		B348C8BA1C7B7291000BDC7A /* VideoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableView.h; sourceTree = "<group>"; };
 		B348C8BB1C7B7291000BDC7A /* VideoTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideoTableView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B34BB2AC1ABBD6B4004BBC55 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		B356B06119D0CA8500D1B2E6 /* libRscMgrUniv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRscMgrUniv.a; sourceTree = "<group>"; };
-		B356B06319D0CADD00D1B2E6 /* redparkSerial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = redparkSerial.h; sourceTree = "<group>"; };
-		B356B06419D0CADD00D1B2E6 /* RscMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RscMgr.h; sourceTree = "<group>"; };
 		B36C62CB1962366000482AC1 /* glossy_button_blank_blue_rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glossy_button_blank_blue_rectangle.png; sourceTree = "<group>"; };
 		B36C62CD1962388100482AC1 /* glossy_button_blank_black_rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glossy_button_blank_black_rectangle.png; sourceTree = "<group>"; };
 		B36C62D41963588200482AC1 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
@@ -362,7 +358,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				B39FD19A1DF9C50F009DB4B5 /* ExternalAccessory.framework in Frameworks */,
-				B356B06219D0CA8500D1B2E6 /* libRscMgrUniv.a in Frameworks */,
 				34AA7445144C94A700D3F5E9 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,8 +421,6 @@
 				B30122C316FE6CF7003ACA9D /* AudioToolbox.framework */,
 				B30122C116FCFEFF003ACA9D /* CoreLocation.framework */,
 				B36EC1AD1A64887600F53D78 /* Bluno */,
-				B398374A16767D3100F4B7BC /* inc */,
-				B398374D16767D3100F4B7BC /* lib */,
 				347108091487088C0083EA3E /* images */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -623,23 +616,6 @@
 				B36EC1B21A64887600F53D78 /* BLEUtility.m */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		B398374A16767D3100F4B7BC /* inc */ = {
-			isa = PBXGroup;
-			children = (
-				B356B06319D0CADD00D1B2E6 /* redparkSerial.h */,
-				B356B06419D0CADD00D1B2E6 /* RscMgr.h */,
-			);
-			path = inc;
-			sourceTree = "<group>";
-		};
-		B398374D16767D3100F4B7BC /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				B356B06119D0CA8500D1B2E6 /* libRscMgrUniv.a */,
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 		B3AB45E21C5FFD13003246AD /* ViewControllers */ = {
@@ -902,7 +878,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 3.52.0;
+				CURRENT_PROJECT_VERSION = 3.53.2;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -939,7 +915,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "$(VALID_ARCHS)";
 			};
 			name = Debug;
 		};
@@ -954,7 +930,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 3.52.0;
+				CURRENT_PROJECT_VERSION = 3.53.2;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -988,7 +964,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "$(VALID_ARCHS)";
 			};
 			name = Release;
 		};
@@ -1020,7 +996,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 3.52.0;
+				CURRENT_PROJECT_VERSION = 3.53.2;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1054,7 +1030,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "$(VALID_ARCHS)";
 			};
 			name = Bulwark;
 		};

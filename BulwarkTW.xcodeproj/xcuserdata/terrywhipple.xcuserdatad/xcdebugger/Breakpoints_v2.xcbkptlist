@@ -15,10 +15,10 @@
             timestampString = "598307536.847733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8046"
-            endingLineNumber = "8046"
-            landmarkName = "-didReceiveData:Device:"
-            landmarkType = "7">
+            startingLineNumber = "8047"
+            endingLineNumber = "8047"
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,10 +32,10 @@
             timestampString = "598307536.847813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8034"
-            endingLineNumber = "8034"
-            landmarkName = "-didReceiveData:Device:"
-            landmarkType = "7">
+            startingLineNumber = "8035"
+            endingLineNumber = "8035"
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -49,10 +49,10 @@
             timestampString = "598307536.8478661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8088"
-            endingLineNumber = "8088"
-            landmarkName = "-didReceiveData:Device:"
-            landmarkType = "7">
+            startingLineNumber = "8089"
+            endingLineNumber = "8089"
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -372,8 +372,8 @@
             timestampString = "598307536.848578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8128"
-            endingLineNumber = "8128"
+            startingLineNumber = "8129"
+            endingLineNumber = "8129"
             landmarkName = "-printDidUpdateState:"
             landmarkType = "7">
          </BreakpointContent>
@@ -599,7 +599,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C07B11BF-7B0B-418B-A8B4-76449AC38E10 - 9f9533f96ddedce1"
+                  uuid = "C07B11BF-7B0B-418B-A8B4-76449AC38E10 - 53157c967bf872b7"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -614,7 +614,7 @@
                   offsetFromSymbolStart = "144">
                </Location>
                <Location
-                  uuid = "C07B11BF-7B0B-418B-A8B4-76449AC38E10 - 106b4656d2d7e30"
+                  uuid = "C07B11BF-7B0B-418B-A8B4-76449AC38E10 - cd86fb0a7b0bd066"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -629,7 +629,7 @@
                   offsetFromSymbolStart = "22">
                </Location>
                <Location
-                  uuid = "C07B11BF-7B0B-418B-A8B4-76449AC38E10 - aa97b63bf3f7849f"
+                  uuid = "C07B11BF-7B0B-418B-A8B4-76449AC38E10 - 6617f954e5d12ac9"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1133,8 +1133,8 @@
             timestampString = "598307536.84899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8132"
-            endingLineNumber = "8132"
+            startingLineNumber = "8133"
+            endingLineNumber = "8133"
             landmarkName = "-printDidUpdateState:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1156,7 +1156,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "441D2818-1AEE-4EFB-A239-954D97B83AE6 - 75a7a8288bcf0514"
+                  uuid = "441D2818-1AEE-4EFB-A239-954D97B83AE6 - bdf8c8e07ca83286"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1172,7 +1172,7 @@
                   offsetFromSymbolStart = "602">
                </Location>
                <Location
-                  uuid = "441D2818-1AEE-4EFB-A239-954D97B83AE6 - 2cf6ef5726abbb82"
+                  uuid = "441D2818-1AEE-4EFB-A239-954D97B83AE6 - e4a98f9fd1cc8c10"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1738,7 +1738,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "47915A72-1E35-47B8-BB34-616B88503B7D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/ViewOne.m"
@@ -1755,7 +1755,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "14DC6207-D52D-4E7B-B035-D0D31A97E915"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/ViewOne.m"
@@ -2142,7 +2142,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C672BFAF-2984-46E3-95B6-8349AB26A6F7 - 5de16e67b34f1d8a"
+                  uuid = "C672BFAF-2984-46E3-95B6-8349AB26A6F7 - 2b87beeb763f0d88"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2157,7 +2157,7 @@
                   offsetFromSymbolStart = "1609">
                </Location>
                <Location
-                  uuid = "C672BFAF-2984-46E3-95B6-8349AB26A6F7 - 5de16e67b34f1d8a"
+                  uuid = "C672BFAF-2984-46E3-95B6-8349AB26A6F7 - 2b87beeb763f0d88"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2738,6 +2738,54 @@
             startingLineNumber = "395"
             endingLineNumber = "395"
             landmarkName = "-btnTMLeaderboard"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D963E7D5-F681-4E31-AA72-55D12DD26987"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/ViewOne.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "3754"
+            endingLineNumber = "3754"
+            landmarkName = "-handleOpenURL:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4BE9E89-81E3-4B57-B7DD-76DC4C366D25"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/ViewOne.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "3195"
+            endingLineNumber = "3195"
+            landmarkName = "-handleOpenURL:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4E1E09B-BE7D-44CD-A55E-1530D9A470E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/ViewOne.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "3129"
+            endingLineNumber = "3129"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
