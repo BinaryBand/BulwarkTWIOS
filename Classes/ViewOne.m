@@ -3842,7 +3842,7 @@ return @"42";
     else if (dpage==37){
         
         //Customer notes
-        NSString *UrlStr = @"k";
+        NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/FUP/FollowUpCallIpad.aspx?cid=";
         
         
         
