@@ -4052,6 +4052,250 @@ return @"42";
     }
     
     
+    if(dpage==45){
+        //fieldleader clock in
+         
+        
+        NSString *clurl = @"https://fbf.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=";
+        
+        
+        clurl =  [clurl stringByAppendingString:delegate.hrEmpId];
+        clurl =  [clurl stringByAppendingString:@"&dt="];
+        NSDate *today1 = [NSDate date];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"MM/dd/yyyy%20HH:mm"];
+        
+        NSString *dateString11 = [dateFormat stringFromDate:today1];
+        clurl =  [clurl stringByAppendingString:dateString11];
+        clurl =  [clurl stringByAppendingString:@"&isin=YES"];
+        clurl =  [clurl stringByAppendingString:@"&lat="];
+        
+        
+        NSString *lt = [self Getlat];
+        NSString *ln = [self GetLon];
+        clurl =  [clurl stringByAppendingString:lt];
+        clurl =  [clurl stringByAppendingString:@"&lon="];
+        clurl =  [clurl stringByAppendingString:ln];
+        
+        
+        NSURLSession *aSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        [[aSession dataTaskWithURL:[NSURL URLWithString:clurl] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (((NSHTTPURLResponse *)response).statusCode == 200) {
+                if (data) {
+                    NSString *contentOfURL = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@", contentOfURL);
+
+                    
+
+                    
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+
+                        
+                        
+                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Field Work" message:contentOfURL preferredStyle:UIAlertControllerStyleAlert];
+
+                                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+
+                                [self presentViewController:alertController animated:YES completion:nil];
+                        
+                        
+                        [self->delegate refreshSchedule];
+                        
+                        
+                        
+                    });
+                    
+                    //[self toastScreenAsync:@"Clocked in" withMessage:contentOfURL];
+                }
+            }
+        }] resume];
+        
+        
+    }
+    if(dpage==46){ //field leader clock out
+         
+        
+       
+       NSString *clurl = @"https://fbf.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=";
+       
+       
+       clurl =  [clurl stringByAppendingString:delegate.hrEmpId];
+       clurl =  [clurl stringByAppendingString:@"&dt="];
+       NSDate *today1 = [NSDate date];
+       NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+       [dateFormat setDateFormat:@"MM/dd/yyyy%20HH:mm"];
+       
+       NSString *dateString11 = [dateFormat stringFromDate:today1];
+       clurl =  [clurl stringByAppendingString:dateString11];
+       clurl =  [clurl stringByAppendingString:@"&isin=NO"];
+       clurl =  [clurl stringByAppendingString:@"&lat="];
+       
+       
+       NSString *lt = [self Getlat];
+       NSString *ln = [self GetLon];
+       clurl =  [clurl stringByAppendingString:lt];
+       clurl =  [clurl stringByAppendingString:@"&lon="];
+       clurl =  [clurl stringByAppendingString:ln];
+       
+       
+       NSURLSession *aSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+       [[aSession dataTaskWithURL:[NSURL URLWithString:clurl] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+           if (((NSHTTPURLResponse *)response).statusCode == 200) {
+               if (data) {
+                   NSString *contentOfURL = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                   NSLog(@"%@", contentOfURL);
+                   
+                   dispatch_async(dispatch_get_main_queue(), ^{
+                       UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Field Work" message:contentOfURL preferredStyle:UIAlertControllerStyleAlert];
+
+                               [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+
+                               [self presentViewController:alertController animated:YES completion:nil];
+                       
+                       
+                       //self.viewSchedule = self->delegate.viewSchedule;
+                       
+                       [self->delegate refreshSchedule];
+                       
+                       
+                       
+                       
+                       
+                   });
+                   
+                   
+                   //[self toastScreenAsync:@"Clocked Out" withMessage:contentOfURL];
+               }
+           }
+       }] resume];
+        
+    }
+    
+    if(dpage==47){
+        
+        
+        
+        
+        NSString *noteId = urlParamater;
+        // use UIAlertController
+        UIAlertController *alert= [UIAlertController
+                                      alertControllerWithTitle:@"Add Note"
+                                      message:@""
+                                      preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action){
+                                                       //Do Some action here
+                                                       UITextField *textField = alert.textFields[0];
+                                                       NSLog(@"text was %@", textField.text);
+            
+            
+            
+            //post the notes to the server
+            
+            
+            
+           
+            NSString *escapedString = [textField.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+            NSLog(@"escapedString: %@", escapedString);
+            
+            NSString *clurl = @"https://fbf.bulwarkapp.com/TechApp/FWNote.aspx?id=";
+            
+            
+            clurl =  [clurl stringByAppendingString:noteId];
+            clurl =  [clurl stringByAppendingString:@"&N="];
+
+            
+          
+            clurl =  [clurl stringByAppendingString:escapedString];
+
+            
+            
+            NSURLSession *aSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[aSession dataTaskWithURL:[NSURL URLWithString:clurl] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                if (((NSHTTPURLResponse *)response).statusCode == 200) {
+                    if (data) {
+                        NSString *contentOfURL = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                        NSLog(@"%@", contentOfURL);
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Field Work Note" message:contentOfURL preferredStyle:UIAlertControllerStyleAlert];
+
+                                    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+
+                                    [self presentViewController:alertController animated:YES completion:nil];
+                            
+                            [self->delegate refreshSchedule];
+                            
+                            
+                        });
+                        
+                        
+                        //[self toastScreenAsync:@"Clocked Out" withMessage:contentOfURL];
+                    }
+                }
+            }] resume];
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //end server call
+            
+            
+
+                                                   }];
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+
+                                                           NSLog(@"cancel btn");
+
+                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+
+                                                       }];
+        [alert addAction:cancel];
+        [alert addAction:ok];
+        
+
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            
+            textField.keyboardType = UIKeyboardTypeDefault;
+            
+        }];
+
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
 }
 
 /*

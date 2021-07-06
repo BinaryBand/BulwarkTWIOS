@@ -8,15 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
+#import <WebKit/WebKit.h>
 
-@interface viewReports : UIViewController <UIWebViewDelegate> {
+
+@interface viewReports : UIViewController <UIWebViewDelegate,WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate> {
     
     
     
     IBOutlet UITextField *txtSearch;
     IBOutlet UIWebView *webviewReports;
-    IBOutlet UIWebView *webviewDetails;
+    IBOutlet WKWebView *webviewDetails;
     IBOutlet UIButton *closeButton;
+    IBOutlet UIButton *backButton;
     IBOutlet UIView *popView;
     
     

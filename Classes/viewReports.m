@@ -36,8 +36,13 @@
 
     webviewDetails.hidden = YES;
     closeButton.hidden = YES;
+    backButton.hidden = YES;
     popView.hidden = YES;
-    webviewDetails.delegate = self;
+    webviewDetails.navigationDelegate = self;
+    webviewDetails.UIDelegate = self;
+    
+    
+    
     webviewReports.delegate = self;
    
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
@@ -57,6 +62,230 @@
 }
 
 
+- (void)userContentController:(WKUserContentController *)userContentController
+      didReceiveScriptMessage:(WKScriptMessage *)message {
+    /*
+    // Log out the message received
+    NSLog(@"Received event %@", message.body);
+    
+    // Then pull something from the device using the message body
+    NSString *version = [[UIDevice currentDevice] valueForKey:message.body];
+    
+    // Execute some JavaScript using the result
+    NSString *exec_template = @"set_headline(\"received: %@\");";
+    NSString *exec = [NSString stringWithFormat:exec_template, version];
+    [webView evaluateJavaScript:exec completionHandler:nil];
+     */
+}
+
+
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:^(UIAlertAction *action) {
+                                                          completionHandler();
+                                                      }]];
+    [self presentViewController:alertController animated:YES completion:^{}];
+}
+
+
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler {
+    //[WKWebViewPanelManager presentConfirmOnController:self title:@"Confirm" message:message handler:completionHandler];
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        completionHandler(YES);
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        completionHandler(NO);
+    }]];
+    [self presentViewController:alertController animated:YES completion:^{}];
+    
+}
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * __nullable result))completionHandler {
+    
+    //[WKWebViewPanelManager presentPromptOnController:self title:@"Prompt" message:prompt defaultText:defaultText handler:completionHandler];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Prompt" message:prompt preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.text = defaultText;
+    }];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *input = ((UITextField *)alertController.textFields.firstObject).text;
+        completionHandler(input);
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        completionHandler(nil);
+    }]];
+    [self presentViewController:alertController animated:YES completion:^{}];
+    
+
+}
+
+
+
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [HUD show:YES];
+    });
+    NSLog(@"didStartProvisionalNavigation: %@", navigation);
+}
+
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
+    NSLog(@"didReceiveServerRedirectForProvisionalNavigation: %@", navigation);
+}
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"didFailProvisionalNavigation: %@navigation, error: %@", navigation, error);
+}
+
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+    NSLog(@"didCommitNavigation: %@", navigation);
+}
+
+- (void)webView:(WKWebView *)webView didFinishLoadingNavigation:(WKNavigation *)navigation {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [HUD hide:YES];
+       
+        
+        
+    });
+    NSLog(@"didFinishLoadingNavigation: %@", navigation);
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"didFailNavigation: %@, error %@", navigation, error);
+}
+
+- (void)_webViewWebProcessDidCrash:(WKWebView *)webView {
+    NSLog(@"WebContent process crashed; reloading");
+}
+
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+    
+    if (!navigationAction.targetFrame.isMainFrame) {
+      //  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [webView loadRequest:navigationAction.request];
+    }
+    return nil;
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [HUD hide:YES];
+    });
+    NSLog(@"didFinish: %@; stillLoading:%@", [webView URL], (webView.loading?@"NO":@"YES"));
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    NSLog(@"decidePolicyForNavigationResponse");
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+   // if(webView != self.wkWebView) {
+   //     decisionHandler(WKNavigationActionPolicyAllow);
+    //    return;
+   // }
+    
+    UIApplication *app1 = [UIApplication sharedApplication];
+    NSURL         *url = navigationAction.request.URL;
+    
+   // if (!navigationAction.targetFrame) {
+        //if ([app1 canOpenURL:url]) {
+            //[app1 openURL:url];
+           // decisionHandler(WKNavigationActionPolicyCancel);
+           // return;
+        //}
+    //}
+    if ([url.scheme isEqualToString:@"maps"])
+    {
+       // if ([app1 canOpenURL:url])
+       // {
+            [app1 openURL:url];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+        //}
+    }
+    
+    if ([url.scheme isEqualToString:@"comgooglemaps"])
+    {
+       // if ([app1 canOpenURL:url])
+       // {
+            
+            NSString *mapsurllink = [url.absoluteString stringByReplacingOccurrencesOfString:@"comgooglemaps://?q=" withString:@""];
+            
+                NSString *Mstring = @"comgooglemaps://?directionsmode=driving&daddr=";
+            Mstring = [Mstring stringByAppendingString:mapsurllink];
+            
+                //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+            
+            
+            [app1 openURL:[NSURL URLWithString:Mstring]];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+       // }
+    }
+    
+    //[[UIApplication sharedApplication] openURL:url];
+    
+    
+    if ([url.scheme isEqualToString:@"bulwarktw"])
+    {
+       // if ([app1 canOpenURL:url])
+        //{
+            [app1 openURL:url];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+       // }
+    }
+    if ([url.scheme isEqualToString:@"bulwarktwreports"])
+    {
+       // if ([app1 canOpenURL:url])
+       // {
+            [app1 openURL:url];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+       // }
+    }
+    if ([url.scheme isEqualToString:@"bulwarktwmap"])
+    {
+       // if ([app1 canOpenURL:url])
+       // {
+            [app1 openURL:url];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+       // }
+    }
+    if ([url.scheme isEqualToString:@"prefs"])
+    {
+       // if ([app1 canOpenURL:url])
+       // {
+            [app1 openURL:url];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+       // }
+    }
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -68,6 +297,7 @@
     [webviewDetails loadRequest:srequest];
     webviewDetails.hidden = NO;
     closeButton.hidden = NO;
+    backButton.hidden = NO;
     popView.hidden = NO;
 }
 
@@ -333,6 +563,7 @@
 - (IBAction)btnCloseWindow{
     webviewDetails.hidden = YES;
     closeButton.hidden = YES;
+    backButton.hidden = YES;
     popView.hidden = YES;
     
 }

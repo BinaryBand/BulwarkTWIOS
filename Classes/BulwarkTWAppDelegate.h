@@ -19,6 +19,8 @@
 @class ViewOne;
 @class viewReports;
 @class viewRouteMaps;
+@class viewSchedule;
+
 
 @interface BulwarkTWAppDelegate :  UIViewController <MFMailComposeViewControllerDelegate,CLLocationManagerDelegate,UIAlertViewDelegate> {
     UIWindow *window;
@@ -27,6 +29,7 @@
 	ViewOne *viewOne;
     viewReports *viewRpt;
     viewRouteMaps *viewMap;
+    viewSchedule *viewSched;
     
     viewDriving *vDriving;
     UIAlertView *alertGPS;
@@ -51,6 +54,7 @@
 @property (nonatomic,strong)IBOutlet ViewOne *viewOne;
 @property (nonatomic,strong)IBOutlet viewReports *viewRpt;
 @property (nonatomic,strong)IBOutlet viewRouteMaps *viewMap;
+@property (nonatomic,strong)IBOutlet viewSchedule *viewSched;
 
 @property (nonatomic,strong) NSString *lat;
 @property (nonatomic,strong) NSString *lon;
@@ -70,7 +74,7 @@
 
 //@property (nonatomic, retain) IBOutlet MFMailComposeViewController *Mcontroller;
 -(void)ShowDrivingFrm;
-
+-(void)refreshSchedule;
 
 @end
 

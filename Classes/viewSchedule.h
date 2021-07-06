@@ -7,16 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Webkit/Webkit.h>
 #import "MBProgressHUD.h"
 
-@interface viewSchedule : UIViewController <UIWebViewDelegate>{
+@interface viewSchedule : UIViewController <UIWebViewDelegate,WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate>{
     
     
-    IBOutlet UIWebView *webview;
+    IBOutlet WKWebView *webview;
     MBProgressHUD *HUD;
     UIRefreshControl *refreshControl;
     
 }
 
+- (void)handleReload:(NSString *)url;
+
+-(void) getSchedule;
 
 @end

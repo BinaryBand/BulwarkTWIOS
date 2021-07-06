@@ -11,6 +11,8 @@
 #import "viewReports.h"
 #import "viewRouteMaps.h"
 #import "PayrollDetailReportsService.h"
+#import "viewSchedule.h"
+
 
 //#import “MessageUI.h” 
 //#import “MFMailComposeViewController.h”
@@ -29,6 +31,7 @@
 @synthesize viewOne;
 @synthesize viewRpt;
 @synthesize viewMap;
+@synthesize viewSched;
 
 
 
@@ -950,6 +953,16 @@
     
     
 }
+
+-(void)refreshSchedule{
+    
+    [viewSched getSchedule];
+    
+    
+    
+    
+}
+
 
 
 

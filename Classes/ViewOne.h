@@ -28,6 +28,8 @@
 #define BUFFER_LEN 4096
 
 @class MBProgressHUD;
+@class viewSchedule;
+
 //@class ReportProblemEmailViewController;
 
 @interface ViewOne : UIViewController<UIPrintInteractionControllerDelegate,UIGestureRecognizerDelegate,WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITabBarDelegate, DFBlunoDelegate, TWBlunoDelegate, viewMissedClockOutDelegate, viewMissedClockInDelegate > {
@@ -164,6 +166,8 @@
 @property(strong, nonatomic) TWBlunoManager* printManager;
 @property(strong, nonatomic) DFBlunoDevice * printDev;
 @property(strong, nonatomic) NSMutableArray* printDevices;
+@property (nonatomic,strong)IBOutlet viewSchedule *viewSchedule;
+
 
 
 - (IBAction)btnRefreshPressed;
