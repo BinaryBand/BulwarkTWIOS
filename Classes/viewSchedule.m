@@ -304,7 +304,7 @@
     NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&build=41"];
+    UrlString = [UrlString stringByAppendingString:@"&build=45"];
     
     
     NSURL *qurl = [NSURL URLWithString:UrlString];
@@ -330,7 +330,7 @@
     NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&build=41"];
+    UrlString = [UrlString stringByAppendingString:@"&build=45"];
     
     
     

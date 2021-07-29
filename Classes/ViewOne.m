@@ -67,7 +67,7 @@ NSString *Termitedata = @"";
 
 
 - (NSString *)CurrentAppBuild{
-return @"42";
+return @"45";
 	
 }
 
@@ -2343,14 +2343,113 @@ return @"42";
     //[WKWebViewPanelManager presentConfirmOnController:self title:@"Confirm" message:message handler:completionHandler];
     
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        completionHandler(YES);
+    
+    if ([message hasPrefix:@"LateFast50TD"]){
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"6-9PM$50 Today" message:@"You can add up to 3 additional Initial services after your route, each will have a timeblock of 5pm to 9pm" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 1" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=1&hrempid=";
+            submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
+            
+            NSString* ret = [self getStringFromSite:submitString];
+            NSLog(@"%@", ret);
+            completionHandler(NO);
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 2" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=2&istoday=1&hrempid=";
+            submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
+            
+            NSString* ret = [self getStringFromSite:submitString];
+            NSLog(@"%@", ret);
+            completionHandler(NO);
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 3" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=3&istoday=1&hrempid=";
+            submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
+            
+            NSString* ret = [self getStringFromSite:submitString];
+            NSLog(@"%@", ret);
+            completionHandler(NO);
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            completionHandler(NO);
+        }]];
+        [self presentViewController:alertController animated:YES completion:^{
+
+            
+            
+        }];
+        
+        
+    }else if ([message hasPrefix:@"LateFast50TM"]){
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"6-9PM$50 Tomorrow" message:@"You can add up to 3 additional Initial services after your route, each will have a timeblock of 5pm to 9pm" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 1" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=2&hrempid=";
+            submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
+            
+            NSString* ret = [self getStringFromSite:submitString];
+            NSLog(@"%@", ret);
+            completionHandler(NO);
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 2" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=2&istoday=2&hrempid=";
+            submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
+            
+            NSString* ret = [self getStringFromSite:submitString];
+            NSLog(@"%@", ret);
+            completionHandler(NO);
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 3" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=3&istoday=2&hrempid=";
+            submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
+            
+            NSString* ret = [self getStringFromSite:submitString];
+            NSLog(@"%@", ret);
+            completionHandler(NO);
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            completionHandler(NO);
+        }]];
+        [self presentViewController:alertController animated:YES completion:^{
+
+            
+            
+        }];
+        
+        
+    }else if ([message hasPrefix:@"EarlyFast50"]){
+        
+    
+    
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"7AM$50" message:@"By Clicking Yes this will allow for an initial Service to be added before your route tomorrow morning with a timeblock of 7am to 9am" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=0&amt=1&istoday=2&hrempid=";
+        submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
+        
+        NSString* ret = [self getStringFromSite:submitString];
+        NSLog(@"%@", ret);
+        completionHandler(NO);
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         completionHandler(NO);
     }]];
     [self presentViewController:alertController animated:YES completion:^{}];
+    
+    
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm" message:message preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            completionHandler(YES);
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            completionHandler(NO);
+        }]];
+        [self presentViewController:alertController animated:YES completion:^{}];
+        
+    }
     
 }
 - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * __nullable result))completionHandler {
@@ -6947,6 +7046,26 @@ return @"42";
 	//						 toTarget:self
 	//					   withObject:[NSArray arrayWithObjects:sTitle,
 	//								   sMessage, nil]];
+}
+
+
+-(NSString*)getStringFromSite:(NSString *)urlstr{
+
+
+    NSCharacterSet *set = [NSCharacterSet URLHostAllowedCharacterSet];
+    //NSString *encodedUrl = [urlstr stringByAddingPercentEncodingWithAllowedCharacters:set];
+    
+    NSError *err = [[NSError alloc] init];
+    NSString *strVal = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlstr] encoding:NSUTF8StringEncoding error:&err];
+    
+    if(err.code != 0) {
+        return @"Error";
+        
+
+    }else{
+        return strVal;
+    }
+    
 }
 
 -(void) sendFilesToServerAsync{
