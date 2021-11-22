@@ -144,7 +144,7 @@
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD show:YES];
+        [self->HUD show:YES];
     });
     NSLog(@"didStartProvisionalNavigation: %@", navigation);
 }
@@ -163,7 +163,7 @@
 
 - (void)webView:(WKWebView *)webView didFinishLoadingNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD hide:YES];
+        [self->HUD hide:YES];
        
         
         
@@ -190,7 +190,7 @@
 
 - (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD hide:YES];
+        [self->HUD hide:YES];
     });
     NSLog(@"didFinish: %@; stillLoading:%@", [webView URL], (webView.loading?@"NO":@"YES"));
 }
@@ -304,7 +304,7 @@
     NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&build=45"];
+    UrlString = [UrlString stringByAppendingString:@"&build=60"];
     
     
     NSURL *qurl = [NSURL URLWithString:UrlString];
@@ -330,7 +330,7 @@
     NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&build=45"];
+    UrlString = [UrlString stringByAppendingString:@"&build=60"];
     
     
     

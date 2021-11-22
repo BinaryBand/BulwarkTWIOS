@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZD-ft-dfV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZD-ft-dfV">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="v3N-BC-BQf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2Q0-cv-iz7">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VME-IY-Wmn">
@@ -186,7 +187,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BJy-0S-Lv4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O6Y-AW-V5b">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CXR-yZ-pwa">
@@ -219,7 +220,7 @@
                         <viewControllerLayoutGuide type="bottom" id="rNj-cq-OSy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iyk-4X-bpc">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHd-8B-vwd">
@@ -242,7 +243,7 @@
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqV-za-Bkq">
-                                <rect key="frame" x="272" y="488" width="298" height="21"/>
+                                <rect key="frame" x="272" y="438" width="298" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="298" id="biC-Jo-fXL"/>
                                 </constraints>
@@ -251,7 +252,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ln-3z-Qx0">
-                                <rect key="frame" x="619" y="428" width="121" height="38"/>
+                                <rect key="frame" x="619" y="378" width="121" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="PBk-Ef-jUk"/>
                                     <constraint firstAttribute="width" constant="121" id="iE7-4l-7KC"/>
@@ -259,18 +260,18 @@
                                 <state key="normal" title="Button" image="Download-Button.png"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LaE-TE-78G">
-                                <rect key="frame" x="257" y="545" width="492" height="300"/>
+                                <rect key="frame" x="257" y="495" width="492" height="350"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRk-4i-0Rc">
-                                <rect key="frame" x="240" y="5" width="520" height="386"/>
+                                <rect key="frame" x="240" y="25" width="520" height="316"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3fV-Ca-9dF">
-                                <rect key="frame" x="263" y="410" width="474" height="4"/>
+                                <rect key="frame" x="263" y="360" width="474" height="4"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -312,7 +313,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gAw-1G-ed3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Owg-mg-tu0">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucJ-HA-ZNV">
@@ -539,7 +540,7 @@
                                             <action selector="btnBack" destination="D2X-lp-NNU" eventType="touchDown" id="gv1-9b-Sym"/>
                                         </connections>
                                     </button>
-                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TL7-l7-RsN">
+                                    <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TL7-l7-RsN">
                                         <rect key="frame" x="0.0" y="37" width="565" height="665"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -577,7 +578,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BCv-TH-HaR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MZq-Yd-h79">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Onr-gQ-xjR">
@@ -606,7 +607,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gTq-16-OFE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UX8-dQ-Lx9">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-80-3zk">
@@ -750,7 +751,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6Jh-6m-dfz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vDw-kr-gzX">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kfG-Zj-0p3">
@@ -799,10 +800,13 @@
         <scene sceneID="M2G-71-8dV">
             <objects>
                 <tabBarController id="gZD-ft-dfV" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="0Rg-5D-08M">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="0Rg-5D-08M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="6KB-OD-dpC" kind="relationship" relationship="viewControllers" id="bmr-HC-l8b"/>
@@ -835,5 +839,11 @@
         <image name="near_me-32.png" width="32" height="32"/>
         <image name="print-32.png" width="32" height="32"/>
         <image name="settings.png" width="26" height="26"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

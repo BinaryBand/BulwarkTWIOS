@@ -67,7 +67,7 @@ NSString *Termitedata = @"";
 
 
 - (NSString *)CurrentAppBuild{
-return @"45";
+return @"60";
 	
 }
 
@@ -115,13 +115,13 @@ return @"45";
     webView = [[WKWebView alloc]init] ;
     webView.UIDelegate = self;
     webView.navigationDelegate = self;
-    webView.frame = CGRectMake(300,64, 467, 910);
+    webView.frame = CGRectMake(300,64, 467, 909);
     [self.view addSubview:webView];
 
     RouteWebView = [[WKWebView alloc]init] ;
     RouteWebView.UIDelegate = self;
     RouteWebView.navigationDelegate = self;
-    RouteWebView.frame = CGRectMake(0,161, 300, 910);
+    RouteWebView.frame = CGRectMake(0,161, 300, 812);
     [self.view addSubview:RouteWebView];
     
     
@@ -2384,6 +2384,11 @@ return @"45";
     }else if ([message hasPrefix:@"LateFast50TM"]){
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"6-9PM$50 Tomorrow" message:@"You can add up to 3 additional Initial services after your route, each will have a timeblock of 5pm to 9pm" preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+
+        
+        
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 1" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=2&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
@@ -4071,7 +4076,7 @@ return @"45";
 
         
     }
-    if(dpage==42){
+    else if(dpage==42){
         //while i was out i found.... open foundPicture view
         
         //termiteImage
@@ -4116,7 +4121,7 @@ return @"45";
 
         
     }
-    if(dpage==43){
+   else if(dpage==43){
        
         
         rdate = urlParamater;
@@ -4146,12 +4151,10 @@ return @"45";
         
         
     }
-    if(dpage==44){
+    else if(dpage==44){
          [self.tabBarController setSelectedIndex:4];
     }
-    
-    
-    if(dpage==45){
+    else if(dpage==45){
         //fieldleader clock in
          
         
@@ -4213,7 +4216,7 @@ return @"45";
         
         
     }
-    if(dpage==46){ //field leader clock out
+    else if(dpage==46){ //field leader clock out
          
         
        
@@ -4271,8 +4274,7 @@ return @"45";
        }] resume];
         
     }
-    
-    if(dpage==47){
+    else if(dpage==47){
         
         
         
@@ -4390,7 +4392,38 @@ return @"45";
         
         
     }
-    
+    else if (dpage==48){
+        
+        //technician go pro trianing
+        NSString *UrlStr = @"https://fbf.bulwarkapp.com/gopro/VideoPlayQuestions.aspx?h=";
+        
+        
+        
+        UrlStr = [UrlStr stringByAppendingString:urlParamater];
+        
+        
+        NSURL *qurl = [NSURL URLWithString:UrlStr];
+        
+        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
+        PopUpWebView.hidden = NO;
+        [PopUpWebView loadRequest:srequest];
+        
+    }
+    else if (dpage==49){
+        
+        //close tech training and reload the route
+        
+        PopUpWebView.hidden=YES;
+        [PopUpWebView loadHTMLString:@"" baseURL:nil];
+        
+        
+        
+        [HUD show:YES];
+        
+        [NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
+        
+        
+    }
     
     
     
@@ -4682,17 +4715,32 @@ return @"45";
     
     
      NSData *data = UIImagePNGRepresentation(image);
-    TermiteEmail *rpemail = [[TermiteEmail alloc] init];
+
+
     
     
-    rpemail.emlSubject = @"Termite Activity Found";
-    rpemail.emlAttach = data;
+  
     
-    rpemail.emlBody = Termitedata;
-    rpemail.tousr = @"termites@bulwarkpest.com";
+   
+
+       NSString *messageBody = @"";
+
+       NSArray *toRecipents = [NSArray arrayWithObject:@"termites@bulwarkpest.com"];
+
+
+
+       MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+
+       mc.mailComposeDelegate = self;
+       [mc setSubject:@"Termite Activity Found"];
+       [mc setMessageBody:messageBody isHTML:YES];
+       [mc addAttachmentData:data mimeType:@"image/png" fileName:@"image.png"];
+
+       [mc setToRecipients:toRecipents];
+
+       [self presentViewController:mc animated:YES completion:NULL];
+
     
-    
-    [self.view addSubview:[rpemail view]];
     
     
  
@@ -7560,6 +7608,11 @@ return @"45";
     if ([MFMailComposeViewController canSendMail])
     {
         
+        
+        
+        
+        
+        
 
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docDirectory = [NSString stringWithFormat:@"%@/", [paths objectAtIndex:0]];
@@ -7582,17 +7635,34 @@ return @"45";
 
     
 
+        
+        NSString *messageBody = @"";
+
+        NSArray *toRecipents = [NSArray arrayWithObject:@"titans@bulwarkpest.com"];
+
+
+
+        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+
+        mc.mailComposeDelegate = self;
+        [mc setSubject:@"Application Problem "];
+        [mc setMessageBody:messageBody isHTML:YES];
+        //[mc addAttachmentData:data mimeType:@"image/png" fileName:@"image.png"];
+
+        [mc setToRecipients:toRecipents];
+
+        [self presentViewController:mc animated:YES completion:NULL];
     
-        ReportProblemEmailViewController *rpemail = [[ReportProblemEmailViewController alloc] init];
+       // ReportProblemEmailViewController *rpemail = [[ReportProblemEmailViewController alloc] init];
        
         
-         rpemail.emlSubject =[@"Application Problem " stringByAppendingString:delegate.hrEmpId];
+       //  rpemail.emlSubject =[@"Application Problem " stringByAppendingString:delegate.hrEmpId];
     //    rpemail.attach1 = archivePath;
      //   rpemail.attach2 = archivePath1;
       //  rpemail.attach3 = archivePath2;
         
         
-        [self.view addSubview:[rpemail view]];
+        //[self.view addSubview:[rpemail view]];
         
         
     
