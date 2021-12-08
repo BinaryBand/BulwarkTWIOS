@@ -7931,7 +7931,7 @@ return @"60";
             
             
             
-            [self SaveClockInTime];
+           // [self SaveClockInTime];
             
 			NSLog(@"yes button was pressed\n");
 			
@@ -7948,16 +7948,27 @@ return @"60";
             viewClockIn.delegate = self;
             viewClockIn->date = dateString11;
             viewClockIn->hr_emp_id = delegate.hrEmpId;
-            [viewClockIn setDate];
-            CGRect nframe = CGRectMake(0, 20, 322, 322);
+            viewClockIn.view.layer.borderWidth = 4;
+            viewClockIn.view.layer.borderColor = UIColor.darkGrayColor.CGColor;
+            viewClockIn.view.layer.cornerRadius = 5;
+            //[viewClockIn setDate];
+            CGRect nframe = CGRectMake(223, 320, 322, 322);
             
             viewClockIn.view.frame = nframe;
             
             
-            [UIView transitionWithView:self.view duration:1.2
-                               options:UIViewAnimationOptionTransitionFlipFromLeft
-                            animations:^ { [self.view addSubview:viewClockIn.view]; }
-                            completion:nil];
+            
+            viewClockIn.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                self->viewClockIn.view.transform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished){
+                // do something once the animation finishes, put it here
+            }];
+            
+            
+            
+       [self.view addSubview:self->viewClockIn.view];
+                            
             
             
             

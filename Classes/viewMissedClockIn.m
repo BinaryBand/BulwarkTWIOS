@@ -14,6 +14,7 @@
 @implementation viewMissedClockIn
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     [self setDate];

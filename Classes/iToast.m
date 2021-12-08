@@ -61,8 +61,9 @@ static iToastSettings *sharedSettings = nil;
 }
 
 - (void) show:(iToastType) type {
-	
-	iToastSettings *theSettings = _settings;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        iToastSettings *theSettings = _settings;
 	
 	if (!theSettings) {
 		theSettings = [iToastSettings getSharedSettings];
@@ -219,21 +220,31 @@ static iToastSettings *sharedSettings = nil;
 
 	UIView *currentToast = [window viewWithTag:CURRENT_TOAST_TAG];
 	if (currentToast != nil) {
-        dispatch_async(dispatch_get_main_queue(), ^{                // Code
+        //dispatch_async(dispatch_get_main_queue(), ^{                // Code
             [currentToast removeFromSuperview];
-        });
+        //});
     	
 	}
 
+                  // Code
+        
+    
+    
 	v.alpha = 0;
+    
+    
 	[window addSubview:v];
+    
 	[UIView beginAnimations:nil context:nil];
 	v.alpha = 1;
 	[UIView commitAnimations];
 	
-	view = v;
+        self->view = v;
 	
 	[v addTarget:self action:@selector(hideToast:) forControlEvents:UIControlEventTouchDown];
+        
+    });
+    
 }
 
 - (CGRect)_toastFrameForImageSize:(CGSize)imageSize withLocation:(iToastImageLocation)location andTextSize:(CGSize)textSize {
