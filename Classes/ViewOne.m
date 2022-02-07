@@ -1116,7 +1116,7 @@ return @"60";
 -(IBAction)btnSearch{
     
     
-    NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/search.aspx?hr_emp_id=";
+    NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/search.aspx?hr_emp_id=";
     
     
  
@@ -1237,7 +1237,7 @@ return @"60";
 
 -(IBAction)btnMyStats{
     
-     NSString *ReportUrl = @"https://fbf.bulwarkapp.com/MgrApp/TechStatsIpad.aspx?fromSup=0&t=1&h=%@&viewedby=%@";
+     NSString *ReportUrl = @"https://fbf2.bulwarkapp.com/MgrApp2/TechStatsIpad.aspx?fromSup=0&t=1&h=%@&viewedby=%@";
           BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
        NSString *hrempid = del.hrEmpId;
      
@@ -2285,11 +2285,70 @@ return @"60";
   
         
         
+    
+    NSString *clockintime = [self CurrentTimeOnly];
+    
+    NSString *msgdisp = @"Clock IN at ";
+    
+    msgdisp = [msgdisp stringByAppendingString:clockintime];
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:msgdisp message:@"Are you sure you want to Clock In now?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+           // NSLog(@"Destructive");
+        }];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            NSLog(@"OK");
+            [self SaveClockInTime];
+            
+            
+            
+            
+            NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+            fdataUrl =  [fdataUrl stringByAppendingString:self->delegate.hrEmpId];
+            
+            
+            fdataUrl =  [fdataUrl stringByAppendingString:@"&type=1&time="];
+            
+            
+            
+            NSDate *today1 = [NSDate date];
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"MM/dd/yyyy%20HH:mm"];
+            
+            NSString *dateString11 = [dateFormat stringFromDate:today1];
+            
+            //NSString *spage1 = @"Clock Out ";
+            fdataUrl=  [fdataUrl stringByAppendingString:dateString11];
+            
+            
+            NSLog(@"%@", fdataUrl);
+            [self SaveServiceFile:fdataUrl];
+             
+
+            
+            
+            
+            [self sendFilesToServerAsync];
+            
+            [self toastScreenAsync:@"Clocked In at " withMessage:[self CurrentTimeTimeOnly]];
+            
+            
+            [self CheckClockOut];
+            
+            
+            
+            
+        }];
         
-        alertWithYesNoButtons = [[UIAlertView alloc] initWithTitle:@"Clock In"
-                                                           message:@"Are you sure you want to Clock In?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-        
-        [alertWithYesNoButtons show];
+        [alertController addAction:destructiveAction];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated: YES completion: nil];
+    
+    
+    
+    
+
         
 
        
@@ -2297,11 +2356,68 @@ return @"60";
 			
 }
 -(IBAction)btnClockOut{
-    alertWithOkButton = [[UIAlertView alloc] initWithTitle:@"Clock Out"
-                                                   message:@"Are you sure you want to Clock Out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     
-    [alertWithOkButton show];
+    NSString *clockintime = [self CurrentTimeOnly];
+    
+    NSString *msgdisp = @"Clock OUT at ";
+    
+    msgdisp = [msgdisp stringByAppendingString:clockintime];
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:msgdisp message:@"Are you sure you want to Clock Out now?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+           // NSLog(@"Destructive");
+        }];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            NSLog(@"OK");
+            [self SaveClockInTime];
+            
+            
+            
+            
+            NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+            fdataUrl =  [fdataUrl stringByAppendingString:self->delegate.hrEmpId];
+            
+            
+            fdataUrl =  [fdataUrl stringByAppendingString:@"&type=2&time="];
+            
+            
+            
+            NSDate *today1 = [NSDate date];
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"MM/dd/yyyy%20HH:mm"];
+            
+            NSString *dateString11 = [dateFormat stringFromDate:today1];
+            
+            //NSString *spage1 = @"Clock Out ";
+            fdataUrl=  [fdataUrl stringByAppendingString:dateString11];
+            
+            
+            NSLog(@"%@", fdataUrl);
+            [self SaveServiceFile:fdataUrl];
+             
 
+            
+            
+            
+            [self sendFilesToServerAsync];
+            
+            [self toastScreenAsync:@"Clocked Out at " withMessage:[self CurrentTimeTimeOnly]];
+            
+            
+            [self CheckClockOut];
+            
+            
+            
+            
+        }];
+        
+        [alertController addAction:destructiveAction];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated: YES completion: nil];
+    
+    
+    
 }
 
 -(IBAction) goBack:(id)sender {
@@ -5389,6 +5505,9 @@ return @"60";
 	[[self CurrentDate] writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
 	
 	
+        
+        //[self toastScreenAsync:@"Clocked In" withMessage:[self CurrentTimeOnly]];
+        
     }
     @catch (NSException *exception) {
         
@@ -5398,6 +5517,34 @@ return @"60";
     }
 	
 	
+}
+-(void)SaveClockOutTime {
+    
+    
+    
+    @try {
+        
+
+    NSString *name = @"clockout.tw";
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [NSString stringWithFormat:@"%@", [paths objectAtIndex:0]];
+
+
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:name];
+    
+    [[self CurrentDate] writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+    
+        
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+    
+    
 }
 
 
@@ -5793,7 +5940,16 @@ return @"60";
 }
 -(void)ClockInCancel:(NSString *)str{
     
-    [viewClockIn.view removeFromSuperview];
+    //[viewClockIn.view removeFromSuperview];
+    
+    
+    viewClockIn.view.transform = CGAffineTransformIdentity;
+   [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+       self->viewClockIn.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+   } completion:^(BOOL finished){
+       self->viewClockIn.view.hidden = YES;
+   }];
+    
 }
 
 -(void)ClockOutSaved:(NSString *)str{
@@ -5831,54 +5987,113 @@ return @"60";
     
     
     
+    
+    
+    NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
+    
+    NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"clockout.tw"];
+    
+    
+    NSString * LastTruckDate = @"1/1/1900";
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
+    {
+        
+    }
+    else{
+        LastTruckDate  = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
+        
+        
+        
+        
+        
+    }
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
+    
+    NSDate *today = [dateFormat dateFromString:[self CurrentDate]];// it will give you current date
+    NSDate *newDate = [dateFormat dateFromString:LastTruckDate]; // your date
+    
+    NSComparisonResult result;
+    //has three possible values: NSOrderedSame,NSOrderedDescending, NSOrderedAscending
+    
+    result = [today compare:newDate]; // comparing two dates
+    
+    if(result==NSOrderedSame){
+        NSLog(@"today is less");
+    }
+    else if(result==NSOrderedDescending){
+        
+        
+        
+ 
+    
+    
+    
+    
     NSString *urlString = @"https://www.bulwarktechnician.com/hh/checkclockout.aspx?h=";
     urlString = [urlString stringByAppendingString:delegate.hrEmpId];
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
+
+        
     NSURLRequest *request = [NSURLRequest
                              requestWithURL:[NSURL URLWithString:urlString]
                              cachePolicy:NSURLRequestReloadIgnoringCacheData
                              timeoutInterval:3.0];
     
     
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+ 
+        
+        
+        [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+
+            if (error == nil)
+            {
+                // Parse data here
+                
+                NSString  *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                
+                if([responseString isEqualToString:@"ok"]){
+                    [self SaveClockOutTime];
+                }else{
+                    
+                    
+                    self->viewClockOut = [[viewMissedClockOut alloc]init];
+                    self->viewClockOut.delegate = self;
+                    self->viewClockOut->date = responseString;
+                    self->viewClockOut->hr_emp_id = self->delegate.hrEmpId;
+                    self->viewClockOut.view.layer.borderWidth = 1;
+                    self->viewClockOut.view.layer.borderColor = UIColor.darkGrayColor.CGColor;
+                    self->viewClockOut.view.layer.cornerRadius = 5;
+                    //[viewClockOut setDate];
+                    CGRect nframe = CGRectMake(223, 320, 322, 322);
+
+                    self->viewClockOut.view.frame = nframe;
+                    
+                    self->viewClockOut.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+                    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                        self->viewClockOut.view.transform = CGAffineTransformIdentity;
+                    } completion:^(BOOL finished){
+                        // do something once the animation finishes, put it here
+                    }];
+                    
+                    [self.view addSubview:self->viewClockOut.view];
+
+                }
+                
+                
+                
+            }        }] resume];
     
-    if (error == nil)
-    {
-        // Parse data here
-        
-        NSString  *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  
+    
+      
         
         
-        if([responseString isEqualToString:@"ok"]){
-            
-        }else{
-            
-            
-           // [self dateTimePicker:responseString];
-            
-            viewClockOut = [[viewMissedClockOut alloc]init];
-            viewClockOut.delegate = self;
-            viewClockOut->date = responseString;
-            viewClockOut->hr_emp_id = delegate.hrEmpId;
-            [viewClockOut setDate];
-            CGRect nframe = CGRectMake(0, 20, 322, 322);
 
-            viewClockOut.view.frame = nframe;
-            
-            
-            [UIView transitionWithView:self.view duration:0.55
-                               options:UIViewAnimationOptionTransitionFlipFromLeft
-                            animations:^ { [self.view addSubview:viewClockOut.view]; }
-                            completion:nil];
-
-        }
-        
-        
-        
     }
-    
-    
     
 }
 
@@ -6026,7 +6241,7 @@ return @"60";
 		
 		//[someError show];
 		//[someError release];	
-		NSString *surl = @"https://www.bulwarktechnician.com/refreshIphone.aspx?hr_emp_id=";
+		NSString *surl = @"https://ipadapp.bulwarkapp.com/refreshIphone.aspx?hr_emp_id=";
 		
 		surl =  [surl stringByAppendingString:delegate.hrEmpId];
 		surl =  [surl stringByAppendingString:@"&date="];
@@ -6745,7 +6960,7 @@ return @"60";
 		
 		
 		
-		NSString *surl = @"https://www.bulwarktechnician.com/AvailableIpad.aspx?hr_emp_id=";
+		NSString *surl = @"https://ipadapp.bulwarkapp.com.com/AvailableIpad.aspx?hr_emp_id=";
 		surl =  [surl stringByAppendingString:delegate.hrEmpId];
 		surl =  [surl stringByAppendingString:@"&date="];
 		surl =  [surl stringByAppendingString:dateString11];
@@ -7008,7 +7223,20 @@ return @"60";
 	
 	return dateString;
 }
-
+-(NSString*)CurrentTimeOnly{
+    
+    
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"h:mm a"];
+    
+    dateString = [formatter stringFromDate:[NSDate date]];
+    
+    
+    return dateString;
+}
 -(NSString*)CurrentTimeLabel{
 	
 	
@@ -7184,43 +7412,20 @@ return @"60";
 					if(range.location !=NSNotFound){
 						
 						
-						//NSString  *surl = URLString;
+
 						
 						
 						
-						//surl =
-						//[surl stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];	
-						//NSString *url = @"http://123.456.789.0?action=get_movies";
+
 						
-						
-						NSError *err = [[NSError alloc] init];
-						//NSString *url1 = [[NSString stringWithFormat:surl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-						//NSString *dataString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url1] encoding:NSUTF8StringEncoding error:&err];
-						
-						
-						
-						//NSString *escapedUrlString = [surl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-						NSString *responseString;
-						NSURLResponse *response;
-						//NSError *error;
+					
+				
 						
                     
                     
                     
                     
-                    /*
-                    
-                    NSURL *url = [NSURL URLWithString:@"http://www.google.com.br"];
-                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-                    [request setHTTPMethod:@"POST"];
-                    NSData *requestBody = [@"username:x&password:y" dataUsingEncoding:NSUTF8StringEncoding];
-                    [request setHTTPBody:requestBody];
-                    NSURLResponse *response = NULL;
-                    NSError *requestError = NULL;
-                    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
-                    NSString *responseString = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
-                    */
-                    
+                   
                     
                     
                     
@@ -7229,53 +7434,50 @@ return @"60";
 												 cachePolicy:NSURLRequestUseProtocolCachePolicy
 												 timeoutInterval:30]; // 5 second timeout?
 						
-						NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+						//NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
 						
 						
 						
-						
-						
-						
-						
-						
-						
-						if(err.code != 0) {		
+                        [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+
+
+                            if (error == nil)
+                            {
+                            
+                            
+                            NSString  *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                            
+                            
+                           // if([responseString isEqualToString:@"ok"]){}
 							
-							
-						}
-						else {
-							
-							if((responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding])){
+                            
+                            
 								
 								NSString *searchForMe1 = @"success";
 								NSRange range1 = [responseString rangeOfString:searchForMe1];
 								
 								if(range1.location !=NSNotFound){
 									
-                                 [self toastScreenAsync:@"Posting Result" withMessage:[[s stringByReplacingOccurrencesOfString:@".tw" withString:@""] stringByAppendingString:@" Posted"]];
-                                [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                                   NSString *URLString2 = [URLString lowercaseString];
+                                    
+                                    if([URLString2 containsString:@"clock.aspx"] == false){
+                                        [self toastScreenAsync:@"Posting Result" withMessage:[[s stringByReplacingOccurrencesOfString:@".tw" withString:@""] stringByAppendingString:@" Posted"]];
+                                    }
+                               
+                                
+                                    
+                                    [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
 									
-                                
-                                
-                                
-                                //UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"file posted" message: s  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-									
-									//[someError1 show];
-									//[someError1 release];							
+					
 								}
 								
 								
-								
-								
-							}
-							
-							
-							
 							
 						}
-						
-						
-						
+                        
+                        }] resume];
+                        
+
 					}
 					else {
 						//[fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
@@ -7943,12 +8145,12 @@ return @"60";
             
             NSString *dateString11 = [dateFormat stringFromDate:today1];
             
-            
+
             viewClockIn = [[viewMissedClockIn alloc]init];
             viewClockIn.delegate = self;
             viewClockIn->date = dateString11;
             viewClockIn->hr_emp_id = delegate.hrEmpId;
-            viewClockIn.view.layer.borderWidth = 4;
+            viewClockIn.view.layer.borderWidth = 1;
             viewClockIn.view.layer.borderColor = UIColor.darkGrayColor.CGColor;
             viewClockIn.view.layer.cornerRadius = 5;
             //[viewClockIn setDate];
@@ -8022,7 +8224,7 @@ return @"60";
 				NSLog(@"yes button was pressed\n");
 				
 				
-				NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+				NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com.com/Clock.aspx?hr_emp_id=";
 				fdataUrl =  [fdataUrl stringByAppendingString:delegate.hrEmpId];
 				
 				

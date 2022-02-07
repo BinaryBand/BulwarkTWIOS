@@ -301,7 +301,7 @@
 -(void)handleRefresh:(UIRefreshControl *)refresh {
    
     refreshing =1;
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&build=60"];
@@ -327,7 +327,7 @@
     
     
     
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&build=60"];

@@ -29,8 +29,8 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
     }
     @catch(NSException *exc) {
         @try{
-            NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "doneButtonTapped", [exc reason]];
-            NSLog(logmessage);
+            NSString *logmessage = [NSString stringWithFormat:@"Error %s: %@", "doneButtonTapped", [exc reason]];
+            NSLog(@"%@", logmessage);
         }@catch(NSException *exc){}
     }
 }
