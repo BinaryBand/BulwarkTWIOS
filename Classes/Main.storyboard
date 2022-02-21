@@ -162,7 +162,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="BnM-wd-7fx"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" id="BnM-wd-7fx"/>
                     <connections>
                         <outlet property="officeView" destination="oOJ-EC-Rt1" id="cWr-ac-Rux"/>
                         <outlet property="picker" destination="NVw-eA-Lat" id="eBl-uH-gVN"/>
@@ -176,9 +176,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhX-eq-vxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-564.0625" y="492.77343749999994"/>
+            <point key="canvasLocation" x="1568" y="267"/>
         </scene>
-        <!--Schedule-->
+        <!--Routes-->
         <scene sceneID="xxo-Ju-gYo">
             <objects>
                 <viewController id="gbi-nx-koC" customClass="viewSchedule" sceneMemberID="viewController">
@@ -194,27 +194,104 @@
                                 <rect key="frame" x="0.0" y="20" width="768" height="954"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES">
+                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
+                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar-32.png" id="mUE-Bk-sk6"/>
+                    <tabBarItem key="tabBarItem" title="Routes" image="calendar" id="mUE-Bk-sk6"/>
                     <connections>
                         <outlet property="webview" destination="CXR-yZ-pwa" id="au0-kS-2UP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VsA-r3-2eM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-551.5625" y="1585.546875"/>
+            <point key="canvasLocation" x="1465" y="-448"/>
         </scene>
-        <!--Videos-->
+        <!--Sales-->
+        <scene sceneID="72I-UZ-HdM">
+            <objects>
+                <viewController id="0nn-cZ-rxc" customClass="viewMySales" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cbd-Wi-nGU"/>
+                        <viewControllerLayoutGuide type="bottom" id="wiT-qZ-Wt6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ack-de-JGs">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-HJ-DhQ">
+                                <rect key="frame" x="0.0" y="20" width="768" height="954"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aVe-HJ-DhQ" firstAttribute="bottom" secondItem="Ack-de-JGs" secondAttribute="bottomMargin" id="03f-e6-I54"/>
+                            <constraint firstItem="aVe-HJ-DhQ" firstAttribute="leading" secondItem="Ack-de-JGs" secondAttribute="leadingMargin" constant="-20" id="57A-QY-bad"/>
+                            <constraint firstItem="aVe-HJ-DhQ" firstAttribute="top" secondItem="Ack-de-JGs" secondAttribute="topMargin" id="UUh-3e-31q"/>
+                            <constraint firstItem="aVe-HJ-DhQ" firstAttribute="centerX" secondItem="Ack-de-JGs" secondAttribute="centerX" id="UVW-Dz-7g1"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Sales" image="person.text.rectangle" id="7ze-of-wsL"/>
+                    <connections>
+                        <outlet property="webView" destination="aVe-HJ-DhQ" id="2NR-Mm-MuG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zsA-hv-bM6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1742.1875" y="227.92968749999997"/>
+        </scene>
+        <!--Stats-->
+        <scene sceneID="REc-0s-JMf">
+            <objects>
+                <viewController id="SVq-zb-Dgd" customClass="viewMyStats" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W3T-8N-rMV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vcx-XA-3gB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="js5-0f-j2D">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSk-X3-Vzg">
+                                <rect key="frame" x="0.0" y="20" width="768" height="954"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HSk-X3-Vzg" firstAttribute="bottom" secondItem="js5-0f-j2D" secondAttribute="bottomMargin" id="2Yb-vh-z1F"/>
+                            <constraint firstItem="HSk-X3-Vzg" firstAttribute="centerX" secondItem="js5-0f-j2D" secondAttribute="centerX" id="3GS-zi-aUf"/>
+                            <constraint firstItem="HSk-X3-Vzg" firstAttribute="leading" secondItem="js5-0f-j2D" secondAttribute="leadingMargin" constant="-20" id="HZx-xt-keO"/>
+                            <constraint firstItem="HSk-X3-Vzg" firstAttribute="top" secondItem="js5-0f-j2D" secondAttribute="topMargin" id="Q08-9a-LiH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Stats" image="chart.pie" id="m7o-bk-Wdc"/>
+                    <connections>
+                        <outlet property="webView" destination="HSk-X3-Vzg" id="k5I-7z-amT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tRL-yh-9K6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-853.125" y="294.7265625"/>
+        </scene>
+        <!--Chat-->
         <scene sceneID="zfL-pM-1vj">
             <objects>
-                <viewController id="Vui-EE-8QA" customClass="RGSViewController" sceneMemberID="viewController">
+                <viewController id="Vui-EE-8QA" customClass="viewChat" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oyu-GB-WcG"/>
                         <viewControllerLayoutGuide type="bottom" id="rNj-cq-OSy"/>
@@ -223,86 +300,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHd-8B-vwd">
-                                <rect key="frame" x="0.0" y="0.0" width="232" height="974"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ff3-tO-TW3">
-                                        <rect key="frame" x="0.0" y="79" width="227" height="896"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="227" id="EVp-zo-RyB"/>
-                                            <constraint firstAttribute="height" constant="896" id="JnQ-rq-ETm"/>
-                                        </constraints>
-                                    </tableView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Ff3-tO-TW3" secondAttribute="bottom" id="Hvz-uh-XcO"/>
-                                    <constraint firstItem="Ff3-tO-TW3" firstAttribute="top" secondItem="IHd-8B-vwd" secondAttribute="top" constant="79" id="XVH-1V-a0x"/>
-                                    <constraint firstItem="Ff3-tO-TW3" firstAttribute="leading" secondItem="IHd-8B-vwd" secondAttribute="leading" id="eF9-Ft-69h"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ff3-tO-TW3" secondAttribute="trailing" constant="5" id="pb3-yf-a8F"/>
-                                </constraints>
-                            </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqV-za-Bkq">
-                                <rect key="frame" x="272" y="438" width="298" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="298" id="biC-Jo-fXL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ln-3z-Qx0">
-                                <rect key="frame" x="619" y="378" width="121" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="PBk-Ef-jUk"/>
-                                    <constraint firstAttribute="width" constant="121" id="iE7-4l-7KC"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="Download-Button.png"/>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LaE-TE-78G">
-                                <rect key="frame" x="257" y="495" width="492" height="350"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRk-4i-0Rc">
-                                <rect key="frame" x="240" y="25" width="520" height="316"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3fV-Ca-9dF">
-                                <rect key="frame" x="263" y="360" width="474" height="4"/>
-                            </progressView>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aNe-hw-4ID">
+                                <rect key="frame" x="0.0" y="20" width="768" height="954"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="tqV-za-Bkq" firstAttribute="leading" secondItem="IHd-8B-vwd" secondAttribute="trailing" constant="40" id="1e1-hQ-bNA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LaE-TE-78G" secondAttribute="trailing" constant="-1" id="26S-jL-I2j"/>
-                            <constraint firstItem="3fV-Ca-9dF" firstAttribute="top" secondItem="ZRk-4i-0Rc" secondAttribute="bottom" constant="19" id="7KY-8P-8Of"/>
-                            <constraint firstItem="IHd-8B-vwd" firstAttribute="leading" secondItem="iyk-4X-bpc" secondAttribute="leading" id="Cos-Nu-gLW"/>
-                            <constraint firstItem="tqV-za-Bkq" firstAttribute="top" secondItem="3fV-Ca-9dF" secondAttribute="bottom" constant="74" id="ESV-gL-reA"/>
-                            <constraint firstItem="LaE-TE-78G" firstAttribute="leading" secondItem="IHd-8B-vwd" secondAttribute="trailing" constant="25" id="LiT-2r-HIe"/>
-                            <constraint firstItem="rNj-cq-OSy" firstAttribute="top" secondItem="LaE-TE-78G" secondAttribute="bottom" constant="129" id="ND7-e1-QXd"/>
-                            <constraint firstItem="IHd-8B-vwd" firstAttribute="bottom" secondItem="rNj-cq-OSy" secondAttribute="top" id="UK0-XJ-CxJ"/>
-                            <constraint firstAttribute="trailing" secondItem="IHd-8B-vwd" secondAttribute="trailing" constant="536" id="Uzl-jM-B2x"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZRk-4i-0Rc" secondAttribute="trailing" constant="-12" id="VUB-Fd-gJN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3fV-Ca-9dF" secondAttribute="trailing" constant="11" id="VkA-Hb-Mjt"/>
-                            <constraint firstAttribute="bottom" secondItem="ZRk-4i-0Rc" secondAttribute="bottom" constant="633" id="aqX-qP-Tw8"/>
-                            <constraint firstItem="ZRk-4i-0Rc" firstAttribute="top" secondItem="oyu-GB-WcG" secondAttribute="bottom" constant="5" id="bPd-02-agH"/>
-                            <constraint firstItem="1ln-3z-Qx0" firstAttribute="top" secondItem="3fV-Ca-9dF" secondAttribute="bottom" constant="14" id="dAj-wN-OI1"/>
-                            <constraint firstItem="ZRk-4i-0Rc" firstAttribute="centerX" secondItem="3fV-Ca-9dF" secondAttribute="centerX" id="fZ0-13-lRg"/>
-                            <constraint firstItem="LaE-TE-78G" firstAttribute="top" secondItem="1ln-3z-Qx0" secondAttribute="bottom" constant="79" id="hRs-di-iHS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1ln-3z-Qx0" secondAttribute="trailing" constant="8" id="jr0-W9-wvy"/>
-                            <constraint firstItem="LaE-TE-78G" firstAttribute="top" secondItem="tqV-za-Bkq" secondAttribute="bottom" constant="36" id="kSS-b4-Coi"/>
-                            <constraint firstItem="ZRk-4i-0Rc" firstAttribute="leading" secondItem="IHd-8B-vwd" secondAttribute="trailing" constant="8" symbolic="YES" id="s93-e4-ALo"/>
-                            <constraint firstItem="IHd-8B-vwd" firstAttribute="top" secondItem="iyk-4X-bpc" secondAttribute="top" id="z4d-Ae-u4e"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Videos" image="MovieSm.png" id="w8U-QB-517"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="bubble.left.and.bubble.right" id="w8U-QB-517"/>
+                    <connections>
+                        <outlet property="webView" destination="aNe-hw-4ID" id="XQi-Qx-nmh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEv-aC-1DL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="1042"/>
+            <point key="canvasLocation" x="-87" y="267"/>
         </scene>
         <!--Reports-->
         <scene sceneID="Sdb-sZ-v5Y">
@@ -555,7 +572,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Reports" image="document-32.png" id="tzM-DS-NkR"/>
+                    <tabBarItem key="tabBarItem" title="Reports" image="doc" id="tzM-DS-NkR"/>
                     <connections>
                         <outlet property="backButton" destination="4ac-Eq-ruw" id="hmE-yv-F5R"/>
                         <outlet property="closeButton" destination="e8H-Wc-9l0" id="uxZ-L4-UFq"/>
@@ -567,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XD7-QY-jCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1083.59375" y="1029.4921875"/>
+            <point key="canvasLocation" x="695" y="-448"/>
         </scene>
         <!--Photos-->
         <scene sceneID="GaA-WZ-hKb">
@@ -589,14 +606,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Photos" image="camera.fill" catalog="system" id="Ajp-Wa-iCO"/>
+                    <tabBarItem key="tabBarItem" title="Photos" image="camera" id="Ajp-Wa-iCO"/>
                     <connections>
                         <outlet property="webview" destination="Onr-gQ-xjR" id="fHc-Mh-iGc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDV-22-lKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669.53125" y="740.625"/>
+            <point key="canvasLocation" x="2196" y="-448"/>
         </scene>
         <!--Home-->
         <scene sceneID="mZN-2e-plE">
@@ -625,26 +642,16 @@
                                             <action selector="btnClockOut" destination="6KB-OD-dpC" id="D1S-XT-G4w"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="92" style="plain" systemItem="fixedSpace" id="3cR-nx-CEe"/>
-                                    <barButtonItem title="My Routes" id="C3F-5k-4NZ">
-                                        <connections>
-                                            <action selector="btnAvaliableRoutes" destination="6KB-OD-dpC" id="mGs-pj-sLR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0g4-Kw-Y4P"/>
+                                    <barButtonItem width="49" style="plain" systemItem="fixedSpace" id="3cR-nx-CEe"/>
                                     <barButtonItem title="My Pay" id="C4H-4k-2NZ">
                                         <connections>
                                             <action selector="btnMyPay" destination="6KB-OD-dpC" id="jOk-bm-TcF"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0g4-Kw-Y4P"/>
                                     <barButtonItem systemItem="flexibleSpace" id="rRz-to-MJK">
                                         <connections>
                                             <action selector="btnScreenShot" destination="6KB-OD-dpC" id="Ny8-3S-iAQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="My Stats" style="plain" id="GTP-Yv-dRH">
-                                        <connections>
-                                            <action selector="btnMyStats" destination="6KB-OD-dpC" id="VrJ-S5-cSP"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="fixedSpace" id="dPb-kS-uzG">
@@ -723,7 +730,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home-7.png" id="ZDO-uF-xV1"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" id="ZDO-uF-xV1"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -740,7 +747,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQg-0X-exX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994.53125" y="-194.53125"/>
+            <point key="canvasLocation" x="-86" y="-448"/>
         </scene>
         <!--Map-->
         <scene sceneID="Syr-Ao-fNQ">
@@ -786,7 +793,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map_marker-32.png" id="Sei-N0-Ylf"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="Sei-N0-Ylf"/>
                     <connections>
                         <outlet property="seg" destination="8Zv-xO-k8O" id="Guy-aY-3Hq"/>
                         <outlet property="webview" destination="kfG-Zj-0p3" id="YpI-3L-jQt"/>
@@ -794,7 +801,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnV-eE-bMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="90"/>
+            <point key="canvasLocation" x="731" y="267"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="M2G-71-8dV">
@@ -811,34 +818,37 @@
                     <connections>
                         <segue destination="6KB-OD-dpC" kind="relationship" relationship="viewControllers" id="bmr-HC-l8b"/>
                         <segue destination="gbi-nx-koC" kind="relationship" relationship="viewControllers" id="zVA-FS-PMC"/>
-                        <segue destination="D2X-lp-NNU" kind="relationship" relationship="viewControllers" id="zHH-I7-qED"/>
-                        <segue destination="Eeb-p6-xZn" kind="relationship" relationship="viewControllers" id="fdH-ff-Y4V"/>
+                        <segue destination="SVq-zb-Dgd" kind="relationship" relationship="viewControllers" id="fWt-q8-RsX"/>
+                        <segue destination="0nn-cZ-rxc" kind="relationship" relationship="viewControllers" id="WJl-eG-vUc"/>
                         <segue destination="Vui-EE-8QA" kind="relationship" relationship="viewControllers" id="0bs-5N-5yU"/>
+                        <segue destination="Eeb-p6-xZn" kind="relationship" relationship="viewControllers" id="fdH-ff-Y4V"/>
                         <segue destination="txs-He-n2l" kind="relationship" relationship="viewControllers" id="SlW-vR-LpR"/>
+                        <segue destination="D2X-lp-NNU" kind="relationship" relationship="viewControllers" id="zHH-I7-qED"/>
                         <segue destination="031-D4-Dff" kind="relationship" relationship="viewControllers" id="w9X-3I-mvE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vj0-BA-D6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="-74"/>
+            <point key="canvasLocation" x="-853" y="-448"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Download-Button.png" width="679" height="266"/>
-        <image name="MovieSm.png" width="30" height="30"/>
         <image name="blue_close.png" width="48" height="48"/>
-        <image name="calendar-32.png" width="32" height="32"/>
-        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="bubble.left.and.bubble.right" width="24" height="19"/>
+        <image name="calendar" width="17" height="16"/>
+        <image name="camera" width="21" height="16"/>
+        <image name="chart.pie" width="17" height="17"/>
         <image name="clockin.png" width="22.5" height="22.5"/>
         <image name="clockout.png" width="22.5" height="22.5"/>
-        <image name="document-32.png" width="39.724136352539062" height="39.724136352539062"/>
-        <image name="home-7.png" width="30" height="30"/>
+        <image name="doc" width="14" height="18"/>
+        <image name="gearshape" width="18" height="18"/>
+        <image name="house" width="20" height="18"/>
         <image name="left2-50.png" width="40" height="40"/>
-        <image name="map_marker-32.png" width="39.724136352539062" height="39.724136352539062"/>
+        <image name="map" width="18" height="17"/>
         <image name="money.jpeg" width="52" height="52"/>
         <image name="near_me-32.png" width="32" height="32"/>
+        <image name="person.text.rectangle" width="20" height="16"/>
         <image name="print-32.png" width="32" height="32"/>
-        <image name="settings.png" width="26" height="26"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

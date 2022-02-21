@@ -328,7 +328,7 @@
     
     if(dpage==2){ //add to todays route
        
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/retention/rptaddtoroute.aspx?customer_id=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/retention/rptaddtoroute.aspx?customer_id=";
         
         
         
@@ -372,7 +372,7 @@
     
     NSString *txtbox =[txtSearch.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptsearch.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptsearch.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -391,7 +391,7 @@
 
 }
 - (IBAction)btnDailyZone{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptdailyzone.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptdailyzone.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -407,7 +407,7 @@
     
 }
 - (IBAction)btnProDormancy{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptproactivedormancy.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedormancy.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -423,7 +423,7 @@
     
 }
 - (IBAction)btnProDelenquency{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptproactivedelinquency.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedelinquency.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -439,7 +439,7 @@
     
 }
 - (IBAction)btnDormantAccounts{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptdormantaccounts.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptdormantaccounts.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -456,7 +456,7 @@
 }
 - (IBAction)btnRecentCancels{
     
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptrecentcancelsipad.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptrecentcancelsipad.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -473,7 +473,7 @@
 }
 - (IBAction)btnRecentMoves{
     
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptrecentmoves.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptrecentmoves.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -489,7 +489,7 @@
     
 }
 - (IBAction)btnPool{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptpool.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptpool.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -529,7 +529,7 @@
 }
 
 - (IBAction)btnNearMe{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptpoolloc.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptpoolloc.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -545,7 +545,7 @@
     
 }
 - (IBAction)btnCancelBucket{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptbucketcancel.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptbucketcancel.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -576,7 +576,7 @@
 }
 
 - (IBAction)btnGateCodes{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptgatecodes.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptgatecodes.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -593,7 +593,7 @@
     
 }
 - (IBAction)btnCompletion{
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptcompletionrate.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptcompletionrate.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];
@@ -628,7 +628,7 @@
     
     
     /*
-    NSString *UrlString1 = @"https://www.bulwarktechnician.com/hh/retention/rptEmpId.aspx?hr_emp_id=";
+    NSString *UrlString1 = @"https://ipadapp.bulwarkapp.com/hh/retention/rptEmpId.aspx?hr_emp_id=";
     
     UrlString1 = [UrlString1 stringByAppendingString:delegate.hrEmpId];
 
@@ -713,7 +713,7 @@
     
     
     /*
-    NSString *UrlString = @"https://www.bulwarktechnician.com/hh/retention/rptTermiteFUPList.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptTermiteFUPList.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&lat="];

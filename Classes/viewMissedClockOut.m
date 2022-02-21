@@ -39,7 +39,7 @@
     NSString *dateString = [formatter stringFromDate:date1];
     NSString *txt = dateString;
     
-    NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+    NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com/Clock.aspx?hr_emp_id=";
     fdataUrl =  [fdataUrl stringByAppendingString:hr_emp_id];
     
     

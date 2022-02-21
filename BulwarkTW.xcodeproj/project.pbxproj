@@ -145,6 +145,10 @@
 		B3C3D3D219FC448D008774E7 /* viewVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C3D3D019FC448D008774E7 /* viewVideo.m */; };
 		B3C3D3D519FC6117008774E7 /* home-7.png in Resources */ = {isa = PBXBuildFile; fileRef = B3C3D3D419FC6117008774E7 /* home-7.png */; };
 		B3DC569B2099058E000C1847 /* money.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B3DC569A2099058E000C1847 /* money.jpeg */; };
+		B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCDD7327B1E00E00D93387 /* Images.xcassets */; };
+		B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCDD7827B1E8AC00D93387 /* viewChat.swift */; };
+		B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */; };
+		B3E3AE7727BDB0B900A76EE3 /* viewMySales.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AE7627BDB0B900A76EE3 /* viewMySales.swift */; };
 		B3F309851FABB762008AD53F /* viewMissedClockIn.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F309831FABB762008AD53F /* viewMissedClockIn.m */; };
 		B3F309861FABB762008AD53F /* viewMissedClockIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F309841FABB762008AD53F /* viewMissedClockIn.xib */; };
 		E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */ = {isa = PBXBuildFile; fileRef = E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */; };
@@ -327,6 +331,10 @@
 		B3C3D3D019FC448D008774E7 /* viewVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewVideo.m; sourceTree = "<group>"; };
 		B3C3D3D419FC6117008774E7 /* home-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-7.png"; sourceTree = "<group>"; };
 		B3DC569A2099058E000C1847 /* money.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = money.jpeg; sourceTree = "<group>"; };
+		B3DCDD7327B1E00E00D93387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BulwarkTW/Images.xcassets; sourceTree = "<group>"; };
+		B3DCDD7827B1E8AC00D93387 /* viewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewChat.swift; sourceTree = "<group>"; };
+		B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMyStats.swift; sourceTree = "<group>"; };
+		B3E3AE7627BDB0B900A76EE3 /* viewMySales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMySales.swift; sourceTree = "<group>"; };
 		B3F309821FABB762008AD53F /* viewMissedClockIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewMissedClockIn.h; sourceTree = "<group>"; };
 		B3F309831FABB762008AD53F /* viewMissedClockIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = viewMissedClockIn.m; sourceTree = "<group>"; };
 		B3F309841FABB762008AD53F /* viewMissedClockIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewMissedClockIn.xib; sourceTree = "<group>"; };
@@ -444,6 +452,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B3DCDD7327B1E00E00D93387 /* Images.xcassets */,
 				B3BBF58719BA400C0088C777 /* blank.html */,
 				341AE46E12D2D9C0007B8964 /* settings.html */,
 				B3BBF58519B8E1C30088C777 /* settingsipad.html */,
@@ -645,6 +654,9 @@
 				B3F309841FABB762008AD53F /* viewMissedClockIn.xib */,
 				B311CB9823DA0EE800DFBFED /* viewPhotos.h */,
 				B311CB9923DA0EE800DFBFED /* viewPhotos.m */,
+				B3DCDD7827B1E8AC00D93387 /* viewChat.swift */,
+				B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */,
+				B3E3AE7627BDB0B900A76EE3 /* viewMySales.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -815,6 +827,7 @@
 				B36C62CC1962366000482AC1 /* glossy_button_blank_blue_rectangle.png in Resources */,
 				B388DD1E16671338008A6B04 /* gk-notification@2x.png in Resources */,
 				B3273E4A1A00352B00E6A21E /* AppIcon72x72.png in Resources */,
+				B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */,
 				B36C62CE1962388100482AC1 /* glossy_button_blank_black_rectangle.png in Resources */,
 				B30A15261AC1D4DF001AB3B5 /* pinkchecker.png in Resources */,
 			);
@@ -834,6 +847,7 @@
 				B337A93C1C73EDB300FBEE18 /* viewSettings.m in Sources */,
 				B38DFC1A212E783C004CCBEF /* JDFTooltipView.m in Sources */,
 				B33C58101CBC887F00CE2C72 /* viewDriving.m in Sources */,
+				B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */,
 				34C42EBF164DBA3800DD6A91 /* MBProgressHUD.m in Sources */,
 				B348C8C31C7B7291000BDC7A /* VideoTableView.m in Sources */,
 				B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */,
@@ -849,6 +863,7 @@
 				B3819D141BE179C4002B7F4B /* TWBlunoManager.m in Sources */,
 				B36EC1B71A64887600F53D78 /* BLEDevice.m in Sources */,
 				B3F309851FABB762008AD53F /* viewMissedClockIn.m in Sources */,
+				B3E3AE7727BDB0B900A76EE3 /* viewMySales.swift in Sources */,
 				B348C8BF1C7B7291000BDC7A /* RGSSystem.m in Sources */,
 				B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */,
 				B38DFC19212E783C004CCBEF /* UILabel+JDFTooltips.m in Sources */,
@@ -859,6 +874,7 @@
 				B38DFC1B212E783C004CCBEF /* JDFSequentialTooltipManager.m in Sources */,
 				B38DFC17212E783C004CCBEF /* UIView+JDFTooltips.m in Sources */,
 				B348C8C11C7B7291000BDC7A /* VideoDataObject.m in Sources */,
+				B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */,
 				B3A030111AA8288D0097AACD /* SwiftEmail.swift in Sources */,
 				B36EC1B81A64887600F53D78 /* BLEUtility.m in Sources */,
 				B348C8C21C7B7291000BDC7A /* VideoTableCell.m in Sources */,
@@ -872,6 +888,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = BulwarkTW.entitlements;
@@ -924,6 +941,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = BulwarkTW.entitlements;
@@ -1015,6 +1033,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = BulwarkTW.entitlements;

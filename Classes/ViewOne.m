@@ -1191,7 +1191,7 @@ return @"60";
         
         rdate = [[NSString alloc] initWithContentsOfFile:myPathDocs1 encoding:NSUTF8StringEncoding error:NULL];
     }
-    NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/RouteMap.aspx?hr_emp_id=";
+    NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/RouteMap.aspx?hr_emp_id=";
     
     
     
@@ -1312,11 +1312,11 @@ return @"60";
     [dateFormat setDateFormat:@"MM/dd/yyyy"];
     
     NSString *dateString11 = [dateFormat stringFromDate:today1];
-    NSString *urlParamater = @"https://www.bulwarktechnician.com/AvailableIphone.aspx?hr_emp_id=";
+    NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIphone.aspx?hr_emp_id=";
     
     
 
-        urlParamater = @"https://www.bulwarktechnician.com/AvailableIpad.aspx?hr_emp_id=";
+        urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIpad.aspx?hr_emp_id=";
 
 
     
@@ -1355,8 +1355,8 @@ return @"60";
 
 -(IBAction)btnVideo{
     
-    NSString *UrlStr = @"https://www.bulwarktechnician.com/videos/videos.aspx";
-    // NSString *UrlStr = @"https://www.bulwarktechnician.com/HH/Schedule/Schedule.aspx?office=5&manager=1&modifiedBy=481217&hrempid=245339&date=11/1/2014";
+    NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/videos/videos.aspx";
+    // NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/HH/Schedule/Schedule.aspx?office=5&manager=1&modifiedBy=481217&hrempid=245339&date=11/1/2014";
 
     NSURL *qurl = [NSURL URLWithString:UrlStr];
     
@@ -1554,7 +1554,7 @@ return @"60";
 	}
 	
 	if (buttonIndex == 2){
-		//NSString * phonehome = @"itms-services://?action=download-manifest&url=https://www.bulwarktechnician.com/iPad/manifest.plist";
+		//NSString * phonehome = @"itms-services://?action=download-manifest&url=https://ipadapp.bulwarkapp.com/iPad/manifest.plist";
 		
 		//NSString* addr = phonehome;
 		//NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -1579,7 +1579,7 @@ return @"60";
         
         NSString *phn = @"4804294341";
         
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/phones/clicktocall.aspx?mp=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/phones/clicktocall.aspx?mp=";
         
         NSString *techPhone =  [[delegate.phone componentsSeparatedByCharactersInSet:
                                  [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
@@ -1675,10 +1675,10 @@ return @"60";
 			[dateFormat setDateFormat:@"MM/dd/yyyy"];
 			
 			NSString *dateString11 = [dateFormat stringFromDate:today1];
-			NSString *urlParamater = @"https://www.bulwarktechnician.com/AvailableIphone.aspx?hr_emp_id=";
+			NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIphone.aspx?hr_emp_id=";
             
  
-                    urlParamater = @"https://www.bulwarktechnician.com/AvailableIpad.aspx?hr_emp_id=";
+                    urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIpad.aspx?hr_emp_id=";
 
             
 			urlParamater = [urlParamater stringByAppendingString:hrEmpId];
@@ -1746,7 +1746,7 @@ return @"60";
 		}
 	
 		if(buttonIndex==2){
-			NSString *urlParamater = @"https://www.bulwarktechnician.com/gatecodegps.html";
+			NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/gatecodegps.html";
 	
 			
 
@@ -1914,7 +1914,7 @@ return @"60";
 			
             
             
-			NSString *urlParamater = @"https://www.bulwarktechnician.com/hh/dailyzoneretention.aspx?hr_emp_id=";
+			NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/hh/dailyzoneretention.aspx?hr_emp_id=";
 			
             
             urlParamater = [urlParamater stringByAppendingString:hrEmpId];
@@ -1958,10 +1958,10 @@ return @"60";
 			//[alert release];	
 			
 			
-			NSString *site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=proactivedormancy.aspx&hr_emp_id=";
+			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedormancy.aspx&hr_emp_id=";
 			
 
-                site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=proactivedormancy-ipad.aspx&hr_emp_id=";
+                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedormancy-ipad.aspx&hr_emp_id=";
             
  
             
@@ -2031,11 +2031,11 @@ return @"60";
 		}
 		else if(buttonIndex==2){
             
-			NSString *site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=proactivedelinquency.aspx&hr_emp_id=";
+			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedelinquency.aspx&hr_emp_id=";
 			
 			
 
-                site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=proactivedelinquency-ipad.aspx&hr_emp_id=";
+                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedelinquency-ipad.aspx&hr_emp_id=";
                 
 
             
@@ -2091,11 +2091,11 @@ return @"60";
         }
         else if(buttonIndex==3){
             
-			NSString *site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=dormantaccounts.aspx&hr_emp_id=";
+			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=dormantaccounts.aspx&hr_emp_id=";
 			
             
 
-               site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=dormantaccountsipad.aspx&hr_emp_id=";
+               site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=dormantaccountsipad.aspx&hr_emp_id=";
                 
  
             
@@ -2157,11 +2157,11 @@ return @"60";
         }
         else if(buttonIndex==4){
             
-			NSString *site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=recentcancels.aspx&hr_emp_id=";
+			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentcancels.aspx&hr_emp_id=";
 			
             
 
-                site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=recentcancelsipad.aspx&hr_emp_id=";
+                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentcancelsipad.aspx&hr_emp_id=";
                 
 
             
@@ -2217,11 +2217,11 @@ return @"60";
         }
         else if(buttonIndex==5){
             
-			NSString *site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=recentmoves.aspx&hr_emp_id=";
+			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentmoves.aspx&hr_emp_id=";
 			
 			
 
-                site = @"https://www.bulwarktechnician.com/hh/retention/getgps.htm?p=recentmovesipad.aspx&hr_emp_id=";
+                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentmovesipad.aspx&hr_emp_id=";
                 
 
             
@@ -2304,7 +2304,7 @@ return @"60";
             
             
             
-            NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+            NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com/Clock.aspx?hr_emp_id=";
             fdataUrl =  [fdataUrl stringByAppendingString:self->delegate.hrEmpId];
             
             
@@ -2375,7 +2375,7 @@ return @"60";
             
             
             
-            NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+            NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com/Clock.aspx?hr_emp_id=";
             fdataUrl =  [fdataUrl stringByAppendingString:self->delegate.hrEmpId];
             
             
@@ -3243,7 +3243,7 @@ return @"60";
 			
 			
 			
-			NSString *downloadFile = @"https://www.bulwarktechnician.com/chemicalsusediphone";
+			NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/chemicalsusediphone";
 			downloadFile= [downloadFile stringByAppendingString:delegate.office];
 			downloadFile= [downloadFile stringByAppendingString:@".html"];
 			
@@ -3477,7 +3477,7 @@ return @"60";
 		
 /*
 			
-		NSString *downloadFile = @"https://www.bulwarktechnician.com/postcompleteroute.aspx?";
+		NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/postcompleteroute.aspx?";
 		downloadFile= [downloadFile stringByAppendingString:urlParamater];	
 		
 		
@@ -3566,7 +3566,7 @@ return @"60";
     else if(dpage==27){
         NSString *phn = @"4804294341";
         
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/phones/clicktocall.aspx?mp=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/phones/clicktocall.aspx?mp=";
         
         NSString *techPhone =  [[delegate.phone componentsSeparatedByCharactersInSet:
                                  [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
@@ -3818,7 +3818,7 @@ return @"60";
         NSString *CustId =[paramater4 objectAtIndex: 2];
         
         
-        NSString *fdata = @"https://www.bulwarktechnician.com/hh/retention/call.aspx?number=";
+        NSString *fdata = @"https://ipadapp.bulwarkapp.com/hh/retention/call.aspx?number=";
         
         fdata = [fdata stringByAppendingString:phoneNumber];
         fdata = [fdata stringByAppendingString:@"&account="];
@@ -3921,7 +3921,7 @@ return @"60";
         
         NSString *phn = urlParamater;
         
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/phones/clicktocall.aspx?mp=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/phones/clicktocall.aspx?mp=";
         
         NSString *techPhone =  [[delegate.phone componentsSeparatedByCharactersInSet:
                                                       [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
@@ -3986,7 +3986,7 @@ return @"60";
         NSString *CustId =[paramater4 objectAtIndex: 2];
         
         
-        NSString *fdata = @"https://www.bulwarktechnician.com/hh/retention/call.aspx?number=";
+        NSString *fdata = @"https://ipadapp.bulwarkapp.com/hh/retention/call.aspx?number=";
         
         fdata = [fdata stringByAppendingString:phoneNumber];
         fdata = [fdata stringByAppendingString:@"&account="];
@@ -4005,7 +4005,7 @@ return @"60";
         
         
         
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/phones/clicktocall.aspx?mp=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/phones/clicktocall.aspx?mp=";
         
         NSString *techPhone =  [[delegate.phone componentsSeparatedByCharactersInSet:
                                  [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
@@ -4028,7 +4028,7 @@ return @"60";
     }
     else if (dpage==35){
         //add to route
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/retention/addtoroute.aspx?customer_id=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/retention/addtoroute.aspx?customer_id=";
         
 
         
@@ -4045,7 +4045,7 @@ return @"60";
     else if (dpage==36){
         
         //Customer notes
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/customernotes.aspx?c=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/customernotes.aspx?c=";
         
         
         
@@ -4062,7 +4062,7 @@ return @"60";
     else if (dpage==37){
         
         //Customer notes
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/FUP/FollowUpCallIpad.aspx?cid=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/FUP/FollowUpCallIpad.aspx?cid=";
         
         
         
@@ -4079,7 +4079,7 @@ return @"60";
     else if (dpage==38){
         
         //Customer notes
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/hh/AnyTime.aspx&Customer_Id=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/AnyTime.aspx&Customer_Id=";
         
         
         
@@ -4102,7 +4102,7 @@ return @"60";
     else if (dpage==39){
         
         //Customer notes
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/paymentipad.aspx?account=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/paymentipad.aspx?account=";
         
         
         
@@ -4511,7 +4511,7 @@ return @"60";
     else if (dpage==48){
         
         //technician go pro trianing
-        NSString *UrlStr = @"https://fbf.bulwarkapp.com/gopro/VideoPlayQuestions.aspx?h=";
+        NSString *UrlStr = @"https://fbf2.bulwarkapp.com/gopro/VideoPlayQuestions.aspx?h=";
         
         
         
@@ -4532,8 +4532,7 @@ return @"60";
         PopUpWebView.hidden=YES;
         [PopUpWebView loadHTMLString:@"" baseURL:nil];
         
-        
-        
+        [self.tabBarController setSelectedIndex:0];
         [HUD show:YES];
         
         [NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
@@ -4578,7 +4577,7 @@ return @"60";
     webSocket.delegate = nil;
     webSocket = nil;
     
-    NSString *urlString = @"ws://www.bulwarktechnician.com:8080/ws.ashx?name=ipad&id=ipad";
+    NSString *urlString = @"ws://ipadapp.bulwarkapp.com:8080/ws.ashx?name=ipad&id=ipad";
     SRWebSocket *newWebSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
     newWebSocket.delegate = self;
     
@@ -4685,7 +4684,7 @@ return @"60";
         
     //NSData *imageData = UIImagePNGRepresentation(image);
     
-    NSString *urlString = @"https://www.bulwarktechnician.com/hh/CustImage/uploadImage.aspx";
+    NSString *urlString = @"https://ipadapp.bulwarkapp.com/hh/CustImage/uploadImage.aspx";
     
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -4982,8 +4981,8 @@ return @"60";
 		//[someError show];
 		//[someError release];
 		
-   // urlParamater1= [urlParamater1 stringByReplacingOccurrencesOfString:@"http://www.bulwarktechnician.com"
-    //                                    withString:@"https://www.bulwarktechnician.com"];
+   // urlParamater1= [urlParamater1 stringByReplacingOccurrencesOfString:@"http://ipadapp.bulwarkapp.com"
+    //                                    withString:@"https://ipadapp.bulwarkapp.com"];
 		
 		
 		surl =
@@ -5200,7 +5199,7 @@ return @"60";
         }
         
 
-        NSString *surl = @"https://www.bulwarktechnician.com/refreshIphone.aspx?hr_emp_id=";
+        NSString *surl = @"https://ipadapp.bulwarkapp.com/refreshIphone.aspx?hr_emp_id=";
         
         surl =  [surl stringByAppendingString:delegate.hrEmpId];
         surl =  [surl stringByAppendingString:@"&date="];
@@ -5907,7 +5906,7 @@ return @"60";
     NSString *dateString = [formatter stringFromDate:date];
    NSString *txt = dateString;
    
-    NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+    NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com/Clock.aspx?hr_emp_id=";
     fdataUrl =  [fdataUrl stringByAppendingString:delegate.hrEmpId];
     
     
@@ -6033,7 +6032,7 @@ return @"60";
     
     
     
-    NSString *urlString = @"https://www.bulwarktechnician.com/hh/checkclockout.aspx?h=";
+    NSString *urlString = @"https://ipadapp.bulwarkapp.com/hh/checkclockout.aspx?h=";
     urlString = [urlString stringByAppendingString:delegate.hrEmpId];
 
         
@@ -6599,7 +6598,7 @@ return @"60";
    // }
     
     
-	NSString *downloadFile = @"https://www.bulwarktechnician.com/chemicalsusediphone";
+	NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/chemicalsusediphone";
 	downloadFile= [downloadFile stringByAppendingString:offcode];
 	downloadFile= [downloadFile stringByAppendingString:@".html"];
 	
@@ -6617,7 +6616,7 @@ return @"60";
 	if(err.code != 0) {
 		UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Download" message: @"Unable to Download New Chemical List" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
 		
-		[someError show];
+		//[someError show];
 		
 		
 	}
@@ -6705,7 +6704,7 @@ return @"60";
       //  }
         
         
-        NSString *downloadFile = @"https://www.bulwarktechnician.com/chemicalsusediphone";
+        NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/chemicalsusediphone";
         downloadFile= [downloadFile stringByAppendingString:offcode];
         downloadFile= [downloadFile stringByAppendingString:@".html"];
         
@@ -6816,7 +6815,7 @@ return @"60";
        // }
         
         
-        NSString *downloadFile = @"https://www.bulwarktechnician.com/chemicalsusediphone";
+        NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/chemicalsusediphone";
         downloadFile= [downloadFile stringByAppendingString:offcode];
         downloadFile= [downloadFile stringByAppendingString:@".html"];
         
@@ -7404,7 +7403,7 @@ return @"60";
 					NSString *URLString = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
 					
 					
-                    URLString = [URLString stringByReplacingOccurrencesOfString:@"http://www.bulwarktechnician.com" withString:@"https://www.bulwarktechnician.com"];
+                    URLString = [URLString stringByReplacingOccurrencesOfString:@"http://ipadapp.bulwarkapp.com" withString:@"https://ipadapp.bulwarkapp.com"];
                     
 					NSString *searchForMe = @"http";
 					NSRange range = [URLString rangeOfString:searchForMe];
@@ -8176,7 +8175,7 @@ return @"60";
             
             
             
-			//NSString *fdataUrl = @"https://www.bulwarktechnician.com/Clock.aspx?hr_emp_id=";
+			//NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com/Clock.aspx?hr_emp_id=";
 			//fdataUrl =  [fdataUrl stringByAppendingString:delegate.hrEmpId];
 			
 			

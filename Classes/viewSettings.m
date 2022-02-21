@@ -220,7 +220,7 @@
     
     
     
-    NSString *urlStr = @"https://www.bulwarktechnician.com/hh/office/listofficeipads.aspx";
+    NSString *urlStr = @"https://ipadapp.bulwarkapp.com/hh/office/listofficeipads.aspx";
     
     NSURL *url = [NSURL URLWithString:urlStr];
     
@@ -348,7 +348,7 @@
         
         NSString *phn = @"4804294341";
         
-        NSString *UrlStr = @"https://www.bulwarktechnician.com/phones/clicktocall.aspx?mp=";
+        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/phones/clicktocall.aspx?mp=";
         
         NSString *techPhone =  [[Phone componentsSeparatedByCharactersInSet:
                                  [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
@@ -563,7 +563,7 @@
         // }
         
         
-        NSString *downloadFile = @"https://www.bulwarktechnician.com/chemicalsusediphone";
+        NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/chemicalsusediphone";
         downloadFile= [downloadFile stringByAppendingString:offcode];
         downloadFile= [downloadFile stringByAppendingString:@".html"];
         

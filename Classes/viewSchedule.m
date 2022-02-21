@@ -36,7 +36,7 @@
     webview.navigationDelegate = self;
     webview.UIDelegate = self;
     
-    [self getSchedule];
+    
     
     [webview.scrollView setScrollsToTop:YES];
     
@@ -49,6 +49,28 @@
     
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear is running");
+    [self getSchedule];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"viewDidAppear is running");
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    NSLog(@"viewWillDisappear is running");
+}
+
+
+-(void)viewDidDisappear:(BOOL)animated{
+     NSLog(@"viewDidDisappear is running");
+}
+
+
 
 
 - (void)webViewDidStartLoad:(UIWebView *)nWebView {
@@ -59,6 +81,8 @@
     //[refreshControl beginRefreshing];
     //[webview setContentOffset:CGPointMake(0, -refreshControl.frame.size.height) animated:YES];
 }
+
+
 
 - (void)webViewDidFinishLoad:(UIWebView *)nWebView {
     if(refreshing==1){
@@ -144,7 +168,10 @@
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD show:YES];
+        
+        if(self->refreshing==0){
+            [self->HUD show:YES];
+        }
     });
     NSLog(@"didStartProvisionalNavigation: %@", navigation);
 }
@@ -163,7 +190,16 @@
 
 - (void)webView:(WKWebView *)webView didFinishLoadingNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD hide:YES];
+        if(self->refreshing==1){
+       
+        
+            self->refreshing =0;
+            [self->refreshControl endRefreshing];
+        }else{
+            
+            [self->HUD hide:YES];
+            
+        }
        
         
         
@@ -190,7 +226,16 @@
 
 - (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD hide:YES];
+        if(self->refreshing==1){
+       
+        
+            self->refreshing =0;
+            [self->refreshControl endRefreshing];
+        }else{
+            
+            [self->HUD hide:YES];
+            
+        }
     });
     NSLog(@"didFinish: %@; stillLoading:%@", [webView URL], (webView.loading?@"NO":@"YES"));
 }
@@ -301,7 +346,7 @@
 -(void)handleRefresh:(UIRefreshControl *)refresh {
    
     refreshing =1;
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://fbf2.bulwarkapp.com/techapp/myroutes/routes.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&build=60"];
@@ -327,7 +372,7 @@
     
     
     
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptRouteSummary.aspx?hr_emp_id=";
+    NSString *UrlString = @"https://fbf2.bulwarkapp.com/techapp/myroutes/routes.aspx?hr_emp_id=";
     
     UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
     UrlString = [UrlString stringByAppendingString:@"&build=60"];

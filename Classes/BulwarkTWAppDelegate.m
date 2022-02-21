@@ -891,7 +891,7 @@
     
     NSString *phn = PhoneNumber;
     
-    NSString *UrlStr = @"https://www.bulwarktechnician.com/phones/clicktocall.aspx?mp=";
+    NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/phones/clicktocall.aspx?mp=";
     
     NSString *techPhone =  [[_phone componentsSeparatedByCharactersInSet:
                              [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
