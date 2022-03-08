@@ -12,8 +12,10 @@ import WebKit
 class viewMyStats: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     @IBOutlet var webView : WKWebView!
+    var refController:UIRefreshControl = UIRefreshControl()
     
-
+    var HUD: MBProgressHUD!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,26 +27,62 @@ class viewMyStats: UIViewController,WKNavigationDelegate,WKUIDelegate {
         
        // webView.scrollView.isScrollEnabled = false
         
+        HUD = MBProgressHUD(view: view)
+        view.addSubview(HUD)
+        HUD.hide(true)
+        
+
+        
+        refController.bounds = CGRect.init(x: 0.0, y: 50.0, width: refController.bounds.size.width, height: refController.bounds.size.height)
+        refController.addTarget(self, action: #selector(self.webviewRefresh(refresh:)), for: .valueChanged)
+        webView.scrollView.addSubview(refController)
         
         
+        
+        
+
+    }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
         
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         let h = appDelegate.hrEmpId ?? ""
         
-        
-        
-        
-        
-        
         let url = URL(string: "https://fbf2.bulwarkapp.com/mgrapp2/techstatsipad.aspx?h=" + h)!
         webView.load(URLRequest(url: url))
-       //webView.allowsBackForwardNavigation
-       //webView.allowsBackForwardNavigationGestures = true
         
-        // Do any additional setup after loading the view.
+        
     }
     
+    @objc func webviewRefresh(refresh:UIRefreshControl){
+        refController.endRefreshing()
+        webView.reload()
+    }
+    
+    
+    func showActivityIndicator(show: Bool) {
+        if show {
+            HUD.show(true)
+        } else {
+            HUD.hide(true)
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        showActivityIndicator(show: false)
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showActivityIndicator(show: true)
+    }
 
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        showActivityIndicator(show: false)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

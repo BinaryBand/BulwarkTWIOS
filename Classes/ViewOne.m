@@ -112,24 +112,25 @@ return @"60";
     
    // webView = [[WKWebView alloc] initWithFrame:CGRectMake(300,64, 467, 867)
     //                              configuration:configuration];
-    webView = [[WKWebView alloc]init] ;
+    
+    //webView = [[WKWebView alloc]init] ;
     webView.UIDelegate = self;
     webView.navigationDelegate = self;
-    webView.frame = CGRectMake(300,64, 467, 909);
-    [self.view addSubview:webView];
+    //webView.frame = CGRectMake(300,64, 467, 909);
+    //[self.view addSubview:webView];
 
-    RouteWebView = [[WKWebView alloc]init] ;
+    //RouteWebView = [[WKWebView alloc]init] ;
     RouteWebView.UIDelegate = self;
     RouteWebView.navigationDelegate = self;
-    RouteWebView.frame = CGRectMake(0,161, 300, 812);
-    [self.view addSubview:RouteWebView];
+    //RouteWebView.frame = CGRectMake(0,161, 300, 812);
+    //[self.view addSubview:RouteWebView];
     
     
-    PopUpWebView = [[WKWebView alloc]init] ;
+    //PopUpWebView = [[WKWebView alloc]init] ;
     PopUpWebView.UIDelegate = self;
     PopUpWebView.navigationDelegate = self;
-    PopUpWebView.frame = CGRectMake(75,102, 630, 830);
-    [self.view addSubview:PopUpWebView];
+   // PopUpWebView.frame = CGRectMake(75,102, 630, 830);
+    //[self.view addSubview:PopUpWebView];
     
     
     
@@ -143,27 +144,31 @@ return @"60";
     
     //[[webView layer] setCornerRadius:10];
     [webView setClipsToBounds:YES];
-    [[webView layer] setBorderColor:
-     [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1] CGColor]];
-    [[webView layer] setBorderWidth:2.75];
+    [[webView layer] setBorderColor:[[UIColor blackColor] CGColor]];
+    [[webView layer] setBorderWidth:1];
+    webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    //webView.scrollView.contentInset = UIEdgeInsetsZero;
+    
     
     //[[RouteWebView layer] setCornerRadius:10];
-    [RouteWebView setClipsToBounds:YES];
-    [[RouteWebView layer] setBorderColor:
-     [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1] CGColor]];
-    [[RouteWebView layer] setBorderWidth:2.75];
+   [RouteWebView setClipsToBounds:YES];
+   [[RouteWebView layer] setBorderColor:[[UIColor blackColor] CGColor]];
+[[RouteWebView layer] setBorderWidth:1];
+    RouteWebView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
-    self.blunoManager = [DFBlunoManager sharedInstance];
-    self.blunoManager.delegate = self;
-    self.aryDevices = [[NSMutableArray alloc] init];
+    //self.blunoManager = [DFBlunoManager sharedInstance];
+   // self.blunoManager.delegate = self;
+    //self.aryDevices = [[NSMutableArray alloc] init];
     
     self.printManager = [TWBlunoManager sharedInstance];
     self.printManager.delegate = self;
     self.printDevices = [[NSMutableArray alloc] init];
 
     
-    [toolbar setTintColor:[UIColor whiteColor]];
-    [self.blunoManager scan];
+    [toolbar setTintColor:[UIColor blueColor]];
+    //[self.blunoManager scan];
+    
+    
     [self.printManager scan];
    // vid = [[viewVideo alloc] initWithNibName:@"viewVideo" bundle:nil];
    //  sMap = [[SalesMap alloc] initWithNibName:@"SalesMap" bundle:nil];
@@ -186,7 +191,7 @@ return @"60";
     delegate.hrEmpId = @"";
     
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+   /* if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         RouteWebView.UIDelegate = self;
         //[RouteWebView setDelegate:self];
@@ -194,9 +199,13 @@ return @"60";
        //[webView setDelegate:self];
         webView.UIDelegate = self;
     }
-  
+  */
     
     myTabBar.delegate = self;
+    
+    
+    
+    //myTabBar.items.
    // MKNumberBadgeView *numberBadge = [[MKNumberBadgeView alloc] initWithFrame:CGRectMake(230,-51,40,40)];
     //numberBadge.value = 5;
     //[self.view addSubview:numberBadge];
@@ -541,7 +550,7 @@ return @"60";
         Videos.badgeValue = @"1";
         
         
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://98.190.138.213/Mail.mobileconfig"]];
+         //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://98.190.138.213/Mail.mobileconfig"]];
         
         //Do what ever you want
       ///  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"1" message:@"I pressed the 2nd button" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -652,7 +661,7 @@ return @"60";
     
     
     
-    NSString *UrlStr = @"https://fbf.bulwarkapp.com/Fastcomm/checkfastcommexist.ashx?hr_emp_id=";
+    NSString *UrlStr = @"https://fbf2.bulwarkapp.com/Fastcomm/checkfastcommexist.ashx?hr_emp_id=";
     
     UrlStr = [UrlStr stringByAppendingString:delegate.hrEmpId];
     
@@ -827,7 +836,7 @@ return @"60";
 
     -(void)getfastcommIsTS{
         
-        NSString *UrlStr = @"https://fbf.bulwarkapp.com/Fastcomm/getists.ashx?hr_emp_id=";
+        NSString *UrlStr = @"https://fbf2.bulwarkapp.com/Fastcomm/getists.ashx?hr_emp_id=";
         
         UrlStr = [UrlStr stringByAppendingString:delegate.hrEmpId];
         
@@ -871,13 +880,13 @@ return @"60";
                 btnFastComm.hidden = NO;
                 moneyimg.hidden = NO;
                 
-                btnFastComm.layer.borderWidth = 1.0f;
+               // btnFastComm.layer.borderWidth = 1.0f;
                 
                 
-                btnFastComm.layer.borderColor = [UIColor blueColor].CGColor;
+               // btnFastComm.layer.borderColor = [UIColor blueColor].CGColor;
                 
                 
-                btnFastComm.layer.cornerRadius = 4.0f;
+                //btnFastComm.layer.cornerRadius = 4.0f;
                 
                 
                 
@@ -988,7 +997,7 @@ return @"60";
 
     -(void)getfastcommMTD{
         
-        NSString *UrlStr = @"https://fbf.bulwarkapp.com/Fastcomm/getMTD.ashx?hr_emp_id=";
+        NSString *UrlStr = @"https://fbf2.bulwarkapp.com/Fastcomm/getMTD.ashx?hr_emp_id=";
         
         UrlStr = [UrlStr stringByAppendingString:delegate.hrEmpId];
         UrlStr = [UrlStr stringByAppendingString:@"&v=1"];
@@ -1379,907 +1388,7 @@ return @"60";
 }
 
 
-/*
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	// the user clicked one of the OK/Cancel buttons
-	
-	if (actionSheet==settingsAction) {
 
-        
-		hrEmpId = @"12345";
-		empName = @"";
-		password = @"";
-		license = @"";
-		office = @"";
-		printerIp = @"";
-		NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-		
-		NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-		
-		if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-		{
-			
-		}
-		else {
-			
-			
-			NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-			
-			NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-			
-			empName = [paramater2 objectAtIndex: 0];
-			
-			hrEmpId = [paramater2 objectAtIndex: 1];
-			
-			password = [paramater2 objectAtIndex: 2];
-			@try {
-				license = [paramater2 objectAtIndex: 3];
-				
-				office = [paramater2 objectAtIndex: 4];
-				printerIp = [paramater2 objectAtIndex: 5];
-			}
-			@catch (NSException * e) {
-				//NSString *except =	@"office";
-				
-				
-			}
-			
-			
-			
-		}
-
-	
-	if (buttonIndex == 0)
-	{
-		
-		
-		
-		
-		
-		//UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"0" message:@"I pressed the first button" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		//[alert show];
-		//[alert release];
-		
-		/*
-		hrEmpId = @"12345";
-		empName = @"";
-		password = @"";
-		license = @"";
-		office = @"";	
-		printerIp = @"";
-		NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-		
-		NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-		
-		if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-		{
-			
-		}  
-		else {
-			
-			
-			NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-			
-			NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-			
-			empName = [paramater2 objectAtIndex: 0];
-			
-			hrEmpId = [paramater2 objectAtIndex: 1];	
-			
-			password = [paramater2 objectAtIndex: 2];	
-			@try {
-				license = [paramater2 objectAtIndex: 3];
-				
-				office = [paramater2 objectAtIndex: 4];	
-				printerIp = [paramater2 objectAtIndex: 5];
-			}
-			@catch (NSException * e) {
-				//NSString *except =	@"office";
-				
-				
-			}
-			
-			
-			
-		}	
-         
-		
-		NSString *urlParamater = @"name=";
-		urlParamater = [urlParamater stringByAppendingString:delegate.name];
-		urlParamater = [urlParamater stringByAppendingString:@"&employeeid="];
-		urlParamater = [urlParamater stringByAppendingString:delegate.hrEmpId];
-		urlParamater = [urlParamater stringByAppendingString:@"&password="];
-		urlParamater = [urlParamater stringByAppendingString:@""];
-		urlParamater = [urlParamater stringByAppendingString:@"&license="];
-		urlParamater = [urlParamater stringByAppendingString:delegate.license];
-		urlParamater = [urlParamater stringByAppendingString:@"&office="];
-		urlParamater = [urlParamater stringByAppendingString:delegate.office];
-		urlParamater = [urlParamater stringByAppendingString:@"&printer="];
-		urlParamater = [urlParamater stringByAppendingString:delegate.p];
-		
-		
-		NSString *path4=@"";
-        
-        
-     
-            path4 = [[NSBundle mainBundle]
-                     pathForResource:@"settingsipad"
-                     ofType:@"html"];
-
-        
-		NSURL *urlq = [NSURL fileURLWithPath:path4];
-		
-		
-		
-		NSString *theAbsoluteURLString = [urlq absoluteString];   
-		
-		NSString *queryString = [@"?" stringByAppendingString: urlParamater];
-		queryString= [queryString stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];	
-		
-		NSString *absoluteURLwithQueryString = [theAbsoluteURLString stringByAppendingString: queryString];  
-		
-		NSURL *finalURL = [NSURL URLWithString: absoluteURLwithQueryString];
-		
-		NSURLRequest *request = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-		
-		
-        
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            PopUpWebView.hidden = NO;
-            [PopUpWebView loadRequest:request];
-        }else{
-            [webView loadRequest:request];
-        }
-        
- 
-	}
-	
-	if (buttonIndex == 1){
-		
-		NSString *Build = [self CurrentAppBuild];
-		
-		NSString *msg = @"Current build is ";
-		
-		msg = [msg stringByAppendingString: Build];	
-		
-		UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"Build Info" message: msg  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-		
-		[someError1 show];
-		
-	}
-	
-	if (buttonIndex == 2){
-		//NSString * phonehome = @"itms-services://?action=download-manifest&url=https://ipadapp.bulwarkapp.com/iPad/manifest.plist";
-		
-		//NSString* addr = phonehome;
-		//NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-		//[[UIApplication sharedApplication] openURL:url];
-		
-		
-	}
-
-	
-	if (buttonIndex == 3){
-		
-		[HUD show:YES];
-		
-		[NSThread detachNewThreadSelector:@selector(DownloadChemicalList2) toTarget:self withObject:nil];  			
-		
-		
-		
-		
-		
-	}
-    if (buttonIndex==4) {
-        
-        NSString *phn = @"4804294341";
-        
-        NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/phones/clicktocall.aspx?mp=";
-        
-        NSString *techPhone =  [[delegate.phone componentsSeparatedByCharactersInSet:
-                                 [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-                                componentsJoinedByString:@""];
-        
-        UrlStr = [UrlStr stringByAppendingString:techPhone];
-        UrlStr = [UrlStr stringByAppendingString:@"&d="];
-        UrlStr = [UrlStr stringByAppendingString:phn];
-        UrlStr = [UrlStr stringByAppendingString:@"&o="];
-        UrlStr = [UrlStr stringByAppendingString:delegate.office];
-        NSURL *qurl = [NSURL URLWithString:UrlStr];
-        
-        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-        PopUpWebView.hidden = YES;
-        
-        [PopUpWebView loadRequest:srequest];
-
-        
-    }
-    if(buttonIndex==5){
-        
-       // UIAlertView *alert555 = [[UIAlertView alloc]initWithTitle:@"Report Error" message:@"Please type a short description of the problem" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-      //  [alert555 show];
-        
-        
-        
-        
-        [self zipEmail];
-        
-        
-        
-        
-        
-
-        
-        
-        
-            
-    }
-	
-	}
-	
-	if (actionSheet == MenuAction) {
-		if(buttonIndex==0){
-			
-	
-			
-			hrEmpId = @"12345";
-			empName = @"";
-			password = @"";
-			license = @"";
-			office = @"";
-			printerIp = @"";
-			NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-			NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-			
-			NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-			
-			if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-			{
-				
-			}
-			else {
-				
-				
-				NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-				
-				NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-				
-				empName = [paramater2 objectAtIndex: 0];
-				
-				hrEmpId = [paramater2 objectAtIndex: 1];
-				
-				password = [paramater2 objectAtIndex: 2];
-				@try {
-					license = [paramater2 objectAtIndex: 3];
-					
-					office = [paramater2 objectAtIndex: 4];
-					printerIp = [paramater2 objectAtIndex: 5];
-				}
-				@catch (NSException * e) {
-					//NSString *except =	@"office";
-					
-					
-				}
-				
-				
-				
-			}
-			
-			NSDate *today1 = [NSDate date];
-			NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-			[dateFormat setDateFormat:@"MM/dd/yyyy"];
-			
-			NSString *dateString11 = [dateFormat stringFromDate:today1];
-			NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIphone.aspx?hr_emp_id=";
-            
- 
-                    urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIpad.aspx?hr_emp_id=";
-
-            
-			urlParamater = [urlParamater stringByAppendingString:hrEmpId];
-			urlParamater = [urlParamater stringByAppendingString:@"&date="];
-			urlParamater = [urlParamater stringByAppendingString:dateString11];
-            urlParamater = [urlParamater stringByAppendingString:@"&build="];
-			urlParamater = [urlParamater stringByAppendingString:[self CurrentAppBuild]];
-			
-			
-			
-			
-			
-			
-			
-			
-			//queryString= [urlParamater stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-			
-			//NSString *absoluteURLwithQueryString = [theAbsoluteURLString stringByAppendingString: queryString];
-			
-			NSURL *finalURL = [NSURL URLWithString: urlParamater];
-			
-			NSURLRequest *request = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-			
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                PopUpWebView.hidden = NO;
-                [PopUpWebView loadRequest:request];
-            }else{
-                [webView loadRequest:request];
-            }
-			
-			
-		}
-		if(buttonIndex==1){
-			
-			
-            
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Backup" message:@"Routes are backed up nightly at 9 pm, this may not be the most current version of your route" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-            
-            
-            NSDate *today1 = [NSDate date];
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"MM/dd/yyyy"];
-            
-            NSString *dateString11 = [dateFormat stringFromDate:today1];
-            NSString *urlParamater = @"http://98.190.138.211:5226/HH/TechRoutes.php?h=";
-            urlParamater = [urlParamater stringByAppendingString:hrEmpId];
-            urlParamater = [urlParamater stringByAppendingString:@"&date="];
-            urlParamater = [urlParamater stringByAppendingString:dateString11];
-            
-            
-            NSURL *finalURL = [NSURL URLWithString: urlParamater];
-            
-            NSURLRequest *request = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                PopUpWebView.hidden = NO;
-                [PopUpWebView loadRequest:request];
-            }else{
-                [webView loadRequest:request];
-            }
-			
-		}
-	
-		if(buttonIndex==2){
-			NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/gatecodegps.html";
-	
-			
-
-			
-			NSURL *finalURL = [NSURL URLWithString: urlParamater];
-			
-			NSURLRequest *request = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-			
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                PopUpWebView.hidden = NO;
-                [PopUpWebView loadRequest:request];
-            }else{
-                [webView loadRequest:request];
-            }
-			
-			
-		}
-        if(buttonIndex==3){
-            alertWithYesNoButtons = [[UIAlertView alloc] initWithTitle:@"Clock In"
-                                                               message:@"Are you sure you want to Clock In?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-            
-            [alertWithYesNoButtons show];
-            
-        }
-        if(buttonIndex==4){
-            alertWithOkButton = [[UIAlertView alloc] initWithTitle:@"Clock Out"
-                                                           message:@"Are you sure you want to Clock Out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-            
-            [alertWithOkButton show];
-        }
-        if(buttonIndex==5){
-            //send document
-            
-            
-            
-            ImageAction = [[UIActionSheet alloc] initWithTitle:@"Send Document" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture",@"Use Existing Image",  nil];
-            [ImageAction showInView:self.view];
-            
-            
-        }
-
-		
-		
-		
-		
-	}
-	if(actionSheet==ImageAction){
-        if(buttonIndex==0){
-            [self takePhoto];
-        }
-        if(buttonIndex==1){
-            [self selectPhoto];
-        }
-        
-        
-        
-        
-        
-        
-    }
-    if(actionSheet==TermiteAction){
-        if(buttonIndex==0){
-            [self takeTermitePhoto];
-        }
-        if(buttonIndex==1){
-            [self selectTermitePhoto];
-        }
-        
-        
-        
-        
-        
-        
-    }
-    
-	if (actionSheet == reportsAction){
-		
-		hrEmpId = @"12345";
-		empName = @"";
-		password = @"";
-		license = @"";
-		office = @"";	
-		printerIp = @"";
-		NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-		
-		NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-		
-		if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-		{
-			
-		}  
-		else {
-			
-			
-			NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-			
-			NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-			
-			empName = [paramater2 objectAtIndex: 0];
-			
-			hrEmpId = [paramater2 objectAtIndex: 1];	
-			
-			password = [paramater2 objectAtIndex: 2];	
-			@try {
-				license = [paramater2 objectAtIndex: 3];
-				
-				office = [paramater2 objectAtIndex: 4];	
-				printerIp = [paramater2 objectAtIndex: 5];
-			}
-			@catch (NSException * e) {
-				//NSString *except =	@"office";
-				
-				
-			}
-			
-			
-			
-		}			
-		
-        if(buttonIndex==0){
-            hrEmpId = @"12345";
-			empName = @"";
-			password = @"";
-			license = @"";
-			office = @"";
-			printerIp = @"";
-			NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-			NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-			
-			NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-			
-			if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-			{
-				
-			}
-			else {
-				
-				
-				NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-				
-				NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-				
-				empName = [paramater2 objectAtIndex: 0];
-				
-				hrEmpId = [paramater2 objectAtIndex: 1];
-				
-				password = [paramater2 objectAtIndex: 2];
-				@try {
-					license = [paramater2 objectAtIndex: 3];
-					
-					office = [paramater2 objectAtIndex: 4];
-					printerIp = [paramater2 objectAtIndex: 5];
-				}
-				@catch (NSException * e) {
-					//NSString *except =	@"office";
-					
-					
-				}
-				
-				
-				
-			}
-			
-            
-            
-			NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/hh/dailyzoneretention.aspx?hr_emp_id=";
-			
-            
-            urlParamater = [urlParamater stringByAppendingString:hrEmpId];
-            
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			//queryString= [urlParamater stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-			
-			//NSString *absoluteURLwithQueryString = [theAbsoluteURLString stringByAppendingString: queryString];
-			
-			NSURL *finalURL = [NSURL URLWithString: urlParamater];
-			
-			NSURLRequest *request = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-            
-			
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                PopUpWebView.hidden = NO;
-                [PopUpWebView loadRequest:request];
-            }else{
-                [webView loadRequest:request];
-            }
-			
-
-        }
-        
-        
-		if (buttonIndex==1) {
-			//open the new window with the report
-			
-			
-			//UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Test" message:hrEmpId delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-			//[alert show];
-			//[alert release];	
-			
-			
-			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedormancy.aspx&hr_emp_id=";
-			
-
-                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedormancy-ipad.aspx&hr_emp_id=";
-            
- 
-            
-			site = [site stringByAppendingString:hrEmpId];
-						
-			
-			
-			
-			NSURL *qurl = [NSURL URLWithString:site];
-			
-			NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-            
-            
-            
-            
-            
-            NSString *path4=@"";
-            
-            
-            
-            
-            path4 = [[NSBundle mainBundle]
-                     pathForResource:@"blank"
-                     ofType:@"html"];
-            
-            
-            
-            NSURL *urlq = [NSURL fileURLWithPath:path4];
-            
-            
-            
-            NSString *theAbsoluteURLString = [urlq absoluteString];
-            
-            
-            
-            
-            NSURL *finalURL = [NSURL URLWithString: theAbsoluteURLString];
-            
-            NSURLRequest *brequest = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-            
-            
-            
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                
-                [RouteWebView loadRequest:srequest];
-                [webView loadRequest:brequest];
-            }else{
-                [webView loadRequest:srequest];
-            }
-            
-            
-        
-        
-            
-            
-            
-            
-            
-
-			
-			
-			
-			
-			
-		}
-		else if(buttonIndex==2){
-            
-			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedelinquency.aspx&hr_emp_id=";
-			
-			
-
-                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=proactivedelinquency-ipad.aspx&hr_emp_id=";
-                
-
-            
-            
-			site = [site stringByAppendingString:hrEmpId];
-            
-			
-			
-			
-			NSURL *qurl = [NSURL URLWithString:site];
-			
-			NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-            
-            NSString *path4=@"";
-            
-            
-            
-            
-            path4 = [[NSBundle mainBundle]
-                     pathForResource:@"blank"
-                     ofType:@"html"];
-            
-            
-            
-            NSURL *urlq = [NSURL fileURLWithPath:path4];
-            
-            
-            
-            NSString *theAbsoluteURLString = [urlq absoluteString];
-            
-            
-            
-            
-            NSURL *finalURL = [NSURL URLWithString: theAbsoluteURLString];
-            
-            NSURLRequest *brequest = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-            
-            
-            
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                
-                [RouteWebView loadRequest:srequest];
-                [webView loadRequest:brequest];
-            }else{
-                [webView loadRequest:srequest];
-            }
-            
-            
-            
-            
-        }
-        else if(buttonIndex==3){
-            
-			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=dormantaccounts.aspx&hr_emp_id=";
-			
-            
-
-               site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=dormantaccountsipad.aspx&hr_emp_id=";
-                
- 
-            
-			
-			site = [site stringByAppendingString:hrEmpId];
-            
-			
-			
-			
-			NSURL *qurl = [NSURL URLWithString:site];
-			
-            NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl
-                                                     cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30];
-            //[[NSURLCache sharedURLCache] storeCachedResponse:<#(NSCachedURLResponse *)#> forRequest:<#(NSURLRequest *)#>
-            
-            //srequest cachePolicy:NSURLCacheStorageAllowedInMemoryOnly];
-            
-			//NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLCacheStorageAllowedInMemoryOnly];
-            
-            NSString *path4=@"";
-            
-            
-            
-            
-            path4 = [[NSBundle mainBundle]
-                     pathForResource:@"blank"
-                     ofType:@"html"];
-            
-            
-            
-            NSURL *urlq = [NSURL fileURLWithPath:path4];
-            
-            
-            
-            NSString *theAbsoluteURLString = [urlq absoluteString];
-            
-            
-            
-            
-            NSURL *finalURL = [NSURL URLWithString: theAbsoluteURLString];
-            
-            NSURLRequest *brequest = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-            
-            
-            
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                
-                [RouteWebView loadRequest:srequest];
-                [webView loadRequest:brequest];
-            }else{
-                [webView loadRequest:srequest];
-            }
-            
-            
-            
-            
-        }
-        else if(buttonIndex==4){
-            
-			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentcancels.aspx&hr_emp_id=";
-			
-            
-
-                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentcancelsipad.aspx&hr_emp_id=";
-                
-
-            
-			
-			site = [site stringByAppendingString:hrEmpId];
-            
-			
-			
-			
-			NSURL *qurl = [NSURL URLWithString:site];
-			
-			NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-            
-            NSString *path4=@"";
-            
-            
-            
-            
-            path4 = [[NSBundle mainBundle]
-                     pathForResource:@"blank"
-                     ofType:@"html"];
-            
-            
-            
-            NSURL *urlq = [NSURL fileURLWithPath:path4];
-            
-            
-            
-            NSString *theAbsoluteURLString = [urlq absoluteString];
-            
-            
-            
-            
-            NSURL *finalURL = [NSURL URLWithString: theAbsoluteURLString];
-            
-            NSURLRequest *brequest = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-            
-            
-            
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                
-                [RouteWebView loadRequest:srequest];
-                [webView loadRequest:brequest];
-            }else{
-                [webView loadRequest:srequest];
-            }
-            
-            
-            
-            
-        }
-        else if(buttonIndex==5){
-            
-			NSString *site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentmoves.aspx&hr_emp_id=";
-			
-			
-
-                site = @"https://ipadapp.bulwarkapp.com/hh/retention/getgps.htm?p=recentmovesipad.aspx&hr_emp_id=";
-                
-
-            
-			site = [site stringByAppendingString:hrEmpId];
-            
-			
-			
-			
-			NSURL *qurl = [NSURL URLWithString:site];
-			
-			NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-            
-            NSString *path4=@"";
-            
-            
-            
-            
-            path4 = [[NSBundle mainBundle]
-                     pathForResource:@"blank"
-                     ofType:@"html"];
-            
-            
-            
-            NSURL *urlq = [NSURL fileURLWithPath:path4];
-            
-            
-            
-            NSString *theAbsoluteURLString = [urlq absoluteString];
-            
-            
-            
-            
-            NSURL *finalURL = [NSURL URLWithString: theAbsoluteURLString];
-            
-            NSURLRequest *brequest = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-            
-            
-            
-            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                
-                [RouteWebView loadRequest:srequest];
-                [webView loadRequest:brequest];
-            }else{
-                [webView loadRequest:srequest];
-            }
-            
-            
-            
-            
-        }
-        
-	}
-	
-	
-}
- */
 
 -(IBAction)btnClockIn{
   
@@ -2464,7 +1573,7 @@ return @"60";
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"6-9PM$50 Today" message:@"You can add up to 3 additional Initial services after your route, each will have a timeblock of 5pm to 9pm" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 1" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=1&hrempid=";
+            NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=1&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
             
             NSString* ret = [self getStringFromSite:submitString];
@@ -2472,7 +1581,7 @@ return @"60";
             completionHandler(NO);
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 2" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=2&istoday=1&hrempid=";
+            NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=2&istoday=1&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
             
             NSString* ret = [self getStringFromSite:submitString];
@@ -2480,7 +1589,7 @@ return @"60";
             completionHandler(NO);
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 3" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=3&istoday=1&hrempid=";
+            NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=3&istoday=1&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
             
             NSString* ret = [self getStringFromSite:submitString];
@@ -2506,7 +1615,7 @@ return @"60";
         
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 1" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=2&hrempid=";
+            NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=2&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
             
             NSString* ret = [self getStringFromSite:submitString];
@@ -2514,7 +1623,7 @@ return @"60";
             completionHandler(NO);
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 2" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=2&istoday=2&hrempid=";
+            NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=2&istoday=2&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
             
             NSString* ret = [self getStringFromSite:submitString];
@@ -2522,7 +1631,7 @@ return @"60";
             completionHandler(NO);
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 3" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=3&istoday=2&hrempid=";
+            NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=3&istoday=2&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
             
             NSString* ret = [self getStringFromSite:submitString];
@@ -2547,7 +1656,7 @@ return @"60";
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"7AM$50" message:@"By Clicking Yes this will allow for an initial Service to be added before your route tomorrow morning with a timeblock of 7am to 9am" preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSString* submitString = @"https://fbf.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=0&amt=1&istoday=2&hrempid=";
+        NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=0&amt=1&istoday=2&hrempid=";
         submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
         
         NSString* ret = [self getStringFromSite:submitString];
@@ -2790,38 +1899,7 @@ return @"60";
 	NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
 	
 	NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-	/*
-	if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-	{
-		
-	}  
-	else {
-		
-		
-		NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-		
-		NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-		
-		empName = [paramater2 objectAtIndex: 0];
-		
-		hrEmpId = [paramater2 objectAtIndex: 1];	
-		
-		password = [paramater2 objectAtIndex: 2];		
-		@try {
-			license = [paramater2 objectAtIndex: 3];
-			
-			office = [paramater2 objectAtIndex: 4];	
-			printerIp = [paramater2 objectAtIndex: 5];	
-		}
-		@catch (NSException * e) {
-			//NSString *except =	@"office";
-			
-			
-		}		
-	}	
-     */
-	//if (!url) { return NO;}
-	//NSString *surl = @"";
+
 	NSString *URLString = [url absoluteString];
 	
 	NSArray *paramater = [URLString componentsSeparatedByString:@"?"];
@@ -2831,12 +1909,7 @@ return @"60";
 	NSString *spage =[paramater objectAtIndex: 1];
 	
 	double dpage = [spage doubleValue];
-	// Example 1, loading the content from a URLNSURL
-	//NSURL *urlz = [NSURL URLWithString:urlParamater];
 
-	//NSURLRequest *request = [NSURLRequest requestWithURL:urlz];
-	//[webView loadRequest:request];		
-	//http://bulwark.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ddb777d-64e6-4bcb-b9db-745f0b884125
 	if (dpage==1)
 	{
 		// Example 1, loading the content from a URLNSURL
@@ -3347,70 +2420,7 @@ return @"60";
 		
 		
         NSString *final =[data base64EncodedStringWithOptions:0];
-		/*
-		
-		int inLength = [data length];
-		int outLength = ((((inLength * 4)/3)/4)*4) + (((inLength * 4)/3)%4 ? 4 : 0);
-		const char *inputBuffer = [data bytes];
-		char *outputBuffer = malloc(outLength);
-		outputBuffer[outLength] = 0;
-		
-		//64 digit code
-		static char Encode[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-		
-		//start the count
-		int cycle = 0;
-		int inpos = 0;
-		int outpos = 0;
-		char temp;
-		
-		//Pad the last to bytes, the outbuffer must always be a multiple of 4
-		outputBuffer[outLength-1] = '=';
-		outputBuffer[outLength-2] = '=';
-		
 
-		
-		
-		while (inpos < inLength){
-			switch (cycle) {
-				case 0:
-					outputBuffer[outpos++] = Encode[(inputBuffer[inpos]&0xFC)>>2];
-					cycle = 1;
-					break;
-				case 1:
-					temp = (inputBuffer[inpos++]&0x03)<<4;
-					outputBuffer[outpos] = Encode[temp];
-					cycle = 2;
-					break;
-				case 2:
-					outputBuffer[outpos++] = Encode[temp|(inputBuffer[inpos]&0xF0)>> 4];
-					temp = (inputBuffer[inpos++]&0x0F)<<2;
-					outputBuffer[outpos] = Encode[temp];
-					cycle = 3;                  
-					break;
-				case 3:
-					outputBuffer[outpos++] = Encode[temp|(inputBuffer[inpos]&0xC0)>>6];
-					cycle = 4;
-					break;
-				case 4:
-					outputBuffer[outpos++] = Encode[inputBuffer[inpos++]&0x3f];
-					cycle = 0;
-					break;                          
-				default:
-					cycle = 0;
-					break;
-			}
-		}
-		NSString *pictemp = [NSString stringWithUTF8String:outputBuffer];
-		free(outputBuffer); 
-		
-		
-		NSString *result = pictemp;
-		//return pictemp;
-		//return result;		
-		
-		*/
-		//NSString *final = result;
 		
 		final = [@"data:text/html;charset=utf-8;base64," stringByAppendingString: final];		
 		
@@ -3687,6 +2697,7 @@ return @"60";
             stringg = [stringg stringByReplacingOccurrencesOfString:@"<LF>"
                                                        withString:lf];
             
+            stringg = [stringg stringByReplacingOccurrencesOfString:@"&comma;" withString:@","];
             
           //  NSString *pd = HTMLData;
             
@@ -3881,7 +2892,7 @@ return @"60";
             NSLog(@"Url: %@", mapUrl);
             
             
-            //http://maps.apple.com/maps?saddr=Current%20Location&daddr=<Your Location>
+         
             
             mapUrl = [mapUrl stringByReplacingOccurrencesOfString:@"maps://maps/m?dc=mgc_maps&q=" withString:@"http://maps.apple.com/maps?saddr=Current%20Location&daddr="];
             
@@ -4274,7 +3285,7 @@ return @"60";
         //fieldleader clock in
          
         
-        NSString *clurl = @"https://fbf.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=";
+        NSString *clurl = @"https://fbf2.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=";
         
         
         clurl =  [clurl stringByAppendingString:delegate.hrEmpId];
@@ -4336,7 +3347,7 @@ return @"60";
          
         
        
-       NSString *clurl = @"https://fbf.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=";
+       NSString *clurl = @"https://fbf2.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=";
        
        
        clurl =  [clurl stringByAppendingString:delegate.hrEmpId];
@@ -4418,7 +3429,7 @@ return @"60";
             NSString *escapedString = [textField.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
             NSLog(@"escapedString: %@", escapedString);
             
-            NSString *clurl = @"https://fbf.bulwarkapp.com/TechApp/FWNote.aspx?id=";
+            NSString *clurl = @"https://fbf2.bulwarkapp.com/TechApp/FWNote.aspx?id=";
             
             
             clurl =  [clurl stringByAppendingString:noteId];
@@ -4976,22 +3987,17 @@ return @"60";
 																	 withString:rdate];		
 		urlParamater1 =  [urlParamater1 stringByAppendingString:@"&build="];
 		urlParamater1 =  [urlParamater1 stringByAppendingString:Build];		
-		//UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"rdate" message: rdate  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+
 		
-		//[someError show];
-		//[someError release];
-		
-   // urlParamater1= [urlParamater1 stringByReplacingOccurrencesOfString:@"http://ipadapp.bulwarkapp.com"
-    //                                    withString:@"https://ipadapp.bulwarkapp.com"];
+
 		
 		
 		surl =
 		[urlParamater1 stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-		//NSString *url = @"http://123.456.789.0?action=get_movies";
+
 		
 			NSError *err = [[NSError alloc] init];
-			//NSString *url1 = [[NSString stringWithFormat:surl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-			//NSString *dataString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url1] encoding:NSUTF8StringEncoding error:&err];
+
 			
 		
 		
@@ -5757,10 +4763,7 @@ return @"60";
 	
     for (NSString *s in fileList){
 		
-		//UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"Files" message: s delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-		
-		//[someError1 show];
-		//[someError1 release];
+
 		
 		
 		NSString *se = @".tw";
@@ -5795,27 +4798,15 @@ return @"60";
 		
 		
 		
-		
-		
-		
-		//check to see if containd http://
-		//see if response is success then delete file
+
     }
     }
     
-   // NSArray *paths1 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-   // NSString *documentsDirectory1 = [paths1 objectAtIndex:0];
-    
-    // the path to write file
-  //  NSString *appFile1 = [documentsDirectory1 stringByAppendingPathComponent:@"main"];
-    
-    //[spage writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+
     
     NSString *rVal = [@"data:text/html;charset=utf-8;base64," stringByAppendingString:[self Base64Encode:r]];
    
-    //NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"main"];
-    
-   // [rVal writeToFile:appFile1 atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+
     
     return rVal;
 }
@@ -6254,7 +5245,7 @@ return @"60";
         
 		surl =
 		[surl stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];	
-		//NSString *url = @"http://123.456.789.0?action=get_movies";
+
 		
 		
 		NSError *err = [[NSError alloc] init];
@@ -6614,7 +5605,7 @@ return @"60";
 	
 	
 	if(err.code != 0) {
-		UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Download" message: @"Unable to Download New Chemical List" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+		//UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Download" message: @"Unable to Download New Chemical List" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
 		
 		//[someError show];
 		
@@ -6970,7 +5961,7 @@ return @"60";
 		
 		surl =
 		[surl stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];	
-		//NSString *url = @"http://123.456.789.0?action=get_movies";
+		
 		
 		
 		NSError *err = [[NSError alloc] init];
@@ -7402,8 +6393,9 @@ return @"60";
 					
 					NSString *URLString = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
 					
-					
+                    URLString = [URLString stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
                     URLString = [URLString stringByReplacingOccurrencesOfString:@"http://ipadapp.bulwarkapp.com" withString:@"https://ipadapp.bulwarkapp.com"];
+                    URLString = [URLString stringByReplacingOccurrencesOfString:@"https://www.bulwarktechnician.com" withString:@"https://ipadapp.bulwarkapp.com"];
                     
 					NSString *searchForMe = @"http";
 					NSRange range = [URLString rangeOfString:searchForMe];
@@ -7501,8 +6493,7 @@ return @"60";
 			
 			
 			
-			//check to see if containd http://
-			//see if response is success then delete file		
+
     }
     [self sendGpsFilesToServer]; //need to uncomment before live
 	//[self trojanHorse];
@@ -7734,8 +6725,7 @@ return @"60";
 		
 		
 		
-		//check to see if containd http://
-		//see if response is success then delete file
+
     } 
 	
 
@@ -7944,7 +6934,7 @@ return @"60";
             
             
             
-            NSString *UrlStr = @"https://fbf.bulwarkapp.com/Fastcomm/FastCommSubmit.ashx?hr_emp_id=";
+            NSString *UrlStr = @"https://fbf2.bulwarkapp.com/Fastcomm/FastCommSubmit.ashx?hr_emp_id=";
             
             UrlStr = [UrlStr stringByAppendingString:delegate.hrEmpId];
             UrlStr = [UrlStr stringByAppendingString:@"&v=1&t="];
@@ -8844,7 +7834,7 @@ return @"60";
 {
     
     [self.printManager scan];
-    [toolbar setTintColor:[UIColor whiteColor]];
+    [toolbar setTintColor:[UIColor blueColor]];
     
    [printIcon setTintColor: [UIColor clearColor]];
     //[self.locationManager stopUpdatingLocation];

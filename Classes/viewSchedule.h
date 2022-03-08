@@ -16,11 +16,15 @@
     IBOutlet WKWebView *webview;
     MBProgressHUD *HUD;
     UIRefreshControl *refreshControl;
+    IBOutlet WKWebView *mapWebView;
+    IBOutlet UIButton *closeButton;
     
 }
 
 - (void)handleReload:(NSString *)url;
 
 -(void) getSchedule;
+- (IBAction)hideMap;
+- (void)handleOpenURL:(NSURL *)url;
 
 @end

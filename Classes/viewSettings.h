@@ -14,7 +14,7 @@
 
 #import "ViewOne.h"
 
-@interface viewSettings : UIViewController  <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,MFMailComposeViewControllerDelegate>{
+@interface viewSettings : UIViewController  <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,MFMailComposeViewControllerDelegate, WKNavigationDelegate,WKUIDelegate>{
     
    IBOutlet UITextField *txtName;
    IBOutlet UITextField *txtHrEmpId;
@@ -30,7 +30,7 @@
 
     IBOutlet UIPickerView *picker;
     
-    IBOutlet WKWebView *webView;
+    //IBOutlet WKWebView *webView;
     IBOutlet WKWebView *PopUpWebView;
     
     

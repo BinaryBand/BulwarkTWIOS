@@ -71,11 +71,11 @@
     [self getSettings];
     
     
-    webView = [[WKWebView alloc]init] ;
-     webView.UIDelegate = self;
-     webView.navigationDelegate = self;
-     webView.frame = CGRectMake(300,64, 467, 910);
-     [self.view addSubview:webView];
+    //webView = [[WKWebView alloc]init] ;
+    // webView.UIDelegate = self;
+    // webView.navigationDelegate = self;
+    // webView.frame = CGRectMake(300,64, 467, 910);
+   //  [self.view addSubview:webView];
      
      PopUpWebView = [[WKWebView alloc]init] ;
      PopUpWebView.UIDelegate = self;
@@ -91,18 +91,18 @@
      [super viewDidLoad];
      
      //[[webView layer] setCornerRadius:10];
-     [webView setClipsToBounds:YES];
-     [[webView layer] setBorderColor:
-      [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1] CGColor]];
-     [[webView layer] setBorderWidth:2.75];
+    // [webView setClipsToBounds:YES];
+    // [[webView layer] setBorderColor:
+     // [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1] CGColor]];
+     //[[webView layer] setBorderWidth:2.75];
      
-       if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-       {
-       }else{
-           webView.UIDelegate = self;
-       }
+     //  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+     //  {
+     //  }else{
+     //      webView.UIDelegate = self;
+     //  }
      PopUpWebView.hidden = YES;
-    webView.hidden = YES;
+    //webView.hidden = YES;
        [PopUpWebView loadHTMLString:@"" baseURL:nil];
        
     
@@ -194,11 +194,19 @@
 
   
         
-        NSString *OfficeFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+          
+            NSString *OfficeFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
+            
+            
+            self->_listOfficeName = [OfficeFile componentsSeparatedByString:@"$"];
+            [self->picker reloadAllComponents];
+            
+            
+       });
         
-        _listOfficeName = [OfficeFile componentsSeparatedByString:@"$"];
-        
-        [picker reloadAllComponents];
+       
 
     }else{
         
@@ -541,14 +549,14 @@
             
           NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
           
-          if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-          {
+         // if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+         // {
              
               PopUpWebView.hidden = NO;
               [PopUpWebView loadRequest:request];
-          }else{
-              [webView loadRequest:request];
-          }
+          //}else{
+            //  [webView loadRequest:request];
+        //  }
 }
 
 

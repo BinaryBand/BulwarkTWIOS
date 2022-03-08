@@ -1,25 +1,22 @@
 //
-//  viewMySales.swift
+//  viewServiceSnapShot.swift
 //  BulwarkTW
 //
-//  Created by Terry Whipple on 2/16/22.
+//  Created by Terry Whipple on 3/2/22.
 //
 
 import UIKit
 import WebKit
 
-class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
+class viewServiceSnapShot: UIViewController,WKNavigationDelegate,WKUIDelegate  {
 
-    
-    
-    
     @IBOutlet var webView : WKWebView!
-    var refController:UIRefreshControl = UIRefreshControl()
-    
     var HUD: MBProgressHUD!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         webView.navigationDelegate = self
@@ -29,39 +26,22 @@ class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
         
        // webView.scrollView.isScrollEnabled = false
         
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
-        
 
-        
-        refController.bounds = CGRect.init(x: 0.0, y: 50.0, width: refController.bounds.size.width, height: refController.bounds.size.height)
-        refController.addTarget(self, action: #selector(self.webviewRefresh(refresh:)), for: .valueChanged)
-        webView.scrollView.addSubview(refController)
-        
-        
-        
-        
-
-    }
-    
-
-    override func viewWillAppear(_ animated: Bool) {
         
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         let h = appDelegate.hrEmpId ?? ""
         
-        let url = URL(string: "https://fbf2.bulwarkapp.com/mgrapp2/salesstats.aspx?h=" + h)!
+        HUD = MBProgressHUD(view: view)
+        view.addSubview(HUD)
+        HUD.hide(true)
+        
+        
+        
+        let url = URL(string: "https://servicesnapshot.bulwarkapp.com?&hrempid=" + h)!
         webView.load(URLRequest(url: url))
-        
-        
+
+        // Do any additional setup after loading the view.
     }
-    
-    @objc func webviewRefresh(refresh:UIRefreshControl){
-        refController.endRefreshing()
-        webView.reload()
-    }
-    
     
     func showActivityIndicator(show: Bool) {
         if show {
@@ -82,8 +62,7 @@ class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         showActivityIndicator(show: false)
     }
-    
-    
+
     /*
     // MARK: - Navigation
 

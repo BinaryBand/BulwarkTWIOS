@@ -36,7 +36,8 @@
     webview.navigationDelegate = self;
     webview.UIDelegate = self;
     
-    
+    mapWebView.navigationDelegate = self;
+    mapWebView.UIDelegate = self;
     
     [webview.scrollView setScrollsToTop:YES];
     
@@ -44,8 +45,8 @@
     [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [webview.scrollView addSubview:refreshControl];
     
-    
-    
+    closeButton.hidden = YES;
+    mapWebView.hidden = YES;
     
     // Do any additional setup after loading the view.
 }
@@ -70,9 +71,51 @@
      NSLog(@"viewDidDisappear is running");
 }
 
+- (void)handleOpenURL:(NSURL *)url {
+    
+    NSString *URLString = [url absoluteString];
+    
+    NSArray *paramater = [URLString componentsSeparatedByString:@"?"];
+    
+    NSString *urlParamater = [paramater objectAtIndex: 2];
+    
+    NSString *spage =[paramater objectAtIndex: 1];
+    
+    double dpage = [spage doubleValue];
+    
+    
+    
+    if(dpage==1){ //base64 encoded url to load into popup webviewDetails
 
+        NSString *dt = urlParamater;
+       
+        closeButton.hidden = NO;
+        mapWebView.hidden = NO;
+        NSString *UrlString = @"https://fbf2.bulwarkapp.com/routemapipad.aspx?t=0&hr=";
+        
+        UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
+         UrlString = [UrlString stringByAppendingString:@"&dt="];
+        UrlString = [UrlString stringByAppendingString:dt];
+        
+        NSURL *qurl = [NSURL URLWithString:UrlString];
+        
+        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
+        [mapWebView loadRequest:srequest];
+        
+        
+        
+        
+        
+    }
+}
 
+- (IBAction)hideMap{
+    closeButton.hidden = YES;
+    mapWebView.hidden = YES;
+    
+}
 
+/*
 - (void)webViewDidStartLoad:(UIWebView *)nWebView {
     
     if(refreshing==0){
@@ -96,7 +139,7 @@
         
     }
 }
-
+*/
 
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {

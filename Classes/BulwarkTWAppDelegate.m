@@ -934,7 +934,7 @@
         
         [UIView transitionWithView:vDriving.view duration:0.7
                            options:UIViewAnimationOptionTransitionCrossDissolve //change to whatever animation you like
-                        animations:^ { [window addSubview:[vDriving view]]; }
+                        animations:^ { [self->window addSubview:[self->vDriving view]]; }
                         completion:nil];
 
     
@@ -944,8 +944,8 @@
     
     
     [UIView animateWithDuration:0.7
-                     animations:^{vDriving.view.alpha = 0.0;}
-                     completion:^(BOOL finished){ [vDriving.view removeFromSuperview]; }];
+                     animations:^{self->vDriving.view.alpha = 0.0;}
+                     completion:^(BOOL finished){ [self->vDriving.view removeFromSuperview]; }];
     
     //[vDriving.view removeFromSuperview];
     
@@ -978,7 +978,10 @@
         
     }else if([strUrl hasPrefix:@"bulwarktwmap"]){
         
-        if(self.mapinit.length == 0){
+        
+        [viewSched handleOpenURL:url];
+        
+       /* if(self.mapinit.length == 0){
             
             NSString *URLString = [url absoluteString];
             
@@ -994,10 +997,10 @@
             
             
         }else{
-            [viewMap handleOpenURL:url];
+            [viewSched handleOpenURL:url];
             
         }
-        
+        */
         
         
         
