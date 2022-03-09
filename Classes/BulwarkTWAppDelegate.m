@@ -208,8 +208,8 @@
 
 - (void)backgroundHandler {
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
+   // if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+   // {
         
         NSLog(@"backgroundfired");
         
@@ -218,7 +218,7 @@
         // }else{
         [self.locationManager startUpdatingLocation];
         //  }
-    }
+   // }
     
     
 }
