@@ -9,9 +9,9 @@
 #import "BulwarkTWAppDelegate.h"
 #import "ViewOne.h"
 #import "viewReports.h"
-#import "viewRouteMaps.h"
+
 #import "PayrollDetailReportsService.h"
-#import "viewSchedule.h"
+#import "BulwarkTW-Swift.h"
 
 
 //#import “MessageUI.h” 
@@ -63,6 +63,10 @@
         
     }
     
+    
+    
+
+ 
     
     
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -861,8 +865,8 @@
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
     NSLog(@"Failed to get token, error: %@", error);
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+ //   UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+ //   [alert show];
 }
 
 
@@ -956,6 +960,7 @@
 
 -(void)refreshSchedule{
     
+    
     [viewSched getSchedule];
     
     
@@ -979,31 +984,20 @@
     }else if([strUrl hasPrefix:@"bulwarktwmap"]){
         
         
-        [viewSched handleOpenURL:url];
         
-       /* if(self.mapinit.length == 0){
-            
-            NSString *URLString = [url absoluteString];
-            
-            NSArray *paramater = [URLString componentsSeparatedByString:@"?"];
-            
-            NSString *urlParamater = [paramater objectAtIndex: 2];
+        NSString *URLString = [url absoluteString];
+        
+        NSArray *paramater = [URLString componentsSeparatedByString:@"?"];
+        
+        NSString *urlParamater = [paramater objectAtIndex: 2];
+        
+        NSString *spage =[paramater objectAtIndex: 1];
+        
+        double dpage = [spage doubleValue];
+        
+        
+        [viewSched openMapWithMpDate:urlParamater];
 
-            
-            self.mapDate = urlParamater;
-            
-            NSURL *url1 = [NSURL URLWithString:@"bulwarktw://?44?test"];
-            [viewOne handleOpenURL:url1];
-            
-            
-        }else{
-            [viewSched handleOpenURL:url];
-            
-        }
-        */
-        
-        
-        
         
     }else{
        [viewOne handleOpenURL:url];
@@ -1015,85 +1009,8 @@
     
     
 	return YES;
-/*MF
- MailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-	controller.mailComposeDelegate = self;
-	[controller setSubject:@"In app email..."];
-	[controller setMessageBody:@"...a tutorial from mobileorchard.com" isHTML:NO];
-	[self presentModalViewController:controller animated:YES];
-	[controller release];	
-	return YES;
-	*/
-		
-	
-	NSString *URLString = [url absoluteString];
-	
-	NSArray *paramater = [URLString componentsSeparatedByString:@"?"];
-	
-	NSString *urlParamater = [paramater objectAtIndex: 2];
-	
-	NSString *spage =[paramater objectAtIndex: 1];
-	
-	double dpage = [spage doubleValue];
-	// Example 1, loading the content from a URLNSURL
-	//NSURL *urlz = [NSURL URLWithString:urlParamater];
-	
-	//NSURLRequest *request = [NSURLRequest requestWithURL:urlz];
-	//[webView loadRequest:request];		
-	
-	
-	if (dpage==1)
-	{
-		// Example 1, loading the content from a URLNSURL
-		NSURL *urlz = [NSURL URLWithString:urlParamater];
-		
-		NSURLRequest *request = [NSURLRequest requestWithURL:urlz];
-		[webView loadRequest:request];		
-		
-	}
-	else if (dpage==2){
-	
-		NSString *path = [[NSBundle mainBundle]
-						  pathForResource:@"results"
-						  ofType:@"html"]; 
-		NSURL *urlq = [NSURL fileURLWithPath:path];
-		
-		
-		
-		NSString *theAbsoluteURLString = [urlq absoluteString];   
-		
-		NSString *queryString = [@"?" stringByAppendingString: urlParamater]; 
-		
-		NSString *absoluteURLwithQueryString = [theAbsoluteURLString stringByAppendingString: queryString];  
-		
-		NSURL *finalURL = [NSURL URLWithString: absoluteURLwithQueryString];
-		
-		NSURLRequest *request = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-		
-		[webView loadRequest:request];		
-		
-	}
-	else if (dpage==3)
-	{
-		NSArray *paramater1 = [URLString componentsSeparatedByString:@"!"];
-		
-		NSString *urlParamater1 = [paramater1 objectAtIndex: 1];		
-		
-		NSURL *urlz = [NSURL URLWithString:urlParamater1];
-		
-		NSURLRequest *request = [NSURLRequest requestWithURL:urlz];
-		[webView loadRequest:request];
-		
-	}
-	
-	
 
-	//UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Network error" message: @"Error sending your info to the server" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
 	
-	//[someError show];
-	//[someError release];	
-	
-	return YES;
 	
 }
 

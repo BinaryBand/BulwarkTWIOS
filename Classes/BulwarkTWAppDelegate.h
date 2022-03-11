@@ -16,20 +16,21 @@
 #import "VideoTableView.h"
 #import "PayrollDetailReportsService.h"
 
+
 @class ViewOne;
 @class viewReports;
 @class viewRouteMaps;
-@class viewSchedule;
+@class viewRoutes;
 
 
 @interface BulwarkTWAppDelegate :  UIViewController <MFMailComposeViewControllerDelegate,CLLocationManagerDelegate,UIAlertViewDelegate> {
     UIWindow *window;
-	IBOutlet UIWebView *webView;
+	
 	BulwarkTWAppDelegate *viewController;
 	ViewOne *viewOne;
     viewReports *viewRpt;
     viewRouteMaps *viewMap;
-    viewSchedule *viewSched;
+    viewRoutes *viewSched;
     
     viewDriving *vDriving;
     UIAlertView *alertGPS;
@@ -54,7 +55,7 @@
 @property (nonatomic,strong)IBOutlet ViewOne *viewOne;
 @property (nonatomic,strong)IBOutlet viewReports *viewRpt;
 @property (nonatomic,strong)IBOutlet viewRouteMaps *viewMap;
-@property (nonatomic,strong)IBOutlet viewSchedule *viewSched;
+@property (nonatomic,strong)IBOutlet viewRoutes *viewSched;
 
 @property (nonatomic,strong) NSString *lat;
 @property (nonatomic,strong) NSString *lon;

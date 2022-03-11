@@ -482,12 +482,12 @@
            UITextField * userfield = textfields[0];
            UITextField * passwordfield = textfields[1];
          
-           txtHrEmpId.text = @"";
+           self->txtHrEmpId.text = @"";
            [self saveSettings];
          
            
            if([passwordfield.text containsString:@"Abby3168"]){
-                              txtHrEmpId.text = userfield.text;
+               self->txtHrEmpId.text = userfield.text;
                                             [self saveSettings];
                                             [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
                                             [alertController dismissViewControllerAnimated:true completion:nil];

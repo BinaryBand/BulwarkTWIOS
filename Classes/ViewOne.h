@@ -17,7 +17,6 @@
 
 #import <CoreTelephony/CoreTelephonyDefines.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "viewVideo.h"
 #import "DFBlunoManager.h"
 #import "TWBlunoManager.h"
 #import "BulwarkTWAppDelegate.h"
@@ -114,14 +113,7 @@
     
 	MBProgressHUD *HUD;
     
-   // RscMgr *rscMgr;
-   // UInt8 rxBuffer[BUFFER_LEN];
-    //UInt8 txBuffer[BUFFER_LEN];
-    
-   // viewVideo *vid;
-   // SalesMap *sMap;
-    
-    
+
     
    
     

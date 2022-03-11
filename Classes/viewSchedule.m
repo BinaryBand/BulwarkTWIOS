@@ -8,7 +8,7 @@
 
 #import "viewSchedule.h"
 #import "BulwarkTWAppDelegate.h"
-
+#import <BulwarkTW-Swift.h>
 
 @interface viewSchedule ()
 
@@ -18,7 +18,7 @@
     
     BulwarkTWAppDelegate *delegate;
     int refreshing;
-    
+    NSString *RouteUrl;
     
 }
 
@@ -31,7 +31,7 @@
     delegate = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
     
   
-    delegate.viewSched = self;
+    //delegate.viewSched = self;
     
     webview.navigationDelegate = self;
     webview.UIDelegate = self;
@@ -47,6 +47,8 @@
     
     closeButton.hidden = YES;
     mapWebView.hidden = YES;
+    
+    RouteUrl = @"";
     
     // Do any additional setup after loading the view.
 }
@@ -97,10 +99,14 @@
          UrlString = [UrlString stringByAppendingString:@"&dt="];
         UrlString = [UrlString stringByAppendingString:dt];
         
-        NSURL *qurl = [NSURL URLWithString:UrlString];
         
-        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-        [mapWebView loadRequest:srequest];
+        RouteUrl = UrlString;
+        
+        [self performSegueWithIdentifier:@"OpenMapsSegue" sender:self];
+       // NSURL *qurl = [NSURL URLWithString:UrlString];
+        
+     //   NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
+      //  [mapWebView loadRequest:srequest];
         
         
         
@@ -435,14 +441,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
-*/
+    
+  
+      //  if([segue.identifier isEqualToString:@"OpenMapsSegue"]){
+          // viewRouteMap *Vc = segue.destinationViewController;
+            
+           // Vc.rurl = RouteUrl;
+            
+            
+
+        //}
+
+    
+    
+    
+//}
+
 
 @end
