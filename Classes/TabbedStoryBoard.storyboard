@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Chh-FC-Rys">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Chh-FC-Rys">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -47,8 +47,9 @@
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgt-G8-mgl">
                                 <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
@@ -82,8 +83,9 @@
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RrP-Tc-Vpv">
                                 <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
@@ -118,6 +120,7 @@
                                 <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
@@ -191,17 +194,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="HR Employee ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5y-xH-FRK">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="HR Employee ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5y-xH-FRK">
                                 <rect key="frame" x="70" y="169" width="233" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G2S-Ke-T85">
                                 <rect key="frame" x="70" y="223" width="233" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                 <connections>
                                     <action selector="txtNameChanged" destination="DqW-eU-QLH" eventType="touchDown" id="UIQ-tD-DtE"/>
                                 </connections>
@@ -210,7 +213,7 @@
                                 <rect key="frame" x="70" y="277" width="233" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <connections>
                                     <action selector="txtLicenseChanged" destination="DqW-eU-QLH" eventType="touchDown" id="hTd-Sa-flc"/>
                                 </connections>
@@ -219,7 +222,7 @@
                                 <rect key="frame" x="70" y="333" width="233" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                 <connections>
                                     <action selector="txtPhoneChanged" destination="DqW-eU-QLH" eventType="touchDown" id="LE8-FX-naW"/>
                                 </connections>
@@ -348,25 +351,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYg-a8-4vH">
-                                <rect key="frame" x="300" y="70" width="468" height="904"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eji-tY-65A">
-                                <rect key="frame" x="0.0" y="70" width="300" height="904"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="bDg-SG-ZVc"/>
-                                </constraints>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40 Per IS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaD-Se-jBh">
                                 <rect key="frame" x="650" y="22" width="111" height="17"/>
                                 <constraints>
@@ -376,6 +360,38 @@
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYg-a8-4vH">
+                                <rect key="frame" x="300" y="70" width="468" height="904"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="b8e-Fm-qa0" appends="YES" id="M6L-Hn-tcR"/>
+                                </connections>
+                            </wkWebView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eji-tY-65A">
+                                <rect key="frame" x="0.0" y="70" width="300" height="904"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="bDg-SG-ZVc"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDf-tF-9u0">
+                                <rect key="frame" x="64" y="128" width="640" height="710"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$840.00 MTD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nse-p1-BIn">
                                 <rect key="frame" x="530" y="41" width="111" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -397,17 +413,10 @@
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDf-tF-9u0">
-                                <rect key="frame" x="64" y="128" width="640" height="710"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nUB-wj-AV2"/>
                         <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="eji-tY-65A" firstAttribute="bottom" secondItem="EYg-a8-4vH" secondAttribute="bottom" id="53g-gs-uEB"/>
                             <constraint firstItem="14Y-Xc-fx7" firstAttribute="top" secondItem="N8d-gq-R4N" secondAttribute="topMargin" constant="-48" id="6jY-A2-MLM"/>
@@ -491,6 +500,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSV-Vw-qge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="b8e-Fm-qa0"/>
             </objects>
             <point key="canvasLocation" x="-1384.375" y="-278.3203125"/>
         </scene>
@@ -531,8 +541,8 @@
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cze-1h-CHq">
                                 <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
@@ -546,7 +556,13 @@
                             <constraint firstItem="cze-1h-CHq" firstAttribute="bottom" secondItem="3Oz-wJ-yul" secondAttribute="bottom" id="Uxm-OT-6Pd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sales" id="ann-pi-8eG"/>
+                    <navigationItem key="navigationItem" title="Sales" id="ann-pi-8eG">
+                        <barButtonItem key="rightBarButtonItem" title="Training" id="oVi-Df-Luf">
+                            <connections>
+                                <segue destination="pNL-Fj-GmW" kind="show" id="1qj-25-WgF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="cze-1h-CHq" id="Hy6-yD-ytP"/>
                     </connections>
@@ -554,6 +570,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXf-CE-Vum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="386.71875" y="706.640625"/>
+        </scene>
+        <!--Sales Training-->
+        <scene sceneID="uy0-4N-WsR">
+            <objects>
+                <viewController id="pNL-Fj-GmW" customClass="viewSalesTraining" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qax-mM-dxu">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgV-O1-MBx">
+                                <rect key="frame" x="0.0" y="70" width="768" height="904"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f49-Hl-bMk"/>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YgV-O1-MBx" firstAttribute="leading" secondItem="f49-Hl-bMk" secondAttribute="leading" id="5uA-TB-JDi"/>
+                            <constraint firstItem="YgV-O1-MBx" firstAttribute="top" secondItem="f49-Hl-bMk" secondAttribute="top" id="7KM-4m-Zfg"/>
+                            <constraint firstItem="YgV-O1-MBx" firstAttribute="bottom" secondItem="f49-Hl-bMk" secondAttribute="bottom" id="Lha-Ae-EhF"/>
+                            <constraint firstItem="YgV-O1-MBx" firstAttribute="centerX" secondItem="qax-mM-dxu" secondAttribute="centerX" id="uWX-II-0ZS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sales Training" id="dYM-cN-QzU"/>
+                    <connections>
+                        <outlet property="webView" destination="YgV-O1-MBx" id="n7L-Ba-h5q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvu-OI-Rmm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="387" y="1460"/>
         </scene>
         <!--Scheduled Routes-->
         <scene sceneID="dZf-cL-usa">
@@ -566,8 +617,9 @@
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSg-nq-nCN">
                                 <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
@@ -632,8 +684,9 @@
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cQ-QY-Wwx">
                                 <rect key="frame" x="0.0" y="70" width="768" height="904"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
@@ -665,12 +718,80 @@
         <!--Reports-->
         <scene sceneID="P0v-X8-Va0">
             <objects>
-                <viewController id="axD-Wf-Bs8" sceneMemberID="viewController">
+                <viewController id="axD-Wf-Bs8" customClass="viewReports" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K0i-20-wun">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0T-lM-Xom">
+                                <rect key="frame" x="0.0" y="70" width="768" height="904"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsInlineMediaPlayback="YES" allowsPictureInPictureMediaPlayback="NO">
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3k-ow-Pxh">
+                                <rect key="frame" x="84" y="103" width="600" height="779"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QW9-kr-UH3">
+                                        <rect key="frame" x="8" y="3" width="34" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="GIk-H4-cWr"/>
+                                            <constraint firstAttribute="height" constant="33" id="R17-nz-3pX"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="arrow.backward"/>
+                                        <connections>
+                                            <action selector="btnBack" destination="axD-Wf-Bs8" eventType="touchDown" id="hHy-HI-y9m"/>
+                                        </connections>
+                                    </button>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whj-gc-Jau">
+                                        <rect key="frame" x="0.0" y="44" width="600" height="735"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf2-vA-aNt">
+                                        <rect key="frame" x="559" y="3" width="33" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="idR-b0-SKI"/>
+                                        </constraints>
+                                        <state key="normal" image="blue_close.png"/>
+                                        <connections>
+                                            <action selector="btnCloseWindow" destination="axD-Wf-Bs8" eventType="touchDown" id="T7V-IU-ShJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32126691940000002" green="0.0" blue="0.0035808759280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Whj-gc-Jau" firstAttribute="top" secondItem="QW9-kr-UH3" secondAttribute="bottom" constant="8" id="30B-ge-vPs"/>
+                                    <constraint firstItem="QW9-kr-UH3" firstAttribute="bottom" secondItem="Rf2-vA-aNt" secondAttribute="bottom" id="I58-Vp-1j0"/>
+                                    <constraint firstItem="QW9-kr-UH3" firstAttribute="leading" secondItem="N3k-ow-Pxh" secondAttribute="leadingMargin" id="KSJ-S0-JWz"/>
+                                    <constraint firstItem="Whj-gc-Jau" firstAttribute="centerX" secondItem="N3k-ow-Pxh" secondAttribute="centerX" id="bA2-ri-XTY"/>
+                                    <constraint firstItem="QW9-kr-UH3" firstAttribute="top" secondItem="Rf2-vA-aNt" secondAttribute="top" id="dK6-hO-1L8"/>
+                                    <constraint firstAttribute="bottom" secondItem="Whj-gc-Jau" secondAttribute="bottom" id="fkh-X7-lhx"/>
+                                    <constraint firstItem="QW9-kr-UH3" firstAttribute="top" secondItem="N3k-ow-Pxh" secondAttribute="top" constant="3" id="g0N-dL-zDr"/>
+                                    <constraint firstItem="Rf2-vA-aNt" firstAttribute="trailing" secondItem="N3k-ow-Pxh" secondAttribute="trailingMargin" id="m7e-ga-oGZ"/>
+                                    <constraint firstItem="Whj-gc-Jau" firstAttribute="leading" secondItem="N3k-ow-Pxh" secondAttribute="leading" id="qcB-qq-Ho5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="p43-p8-DhV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="b0T-lM-Xom" firstAttribute="bottom" secondItem="p43-p8-DhV" secondAttribute="bottom" id="NQX-5k-c0l"/>
+                            <constraint firstItem="b0T-lM-Xom" firstAttribute="centerX" secondItem="N3k-ow-Pxh" secondAttribute="centerX" id="PId-dK-Sev"/>
+                            <constraint firstItem="b0T-lM-Xom" firstAttribute="leading" secondItem="p43-p8-DhV" secondAttribute="leading" id="TA1-4A-Sdb"/>
+                            <constraint firstItem="b0T-lM-Xom" firstAttribute="centerX" secondItem="K0i-20-wun" secondAttribute="centerX" id="U9d-jz-1lO"/>
+                            <constraint firstItem="b0T-lM-Xom" firstAttribute="top" secondItem="p43-p8-DhV" secondAttribute="top" id="aVc-hi-3em"/>
+                            <constraint firstItem="N3k-ow-Pxh" firstAttribute="leading" secondItem="p43-p8-DhV" secondAttribute="leading" constant="84" id="caG-tU-Cgh"/>
+                            <constraint firstItem="N3k-ow-Pxh" firstAttribute="top" secondItem="p43-p8-DhV" secondAttribute="top" constant="33" id="ory-1n-OS2"/>
+                            <constraint firstItem="p43-p8-DhV" firstAttribute="bottom" secondItem="N3k-ow-Pxh" secondAttribute="bottom" constant="92" id="xk2-cB-ubY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reports" id="4zP-So-2kI">
                         <barButtonItem key="rightBarButtonItem" title="Select Report" id="KPg-oo-vLV">
@@ -681,21 +802,28 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="QW9-kr-UH3" id="Bnl-wz-3wE"/>
+                        <outlet property="closeButton" destination="Rf2-vA-aNt" id="T9S-Xa-ebk"/>
+                        <outlet property="popView" destination="N3k-ow-Pxh" id="SUM-sY-uqf"/>
+                        <outlet property="webviewDetails" destination="Whj-gc-Jau" id="KuY-Yb-DJf"/>
+                        <outlet property="webviewReports" destination="b0T-lM-Xom" id="mVd-Bo-x1d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWi-t8-fQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2802.34375" y="-1200"/>
         </scene>
-        <!--View Controller-->
+        <!--View Ret Reports-->
         <scene sceneID="s56-dF-yER">
             <objects>
-                <viewController id="lWz-bz-o3y" sceneMemberID="viewController">
+                <viewController id="lWz-bz-o3y" customClass="viewRetReports" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jfD-eK-5ny">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="493"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zI-15-NHH">
-                                <rect key="frame" x="16" y="129" width="288" height="36"/>
+                                <rect key="frame" x="16" y="87" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -703,9 +831,12 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Proactive Dormancy">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnPdorm" destination="lWz-bz-o3y" eventType="touchDown" id="b0r-Xf-hAT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6e-0k-Wde">
-                                <rect key="frame" x="16" y="217" width="288" height="36"/>
+                                <rect key="frame" x="16" y="175" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -713,9 +844,12 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Dormant Accounts">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnDormant" destination="lWz-bz-o3y" eventType="touchDown" id="lfS-wD-STI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnz-md-vpk">
-                                <rect key="frame" x="16" y="173" width="288" height="36"/>
+                                <rect key="frame" x="16" y="131" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -723,9 +857,12 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Proactive Delenquency">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnPdel" destination="lWz-bz-o3y" eventType="touchDown" id="yH5-Wo-c74"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAT-Je-O6M">
-                                <rect key="frame" x="16" y="349" width="288" height="36"/>
+                                <rect key="frame" x="16" y="307" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -733,9 +870,12 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Pool Of Customers">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnPool" destination="lWz-bz-o3y" eventType="touchDown" id="JMo-jd-kPD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9R8-cH-C4f">
-                                <rect key="frame" x="16" y="393" width="288" height="36"/>
+                                <rect key="frame" x="16" y="351" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -743,9 +883,12 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Customers Near Me">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnNear" destination="lWz-bz-o3y" eventType="touchDown" id="2I1-TZ-YJK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InU-Ly-07g">
-                                <rect key="frame" x="16" y="437" width="288" height="36"/>
+                                <rect key="frame" x="16" y="395" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -753,9 +896,12 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Cancel Requests">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnCancelBuck" destination="lWz-bz-o3y" eventType="touchDown" id="f1W-gn-OAm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCy-LI-jCo">
-                                <rect key="frame" x="16" y="261" width="288" height="36"/>
+                                <rect key="frame" x="16" y="219" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -763,9 +909,12 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Recent Cancels">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnRecCan" destination="lWz-bz-o3y" eventType="touchDown" id="rBh-tj-jc4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geZ-Bj-rWN">
-                                <rect key="frame" x="16" y="305" width="288" height="36"/>
+                                <rect key="frame" x="16" y="263" width="288" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -773,26 +922,48 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Recent Moves">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnRecMoves" destination="lWz-bz-o3y" eventType="touchDown" id="DPN-M0-wu9"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name/Address/Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8SE-Eq-MIt">
-                                <rect key="frame" x="16" y="68" width="200" height="34"/>
+                                <rect key="frame" x="16" y="38" width="200" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jB-wW-bxy">
-                                <rect key="frame" x="217" y="69" width="80" height="32"/>
+                                <rect key="frame" x="224" y="40" width="80" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Search">
                                     <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnSearch" destination="lWz-bz-o3y" eventType="touchDown" id="vM5-cN-oph"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoW-VB-rF3">
+                                <rect key="frame" x="16" y="439" width="288" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Gate Codes">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnGate" destination="lWz-bz-o3y" eventType="touchDown" id="eMI-QS-OnP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SWx-LC-VyS"/>
                         <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="txtSearch" destination="8SE-Eq-MIt" id="JAo-8q-pRN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkk-Kf-oQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -809,6 +980,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V7N-7E-zrz">
                         <rect key="frame" x="0.0" y="20" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -897,6 +1070,100 @@
             </objects>
             <point key="canvasLocation" x="-2150" y="-278.3203125"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Jo8-r3-ijU">
+            <objects>
+                <viewController id="GB1-uc-0Ua" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sBN-GC-eik">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bQr-lo-Ejs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xa0-Wz-gLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2394" y="1014"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="gTb-8D-VCR">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Q2W-21-qi4" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LhI-Wx-O33">
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="114" id="Sc6-Mf-gAj">
+                                <rect key="frame" x="0.0" y="44.5" width="420" height="114"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sc6-Mf-gAj" id="zTU-Wr-cTK">
+                                    <rect key="frame" x="100" y="0.0" width="320" height="114"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3H-q3-cbv">
+                                            <rect key="frame" x="16" y="33" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEb-JC-Pri">
+                                            <rect key="frame" x="16" y="74" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BvI-Cl-2zj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Q2W-21-qi4" id="eWg-7A-PCU"/>
+                            <outlet property="delegate" destination="Q2W-21-qi4" id="b0Y-e3-Lb7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="BQh-fC-xol"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bz1-OW-sAu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1638.28125" y="407.8125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cwh-5J-UPT">
+            <objects>
+                <navigationController id="m2x-gO-yzI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tUU-Bo-tJy">
+                        <rect key="frame" x="0.0" y="20" width="420" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Q2W-21-qi4" kind="relationship" relationship="rootViewController" id="iHF-sC-Ft2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yyz-hR-umv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2394" y="408"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="hHV-9l-1Df">
+            <objects>
+                <splitViewController allowDoubleColumnStyle="YES" id="hjc-eP-JWk" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="m2x-gO-yzI" kind="relationship" relationship="masterViewController" id="Dqv-IB-mOw"/>
+                        <segue destination="GB1-uc-0Ua" kind="relationship" relationship="detailViewController" id="RQ0-Qn-dKJ"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="94o-qx-RB0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3150" y="711"/>
+        </scene>
         <!--Pay-->
         <scene sceneID="e48-gq-Y8T">
             <objects>
@@ -924,17 +1191,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bubble.left.and.bubble.right" width="24" height="19"/>
-        <image name="calendar" width="17" height="16"/>
-        <image name="camera" width="21" height="16"/>
-        <image name="chart.pie" width="17" height="17"/>
+        <image name="arrow.backward" width="12" height="10"/>
+        <image name="blue_close.png" width="48" height="48"/>
+        <image name="bubble.left.and.bubble.right" width="19" height="15"/>
+        <image name="calendar" width="13" height="12"/>
+        <image name="camera" width="16" height="12"/>
+        <image name="chart.pie" width="13" height="13"/>
         <image name="clockin1.png" width="22.5" height="22.5"/>
         <image name="clockout.png" width="22.5" height="22.5"/>
-        <image name="dollarsign.square" width="16" height="16"/>
-        <image name="gearshape" width="18" height="18"/>
-        <image name="house" width="20" height="18"/>
-        <image name="person.text.rectangle" width="20" height="16"/>
-        <image name="printer" width="19" height="18"/>
+        <image name="dollarsign.square" width="12" height="12"/>
+        <image name="gearshape" width="14" height="14"/>
+        <image name="house" width="16" height="14"/>
+        <image name="person.text.rectangle" width="15" height="12"/>
+        <image name="printer" width="15" height="14"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -1,23 +1,22 @@
 //
-//  viewRoutes.swift
+//  viewSalesTraining.swift
 //  BulwarkTW
 //
-//  Created by Terry Whipple on 3/10/22.
+//  Created by Terry Whipple on 3/11/22.
 //
 
 import UIKit
 import WebKit
 
- class viewRoutes: UIViewController,WKNavigationDelegate,WKUIDelegate  {
+class viewSalesTraining: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     
     @IBOutlet var webView : WKWebView!
     var HUD: MBProgressHUD!
-    var mapDate:String?
+     var rurl:String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         if #available(iOS 15, *){
           //  print("Create the collection view!")
@@ -29,9 +28,6 @@ import WebKit
             self.navigationController?.view.backgroundColor = .clear
         }
 
-        
-
-            
         webView.navigationDelegate = self
         //view = webView
         
@@ -42,23 +38,34 @@ import WebKit
 
         
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
-        appDelegate.viewSched = self
-       
+        let h = appDelegate.hrEmpId ?? ""
+        
         HUD = MBProgressHUD(view: view)
         view.addSubview(HUD)
         HUD.hide(true)
         
         
+        let urlStr = "https://fbf2.bulwarkapp.com/mgrapp2/SalesTrainingFiles.aspx?h=" + h
         
-        getSchedule()
+        let url = URL(string: urlStr)!
+        webView.load(URLRequest(url: url))
         
         
         
-     
+        
+        
+
+        
+
+        
+        
 
         // Do any additional setup after loading the view.
     }
     
+   public func setrurl(routeurl:String){
+        rurl = routeurl;
+    }
     
     
     func showActivityIndicator(show: Bool) {
@@ -153,69 +160,26 @@ import WebKit
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-                
-        
-        let url = navigationAction.request.url;
-        
-        if(url?.scheme == "bulwarktw"){
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-            decisionHandler(.cancel)
-            return
-        }
-        if(url?.scheme == "bulwarktwmap"){
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-            decisionHandler(.cancel)
-            return
-        }
-        
-        
-        decisionHandler(.allow)
-        
+                decisionHandler(.allow)
+              
 
     }
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
        
 
         decisionHandler(.allow)
     }
     
-    
- @objc func openMap(mpDate:String){
-        
-        mapDate = mpDate
-        
-        
-        self.performSegue(withIdentifier: "OpenMapsSegue", sender: self)
-        
-    }
-    
-    
-  @objc public func getSchedule(){
-        
-        let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
-       
-        let h = appDelegate.hrEmpId ?? ""
-        
-        
-        
-        let url = URL(string: "https://fbf2.bulwarkapp.com/techapp/myroutes/routes.aspx?hr_emp_id=" + h)!
-        webView.load(URLRequest(url: url))
-        
-    }
-    
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if(segue.identifier == "OpenMapsSegue"){
-            
-                let displayVC = segue.destination as! viewRouteMap
-            displayVC.rurl = mapDate
-        }
     }
-    
+    */
 
 }

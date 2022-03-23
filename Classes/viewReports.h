@@ -16,7 +16,7 @@
     
     
     IBOutlet UITextField *txtSearch;
-    IBOutlet UIWebView *webviewReports;
+    IBOutlet WKWebView *webviewReports;
     IBOutlet WKWebView *webviewDetails;
     IBOutlet UIButton *closeButton;
     IBOutlet UIButton *backButton;

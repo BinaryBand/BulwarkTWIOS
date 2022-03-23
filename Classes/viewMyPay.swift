@@ -18,8 +18,16 @@ class viewMyPay: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        if #available(iOS 15, *){
+          //  print("Create the collection view!")
+        }else{
+            
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.isTranslucent = true
+            self.navigationController?.view.backgroundColor = .clear
+        }
+
         webView.navigationDelegate = self
         //view = webView
         

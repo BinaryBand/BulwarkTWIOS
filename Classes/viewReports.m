@@ -8,6 +8,7 @@
 
 #import "viewReports.h"
 #import "BulwarkTWAppDelegate.h"
+#import "BulwarkTW-Swift.h"
 
 @interface viewReports ()
 
@@ -43,16 +44,49 @@
     
     
     
-    webviewReports.delegate = self;
+    webviewReports.navigationDelegate = self;
+    webviewReports.UIDelegate = self;
    
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     [HUD hide:YES];
     
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+          selector:@selector(receiveLoadReportNotification:)
+          name:@"LoadReport"
+          object:nil];
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        [self performSegueWithIdentifier:@"ReportsMenue" sender:self];
+    });
+  
+    
     
 }
 
+- (void) receiveLoadReportNotification:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+
+    if ([[notification name] isEqualToString:@"LoadReport"]){
+        
+        NSURL *qurl = [NSURL URLWithString:delegate.reportUrl];
+        
+        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
+        [webviewReports loadRequest:srequest];
+        
+    }
+        //NSLog (@"Successfully received the test notification!");
+    
+    
+}
+
+
+/*
 - (void)webViewDidStartLoad:(UIWebView *)nWebView {
     [HUD show:YES];
 }
@@ -60,7 +94,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)nWebView {
     [HUD hide:YES];
 }
-
+*/
 
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
@@ -751,7 +785,37 @@
 
 
 
+#pragma mark - Navigation
 
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ReportsMenue"]) {
+        viewRetReports *customViewController = (viewRetReports *)segue.destinationViewController;
+        
+    }
+}
+
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+  
+      //  if([segue.identifier isEqualToString:@"OpenMapsSegue"]){
+          // viewRouteMap *Vc = segue.destinationViewController;
+            
+           // Vc.rurl = RouteUrl;
+            
+            
+
+        //}
+
+    
+    
+    
+//}
 
 
 

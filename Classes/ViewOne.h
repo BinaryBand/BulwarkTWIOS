@@ -180,5 +180,7 @@
     -(IBAction)btnFastComm;
 -(IBAction)btnMyStats;
 -(IBAction)btnTest;
+-(IBAction)gestOpenMap;
+
 
 @end

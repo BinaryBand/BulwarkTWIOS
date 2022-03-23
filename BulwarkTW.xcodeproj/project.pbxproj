@@ -47,6 +47,8 @@
 		B38DFC19212E783C004CCBEF /* UILabel+JDFTooltips.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DFC13212E783B004CCBEF /* UILabel+JDFTooltips.m */; };
 		B38DFC1A212E783C004CCBEF /* JDFTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DFC15212E783B004CCBEF /* JDFTooltipView.m */; };
 		B38DFC1B212E783C004CCBEF /* JDFSequentialTooltipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DFC16212E783C004CCBEF /* JDFSequentialTooltipManager.m */; };
+		B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */; };
+		B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */; };
 		B3A030111AA8288D0097AACD /* SwiftEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A030101AA8288D0097AACD /* SwiftEmail.swift */; };
 		B3A030161AA8B7770097AACD /* ReportProblemEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A030141AA8B7770097AACD /* ReportProblemEmailViewController.swift */; };
 		B3A030171AA8B7770097AACD /* ReportProblemEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A030151AA8B7770097AACD /* ReportProblemEmailViewController.xib */; };
@@ -138,6 +140,8 @@
 		B38DFC14212E783B004CCBEF /* JDFTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDFTooltipView.h; sourceTree = "<group>"; };
 		B38DFC15212E783B004CCBEF /* JDFTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDFTooltipView.m; sourceTree = "<group>"; };
 		B38DFC16212E783C004CCBEF /* JDFSequentialTooltipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDFSequentialTooltipManager.m; sourceTree = "<group>"; };
+		B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRetReports.swift; sourceTree = "<group>"; };
+		B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewSalesTraining.swift; sourceTree = "<group>"; };
 		B39FD19B1DF9C50F009DB4B5 /* BulwarkTW.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BulwarkTW.entitlements; sourceTree = "<group>"; };
 		B3A0300F1AA8288D0097AACD /* BulwarkTW-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BulwarkTW-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3A030101AA8288D0097AACD /* SwiftEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEmail.swift; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 				B3122E8427DA77700003C75D /* viewRouteMap.swift */,
 				B3122E8627DA88410003C75D /* viewMyPay.swift */,
 				B3122E8827DAAFAF0003C75D /* viewRoutes.swift */,
+				B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */,
+				B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -473,11 +479,13 @@
 				34C42EBF164DBA3800DD6A91 /* MBProgressHUD.m in Sources */,
 				B348C8C31C7B7291000BDC7A /* VideoTableView.m in Sources */,
 				B3122E8927DAAFAF0003C75D /* viewRoutes.swift in Sources */,
+				B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */,
 				B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B38DFC18212E783C004CCBEF /* JDFTooltipManager.m in Sources */,
 				B3122E8727DA88410003C75D /* viewMyPay.swift in Sources */,
 				E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */,
+				B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */,
 				1D3623260D0F684500981E51 /* BulwarkTWAppDelegate.m in Sources */,
 				B348C8AD1C7ACD48000BDC7A /* viewSchedule.m in Sources */,
 				348DA0E912CA6F9F00FB51D0 /* ViewOne.m in Sources */,
@@ -520,7 +528,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 4.0.3;
+				CURRENT_PROJECT_VERSION = 4.1.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -574,7 +582,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 4.0.3;
+				CURRENT_PROJECT_VERSION = 4.1.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -667,7 +675,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 4.0.3;
+				CURRENT_PROJECT_VERSION = 4.1.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

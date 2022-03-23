@@ -66,6 +66,8 @@
 @property (nonatomic,strong) NSString *license;
 @property (nonatomic,strong) NSString *mapDate;
 @property (nonatomic,strong) NSString *mapinit;
+@property (nonatomic,strong) NSString *reportUrl;
+
 @property (nonatomic) Boolean driving;
 @property (nonatomic,strong) NSMutableArray *placesArray;
 @property (nonatomic,strong) VideoTableView *videoTableView;

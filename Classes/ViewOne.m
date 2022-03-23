@@ -76,6 +76,20 @@ return @"60";
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
+    
+    
+    if (@available(iOS 15, *)) {
+        // iOS 11 (or newer) ObjC code
+    } else {
+        
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                             forBarMetrics:UIBarMetricsDefault]; //UIImageNamed:@"transparent.png"
+        self.navigationController.navigationBar.shadowImage = [UIImage new];////UIImageNamed:@"transparent.png"
+        self.navigationController.navigationBar.translucent = YES;
+        self.navigationController.view.backgroundColor = [UIColor clearColor];
+    }
+
+    
     ISTSval = 0;
     
     backgroundLoadingRoute = false;
@@ -684,7 +698,7 @@ return @"60";
     
     
     NSDate *date = [NSDate date];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
     [components setHour: 15];
     [components setMinute: 00];
@@ -6548,46 +6562,7 @@ return @"60";
         }
         
     }
-/*
-    office = @"DD";
-    NSString *myPathDocs2 =  [documentsDirectory3 stringByAppendingPathComponent:@"settings"];
-	
-	if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-	{
-		empName = @"error";
-        hrEmpId = @"11111";
-        password = @"error";
-        license = @"1";
-        office=@"DD";
-        printerIp=@"1";
-        
-	}
-	else {
-		
-		
-		NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-		
-		NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-		
-		empName = [paramater2 objectAtIndex: 0];
-		
-		hrEmpId = [paramater2 objectAtIndex: 1];
-		
-		password = [paramater2 objectAtIndex: 2];
-		@try {
-			license = [paramater2 objectAtIndex: 3];
-			
-			office = [paramater2 objectAtIndex: 4];
-			printerIp = [paramater2 objectAtIndex: 5];
-		}
-		@catch (NSException * e) {
-			//NSString *except =	@"office";
-			
-			
-		}
-	}
-    
-    */
+
     
     
 	
@@ -6889,46 +6864,7 @@ return @"60";
 
 - (void)alertView : (UIAlertView *)alertView clickedButtonAtIndex : (NSInteger)buttonIndex
 {
-    /*
-	hrEmpId = @"12345";
-	empName = @"";
-	password = @"";
-	printerIp = @"192.168.1.50";
-	
-	NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-	
-	NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-	
-	if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-	{
-		
-	}  
-	else {
-		
-		
-		NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-		
-		NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-		
-		empName = [paramater2 objectAtIndex: 0];
-		
-		hrEmpId = [paramater2 objectAtIndex: 1];	
-		
-		password = [paramater2 objectAtIndex: 2];		
-		@try {
-			license = [paramater2 objectAtIndex: 3];
-			
-			office = [paramater2 objectAtIndex: 4];	
-			printerIp = [paramater2 objectAtIndex: 5];	
-		}
-		@catch (NSException * e) {
-			//NSString *except =	@"office";
-			
-			
-		}		
-	}
-	*/
+
 
     
     
@@ -7830,7 +7766,7 @@ return @"60";
     
     //self.lbReady.text = @"Ready!";
     
-   [printIcon setTintColor: nil];
+   [printIcon setTintColor: [UIColor whiteColor]];
     
     
     
@@ -7839,7 +7775,7 @@ return @"60";
 {
     
     [self.printManager scan];
-    [toolbar setTintColor:[UIColor blueColor]];
+    //[toolbar setTintColor:[UIColor blueColor]];
     
    [printIcon setTintColor: [UIColor clearColor]];
     //[self.locationManager stopUpdatingLocation];
@@ -7981,6 +7917,12 @@ return @"60";
    // [delegate ShowDrivingFrm];
    // delegate.driving = YES;
   //  driving=YES;
+    
+    
+}
+
+-(IBAction)gestOpenMap{
+    NSLog(@"%@\n", @"2Finger Tap Recognized");
     
     
 }
