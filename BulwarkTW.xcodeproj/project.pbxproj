@@ -60,6 +60,7 @@
 		B3BBF59819BE54210088C777 /* clockout.png in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF59719BE54210088C777 /* clockout.png */; };
 		B3BBF59A19BE54290088C777 /* clockin1.png in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF59919BE54290088C777 /* clockin1.png */; };
 		B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C3D3C719FC0ACF008774E7 /* MKNumberBadgeView.m */; };
+		B3CA93F927EB848100945F0C /* SplitStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */; };
 		B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCDD7327B1E00E00D93387 /* Images.xcassets */; };
 		B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCDD7827B1E8AC00D93387 /* viewChat.swift */; };
 		B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */; };
@@ -157,6 +158,7 @@
 		B3BE1C4518CE87F200759894 /* CTMessageCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTMessageCenter.h; sourceTree = "<group>"; };
 		B3C3D3C619FC0ACF008774E7 /* MKNumberBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNumberBadgeView.h; sourceTree = "<group>"; };
 		B3C3D3C719FC0ACF008774E7 /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
+		B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplitStoryBoard.storyboard; sourceTree = "<group>"; };
 		B3DCDD7327B1E00E00D93387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BulwarkTW/Images.xcassets; sourceTree = "<group>"; };
 		B3DCDD7827B1E8AC00D93387 /* viewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewChat.swift; sourceTree = "<group>"; };
 		B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMyStats.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				B3A030191AA918280097AACD /* TermiteEmail.xib */,
 				E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */,
 				E55EAD1724E1E56200063BD5 /* PayrollDetailReportsService.h */,
+				B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				B3BBF58819BA400C0088C777 /* blank.html in Resources */,
 				B337A8EB1C653D0000FBEE18 /* left2-50.png in Resources */,
 				B337A8E91C650CBB00FBEE18 /* blue_close.png in Resources */,
+				B3CA93F927EB848100945F0C /* SplitStoryBoard.storyboard in Resources */,
 				B348C8BE1C7B7291000BDC7A /* notdownloaded.PNG in Resources */,
 				B3BBF59A19BE54290088C777 /* clockin1.png in Resources */,
 				B3BBF59419BE518E0088C777 /* clock-7.png in Resources */,
