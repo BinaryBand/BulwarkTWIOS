@@ -59,7 +59,7 @@ class viewMyStats: UIViewController,WKNavigationDelegate,WKUIDelegate {
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         let h = appDelegate.hrEmpId ?? ""
         
-        let url = URL(string: "https://fbf2.bulwarkapp.com/mgrapp2/techstatsipad.aspx?h=" + h)!
+        let url = URL(string: "https://tjdev.bulwarkapp.com/mgrapp2/techstatsipad.aspx?h=" + h)!
         webView.load(URLRequest(url: url))
         
         
