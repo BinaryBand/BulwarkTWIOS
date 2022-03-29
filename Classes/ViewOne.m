@@ -170,9 +170,7 @@ return @"60";
 [[RouteWebView layer] setBorderWidth:1];
     RouteWebView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
-    //self.blunoManager = [DFBlunoManager sharedInstance];
-   // self.blunoManager.delegate = self;
-    //self.aryDevices = [[NSMutableArray alloc] init];
+
     
     self.printManager = [TWBlunoManager sharedInstance];
     self.printManager.delegate = self;
@@ -180,21 +178,11 @@ return @"60";
 
     
     [toolbar setTintColor:[UIColor blueColor]];
-    //[self.blunoManager scan];
+ 
     
     
     [self.printManager scan];
-   // vid = [[viewVideo alloc] initWithNibName:@"viewVideo" bundle:nil];
-   //  sMap = [[SalesMap alloc] initWithNibName:@"SalesMap" bundle:nil];
-          // 1
-   // viewEml = [[viewEmail alloc] initWithNibName:@"viewEmail" bundle:nil];
-    
-   // viewFound = [[viewFoundPicture alloc] initWithNibName:@"viewFoundPicture" bundle:nil];
-    
-    
-    //[self cycleTheGlobalMailComposer];
-    
-    //[self registerForNotifications];
+
 
     
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
@@ -205,15 +193,6 @@ return @"60";
     delegate.hrEmpId = @"";
     
     
-   /* if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        RouteWebView.UIDelegate = self;
-        //[RouteWebView setDelegate:self];
-    }else{
-       //[webView setDelegate:self];
-        webView.UIDelegate = self;
-    }
-  */
     
     myTabBar.delegate = self;
     
@@ -337,70 +316,10 @@ return @"60";
     
 
     
-   // rscMgr = [[RscMgr alloc] init];
-    //[rscMgr setDelegate:self];
-    
-    
-    
-    
-    
-	//[NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
-	
-	//[activityIndicator startAnimating];
-    
-      //  NSTimer *theTimer1 = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(startup:) userInfo:nil repeats:NO];
-    
 	
 	[NSThread detachNewThreadSelector:@selector(sendFilesToServer) toTarget:self withObject:nil];  
 	
-    //[NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(gpstimer:) userInfo:nil repeats:YES];
-    
-    
-    
-    
-    /*
-    
-    NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-	
-	NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"lasttruck"];
-	
-    
-    NSString * LastTruckDate = @"1/1/1900 00:00";
-    
-	if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-	{
-		
-	}
-    else{
-        LastTruckDate  = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-        
 
-        
-        
-        
-    }
-  
-    
-    
-    NSDate* eventDate = [self ConvertToDate:LastTruckDate];
-    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    if (abs(howRecent) > 86400.0){
-    
-    //if([[self ConvertToDate:[self CurrentTime]] dateByAddingTimeInterval:-86400] < [self ConvertToDate:LastTruckDate]){
-        
-        alertTruck = [[UIAlertView alloc] initWithTitle:@"Truck" message:@"Please enter your Truck #:" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-        alertTruck.alertViewStyle = UIAlertViewStylePlainTextInput;
-        UITextField * alertTextField = [alertTruck textFieldAtIndex:0];
-        alertTextField.keyboardType = UIKeyboardTypeNumberPad;
-        alertTextField.placeholder = @"Enter truck number only";
-        [alertTruck show];
-        
-        
-        
-    }
-    
-    */
     
 
 
@@ -1255,10 +1174,7 @@ return @"60";
          [webView loadRequest:request];
      }
     
-    /*PayrollDetailReportsService *viewPayrollDetailReports = [[PayrollDetailReportsService alloc] init];
-       UIWindow *wind =  [[UIApplication sharedApplication] keyWindow];
-            UIViewController *rootc = [wind rootViewController];
-            [rootc.view addSubview:viewPayrollDetailReports.view];*/
+
    
 }
 
@@ -1291,50 +1207,7 @@ return @"60";
 
 
 -(IBAction)btnAvaliableRoutes{
-    /*
-    hrEmpId = @"12345";
-    empName = @"";
-    password = @"";
-    license = @"";
-    office = @"";
-    printerIp = @"";
-    NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-    
-    NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-    {
-        
-    }
-    else {
-        
-        
-        NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-        
-        NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-        
-        empName = [paramater2 objectAtIndex: 0];
-        
-        hrEmpId = [paramater2 objectAtIndex: 1];
-        
-        password = [paramater2 objectAtIndex: 2];
-        @try {
-            license = [paramater2 objectAtIndex: 3];
-            
-            office = [paramater2 objectAtIndex: 4];
-            printerIp = [paramater2 objectAtIndex: 5];
-        }
-        @catch (NSException * e) {
-            //NSString *except =	@"office";
-            
-            
-        }
-        
-        
-        
-    }
-    */
+  
     NSDate *today1 = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM/dd/yyyy"];
@@ -1355,15 +1228,7 @@ return @"60";
     urlParamater = [urlParamater stringByAppendingString:[self CurrentAppBuild]];
     
     
-    
-    
-    
-    
-    
-    
-    //queryString= [urlParamater stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-    
-    //NSString *absoluteURLwithQueryString = [theAbsoluteURLString stringByAppendingString: queryString];
+
     
     NSURL *finalURL = [NSURL URLWithString: urlParamater];
     
@@ -1791,35 +1656,24 @@ return @"60";
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
-   // if(webView != self.wkWebView) {
-   //     decisionHandler(WKNavigationActionPolicyAllow);
-    //    return;
-   // }
+
     
     UIApplication *app1 = [UIApplication sharedApplication];
     NSURL         *url = navigationAction.request.URL;
     
-   // if (!navigationAction.targetFrame) {
-        //if ([app1 canOpenURL:url]) {
-            //[app1 openURL:url];
-           // decisionHandler(WKNavigationActionPolicyCancel);
-           // return;
-        //}
-    //}
+
     if ([url.scheme isEqualToString:@"maps"])
     {
-       // if ([app1 canOpenURL:url])
-       // {
+
             [app1 openURL:url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
-        //}
+        
     }
     
     if ([url.scheme isEqualToString:@"comgooglemaps"])
     {
-       // if ([app1 canOpenURL:url])
-       // {
+      
             
             NSString *mapsurllink = [url.absoluteString stringByReplacingOccurrencesOfString:@"comgooglemaps://?q=" withString:@""];
             
@@ -1832,47 +1686,43 @@ return @"60";
             [app1 openURL:[NSURL URLWithString:Mstring]];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
-       // }
+       
     }
     
-    //[[UIApplication sharedApplication] openURL:url];
+   
     
     
     if ([url.scheme isEqualToString:@"bulwarktw"])
     {
-       // if ([app1 canOpenURL:url])
-        //{
+   
             [app1 openURL:url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
-       // }
+       
     }
     if ([url.scheme isEqualToString:@"bulwarktwreports"])
     {
-       // if ([app1 canOpenURL:url])
-       // {
+
             [app1 openURL:url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
-       // }
+       
     }
     if ([url.scheme isEqualToString:@"bulwarktwmap"])
     {
-       // if ([app1 canOpenURL:url])
-       // {
+       
             [app1 openURL:url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
-       // }
+       
     }
     if ([url.scheme isEqualToString:@"prefs"])
     {
-       // if ([app1 canOpenURL:url])
-       // {
+    
             [app1 openURL:url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
-       // }
+     
     }
     decisionHandler(WKNavigationActionPolicyAllow);
 }
@@ -1880,40 +1730,8 @@ return @"60";
 
 
 
-/*
-- (void)webViewDidStartLoad:(UIWebView *)nWebView {
-	//[activityIndicator startAnimating];
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-       [HUD show:YES];
-    });
-
-}
-
-
-
-
-- (void)webViewDidFinishLoad:(UIWebView *)nWebView {
-	//[activityIndicator stopAnimating];
-    //NSString *currentURL = nWebView.request.URL.absoluteString;
-    dispatch_async(dispatch_get_main_queue(), ^{
-       [HUD hide:YES];
-    });
-    
-    
-    //[HUD hide:YES];
-    
-    
-}
-*/
 - (void)handleOpenURL:(NSURL *)url {
-	/*
-	hrEmpId = @"12345";
-	empName = @"";
-	password = @"";
-	printerIp = @"192.168.1.50";
-    office = @"DD";
-*/
+
 	NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
 	
@@ -2144,81 +1962,13 @@ return @"60";
         
 		[[iToast makeText:NSLocalizedString(@"Copy of Route Loaded", @"")] show];
 		
-        //[[GKAchievementHandler defaultHandler] notifyAchievementTitle:@"Saved Data" andMessage:@"Copy of Route Loaded"];
+
 		
 	}	
 	else if (dpage==5){
 
         
-		/*
-		NSArray *paramater2 = [urlParamater componentsSeparatedByString:@"$"];
-		
-		empName = [paramater2 objectAtIndex: 0];
-		
-		hrEmpId = [paramater2 objectAtIndex: 1];	
-		
-		password = [paramater2 objectAtIndex: 2];	
-		license = [paramater2 objectAtIndex: 3];
-		office = [paramater2 objectAtIndex: 4];
-		printerIp = [paramater2 objectAtIndex: 5];
-		
-		NSString *settingStr = empName;
-		
-		settingStr =  [settingStr stringByAppendingString:@"$"];
-		settingStr =  [settingStr stringByAppendingString:hrEmpId];
-		settingStr =  [settingStr stringByAppendingString:@"$"];
-		settingStr =  [settingStr stringByAppendingString:password];	
-		settingStr =  [settingStr stringByAppendingString:@"$"];
-		settingStr =  [settingStr stringByAppendingString:license];
-		settingStr =  [settingStr stringByAppendingString:@"$"];
-		settingStr =  [settingStr stringByAppendingString:office];	
-		settingStr =  [settingStr stringByAppendingString:@"$"];
-		settingStr =  [settingStr stringByAppendingString:printerIp];	
-		
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory = [paths objectAtIndex:0];
-		
-		
-					// the path to write file
-			NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"settings"];
-			
-			[settingStr writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];	
-			[HUD show:YES];
-        
-        //PopUpWebView.hidden = YES;
-        //[self DownloadChemicalList2];
-		
-		[NSThread detachNewThreadSelector:@selector(DownloadChemicalList3) toTarget:self withObject:nil];
-		[NSThread detachNewThreadSelector:@selector(loadAvailable) toTarget:self withObject:nil];  	
-        if(self.locationManager==nil){
-            self.locationManager=[[CLLocationManager alloc] init];
-            //I'm using ARC with this project so no need to release
-            
-            self.locationManager.delegate=self;
-            //_locationManager.purpose = @"Gps is used to find customer locations";
-            self.locationManager.desiredAccuracy=kCLLocationAccuracyBest;
-            self.locationManager.distanceFilter=30;
-            
-            
-            // iOS 8 - request location services via requestWhenInUseAuthorization.
-            
-        }
-        
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-                [self.locationManager requestAlwaysAuthorization];
-            } else {
-                // iOS 7 - We can't use requestWhenInUseAuthorization -- we'll get an unknown selector crash!
-                // Instead, you just start updating location, and the OS will take care of prompting the user
-                // for permissions.
-                [self.locationManager startUpdatingLocation];
-            }
-            
-            
-        }
-		*/
+
 	}
 	else if (dpage==6){
 		//save routedate
@@ -2251,9 +2001,7 @@ return @"60";
 		
 		PopUpWebView.hidden = YES;
 		
-		//[HUD show:YES];
-		
-		//[NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
+
 		
 		
 	}
@@ -2499,52 +2247,6 @@ return @"60";
 		
 		
 		
-		
-		
-
-		
-		
-/*
-			
-		NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/postcompleteroute.aspx?";
-		downloadFile= [downloadFile stringByAppendingString:urlParamater];	
-		
-		
-		
-		downloadFile =
-		[downloadFile stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];				
-		
-		NSError *err = [[NSError alloc] init];
-		NSString *url = [downloadFile stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-		NSString *myTxtFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:&err];
-		
-		
-		
-		
-		if(err.code != 0) {
-			UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Error Completing Route" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-			
-			[someError show];
-			
-			
-		}
-		else {
-	
-			
-			
-			UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Complete Route" message: myTxtFile delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-			
-			[someError show];
-		}
-		
-		
-		
-		*/
-		
-		
-		
-		
-
 
 				
 		
@@ -3149,7 +2851,7 @@ return @"60";
     else if (dpage==40){
         
         
-        
+        /*
         // pick a video from the documents directory
         NSURL *video =  [NSURL URLWithString:urlParamater];
         
@@ -3175,7 +2877,7 @@ return @"60";
         
         // and present it
         [self presentMoviePlayerViewControllerAnimated:controller];
-        
+        */
         
     }
     else if (dpage==41){
@@ -3575,45 +3277,7 @@ return @"60";
     
 }
 
-/*
-- (void)webSocketDidOpen:(SRWebSocket *)newWebSocket {
-   webSocket = newWebSocket;
-    [webSocket send:[NSString stringWithFormat:@"Hello from %@", [UIDevice currentDevice].name]];
-}
 
-- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    [self connectWebSocket];
-    
-    
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    [self connectWebSocket];
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    //self.messagesTextView.text = [NSString stringWithFormat:@"%@\n%@", self.messagesTextView.text, message];
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    localNotification.alertBody = message;
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
-}
-
-- (void)connectWebSocket {
-    webSocket.delegate = nil;
-    webSocket = nil;
-    
-    NSString *urlString = @"ws://ipadapp.bulwarkapp.com:8080/ws.ashx?name=ipad&id=ipad";
-    SRWebSocket *newWebSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
-    newWebSocket.delegate = self;
-    
-    [newWebSocket open];
-}
-*/
 
 - (void)openurl_in_background:(NSURL *)url
 {
@@ -3686,15 +3350,6 @@ return @"60";
         [NSThread detachNewThreadSelector:@selector(uploadImageBackground:) toTarget:self withObject:chosenImage];
    
     
-    
-  //  if(picker==Termitepicker){
-  //      [self performSelector:@selector(emailImageTermite:) withObject:chosenImage afterDelay:0.2];
-  //  }else{
-  //
-  //
-  //  [self performSelector:@selector(emailImage:) withObject:chosenImage afterDelay:0.2];
-  //  [self emailImage:chosenImage];
-  //  }
 
     
 }
@@ -3776,83 +3431,7 @@ return @"60";
 - (void)emailImage:(UIImage *)image
 {
     
-    /*
-
-    
-    
-    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-    picker.mailComposeDelegate = self;
-    
-    // Set the subject of email
-    [picker setSubject:@"Document From Tech App"];
-    
-    // Add email addresses
-    // Notice three sections: "to" "cc" and "bcc"
-    
-    NSString *addr =@"titans@bulwarkpest.com";
-    
-    
-    if ([office rangeOfString:@"ME"].location == NSNotFound) {
-     
-    } else {
-        addr = @"JoeD@bulwarkpest.com";
-    }
-    
-    if ([office rangeOfString:@"LV"].location == NSNotFound) {
-        
-    } else {
-        addr = @"WayneB@bulwarkpest.com";
-    }
-    if ([office rangeOfString:@"TU"].location == NSNotFound) {
-        
-    } else {
-        addr = @"Brandon@bulwarkpest.com";
-    }
-    if ([office rangeOfString:@"AU"].location == NSNotFound) {
-        
-    } else {
-        addr = @"RShoffner@bulwarkpest.com";
-    }
-    if ([office rangeOfString:@"CH"].location == NSNotFound) {
-        
-    } else {
-        addr = @"PrestonG@bulwarkpest.com";
-    }
-    if ([office rangeOfString:@"RD"].location == NSNotFound) {
-        
-    } else {
-        addr = @"ChadC@bulwarkpest.com";
-    }
-    if ([office rangeOfString:@"PH"].location == NSNotFound) {
-        
-    } else {
-        addr = @"JeffL@bulwarkpest.com";
-    }
-    if ([office rangeOfString:@"HO"].location == NSNotFound) {
-        
-    } else {
-        addr = @"SethS@bulwarkpest.com";
-    }
-    if ([office rangeOfString:@"EA"].location == NSNotFound) {
-        
-    } else {
-        addr = @"JamesonH@bulwarkpest.com";
-    }
-    
-    NSData *data = UIImagePNGRepresentation(image);
-    TermiteEmail *rpemail = [[TermiteEmail alloc] init];
-    
-    
-    rpemail.emlSubject = @"";
-    rpemail.emlAttach = data;
-    
-    rpemail.emlBody = @"";
-    rpemail.tousr = addr;
-    
-    
-    [self.view addSubview:[rpemail view]];
-     */
-    
+   
    }
 - (void)emailImageTermite:(UIImage *)image
 {
@@ -3990,14 +3569,7 @@ return @"60";
 		
 		NSString *spage =[paramater objectAtIndex: 1];
 		
-		//double dpage = [spage doubleValue];
-		// Example 1, loading the content from a URLNSURL
-		//NSURL *urlz = [NSURL URLWithString:urlParamater];
-		
-		//NSURLRequest *request = [NSURLRequest requestWithURL:urlz];
-		//[webView loadRequest:request];		
-		
-		
+
 		
 		NSArray *paramater1 = [URLString componentsSeparatedByString:@"!"];
 		
@@ -4231,8 +3803,8 @@ return @"60";
         surl =  [surl stringByAppendingString:rdate];
         //surl =  [surl stringByAppendingString:@"&build="];
         //surl =  [surl stringByAppendingString:Build];
-        
-        surl =  [surl stringByAppendingString:@"&ipad=3"];
+
+        surl =  [surl stringByAppendingString:@"&ipad=4"];
         
         
         
@@ -4302,8 +3874,8 @@ return @"60";
                     
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
-                       CGPoint RWVpt = RouteWebView.scrollView.contentOffset;
-                        [RouteWebView loadRequest:srequest];
+                       
+                        [self->RouteWebView loadRequest:srequest];
                          [self toastScreenAsync:@"Route Updated" withMessage:@""];
                         NSLog(@"Route Updated");
                         
@@ -5258,7 +4830,7 @@ return @"60";
 		//surl =  [surl stringByAppendingString:@"&build="];
 		//surl =  [surl stringByAppendingString:Build];
 
-            surl =  [surl stringByAppendingString:@"&ipad=3"];
+            surl =  [surl stringByAppendingString:@"&ipad=4"];
  
         
         

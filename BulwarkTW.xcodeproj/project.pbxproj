@@ -61,6 +61,7 @@
 		B3BBF59A19BE54290088C777 /* clockin1.png in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF59919BE54290088C777 /* clockin1.png */; };
 		B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C3D3C719FC0ACF008774E7 /* MKNumberBadgeView.m */; };
 		B3CA93F927EB848100945F0C /* SplitStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */; };
+		B3CA93FD27F2385900945F0C /* viewRouteDayTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA93FC27F2385900945F0C /* viewRouteDayTable.swift */; };
 		B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCDD7327B1E00E00D93387 /* Images.xcassets */; };
 		B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCDD7827B1E8AC00D93387 /* viewChat.swift */; };
 		B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */; };
@@ -159,6 +160,7 @@
 		B3C3D3C619FC0ACF008774E7 /* MKNumberBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNumberBadgeView.h; sourceTree = "<group>"; };
 		B3C3D3C719FC0ACF008774E7 /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
 		B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplitStoryBoard.storyboard; sourceTree = "<group>"; };
+		B3CA93FC27F2385900945F0C /* viewRouteDayTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRouteDayTable.swift; sourceTree = "<group>"; };
 		B3DCDD7327B1E00E00D93387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BulwarkTW/Images.xcassets; sourceTree = "<group>"; };
 		B3DCDD7827B1E8AC00D93387 /* viewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewChat.swift; sourceTree = "<group>"; };
 		B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMyStats.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				B3122E8827DAAFAF0003C75D /* viewRoutes.swift */,
 				B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */,
 				B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */,
+				B3CA93FC27F2385900945F0C /* viewRouteDayTable.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				B36EC1B71A64887600F53D78 /* BLEDevice.m in Sources */,
 				B3F309851FABB762008AD53F /* viewMissedClockIn.m in Sources */,
 				B3E3AE7727BDB0B900A76EE3 /* viewMySales.swift in Sources */,
+				B3CA93FD27F2385900945F0C /* viewRouteDayTable.swift in Sources */,
 				B348C8BF1C7B7291000BDC7A /* RGSSystem.m in Sources */,
 				B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */,
 				B38DFC19212E783C004CCBEF /* UILabel+JDFTooltips.m in Sources */,
