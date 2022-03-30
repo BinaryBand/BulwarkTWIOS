@@ -33,7 +33,7 @@
 @synthesize viewMap;
 @synthesize viewSched;
 
-
+NSString *kGCMMessageIDKey = @"";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -50,19 +50,36 @@
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
     [NSURLCache setSharedURLCache:sharedCache];
     
-    
-    
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
-                                                                                             |UIUserNotificationTypeSound
-                                                                                             |UIUserNotificationTypeAlert) categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    } else {
-        UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
-        [[UIApplication sharedApplication]  registerForRemoteNotificationTypes:myTypes];
+    @try{
+        [FIRApp configure];
+        [FIRMessaging messaging].delegate = self;
         
+        if ([UNUserNotificationCenter class] != nil) {
+            // iOS 10 or later
+            // For iOS 10 display notification (sent via APNS)
+            [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+            UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
+                UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+            [[UNUserNotificationCenter currentNotificationCenter]
+                requestAuthorizationWithOptions:authOptions
+                completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                  
+                }];
+          } else {
+            // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
+            UIUserNotificationType allNotificationTypes =
+            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+            UIUserNotificationSettings *settings =
+            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+            [application registerUserNotificationSettings:settings];
+          }
+        [application registerForRemoteNotifications];
+        [self configureFireBase];
+    }@catch(NSException *exc){
+        NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "Configuring Firebase ", [exc reason]];
+        NSLog(logmessage);
     }
-    
+ 
     
     
 
@@ -808,10 +825,90 @@
 
 
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+    fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+  // If you are receiving a notification message while your app is in the background,
+  // this callback will not be fired till the user taps on the notification launching the application.
+  // TODO: Handle data of notification
+
+  // With swizzling disabled you must let Messaging know about the message, for Analytics
+  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
+
+  // ...
+
+  // Print full message.
+  NSLog(@"%@", userInfo);
+
+  completionHandler(UIBackgroundFetchResultNewData);
+}
+// Receive displayed notifications for iOS 10 devices.
+// Handle incoming notification messages while app is in the foreground.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+       willPresentNotification:(UNNotification *)notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+  NSDictionary *userInfo = notification.request.content.userInfo;
+
+  // With swizzling disabled you must let Messaging know about the message, for Analytics
+  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
+
+  // ...
+
+  // Print full message.
+  NSLog(@"%@", userInfo);
+
+  // Change this to your preferred presentation option
+  completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionAlert);
+}
+
+// Handle notification messages after display notification is tapped by the user.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void(^)(void))completionHandler {
+  NSDictionary *userInfo = response.notification.request.content.userInfo;
+  if (userInfo[kGCMMessageIDKey]) {
+    NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
+  }
+
+  // With swizzling disabled you must let Messaging know about the message, for Analytics
+  // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
+
+  // Print full message.
+  NSLog(@"%@", userInfo);
+
+  completionHandler();
+}
+
+- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+    NSLog(@"FCM registration token: %@", fcmToken);
+    // Notify about received token.
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:
+     @"FCMToken" object:nil userInfo:dataDict];
+    // TODO: If necessary send token to application server.
+    // Note: This callback is fired at each app startup and whenever a new token is generated.
+}
+-(void) configureFireBase{
+
+  //  [FIRMessaging messaging].delegate = self;
+ 
+    [[FIRMessaging messaging] tokenWithCompletion:^(NSString *token, NSError *error) {
+      if (error != nil) {
+        NSLog(@"Error getting FCM registration token: %@", error);
+      } else {
+        NSLog(@"FCM registration token: %@", token);
+       // self.fcmRegTokenMessage.text = token;
+      }
+    }];
+
+
+}
+
+
+
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     NSLog(@"My token is: %@", deviceToken);
-    
+    [FIRMessaging messaging].APNSToken = deviceToken;
   // NSString *tkn = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
     
     NSString *tkn = [[[NSString stringWithFormat:@"%@",deviceToken]

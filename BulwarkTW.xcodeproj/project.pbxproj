@@ -70,6 +70,13 @@
 		B3F309861FABB762008AD53F /* viewMissedClockIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F309841FABB762008AD53F /* viewMissedClockIn.xib */; };
 		B3FEFAC127D01FF3004BF1A1 /* viewServiceSnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */; };
 		B3FEFAC527D92FFF004BF1A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FEFAC427D92FFF004BF1A1 /* LaunchScreen.storyboard */; };
+		E55D833727EE45AE003A63CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55D833627EE45AE003A63CF /* GoogleService-Info.plist */; };
+		E55D833A27EE46B0003A63CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E55D833927EE46B0003A63CF /* FirebaseAnalytics */; };
+		E55D833C27EE46B0003A63CF /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = E55D833B27EE46B0003A63CF /* FirebaseCrashlytics */; };
+		E55D833E27EE46B0003A63CF /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = E55D833D27EE46B0003A63CF /* FirebasePerformance */; };
+		E55D834127EE4962003A63CF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E55D834027EE4962003A63CF /* FirebaseMessaging */; };
+		E55D834627EE4E43003A63CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E55D834527EE4E43003A63CF /* FirebaseAuth */; };
+		E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */; };
 		E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */ = {isa = PBXBuildFile; fileRef = E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +177,9 @@
 		B3F309841FABB762008AD53F /* viewMissedClockIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewMissedClockIn.xib; sourceTree = "<group>"; };
 		B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewServiceSnapShot.swift; sourceTree = "<group>"; };
 		B3FEFAC427D92FFF004BF1A1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E55D833627EE45AE003A63CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkOrderPhotos.m; sourceTree = "<group>"; };
+		E55D834927F23B64003A63CF /* WorkOrderPhotos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkOrderPhotos.h; sourceTree = "<group>"; };
 		E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayrollDetailReportsService.m; sourceTree = "<group>"; };
 		E55EAD1724E1E56200063BD5 /* PayrollDetailReportsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayrollDetailReportsService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +189,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55D834127EE4962003A63CF /* FirebaseMessaging in Frameworks */,
+				E55D834627EE4E43003A63CF /* FirebaseAuth in Frameworks */,
+				E55D833A27EE46B0003A63CF /* FirebaseAnalytics in Frameworks */,
+				E55D833C27EE46B0003A63CF /* FirebaseCrashlytics in Frameworks */,
+				E55D833E27EE46B0003A63CF /* FirebasePerformance in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +236,8 @@
 				E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */,
 				E55EAD1724E1E56200063BD5 /* PayrollDetailReportsService.h */,
 				B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */,
+				E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */,
+				E55D834927F23B64003A63CF /* WorkOrderPhotos.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -259,6 +276,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E55D833627EE45AE003A63CF /* GoogleService-Info.plist */,
 				B3DCDD7327B1E00E00D93387 /* Images.xcassets */,
 				B3BBF58719BA400C0088C777 /* blank.html */,
 				348D9A2012C1133B00FB51D0 /* results.html */,
@@ -378,6 +396,13 @@
 			dependencies = (
 			);
 			name = BulwarkTW;
+			packageProductDependencies = (
+				E55D833927EE46B0003A63CF /* FirebaseAnalytics */,
+				E55D833B27EE46B0003A63CF /* FirebaseCrashlytics */,
+				E55D833D27EE46B0003A63CF /* FirebasePerformance */,
+				E55D834027EE4962003A63CF /* FirebaseMessaging */,
+				E55D834527EE4E43003A63CF /* FirebaseAuth */,
+			);
 			productName = BulwarkTW;
 			productReference = 1D6058910D05DD3D006BFB54 /* BulwarkTW.app */;
 			productType = "com.apple.product-type.application";
@@ -431,6 +456,11 @@
 				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			packageReferences = (
+				E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E55D833F27EE4962003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E55D834427EE4E43003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -464,6 +494,7 @@
 				B348C8BC1C7B7291000BDC7A /* downloaded.PNG in Resources */,
 				B3BBF59619BE52560088C777 /* clockin.png in Resources */,
 				B337A8E11C6417E700FBEE18 /* Main.storyboard in Resources */,
+				E55D833727EE45AE003A63CF /* GoogleService-Info.plist in Resources */,
 				B3F309861FABB762008AD53F /* viewMissedClockIn.xib in Resources */,
 				B3BBF59819BE54210088C777 /* clockout.png in Resources */,
 				B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */,
@@ -517,6 +548,7 @@
 				B3A030111AA8288D0097AACD /* SwiftEmail.swift in Sources */,
 				B3122E8527DA77700003C75D /* viewRouteMap.swift in Sources */,
 				B36EC1B81A64887600F53D78 /* BLEUtility.m in Sources */,
+				E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */,
 				B348C8C21C7B7291000BDC7A /* VideoTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,7 +584,10 @@
 				GCC_PREFIX_HEADER = BulwarkTW_Prefix.pch;
 				INFOPLIST_FILE = "BulwarkTW-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
@@ -604,7 +639,10 @@
 				GCC_PREFIX_HEADER = BulwarkTW_Prefix.pch;
 				INFOPLIST_FILE = "BulwarkTW-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
@@ -697,7 +735,10 @@
 				GCC_PREFIX_HEADER = BulwarkTW_Prefix.pch;
 				INFOPLIST_FILE = "BulwarkTW-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
@@ -830,6 +871,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		E55D833F27EE4962003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		E55D834427EE4E43003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E55D833927EE46B0003A63CF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		E55D833B27EE46B0003A63CF /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		E55D833D27EE46B0003A63CF /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		E55D834027EE4962003A63CF /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		E55D834527EE4E43003A63CF /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>476671767017-17907d750db0ok0gmieqgieqoep4is77.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.476671767017-17907d750db0ok0gmieqgieqoep4is77</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBAZvctl6nDH4Jc7Eniy_6ARpM-90LxL-Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>476671767017</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bulwarkappTW.TechApp</string>
+	<key>PROJECT_ID</key>
+	<string>bulwarktw-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bulwarktw-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:476671767017:ios:5d2a073cf61a509faadb78</string>
+	<key>DATABASE_URL</key>
+	<string>https://bulwarktw-app.firebaseio.com</string>
+</dict>
+</plist>

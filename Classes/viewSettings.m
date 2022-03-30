@@ -485,7 +485,7 @@
            self->txtHrEmpId.text = @"";
            [self saveSettings];
          
-           
+           /*
            if([passwordfield.text containsString:@"Abby3168"]){
                self->txtHrEmpId.text = userfield.text;
                                             [self saveSettings];
@@ -493,6 +493,8 @@
                                             [alertController dismissViewControllerAnimated:true completion:nil];
                return;
            }
+           
+           */
            
            NSString *params = @"login=%@&password=%@";
            params= [NSString stringWithFormat:params, userfield.text,passwordfield.text];
@@ -508,6 +510,20 @@
             
            if([stringFromServer containsString:@"true"] || [stringFromServer containsString:@"True"]){
                txtHrEmpId.text = userfield.text;
+               
+         //      NSString *jsonStr = [stringFromServer stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+               NSData* jsonData = [stringFromServer dataUsingEncoding:NSUTF8StringEncoding];
+               
+               NSError *error = nil;
+               
+               NSDictionary *object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+               
+               //txtHrEmpId.text = [object valueForKey:@"hr_emp_id"];
+               txtName.text = [object valueForKey:@"FullName"];
+               txtLicense.text = [object valueForKey:@"applicatorLicene"];
+               txtPhoneNumber.text = [object valueForKey:@"Phone"];
+               txtOffice.text = [object valueForKey:@"OfficeCode"];
+               
                [self saveSettings];
                [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
                [alertController dismissViewControllerAnimated:true completion:nil];

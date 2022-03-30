@@ -16,6 +16,8 @@
 #import "VideoTableView.h"
 #import "PayrollDetailReportsService.h"
 
+@import Firebase;
+@import FirebaseMessaging;
 
 @class ViewOne;
 @class viewReports;
