@@ -90,7 +90,7 @@ bool submittingWorkOrderBid = false;
         }
         
         ///// TEMP OVERRIDE - REMOVE
-        isTest = true;
+        //isTest = true;
         
         if(isTest){
             if(submittingWorkOrderBid == YES){
