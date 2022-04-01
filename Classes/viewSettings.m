@@ -485,22 +485,23 @@
            self->txtHrEmpId.text = @"";
            [self saveSettings];
          
-           
-           //Serverside password is Abby31668!!
-           if([passwordfield.text containsString:@"Abby3168"]){
+           //Serverside password for techApp is Abby3168
+           //Serverside password for dashboard is Abby3168!!
+           /*if([passwordfield.text containsString:@"Abby3168"]){
                self->txtHrEmpId.text = userfield.text;
                                             [self saveSettings];
                                             [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
                                             [alertController dismissViewControllerAnimated:true completion:nil];
                return;
-           }
+           }*/
            
            
            
            NSString *params = @"login=%@&password=%@";
            params= [NSString stringWithFormat:params, userfield.text,passwordfield.text];
          
-           NSString* link = @"https://endeavor.bulwarkapp.com/Umbraco/api/LoginApi/DashboardAppLogin";
+           NSString* link = @"https://endeavor.bulwarkapp.com/Umbraco/api/LoginApi/DashboardAppLogin?isTechApp=true";
+           //link = @"http://2041-184-4-51-47.ngrok.io/Umbraco/api/LoginApi/DashboardAppLogin";
            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:14];
            request.HTTPMethod = @"POST";
            [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
