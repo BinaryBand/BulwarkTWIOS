@@ -485,7 +485,7 @@
            self->txtHrEmpId.text = @"";
            [self saveSettings];
          
-           /*
+           
            if([passwordfield.text containsString:@"Abby3168"]){
                self->txtHrEmpId.text = userfield.text;
                                             [self saveSettings];
@@ -494,7 +494,7 @@
                return;
            }
            
-           */
+           
            
            NSString *params = @"login=%@&password=%@";
            params= [NSString stringWithFormat:params, userfield.text,passwordfield.text];
