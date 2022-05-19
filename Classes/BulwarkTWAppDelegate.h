@@ -16,6 +16,7 @@
 #import "VideoTableView.h"
 #import "PayrollDetailReportsService.h"
 
+
 @import Firebase;
 @import FirebaseMessaging;
 
@@ -25,7 +26,7 @@
 @class viewRoutes;
 
 
-@interface BulwarkTWAppDelegate :  UIViewController <MFMailComposeViewControllerDelegate,CLLocationManagerDelegate,UIAlertViewDelegate> {
+@interface BulwarkTWAppDelegate :  UIViewController <MFMailComposeViewControllerDelegate,CLLocationManagerDelegate,UIAlertViewDelegate, FIRMessagingDelegate> {
     UIWindow *window;
 	
 	BulwarkTWAppDelegate *viewController;
