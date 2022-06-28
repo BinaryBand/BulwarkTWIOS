@@ -88,8 +88,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         let acct = txtSearch.text ?? ""
+        let newacct = acct.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptsearch.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon + "&t=" + acct
+        
+        
+        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptsearch.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon + "&t=" + newacct
         
         
         

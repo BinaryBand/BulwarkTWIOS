@@ -158,7 +158,7 @@
 {
     NSString* devName = peripheral.name;
     
-    NSLog(@"BLE Device: %@", devName);
+  //  NSLog(@"BLE Device: %@", devName);
     
    // NSLog(devName);
     
@@ -257,9 +257,9 @@
         
         
         for (CBCharacteristic *characteristic in service.characteristics) {
-            NSLog(@"Discovered characteristic %@", characteristic);
+         //   NSLog(@"Discovered characteristic %@", characteristic);
             NSString * chars = [characteristic.UUID UUIDString];
-            NSLog(chars);
+          //  NSLog(chars);
         
         }
         [self configureSensorTag:peripheral];

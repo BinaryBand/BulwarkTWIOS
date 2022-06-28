@@ -400,7 +400,7 @@
     
     
     
-     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Chemicals" message:@"Chemicals will download" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Chemicals" message:@"Product List will download" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
       [alertView show];
     
     [NSThread detachNewThreadSelector:@selector(DownloadChemicalList3) toTarget:self withObject:nil];

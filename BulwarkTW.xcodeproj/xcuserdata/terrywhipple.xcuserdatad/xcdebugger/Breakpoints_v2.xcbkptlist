@@ -17,8 +17,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7195"
             endingLineNumber = "7195"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -34,8 +34,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7183"
             endingLineNumber = "7183"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -51,8 +51,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7237"
             endingLineNumber = "7237"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -102,7 +102,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2308"
             endingLineNumber = "2308"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -119,7 +119,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2316"
             endingLineNumber = "2316"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -136,7 +136,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2365"
             endingLineNumber = "2365"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -204,7 +204,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2319"
             endingLineNumber = "2319"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -221,7 +221,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2966"
             endingLineNumber = "2966"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -238,7 +238,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2977"
             endingLineNumber = "2977"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -255,7 +255,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2988"
             endingLineNumber = "2988"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -272,7 +272,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2999"
             endingLineNumber = "2999"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -340,7 +340,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4498"
             endingLineNumber = "4498"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-btnFixClockOut"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -357,7 +357,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7277"
             endingLineNumber = "7277"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-printDidUpdateState:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -425,7 +425,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4807"
             endingLineNumber = "4807"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1118,7 +1118,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7281"
             endingLineNumber = "7281"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-printDidUpdateState:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1220,7 +1220,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4063"
             endingLineNumber = "4063"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CheckClockIn"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1237,7 +1237,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4032"
             endingLineNumber = "4032"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CheckClockIn"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1254,8 +1254,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4252"
             endingLineNumber = "4252"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1271,7 +1271,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4078"
             endingLineNumber = "4078"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-SaveClockInTime"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1288,7 +1288,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5795"
             endingLineNumber = "5795"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CurrentTime"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1305,7 +1305,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5967"
             endingLineNumber = "5967"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1322,7 +1322,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3519"
             endingLineNumber = "3519"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-getIPAddress"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1339,7 +1339,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4536"
             endingLineNumber = "4536"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-ClockOutSaved:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1356,7 +1356,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6013"
             endingLineNumber = "6013"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1373,7 +1373,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5779"
             endingLineNumber = "5779"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CurrentDate"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1390,7 +1390,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5791"
             endingLineNumber = "5791"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CurrentDate"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1407,7 +1407,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4438"
             endingLineNumber = "4438"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-dateTimePicker:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1424,8 +1424,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4434"
             endingLineNumber = "4434"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1441,7 +1441,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4430"
             endingLineNumber = "4430"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-mailComposeController:didFinishWithResult:error:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1458,7 +1458,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4449"
             endingLineNumber = "4449"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-dateTimePicker:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1475,7 +1475,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4449"
             endingLineNumber = "4449"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-dateTimePicker:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1492,7 +1492,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4438"
             endingLineNumber = "4438"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-dateTimePicker:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1560,7 +1560,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1738"
             endingLineNumber = "1738"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1577,7 +1577,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1899"
             endingLineNumber = "1899"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1594,7 +1594,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1901"
             endingLineNumber = "1901"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1611,7 +1611,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2265"
             endingLineNumber = "2265"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1628,7 +1628,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2591"
             endingLineNumber = "2591"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1645,7 +1645,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2705"
             endingLineNumber = "2705"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1662,7 +1662,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2723"
             endingLineNumber = "2723"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1679,7 +1679,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2740"
             endingLineNumber = "2740"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1696,7 +1696,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2757"
             endingLineNumber = "2757"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1713,7 +1713,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2774"
             endingLineNumber = "2774"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1730,7 +1730,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3705"
             endingLineNumber = "3705"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendResults:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1747,7 +1747,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3708"
             endingLineNumber = "3708"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendResults:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1764,7 +1764,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1587"
             endingLineNumber = "1587"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1781,7 +1781,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2528"
             endingLineNumber = "2528"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1798,7 +1798,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1578"
             endingLineNumber = "1578"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1815,7 +1815,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1574"
             endingLineNumber = "1574"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1832,7 +1832,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1453"
             endingLineNumber = "1453"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1849,8 +1849,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1449"
             endingLineNumber = "1449"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1866,7 +1866,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1445"
             endingLineNumber = "1445"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1883,7 +1883,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1441"
             endingLineNumber = "1441"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1900,8 +1900,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1598"
             endingLineNumber = "1598"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1917,7 +1917,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1617"
             endingLineNumber = "1617"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:didFinishLoadingNavigation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1934,7 +1934,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1657"
             endingLineNumber = "1657"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:decidePolicyForNavigationAction:decisionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1951,7 +1951,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1655"
             endingLineNumber = "1655"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:decidePolicyForNavigationResponse:decisionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1968,7 +1968,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1647"
             endingLineNumber = "1647"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:didFinishNavigation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1985,8 +1985,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1635"
             endingLineNumber = "1635"
-            landmarkName = "-btnMyPay"
-            landmarkType = "7">
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2002,7 +2002,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3612"
             endingLineNumber = "3612"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendResults:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -2051,7 +2051,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4164"
             endingLineNumber = "4164"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-SaveServiceFile:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2068,7 +2068,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1613"
             endingLineNumber = "1613"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:didFinishLoadingNavigation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2085,7 +2085,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4774"
             endingLineNumber = "4774"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2204,7 +2204,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4698"
             endingLineNumber = "4698"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2221,7 +2221,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4730"
             endingLineNumber = "4730"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2306,7 +2306,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6463"
             endingLineNumber = "6463"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2323,7 +2323,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6462"
             endingLineNumber = "6462"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2340,7 +2340,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3782"
             endingLineNumber = "3782"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadInBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2357,7 +2357,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4808"
             endingLineNumber = "4808"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2374,7 +2374,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4812"
             endingLineNumber = "4812"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2423,7 +2423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4813"
             endingLineNumber = "4813"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2439,7 +2439,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4814"
             endingLineNumber = "4814"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2455,7 +2455,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4815"
             endingLineNumber = "4815"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2583,7 +2583,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2706"
             endingLineNumber = "2706"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2599,7 +2599,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2192"
             endingLineNumber = "2192"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2615,7 +2615,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2189"
             endingLineNumber = "2189"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2727,7 +2727,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3071"
             endingLineNumber = "3071"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2743,7 +2743,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3009"
             endingLineNumber = "3009"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2759,7 +2759,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3067"
             endingLineNumber = "3067"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2775,7 +2775,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3003"
             endingLineNumber = "3003"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2791,7 +2791,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3033"
             endingLineNumber = "3033"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2807,7 +2807,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3035"
             endingLineNumber = "3035"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2823,7 +2823,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3095"
             endingLineNumber = "3095"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2839,7 +2839,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3130"
             endingLineNumber = "3130"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2855,7 +2855,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3165"
             endingLineNumber = "3165"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2887,7 +2887,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1783"
             endingLineNumber = "1783"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2903,7 +2903,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1842"
             endingLineNumber = "1842"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2919,7 +2919,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1535"
             endingLineNumber = "1535"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -2967,7 +2967,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5912"
             endingLineNumber = "5912"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-getStringFromSite:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2983,7 +2983,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1463"
             endingLineNumber = "1463"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2999,7 +2999,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3264"
             endingLineNumber = "3264"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3015,7 +3015,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2307"
             endingLineNumber = "2307"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3031,7 +3031,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2321"
             endingLineNumber = "2321"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3047,7 +3047,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2337"
             endingLineNumber = "2337"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3063,7 +3063,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2352"
             endingLineNumber = "2352"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3079,7 +3079,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2398"
             endingLineNumber = "2398"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3095,7 +3095,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2457"
             endingLineNumber = "2457"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3111,7 +3111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2455"
             endingLineNumber = "2455"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3127,7 +3127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2453"
             endingLineNumber = "2453"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3143,7 +3143,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2499"
             endingLineNumber = "2499"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3159,7 +3159,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2440"
             endingLineNumber = "2440"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3175,7 +3175,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2407"
             endingLineNumber = "2407"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3191,7 +3191,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2441"
             endingLineNumber = "2441"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3207,7 +3207,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4091"
             endingLineNumber = "4091"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-SaveClockInTime"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3223,7 +3223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6640"
             endingLineNumber = "6640"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3239,7 +3239,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6661"
             endingLineNumber = "6661"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3255,7 +3255,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6662"
             endingLineNumber = "6662"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3367,7 +3367,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5966"
             endingLineNumber = "5966"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3383,7 +3383,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1325"
             endingLineNumber = "1325"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-btnClockIn"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3399,7 +3399,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6045"
             endingLineNumber = "6045"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3415,7 +3415,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6046"
             endingLineNumber = "6046"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3431,7 +3431,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4573"
             endingLineNumber = "4573"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3447,7 +3447,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4630"
             endingLineNumber = "4630"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3463,7 +3463,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4639"
             endingLineNumber = "4639"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3479,7 +3479,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6030"
             endingLineNumber = "6030"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3495,7 +3495,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4640"
             endingLineNumber = "4640"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3511,7 +3511,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1401"
             endingLineNumber = "1401"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-btnClockOut"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3527,7 +3527,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5544"
             endingLineNumber = "5544"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadAvailable"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3543,7 +3543,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4825"
             endingLineNumber = "4825"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3559,7 +3559,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1184"
             endingLineNumber = "1184"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-btnMyStats"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3701,8 +3701,8 @@
             filePath = "Classes/viewMyStats.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "webView(_:didFail:withError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3717,8 +3717,8 @@
             filePath = "Classes/viewMyStats.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "webView(_:didFinish:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3735,7 +3735,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1750"
             endingLineNumber = "1750"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3767,7 +3767,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4919"
             endingLineNumber = "4919"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3783,7 +3783,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1695"
             endingLineNumber = "1695"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:decidePolicyForNavigationAction:decisionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3815,7 +3815,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1458"
             endingLineNumber = "1458"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3831,7 +3831,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1468"
             endingLineNumber = "1468"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3847,7 +3847,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1476"
             endingLineNumber = "1476"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3863,7 +3863,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5985"
             endingLineNumber = "5985"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3879,7 +3879,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2421"
             endingLineNumber = "2421"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4087,7 +4087,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7349"
             endingLineNumber = "7349"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-didDisconnectPrinter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4103,7 +4103,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7290"
             endingLineNumber = "7290"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-didDiscoverPrinter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4119,7 +4119,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7335"
             endingLineNumber = "7335"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-readyToPrint:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4191,7 +4191,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FE18F994-6402-4B71-A79A-5303D41F83C3"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/viewReports.m"
@@ -4389,8 +4389,8 @@
             filePath = "Classes/viewRetReports.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "btnGate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4405,8 +4405,8 @@
             filePath = "Classes/viewRetReports.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "btnGate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4439,7 +4439,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7497"
             endingLineNumber = "7497"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-gestOpenMap"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4455,7 +4455,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3289"
             endingLineNumber = "3289"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-takeTermitePhoto"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4471,7 +4471,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3300"
             endingLineNumber = "3300"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-takePhoto"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4487,7 +4487,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3322"
             endingLineNumber = "3322"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-selectTermitePhoto"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4503,7 +4503,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3367"
             endingLineNumber = "3367"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-uploadImageBackground:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4519,7 +4519,407 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4837"
             endingLineNumber = "4837"
-            landmarkName = "-btnMyPay"
+            landmarkName = "-loadRoute"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FE64AB6-477C-47DE-86C2-9C08DF4A5396"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewMyStats.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2ABCCBEF-A34F-4609-9C2A-B8313FA1B78B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A03ADC5A-8A7F-4976-A32D-2873BEC22FCA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B13C6A8-2CFC-464F-B76D-4CBBF832758E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "916331A4-0D31-4C6B-A327-31CA990BA01E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC44CDB0-E34D-4424-AE92-920ADE82A47B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A959641-37BD-4A81-930E-449B5844C1DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "webView(_:didFinish:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B56733E2-687A-405E-8D82-5C74C398D704"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15E39B13-2182-421C-94BF-D41985C5E8F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "webView(_:didFail:withError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4AA50EE3-2D54-4E87-973C-437E3D66474B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AEA61B1-51DB-4B12-AC33-ED4F8AB6A54C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewRetReports.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "btnSearch()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F60E279-02C9-464A-B67D-638CB2D8DA36"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/ViewOne.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2185"
+            endingLineNumber = "2185"
+            landmarkName = "-handleOpenURL:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B59802B4-2B02-4C81-AD3F-5F6F3710B7D0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewSettings.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "598"
+            endingLineNumber = "598"
+            landmarkName = "-DownloadChemicalList3"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34B9689B-57BA-476A-B6E1-29320BD3BEE3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78488A7A-D6F5-40AC-98C0-853EA6F7CB46"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54DA5036-CCDD-4D6D-B2E7-2A25BBF922CA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "400DDD15-1412-4C15-9FD3-E8003FF42076"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CCFEC7C-9E9C-45BD-A020-FBEFF3071292"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "webView(_:didFinish:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "749BE92D-06F2-4764-9DAB-94FB10B95898"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "webView(_:didFinish:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5882662F-18D6-473C-B39F-E87571618A15"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "webView(_:didFinish:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7C1E53B-904E-46F8-8CD0-E76B456DB4DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewSettings.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
+            landmarkName = "-DownloadChemicalList3"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A0ECCC3-0119-489A-B17E-2568E7023064"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "webView(_:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4159599B-AEC1-4725-8940-24900E14B145"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "webView(_:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7180D796-5F4F-429E-AC13-9C13F49E3E2F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA8F2216-538B-48C2-96FF-D72D311F1234"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewAddSale.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

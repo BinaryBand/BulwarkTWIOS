@@ -530,6 +530,41 @@
             </objects>
             <point key="canvasLocation" x="456.25" y="0.0"/>
         </scene>
+        <!--View Add Sale-->
+        <scene sceneID="ni8-j4-23G">
+            <objects>
+                <viewController id="B10-j8-Eif" customClass="viewAddSale" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OT4-FN-1eI">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1Z-xl-4jj">
+                                <rect key="frame" x="0.0" y="70" width="768" height="904"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JbY-4T-YNe"/>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="G1Z-xl-4jj" firstAttribute="bottom" secondItem="JbY-4T-YNe" secondAttribute="bottom" id="6vf-jN-P2q"/>
+                            <constraint firstItem="G1Z-xl-4jj" firstAttribute="top" secondItem="JbY-4T-YNe" secondAttribute="top" id="qEO-WR-Ofz"/>
+                            <constraint firstItem="G1Z-xl-4jj" firstAttribute="centerX" secondItem="OT4-FN-1eI" secondAttribute="centerX" id="v86-MA-kae"/>
+                            <constraint firstItem="G1Z-xl-4jj" firstAttribute="leading" secondItem="JbY-4T-YNe" secondAttribute="leading" id="xls-Ag-kJE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CdH-1M-Ry5"/>
+                    <connections>
+                        <outlet property="webView" destination="G1Z-xl-4jj" id="LGK-yf-WKu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DwB-UF-YJi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1083.59375" y="1459.5703125"/>
+        </scene>
         <!--Sales-->
         <scene sceneID="EYn-wu-8Ah">
             <objects>
@@ -557,6 +592,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sales" id="ann-pi-8eG">
+                        <barButtonItem key="leftBarButtonItem" title="New Sale" id="Tve-7L-vh7">
+                            <connections>
+                                <segue destination="B10-j8-Eif" kind="show" id="Oof-TG-tHl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Training" id="oVi-Df-Luf">
                             <connections>
                                 <segue destination="pNL-Fj-GmW" kind="show" id="1qj-25-WgF"/>
@@ -569,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXf-CE-Vum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="386.71875" y="706.640625"/>
+            <point key="canvasLocation" x="-297" y="1460"/>
         </scene>
         <!--Sales Training-->
         <scene sceneID="uy0-4N-WsR">
