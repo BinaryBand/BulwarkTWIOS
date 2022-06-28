@@ -3271,6 +3271,23 @@ return @"60";
         
         
     }
+    else if (dpage==50){
+        
+        //Customer Service Agreement
+        NSString *UrlStr = @"https://my.bulwarkpest.com/s?k=";
+        
+        
+        
+        UrlStr = [UrlStr stringByAppendingString:urlParamater];
+        
+        
+        NSURL *qurl = [NSURL URLWithString:UrlStr];
+        
+        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
+        PopUpWebView.hidden = NO;
+        [PopUpWebView loadRequest:srequest];
+        
+    }
     
     
     
