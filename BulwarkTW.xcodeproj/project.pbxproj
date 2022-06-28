@@ -71,6 +71,7 @@
 		B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD0457283C1721006A1EE6 /* viewAddSale.swift */; };
 		B3FEFAC127D01FF3004BF1A1 /* viewServiceSnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */; };
 		B3FEFAC527D92FFF004BF1A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FEFAC427D92FFF004BF1A1 /* LaunchScreen.storyboard */; };
+		E54C9470286B771B000965E3 /* viewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54C946F286B771B000965E3 /* viewContract.swift */; };
 		E55D833727EE45AE003A63CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55D833627EE45AE003A63CF /* GoogleService-Info.plist */; };
 		E55D834127EE4962003A63CF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E55D834027EE4962003A63CF /* FirebaseMessaging */; };
 		E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */; };
@@ -175,6 +176,7 @@
 		B3FD0457283C1721006A1EE6 /* viewAddSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewAddSale.swift; sourceTree = "<group>"; };
 		B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewServiceSnapShot.swift; sourceTree = "<group>"; };
 		B3FEFAC427D92FFF004BF1A1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E54C946F286B771B000965E3 /* viewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewContract.swift; sourceTree = "<group>"; };
 		E55D833627EE45AE003A63CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkOrderPhotos.m; sourceTree = "<group>"; };
 		E55D834927F23B64003A63CF /* WorkOrderPhotos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkOrderPhotos.h; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		B3AB45E21C5FFD13003246AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E54C946F286B771B000965E3 /* viewContract.swift */,
 				B348C8AE1C7B7271000BDC7A /* video */,
 				348DA0E612CA6F9F00FB51D0 /* ViewOne.h */,
 				348DA0E712CA6F9F00FB51D0 /* ViewOne.m */,
@@ -517,6 +520,7 @@
 				B348C8C31C7B7291000BDC7A /* VideoTableView.m in Sources */,
 				B3122E8927DAAFAF0003C75D /* viewRoutes.swift in Sources */,
 				B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */,
+				E54C9470286B771B000965E3 /* viewContract.swift in Sources */,
 				B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B38DFC18212E783C004CCBEF /* JDFTooltipManager.m in Sources */,

@@ -497,6 +497,7 @@
                         <outlet property="lblfastcommlbl" destination="14Y-Xc-fx7" id="hry-hj-wUb"/>
                         <outlet property="printIcon" destination="bTu-5b-oi9" id="HRd-LB-m6A"/>
                         <outlet property="webView" destination="EYg-a8-4vH" id="MvB-7h-6rA"/>
+                        <segue destination="etB-hm-FLE" kind="presentation" identifier="OpenContract" id="tFJ-Qh-TDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSV-Vw-qge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -529,6 +530,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsa-Mc-LeU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="456.25" y="0.0"/>
+        </scene>
+        <!--View Contract-->
+        <scene sceneID="Srp-vV-XG4">
+            <objects>
+                <viewController id="etB-hm-FLE" customClass="viewContract" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDK-HO-NnF" customClass="ViewC">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEn-an-kmd">
+                                <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5b6-O7-zXD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rEn-an-kmd" firstAttribute="centerX" secondItem="CDK-HO-NnF" secondAttribute="centerX" id="Mnu-NR-pgB"/>
+                            <constraint firstItem="rEn-an-kmd" firstAttribute="centerY" secondItem="CDK-HO-NnF" secondAttribute="centerY" id="Rgu-67-6W5"/>
+                            <constraint firstItem="rEn-an-kmd" firstAttribute="bottom" secondItem="5b6-O7-zXD" secondAttribute="bottom" id="kYW-Bj-jDw"/>
+                            <constraint firstItem="rEn-an-kmd" firstAttribute="leading" secondItem="5b6-O7-zXD" secondAttribute="leading" id="zhh-Mf-oTh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="rEn-an-kmd" id="e9D-pJ-TaZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="421-oP-mdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1334.375" y="495.70312499999994"/>
         </scene>
         <!--View Add Sale-->
         <scene sceneID="ni8-j4-23G">

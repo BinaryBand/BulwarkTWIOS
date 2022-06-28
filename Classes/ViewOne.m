@@ -48,6 +48,7 @@
     BOOL backgroundLoadingRoute;
     BOOL checkFastcomm;
     NSInteger *ISTSval;
+    
 }
 
 
@@ -59,7 +60,7 @@
 
 //@synthesize location=_location;
 
-
+NSString *contractUrl = @"";
 
 int cnt = 0;
 NSString *incommingData = @"";
@@ -3279,13 +3280,17 @@ return @"60";
         
         
         UrlStr = [UrlStr stringByAppendingString:urlParamater];
-        
-        
-        NSURL *qurl = [NSURL URLWithString:UrlStr];
+        contractUrl = UrlStr;
+        //segueOpenContract
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            [self performSegueWithIdentifier:@"OpenContract" sender:self];
+        });
+      
+               /* NSURL *qurl = [NSURL URLWithString:UrlStr];
         
         NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
         PopUpWebView.hidden = NO;
-        [PopUpWebView loadRequest:srequest];
+        [PopUpWebView loadRequest:srequest];*/
         
     }
     
@@ -7515,6 +7520,26 @@ return @"60";
     
     
 }
+
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    /*
+     
+     if(segue.identifier == "OpenMapsSegue"){
+         
+             let displayVC = segue.destination as! viewRouteMap
+         displayVC.rurl = mapDate
+     }
+     */
+    if(segue.identifier == @"OpenContract"){
+        viewContract *vC = [segue destinationViewController];
+        vC.url = contractUrl;
+    }
+}
+
 
 @end
 
