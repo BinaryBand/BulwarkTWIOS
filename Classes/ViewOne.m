@@ -7534,9 +7534,11 @@ return @"60";
          displayVC.rurl = mapDate
      }
      */
-    if(segue.identifier == @"OpenContract"){
-        viewContract *vC = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"OpenContract"]) {
+       viewContract *vC = [segue destinationViewController];
         vC.url = contractUrl;
+        [vC openContract];
+        [vC openContractWithContractUrl:contractUrl];
     }
 }
 
