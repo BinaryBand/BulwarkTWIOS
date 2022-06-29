@@ -60,7 +60,7 @@
 
 //@synthesize location=_location;
 
-NSString *contractUrl = @"";
+NSString *popWebViewUrl = @"";
 
 int cnt = 0;
 NSString *incommingData = @"";
@@ -3280,10 +3280,10 @@ return @"60";
         
         
         UrlStr = [UrlStr stringByAppendingString:urlParamater];
-        contractUrl = UrlStr;
+        popWebViewUrl = UrlStr;
         //segueOpenContract
         dispatch_async(dispatch_get_main_queue(), ^(){
-            [self performSegueWithIdentifier:@"OpenContract" sender:self];
+            [self performSegueWithIdentifier:@"OpenWebView" sender:self];
         });
       
                /* NSURL *qurl = [NSURL URLWithString:UrlStr];
@@ -7534,11 +7534,11 @@ return @"60";
          displayVC.rurl = mapDate
      }
      */
-    if ([segue.identifier isEqualToString:@"OpenContract"]) {
-       viewContract *vC = [segue destinationViewController];
-        vC.url = contractUrl;
-        [vC openContract];
-        [vC openContractWithContractUrl:contractUrl];
+    if ([segue.identifier isEqualToString:@"OpenWebView"]) {
+       viewPopupWeb *vC = [segue destinationViewController];
+        vC.url = popWebViewUrl;
+        //[vC openContract];
+        //[vC openContractWithContractUrl:popWebViewUrl];
     }
 }
 

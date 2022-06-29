@@ -497,7 +497,7 @@
                         <outlet property="lblfastcommlbl" destination="14Y-Xc-fx7" id="hry-hj-wUb"/>
                         <outlet property="printIcon" destination="bTu-5b-oi9" id="HRd-LB-m6A"/>
                         <outlet property="webView" destination="EYg-a8-4vH" id="MvB-7h-6rA"/>
-                        <segue destination="etB-hm-FLE" kind="presentation" identifier="OpenContract" id="tFJ-Qh-TDv"/>
+                        <segue destination="etB-hm-FLE" kind="presentation" identifier="OpenWebView" id="tFJ-Qh-TDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSV-Vw-qge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -531,11 +531,11 @@
             </objects>
             <point key="canvasLocation" x="456.25" y="0.0"/>
         </scene>
-        <!--View Contract-->
+        <!--View Popup Web-->
         <scene sceneID="Srp-vV-XG4">
             <objects>
-                <viewController id="etB-hm-FLE" customClass="viewContract" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CDK-HO-NnF" customClass="ViewC">
+                <viewController id="etB-hm-FLE" customClass="viewPopupWeb" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDK-HO-NnF">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -558,7 +558,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="rEn-an-kmd" id="e9D-pJ-TaZ"/>
+                        <outlet property="webView" destination="rEn-an-kmd" id="A2V-r6-FF8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="421-oP-mdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

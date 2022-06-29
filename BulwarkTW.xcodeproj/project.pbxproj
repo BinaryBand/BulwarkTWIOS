@@ -54,6 +54,7 @@
 		B3A030171AA8B7770097AACD /* ReportProblemEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A030151AA8B7770097AACD /* ReportProblemEmailViewController.xib */; };
 		B3A0301A1AA918280097AACD /* TermiteEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A030181AA918280097AACD /* TermiteEmail.swift */; };
 		B3A0301B1AA918280097AACD /* TermiteEmail.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A030191AA918280097AACD /* TermiteEmail.xib */; };
+		B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */; };
 		B3BBF58819BA400C0088C777 /* blank.html in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF58719BA400C0088C777 /* blank.html */; };
 		B3BBF59419BE518E0088C777 /* clock-7.png in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF59319BE518E0088C777 /* clock-7.png */; };
 		B3BBF59619BE52560088C777 /* clockin.png in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF59519BE52560088C777 /* clockin.png */; };
@@ -71,7 +72,6 @@
 		B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD0457283C1721006A1EE6 /* viewAddSale.swift */; };
 		B3FEFAC127D01FF3004BF1A1 /* viewServiceSnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */; };
 		B3FEFAC527D92FFF004BF1A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FEFAC427D92FFF004BF1A1 /* LaunchScreen.storyboard */; };
-		E54C9470286B771B000965E3 /* viewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54C946F286B771B000965E3 /* viewContract.swift */; };
 		E55D833727EE45AE003A63CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55D833627EE45AE003A63CF /* GoogleService-Info.plist */; };
 		E55D834127EE4962003A63CF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E55D834027EE4962003A63CF /* FirebaseMessaging */; };
 		E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */; };
@@ -156,6 +156,7 @@
 		B3A030151AA8B7770097AACD /* ReportProblemEmailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportProblemEmailViewController.xib; sourceTree = "<group>"; };
 		B3A030181AA918280097AACD /* TermiteEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermiteEmail.swift; sourceTree = "<group>"; };
 		B3A030191AA918280097AACD /* TermiteEmail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermiteEmail.xib; sourceTree = "<group>"; };
+		B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPopupWeb.swift; sourceTree = "<group>"; };
 		B3BBF58719BA400C0088C777 /* blank.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = blank.html; sourceTree = "<group>"; };
 		B3BBF59319BE518E0088C777 /* clock-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-7.png"; sourceTree = "<group>"; };
 		B3BBF59519BE52560088C777 /* clockin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockin.png; sourceTree = "<group>"; };
@@ -176,7 +177,6 @@
 		B3FD0457283C1721006A1EE6 /* viewAddSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewAddSale.swift; sourceTree = "<group>"; };
 		B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewServiceSnapShot.swift; sourceTree = "<group>"; };
 		B3FEFAC427D92FFF004BF1A1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E54C946F286B771B000965E3 /* viewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewContract.swift; sourceTree = "<group>"; };
 		E55D833627EE45AE003A63CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkOrderPhotos.m; sourceTree = "<group>"; };
 		E55D834927F23B64003A63CF /* WorkOrderPhotos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkOrderPhotos.h; sourceTree = "<group>"; };
@@ -345,7 +345,6 @@
 		B3AB45E21C5FFD13003246AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E54C946F286B771B000965E3 /* viewContract.swift */,
 				B348C8AE1C7B7271000BDC7A /* video */,
 				348DA0E612CA6F9F00FB51D0 /* ViewOne.h */,
 				348DA0E712CA6F9F00FB51D0 /* ViewOne.m */,
@@ -375,6 +374,7 @@
 				B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */,
 				B3CA93FC27F2385900945F0C /* viewRouteDayTable.swift */,
 				B3FD0457283C1721006A1EE6 /* viewAddSale.swift */,
+				B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -520,7 +520,6 @@
 				B348C8C31C7B7291000BDC7A /* VideoTableView.m in Sources */,
 				B3122E8927DAAFAF0003C75D /* viewRoutes.swift in Sources */,
 				B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */,
-				E54C9470286B771B000965E3 /* viewContract.swift in Sources */,
 				B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B38DFC18212E783C004CCBEF /* JDFTooltipManager.m in Sources */,
@@ -554,6 +553,7 @@
 				B36EC1B81A64887600F53D78 /* BLEUtility.m in Sources */,
 				E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */,
 				B348C8C21C7B7291000BDC7A /* VideoTableCell.m in Sources */,
+				B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
