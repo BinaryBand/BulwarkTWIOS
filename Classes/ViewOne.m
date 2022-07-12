@@ -1536,9 +1536,59 @@ return @"60";
     }else if ([message hasPrefix:@"EarlyFast50"]){
         
     
+    //Test code for the new is extended window
     
-    
-    
+        dispatch_async(dispatch_get_main_queue(), ^(){
+          //  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:
+           //                                 @"TabbedStoryBoard" bundle:[NSBundle mainBundle]];
+
+          //  viewISExtendedOptIn* isExt = [storyboard instantiateViewControllerWithIdentifier:@"popIsext"];
+
+          //  [self presentViewController:gchCVC animated:YES completion:nil];
+            
+
+            
+            
+            viewISExtendedOptIn* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"popIsext"];
+            
+            CGRect nframe = CGRectMake((self.view.frame.size.width/2) - 250, (self.view.frame.size.height/2) - 300, 500, 600);
+
+            customView.view.frame = nframe;
+           
+            //customView.Center = CGPointMake(s, self.view.frame.size.height/2);
+            
+            
+            customView.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                customView.view.transform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished){
+                // do something once the animation finishes, put it here
+            }];
+            
+            [self.view addSubview:customView.view];
+
+                  //self.myPopOver = [[UIPopoverController alloc]
+                  //                           initWithContentViewController:customView];
+                 // self.myPopOver.delegate = self;
+                  //Get the cell from your table that presents the popover
+                  //MyCell *myCell = (MyCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                  //CGRect displayFrom = CGRectMake(myCell.frame.origin.x + myCell.frame.size.width, myCell.center.y + self.tableView.frame.origin.y - self.tableView.contentOffset.y, 1, 1);
+                 // [self.myPopOver presentVFromRect:displayFrom
+                  //                                     inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            
+            
+            
+            
+            
+            //[self performSegueWithIdentifier:@"segueISExtended" sender:self];
+        });
+        
+        
+        completionHandler(NO);
+        
+    //comment out origional
+        /*
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"7AM$50" message:@"By Clicking Yes this will allow for an initial Service to be added before your route tomorrow morning with a timeblock of 7am to 9am" preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=0&amt=1&istoday=2&hrempid=";
@@ -1553,6 +1603,14 @@ return @"60";
     }]];
     [self presentViewController:alertController animated:YES completion:^{}];
     
+        
+        */
+        
+        
+        
+        
+        
+        
     
     }else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm" message:message preferredStyle:UIAlertControllerStyleAlert];
@@ -3291,6 +3349,16 @@ return @"60";
         NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
         PopUpWebView.hidden = NO;
         [PopUpWebView loadRequest:srequest];*/
+        
+        
+        //segueISExtended
+    } else if (dpage==51){
+        
+        //Is extended from url scheme
+        
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            [self performSegueWithIdentifier:@"segueISExtended" sender:self];
+        });
         
     }
     
@@ -7541,6 +7609,9 @@ return @"60";
         //[vC openContractWithContractUrl:popWebViewUrl];
     }
 }
+
+
+
 
 
 @end

@@ -24,6 +24,7 @@
 		B337A93C1C73EDB300FBEE18 /* viewSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B337A93B1C73EDB300FBEE18 /* viewSettings.m */; };
 		B33C58101CBC887F00CE2C72 /* viewDriving.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C580E1CBC887F00CE2C72 /* viewDriving.m */; };
 		B33C58111CBC887F00CE2C72 /* viewDriving.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33C580F1CBC887F00CE2C72 /* viewDriving.xib */; };
+		B3440CBC28789588003E8C8E /* viewISExtendedOptIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3440CBB28789588003E8C8E /* viewISExtendedOptIn.swift */; };
 		B348C8AD1C7ACD48000BDC7A /* viewSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = B348C8AC1C7ACD48000BDC7A /* viewSchedule.m */; };
 		B348C8BC1C7B7291000BDC7A /* downloaded.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B348C8AF1C7B7291000BDC7A /* downloaded.PNG */; };
 		B348C8BD1C7B7291000BDC7A /* downloading.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B348C8B01C7B7291000BDC7A /* downloading.PNG */; };
@@ -104,6 +105,7 @@
 		B33C580D1CBC887F00CE2C72 /* viewDriving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewDriving.h; sourceTree = "<group>"; };
 		B33C580E1CBC887F00CE2C72 /* viewDriving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewDriving.m; sourceTree = "<group>"; };
 		B33C580F1CBC887F00CE2C72 /* viewDriving.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = viewDriving.xib; sourceTree = "<group>"; };
+		B3440CBB28789588003E8C8E /* viewISExtendedOptIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewISExtendedOptIn.swift; sourceTree = "<group>"; };
 		B348C8AB1C7ACD48000BDC7A /* viewSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewSchedule.h; sourceTree = "<group>"; };
 		B348C8AC1C7ACD48000BDC7A /* viewSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = viewSchedule.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B348C8AF1C7B7291000BDC7A /* downloaded.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloaded.PNG; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				B3CA93FC27F2385900945F0C /* viewRouteDayTable.swift */,
 				B3FD0457283C1721006A1EE6 /* viewAddSale.swift */,
 				B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */,
+				B3440CBB28789588003E8C8E /* viewISExtendedOptIn.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 			files = (
 				B3A0301A1AA918280097AACD /* TermiteEmail.swift in Sources */,
 				B36EC1B91A64887600F53D78 /* DFBlunoDevice.m in Sources */,
+				B3440CBC28789588003E8C8E /* viewISExtendedOptIn.swift in Sources */,
 				B337A93C1C73EDB300FBEE18 /* viewSettings.m in Sources */,
 				B38DFC1A212E783C004CCBEF /* JDFTooltipView.m in Sources */,
 				B33C58101CBC887F00CE2C72 /* viewDriving.m in Sources */,
