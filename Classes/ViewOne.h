@@ -29,6 +29,7 @@
 @class MBProgressHUD;
 @class viewSchedule;
 
+
 //@class ReportProblemEmailViewController;
 
 @interface ViewOne : UIViewController<UIPrintInteractionControllerDelegate,UIGestureRecognizerDelegate,WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITabBarDelegate, DFBlunoDelegate, TWBlunoDelegate, viewMissedClockOutDelegate, viewMissedClockInDelegate > {

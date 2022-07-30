@@ -134,6 +134,88 @@ import WebKit
     
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
 
+        
+        
+        
+        if(message.starts(with: "IsEXT7AMBtnPress")){
+            
+            
+            DispatchQueue.main.async {
+                let customView = self.storyboard?.instantiateViewController(withIdentifier: "popIsextEarly") as? viewISExtendedOptIn
+                
+                
+                
+                let listItems = message.components(separatedBy: "-")
+                
+                
+                let d = "For Route On " + listItems[1]
+                
+            customView?.DateFor = d
+                customView?.routeDate = listItems[1]
+                customView?.istoday = 3
+                customView?.isEarly = 1
+                
+                customView?.modalTransitionStyle = .crossDissolve
+                customView?.modalPresentationStyle = .overCurrentContext
+                
+                
+                
+                
+                
+                //let nframe = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+
+                self.present(customView!,animated:true, completion:nil)
+            //self.view.addSubview(customView!.view)
+            //[self presentViewController:customView animated:YES completion:nil];
+           // self.addChild(customView!)
+            
+          //  UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+           //     self.view.addSubview(customView)
+           // }, completion: nil)
+            
+            }
+            
+            completionHandler(false)
+            
+        }
+        else if(message.starts(with: "IsEXT6PMBtnPress")){
+            
+            DispatchQueue.main.async {
+                
+                
+                let listItems = message.components(separatedBy: "-")
+                
+                
+                let d = "For Route On " + listItems[1]
+                let customView = self.storyboard?.instantiateViewController(withIdentifier: "popIsext") as? viewISExtendedOptIn
+            customView?.DateFor = d
+                customView?.routeDate = listItems[1]
+                customView?.istoday = 3
+              
+                customView?.modalTransitionStyle = .crossDissolve
+                customView?.modalPresentationStyle = .overCurrentContext
+                
+                
+                
+                
+                
+                //let nframe = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+
+                self.present(customView!,animated:true, completion:nil)
+            
+            }
+            
+            completionHandler(false)
+            
+            
+            
+            
+            
+            
+        }else{
+        
+        
+        
             let alertController = UIAlertController(title: "Confirm", message: message, preferredStyle: .alert)
 
         alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
@@ -146,6 +228,10 @@ import WebKit
 
 
             present(alertController, animated: true)
+            
+        }
+        
+        
         }
     
     
@@ -199,7 +285,7 @@ import WebKit
         
         
         
-        let url = URL(string: "https://fbf2.bulwarkapp.com/techapp/myroutes/routes.aspx?hr_emp_id=" + h)!
+        let url = URL(string: "https://fbf2.bulwarkapp.com/techapp/myroutes/routes.aspx?b=4&hr_emp_id=" + h)!
         webView.load(URLRequest(url: url))
         
     }

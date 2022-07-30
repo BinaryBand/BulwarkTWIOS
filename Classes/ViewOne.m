@@ -11,7 +11,8 @@
 //#import "Socket.h"
 //#import "GKAchievementHandler.h"
 //#import "AsyncSocket.h"
-#import "iToast.h"
+//#import "iToast.h"
+
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>
@@ -29,12 +30,15 @@
 #import <net/if.h> // For IFF_LOOPBACK
 #import "MBProgressHUD.h"
 //#import "ZipArchive/ZipArchive.h"
-#import "MKNumberBadgeView.h"
+//#import "MKNumberBadgeView.h"
 #import <BulwarkTW-Swift.h>
 #import "BulwarkTWAppDelegate.h"
-#import "JDFTooltips.h"
+//#import "JDFTooltips.h"
+#import "UIView+Toast.h"
 
 #define app ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+@class Toast;
 
 @implementation ViewOne{
     
@@ -580,10 +584,10 @@ return @"60";
 }
 
 -(void)fcTooltipPP{
-    
+  /*
     JDFTooltipView *tooltip = [[JDFTooltipView alloc] initWithTargetView:lblFastCommPP hostView:self.view tooltipText:@"This is a Tooltip" arrowDirection:JDFTooltipViewArrowDirectionUp width:200.0f];
     [tooltip show];
-    
+ */
 }
 
 -(void)fastcommcheck{
@@ -1455,8 +1459,29 @@ return @"60";
     
     
     if ([message hasPrefix:@"LateFast50TD"]){
+     
+        dispatch_async(dispatch_get_main_queue(), ^(){
+
+            
+            viewISExtendedOptIn* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"popIsext"];
+            
+            customView.DateFor = @"For Todays Route";
+            customView.istoday = 1;
+            customView.isEarly = 0;
+            customView.routeDate = [self CurrentDate];
+            customView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            customView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            //[self.view addSubview:customView.view];
+            [self presentViewController:customView animated:YES completion:nil];
+            //[self addChildViewController:customView];
+
+     });
+        completionHandler(NO);
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"6-9PM$50 Today" message:@"You can add up to 3 additional Initial services after your route, each will have a timeblock of 5pm to 9pm" preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        
+      /*  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"6-9PM$50 Today" message:@"You can add up to 3 additional Initial services after your route, each will have a timeblock of 5pm to 9pm" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Give me 1" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             NSString* submitString = @"https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=1&amt=1&istoday=1&hrempid=";
             submitString = [submitString stringByAppendingString:self->delegate.hrEmpId];
@@ -1489,9 +1514,56 @@ return @"60";
             
             
         }];
+        */
         
         
     }else if ([message hasPrefix:@"LateFast50TM"]){
+        
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^(){
+
+            
+            viewISExtendedOptIn* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"popIsext"];
+            
+            customView.DateFor = @"For Tomorrows Route";
+            customView.istoday = 0;
+            customView.isEarly = 0;
+            
+        
+            
+            NSTimeInterval totalSecondsInDay = 1 * 24 * 60 * 60;
+            
+
+            NSDate *Tomorrow = [NSDate dateWithTimeIntervalSinceNow:totalSecondsInDay];
+            NSCalendar* cal = [NSCalendar currentCalendar];
+            NSDateComponents* comp = [cal components:NSCalendarUnitWeekday fromDate:Tomorrow];
+            
+            if(comp.day == 1){
+                totalSecondsInDay = totalSecondsInDay * 2;
+                Tomorrow =[NSDate dateWithTimeIntervalSinceNow:totalSecondsInDay];
+            }
+            
+            NSDateFormatter *formatter;
+            NSString        *dateString;
+            
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MM/dd/yyyy"];
+            
+            dateString = [formatter stringFromDate:Tomorrow];
+            
+            customView.routeDate = dateString;
+
+            customView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            customView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+          
+            [self presentViewController:customView animated:YES completion:nil];
+         
+
+     });
+        
+        completionHandler(NO);
+        /*
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"6-9PM$50 Tomorrow" message:@"You can add up to 3 additional Initial services after your route, each will have a timeblock of 5pm to 9pm" preferredStyle:UIAlertControllerStyleAlert];
         
@@ -1531,58 +1603,56 @@ return @"60";
             
             
         }];
-        
+        */
         
     }else if ([message hasPrefix:@"EarlyFast50"]){
         
     
-    //Test code for the new is extended window
+  
     
         dispatch_async(dispatch_get_main_queue(), ^(){
-          //  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:
-           //                                 @"TabbedStoryBoard" bundle:[NSBundle mainBundle]];
-
-          //  viewISExtendedOptIn* isExt = [storyboard instantiateViewControllerWithIdentifier:@"popIsext"];
-
-          //  [self presentViewController:gchCVC animated:YES completion:nil];
-            
 
             
+            viewISExtendedOptIn* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"popIsextEarly"];
             
-            viewISExtendedOptIn* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"popIsext"];
+            customView.DateFor = @" For Tomorrows Route";
+            customView.isEarly = 1;
             
-            CGRect nframe = CGRectMake((self.view.frame.size.width/2) - 250, (self.view.frame.size.height/2) - 300, 500, 600);
 
-            customView.view.frame = nframe;
+            customView.istoday = 0;
            
-            //customView.Center = CGPointMake(s, self.view.frame.size.height/2);
+        
             
+            NSTimeInterval totalSecondsInDay = 1 * 24 * 60 * 60;
             
-            customView.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
-            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                customView.view.transform = CGAffineTransformIdentity;
-            } completion:^(BOOL finished){
-                // do something once the animation finishes, put it here
-            }];
-            
-            [self.view addSubview:customView.view];
 
-                  //self.myPopOver = [[UIPopoverController alloc]
-                  //                           initWithContentViewController:customView];
-                 // self.myPopOver.delegate = self;
-                  //Get the cell from your table that presents the popover
-                  //MyCell *myCell = (MyCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-                  //CGRect displayFrom = CGRectMake(myCell.frame.origin.x + myCell.frame.size.width, myCell.center.y + self.tableView.frame.origin.y - self.tableView.contentOffset.y, 1, 1);
-                 // [self.myPopOver presentVFromRect:displayFrom
-                  //                                     inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            NSDate *Tomorrow = [NSDate dateWithTimeIntervalSinceNow:totalSecondsInDay];
+            NSCalendar* cal = [NSCalendar currentCalendar];
+            NSDateComponents* comp = [cal components:NSCalendarUnitWeekday fromDate:Tomorrow];
+            
+            if(comp.day == 1){
+                totalSecondsInDay = totalSecondsInDay * 2;
+                Tomorrow =[NSDate dateWithTimeIntervalSinceNow:totalSecondsInDay];
+            }
+            
+            NSDateFormatter *formatter;
+            NSString        *dateString;
+            
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MM/dd/yyyy"];
+            
+            dateString = [formatter stringFromDate:Tomorrow];
+            
+            customView.routeDate = dateString;
             
             
+
+            customView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            customView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             
-            
-            
-            
-            //[self performSegueWithIdentifier:@"segueISExtended" sender:self];
-        });
+            [self presentViewController:customView animated:YES completion:nil];
+          
+     });
         
         
         completionHandler(NO);
@@ -2017,9 +2087,11 @@ return @"60";
         
         
         
+        [self.view makeToast:@"Copy of Route Loaded"
+                    duration:3.0
+                    position:CSToastPositionTop];
         
-        
-		[[iToast makeText:NSLocalizedString(@"Copy of Route Loaded", @"")] show];
+		
 		
 
 		
@@ -5986,8 +6058,11 @@ return @"60";
     msg= [msg stringByAppendingString:sMessage];
     
     
-    [[[[iToast makeText:NSLocalizedString(msg, @"")]
-       setGravity:iToastGravityBottom] setDuration:3000] show];
+    [self.view makeToast:msg];
+    
+    
+   // [[[[iToast makeText:NSLocalizedString(msg, @"")]
+    //   setGravity:iToastGravityBottom] setDuration:3000] show];
     
     //[NSThread detachNewThreadSelector:@selector(toastScreen:)
 	//						 toTarget:self

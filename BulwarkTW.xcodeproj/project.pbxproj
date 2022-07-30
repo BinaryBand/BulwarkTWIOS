@@ -40,7 +40,6 @@
 		B36EC1B81A64887600F53D78 /* BLEUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B36EC1B21A64887600F53D78 /* BLEUtility.m */; };
 		B36EC1B91A64887600F53D78 /* DFBlunoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B36EC1B41A64887600F53D78 /* DFBlunoDevice.m */; };
 		B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B36EC1B61A64887600F53D78 /* DFBlunoManager.m */; };
-		B37E391818BFB59900C4C41F /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = B37E391718BFB59900C4C41F /* iToast.m */; };
 		B3819D141BE179C4002B7F4B /* TWBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3819D131BE179C4002B7F4B /* TWBlunoManager.m */; };
 		B38AA54A1C56A83900283461 /* viewReports.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AA5481C56A83900283461 /* viewReports.m */; };
 		B38DFC17212E783C004CCBEF /* UIView+JDFTooltips.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DFC0F212E783A004CCBEF /* UIView+JDFTooltips.m */; };
@@ -48,6 +47,8 @@
 		B38DFC19212E783C004CCBEF /* UILabel+JDFTooltips.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DFC13212E783B004CCBEF /* UILabel+JDFTooltips.m */; };
 		B38DFC1A212E783C004CCBEF /* JDFTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DFC15212E783B004CCBEF /* JDFTooltipView.m */; };
 		B38DFC1B212E783C004CCBEF /* JDFSequentialTooltipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DFC16212E783C004CCBEF /* JDFSequentialTooltipManager.m */; };
+		B3964A6B2895ADE6005F638D /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B3964A6A2895ADE6005F638D /* Toast */; };
+		B3964A6E2895B341005F638D /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = B3964A6D2895B341005F638D /* UIView+Toast.m */; };
 		B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */; };
 		B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */; };
 		B3A030111AA8288D0097AACD /* SwiftEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A030101AA8288D0097AACD /* SwiftEmail.swift */; };
@@ -132,8 +133,6 @@
 		B36EC1B41A64887600F53D78 /* DFBlunoDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFBlunoDevice.m; sourceTree = "<group>"; };
 		B36EC1B51A64887600F53D78 /* DFBlunoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFBlunoManager.h; sourceTree = "<group>"; };
 		B36EC1B61A64887600F53D78 /* DFBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFBlunoManager.m; sourceTree = "<group>"; };
-		B37E391618BFB59900C4C41F /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
-		B37E391718BFB59900C4C41F /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		B3819D121BE179B5002B7F4B /* TWBlunoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBlunoManager.h; sourceTree = "<group>"; };
 		B3819D131BE179C4002B7F4B /* TWBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBlunoManager.m; sourceTree = "<group>"; };
 		B38AA5471C56A83900283461 /* viewReports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewReports.h; sourceTree = "<group>"; };
@@ -149,6 +148,8 @@
 		B38DFC14212E783B004CCBEF /* JDFTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDFTooltipView.h; sourceTree = "<group>"; };
 		B38DFC15212E783B004CCBEF /* JDFTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDFTooltipView.m; sourceTree = "<group>"; };
 		B38DFC16212E783C004CCBEF /* JDFSequentialTooltipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDFSequentialTooltipManager.m; sourceTree = "<group>"; };
+		B3964A6C2895B341005F638D /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		B3964A6D2895B341005F638D /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRetReports.swift; sourceTree = "<group>"; };
 		B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewSalesTraining.swift; sourceTree = "<group>"; };
 		B39FD19B1DF9C50F009DB4B5 /* BulwarkTW.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BulwarkTW.entitlements; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3964A6B2895ADE6005F638D /* Toast in Frameworks */,
 				E55D834127EE4962003A63CF /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +221,6 @@
 				B38DFC0E212E783A004CCBEF /* UIView+JDFTooltips.h */,
 				B38DFC0F212E783A004CCBEF /* UIView+JDFTooltips.m */,
 				B3BE1C4518CE87F200759894 /* CTMessageCenter.h */,
-				B37E391618BFB59900C4C41F /* iToast.h */,
-				B37E391718BFB59900C4C41F /* iToast.m */,
 				34EDD6DE164DA57400CB40B5 /* MBProgressHUD.h */,
 				34EDD6DF164DA57400CB40B5 /* MBProgressHUD.m */,
 				1D3623240D0F684500981E51 /* BulwarkTWAppDelegate.h */,
@@ -234,6 +234,8 @@
 				E55EAD1524E1E55300063BD5 /* PayrollDetailReportsService.m */,
 				E55EAD1724E1E56200063BD5 /* PayrollDetailReportsService.h */,
 				B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */,
+				B3964A6C2895B341005F638D /* UIView+Toast.h */,
+				B3964A6D2895B341005F638D /* UIView+Toast.m */,
 				E55D834727F23B0E003A63CF /* WorkOrderPhotos.m */,
 				E55D834927F23B64003A63CF /* WorkOrderPhotos.h */,
 			);
@@ -407,6 +409,7 @@
 			name = BulwarkTW;
 			packageProductDependencies = (
 				E55D834027EE4962003A63CF /* FirebaseMessaging */,
+				B3964A6A2895ADE6005F638D /* Toast */,
 			);
 			productName = BulwarkTW;
 			productReference = 1D6058910D05DD3D006BFB54 /* BulwarkTW.app */;
@@ -465,6 +468,7 @@
 				E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E55D833F27EE4962003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E55D834427EE4E43003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -531,6 +535,7 @@
 				E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */,
 				B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */,
 				B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */,
+				B3964A6E2895B341005F638D /* UIView+Toast.m in Sources */,
 				1D3623260D0F684500981E51 /* BulwarkTWAppDelegate.m in Sources */,
 				B348C8AD1C7ACD48000BDC7A /* viewSchedule.m in Sources */,
 				348DA0E912CA6F9F00FB51D0 /* ViewOne.m in Sources */,
@@ -545,7 +550,6 @@
 				B348C8BF1C7B7291000BDC7A /* RGSSystem.m in Sources */,
 				B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */,
 				B38DFC19212E783C004CCBEF /* UILabel+JDFTooltips.m in Sources */,
-				B37E391818BFB59900C4C41F /* iToast.m in Sources */,
 				B36D89FB1C0268F800A5F7DB /* viewMissedClockOut.m in Sources */,
 				B38AA54A1C56A83900283461 /* viewReports.m in Sources */,
 				B38DFC1B212E783C004CCBEF /* JDFSequentialTooltipManager.m in Sources */,
@@ -866,6 +870,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -893,6 +905,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B3964A6A2895ADE6005F638D /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		E55D834027EE4962003A63CF /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

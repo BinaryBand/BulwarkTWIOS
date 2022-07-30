@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class viewISExtendedOptIn: UIViewController {
 
     @IBOutlet weak var Slider1: UISlider!
@@ -25,13 +26,53 @@ class viewISExtendedOptIn: UIViewController {
     
     @IBOutlet weak var btnSave: UIButton!
     
+    @IBOutlet weak var lblDateFor: UILabel!
+    
     @objc var DateFor:String!
     
+    @objc var isEarly:Int = 0
+    @objc var routeDate:String!
+    @objc var istoday:Int = 2
+    var Slider1Value:Int!
+    var Slider2Value:Int!
+    var Slider3Value:Int!
     
+    var hm:Int!
+    var ttlPossiblePay:Decimal!
+    
+    @IBOutlet var viewCenter: UIView!
+    @IBOutlet var viewBkGnd: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+        viewCenter.layer.borderColor = UIColor.black.cgColor
+        viewCenter.layer.borderWidth = 2
+        
+        viewCenter.layer.cornerRadius = 10.0
+        
+        viewCenter.layer.shadowColor = UIColor.black.cgColor
+        viewCenter.layer.shadowOpacity = 0.2
+        viewCenter.layer.shadowOffset = CGSize(width: 6, height: 6)
+        viewCenter.layer.shadowRadius = 10.0
+
+        // Set masksToBounds to false, otherwise the shadow
+        // will be clipped and will not appear outside of
+        // the view’s frame
+        viewCenter.layer.masksToBounds = false
+        
+        
+        //viewBkGnd.layer.opacity = 0.2
+        
+        //viewCenter.layer.opacity = 1.0
+        
+        
+        
+        
+        
+        if(isEarly == 0){
         Slider2.isHidden = true
         Pay2.isHidden = true
         Miles2.isHidden = true
@@ -39,15 +80,31 @@ class viewISExtendedOptIn: UIViewController {
         Slider3.isHidden = true
         Pay3.isHidden = true
         Miles3.isHidden = true
-
+            
+        
+        Slider2Value = 15
+        Slider3Value = 15
+            
+        }
+        Slider1Value = 15
+        
        // Pay1.text = "test"
       //  btnSave.isHidden = true
         
- 
+            hm = 1
         // Do any additional setup after loading the view.
+        
+        updateTotals()
+        lblDateFor.text = DateFor
+        
     }
 
 
+    @IBAction func stepperCbange(_ sender: UIStepper) {
+        
+        StepperChange(val: Int(sender.value))
+        updateTotals()
+    }
     
     func StepperChange(val:Int) {
         
@@ -61,7 +118,7 @@ class viewISExtendedOptIn: UIViewController {
             Slider3.isHidden = true
             Pay3.isHidden = true
             Miles3.isHidden = true
- 
+            hm = 1
         }
         
         if(val == 2){
@@ -72,7 +129,7 @@ class viewISExtendedOptIn: UIViewController {
             Slider3.isHidden = true
             Pay3.isHidden = true
             Miles3.isHidden = true
-            
+            hm = 2
         }
         if(val == 3){
             Slider2.isHidden = false
@@ -82,7 +139,7 @@ class viewISExtendedOptIn: UIViewController {
             Slider3.isHidden = false
             Pay3.isHidden = false
             Miles3.isHidden = false
-            
+            hm = 3
         }
         
         
@@ -91,14 +148,180 @@ class viewISExtendedOptIn: UIViewController {
     
     @IBAction func SavrClick(_ sender: UIButton) {
         
-        print("save")
+        
+        let msgStr = "This will open your schedule for " + (HowMany.text ?? "1") + " IS Extended Availability Time Slots"
+        // Create Alert
+        let dialogMessage = UIAlertController(title: "Confirm", message: msgStr, preferredStyle: .alert)
+
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            
+            //need to add save to server web call
+            let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+            let h = appDelegate.hrEmpId ?? ""
+            
+            var isLate = "1"
+            
+            if(self.isEarly == 1){
+                isLate = "0"
+            }
+            
+            let amt = self.HowMany.text ?? "1"
+            let istdy = String(self.istoday)
+            let rtDate = self.routeDate ?? ""
+            
+            var buildtheurl = "https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=" + isLate
+            
+            buildtheurl += "&amt=" + amt
+            buildtheurl += "&istoday=" + istdy
+            buildtheurl +=  "&hrempid=" + h
+            buildtheurl += "&rdate=" + rtDate
+            
+            
+            if let url = URL(string: buildtheurl) {
+                do {
+                    let contents = try String(contentsOf: url)
+                    print(contents)
+                    
+                    self.view.makeToast(contents, duration: 3.0, position: CSToastPositionTop)
+                    
+                    
+                    
+                } catch {
+                    // contents could not be loaded
+                }
+            } else {
+                // the URL was bad!
+            }
+            
+            
+            
+            self.dismissThis()
+        })
+
+        // Create Cancel button with action handlder
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            //print("Cancel button tapped")
+        }
+
+        //Add OK and Cancel button to an Alert object
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+
+        // Present alert message to user
+        self.present(dialogMessage, animated: true, completion: nil)
+        
+        
+        
+        
+        
+        
+        
+        
+
+    }
+    
+    func dismissThis(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func CancelClick(_ sender: UIButton) {
+        
+        print("cancel")
+        dismissThis()
+        
+    }
+    
+    @IBAction func slider1Change(_ sender: UISlider) {
+        
+        Slider1Value = Int(sender.value)
+        
+        if(isEarly == 0){
+        Slider2Value = Int(sender.value)
+        Slider3Value = Int(sender.value)
+        
+        Slider2.value = Float(Int(sender.value))
+        Slider3.value = Float(Int(sender.value))
+        }
+        
+        updateTotals()
+    }
+    
+    @IBAction func slider2Change(_ sender: UISlider) {
+        
+        Slider2Value = Int(sender.value)
+        
+        updateTotals()
     }
     
     
     
+    @IBAction func Slider3Change(_ sender: UISlider) {
+        
+        Slider3Value = Int(sender.value)
+        
+        updateTotals()
+    }
     
-
-    
+    func updateTotals(){
+        
+        let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                formatter.currencyCode = "usd"
+                formatter.maximumFractionDigits = 2
+        
+        
+        
+        var tp:Decimal = 0
+        if(hm > 0){
+            var p1:Decimal = 50.0
+            p1 += Decimal(Slider1Value) * 0.5
+            
+            tp += p1
+            if(isEarly == 0){
+            Pay1.text = formatter.string(from: p1 as NSNumber)!
+            }
+            
+            Miles1.text = String(Slider1Value) + " Miles"
+            
+        }
+        if(hm > 1){
+            var p2:Decimal = 50.0
+            p2 += Decimal(Slider2Value) * 0.5
+            
+            tp += p2
+           
+            
+            Pay2.text = formatter.string(from: p2 as NSNumber)!
+            Miles2.text = String(Slider2Value) + " Miles"
+            
+        }
+        if(hm > 2){
+            var p3:Decimal = 50.0
+            p3 += Decimal(Slider3Value) * 0.5
+            
+            tp += p3
+           
+            
+            Pay3.text = formatter.string(from: p3 as NSNumber)!
+            Miles3.text = String(Slider3Value) + " Miles"
+            
+        }
+        
+        
+        
+        
+        
+ 
+       let formatedTp =  formatter.string(from: tp as NSNumber)!
+        
+        
+        
+        TotalPay.text = "Make Up To " + formatedTp
+        
+        
+        
+    }
     
     /*
     // MARK: - Navigation

@@ -655,13 +655,10 @@
     msg= [msg stringByAppendingString:sMessage];
     
     
-    [[[[iToast makeText:NSLocalizedString(msg, @"")]
-       setGravity:iToastGravityBottom] setDuration:10000] show];
+    [self.view makeToast:msg duration:3.0 position:CSToastPositionTop];
+       
     
-    //[NSThread detachNewThreadSelector:@selector(toastScreen:)
-    //						 toTarget:self
-    //					   withObject:[NSArray arrayWithObjects:sTitle,
-    //								   sMessage, nil]];
+
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {

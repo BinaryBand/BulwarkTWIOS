@@ -12,7 +12,7 @@
 
 
 #import "WorkOrderPhotos.h"
-#import "iToast.h"
+#import "UIView+Toast.h"
 #import <BulwarkTW-Swift.h>
 #import "BulwarkTWAppDelegate.h"
 #import "ViewOne.h"
@@ -134,13 +134,14 @@ bool submittingWorkOrderBid = false;
         
         if([responseCode statusCode] != 200){
             NSLog(@"Error POSTing to %@, HTTP status code %i", url, [responseCode statusCode]);
-            [[[[iToast makeText:NSLocalizedString(@"Error submitting", @"")]
-               setGravity:iToastGravityBottom] setDuration:3000] show];
+            [self.view makeToast:@"Error submitting" duration:3.0 position:CSToastPositionTop];
+            
+ 
             return NO;
         }else{
             NSLog(@"Succesfully Posted Work Order Photo!");
-            [[[[iToast makeText:NSLocalizedString(@"Success", @"")]
-               setGravity:iToastGravityBottom] setDuration:3000] show];
+            [self.view makeToast:@"Success" duration:3.0 position:CSToastPositionTop];
+            
             return YES;
         }
         

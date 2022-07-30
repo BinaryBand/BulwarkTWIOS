@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import "BulwarkTWAppDelegate.h"
-#import "iToast.h"
+#import "UIView+Toast.h"
 
 
 #import "ViewOne.h"
