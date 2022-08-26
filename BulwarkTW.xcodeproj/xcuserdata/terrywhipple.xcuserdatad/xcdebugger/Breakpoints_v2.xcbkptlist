@@ -406,8 +406,8 @@
             timestampString = "537764245.675323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
          </BreakpointContent>
@@ -440,9 +440,9 @@
             timestampString = "537764245.6810271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
-            landmarkName = "-alertView:clickedButtonAtIndex:"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -457,10 +457,10 @@
             timestampString = "537764245.68125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "519"
-            endingLineNumber = "519"
-            landmarkName = "BulwarkTWAppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "643"
+            endingLineNumber = "643"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -474,9 +474,9 @@
             timestampString = "537764245.681434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "892"
-            endingLineNumber = "892"
-            landmarkName = "-configureFireBase"
+            startingLineNumber = "1016"
+            endingLineNumber = "1016"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -491,8 +491,8 @@
             timestampString = "537764245.681615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
          </BreakpointContent>
@@ -508,8 +508,8 @@
             timestampString = "537764245.681854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
          </BreakpointContent>
@@ -525,9 +525,9 @@
             timestampString = "537764245.6820951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1060"
-            endingLineNumber = "1060"
-            landmarkName = "-refreshSchedule"
+            startingLineNumber = "1184"
+            endingLineNumber = "1184"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -542,9 +542,9 @@
             timestampString = "537764245.682273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "872"
-            endingLineNumber = "872"
-            landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
+            startingLineNumber = "996"
+            endingLineNumber = "996"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -946,9 +946,9 @@
             timestampString = "537764245.682716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "509"
-            endingLineNumber = "509"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "633"
+            endingLineNumber = "633"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -963,9 +963,9 @@
             timestampString = "537764245.682952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1049"
-            endingLineNumber = "1049"
-            landmarkName = "-HideDrivingFrm"
+            startingLineNumber = "1173"
+            endingLineNumber = "1173"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1014,9 +1014,9 @@
             timestampString = "537764245.683573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "508"
-            endingLineNumber = "508"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "632"
+            endingLineNumber = "632"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1031,9 +1031,9 @@
             timestampString = "537764245.6838191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "507"
-            endingLineNumber = "507"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "631"
+            endingLineNumber = "631"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1048,9 +1048,9 @@
             timestampString = "537764245.683995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1065,10 +1065,10 @@
             timestampString = "537764245.684167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "BulwarkTWAppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1082,9 +1082,9 @@
             timestampString = "537764245.684337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1099,9 +1099,9 @@
             timestampString = "537764245.684502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1133,9 +1133,9 @@
             timestampString = "537764245.68469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1184,9 +1184,9 @@
             timestampString = "537764245.684931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1201,9 +1201,9 @@
             timestampString = "537764245.685105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1082"
-            endingLineNumber = "1082"
-            landmarkName = "-application:handleOpenURL:"
+            startingLineNumber = "1206"
+            endingLineNumber = "1206"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1507,9 +1507,9 @@
             timestampString = "537764245.685746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "871"
-            endingLineNumber = "871"
-            landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
+            startingLineNumber = "995"
+            endingLineNumber = "995"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1715,38 +1715,6 @@
             endingLineNumber = "2904"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9F7FBC95-E135-4430-826B-60F65BA671CC - 72dbf2c01d4a60de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewOne handleOpenURL:]"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/ViewOne.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2904"
-                  endingLineNumber = "2904"
-                  offsetFromSymbolStart = "18972">
-               </Location>
-               <Location
-                  uuid = "9F7FBC95-E135-4430-826B-60F65BA671CC - 72dbf2c01d4a60de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewOne handleOpenURL:]"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/ViewOne.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2904"
-                  endingLineNumber = "2904"
-                  offsetFromSymbolStart = "19072">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2517,9 +2485,9 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
-            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2533,10 +2501,10 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
-            landmarkName = "BulwarkTWAppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "414"
+            endingLineNumber = "414"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2549,10 +2517,10 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "BulwarkTWAppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "412"
+            endingLineNumber = "412"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2565,8 +2533,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2581,10 +2549,10 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "BulwarkTWAppDelegate"
-            landmarkType = "3">
+            startingLineNumber = "425"
+            endingLineNumber = "425"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3177,38 +3145,6 @@
             endingLineNumber = "2629"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6EE14A48-0F96-4ABB-8972-EFD6A8D95369 - 72dbf2c01d4a06a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewOne handleOpenURL:]"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/ViewOne.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2639"
-                  endingLineNumber = "2639"
-                  offsetFromSymbolStart = "13508">
-               </Location>
-               <Location
-                  uuid = "6EE14A48-0F96-4ABB-8972-EFD6A8D95369 - 72dbf2c01d4a06a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewOne handleOpenURL:]"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/ViewOne.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2639"
-                  endingLineNumber = "2639"
-                  offsetFromSymbolStart = "13544">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3813,9 +3749,9 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "977"
-            endingLineNumber = "977"
-            landmarkName = "-application:didReceiveLocalNotification:"
+            startingLineNumber = "1101"
+            endingLineNumber = "1101"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3861,9 +3797,9 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "979"
-            endingLineNumber = "979"
-            landmarkName = "-application:didReceiveLocalNotification:"
+            startingLineNumber = "1103"
+            endingLineNumber = "1103"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4053,9 +3989,9 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "999"
-            endingLineNumber = "999"
-            landmarkName = "-CallNowPressed:"
+            startingLineNumber = "1123"
+            endingLineNumber = "1123"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4117,9 +4053,9 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "988"
-            endingLineNumber = "988"
-            landmarkName = "-application:didReceiveLocalNotification:"
+            startingLineNumber = "1112"
+            endingLineNumber = "1112"
+            landmarkName = "-checkGpsAndBackground"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4505,38 +4441,6 @@
             endingLineNumber = "7640"
             landmarkName = "-btnTest"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5809873E-629F-41FF-84FD-8306BAA389E4 - 689a00b89aa1b865"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewOne btnScreenShot]"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/ViewOne.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "7641"
-                  endingLineNumber = "7641"
-                  offsetFromSymbolStart = "632">
-               </Location>
-               <Location
-                  uuid = "5809873E-629F-41FF-84FD-8306BAA389E4 - 689a00b89aa1b865"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewOne btnScreenShot]"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/ViewOne.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "7641"
-                  endingLineNumber = "7641"
-                  offsetFromSymbolStart = "696">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5093,8 +4997,8 @@
             filePath = "Classes/viewISExtendedOptIn.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "StepperChange(val:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5125,8 +5029,8 @@
             filePath = "Classes/viewISExtendedOptIn.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "SavrClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5256,6 +5160,262 @@
             startingLineNumber = "1543"
             endingLineNumber = "1543"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A4DDE45-D001-4820-8E60-6882E838E395"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA0B49EB-A7F7-4546-A8DA-F356FD289677"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E40C4584-2544-4163-9A92-F03D7AE1969B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B5CDA5C-701A-4954-9797-17313ABAF075"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B7D25E8-5A5B-4659-836E-E52D3E537E25"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01E237E4-2653-4BC4-87D8-43F02DBF65D6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB94A9A9-712F-424D-8C56-217280A64305"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E92E7F5-6B5A-4A35-8E5D-1D205AD8A372"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "422FDC63-29EF-490E-B10A-E1A64030D561"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78E62624-CEAB-4AFF-8496-990998EA8243"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "78E62624-CEAB-4AFF-8496-990998EA8243 - c36784baac3d8bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[BulwarkTWAppDelegate checkGpsAndBackground]"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/BulwarkTWAppDelegate.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "1724">
+               </Location>
+               <Location
+                  uuid = "78E62624-CEAB-4AFF-8496-990998EA8243 - c36784baac3d8bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[BulwarkTWAppDelegate checkGpsAndBackground]"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/BulwarkTWAppDelegate.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "1728">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95B6E90E-389E-4DFD-B678-A26F8572691D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/BulwarkTWAppDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-checkGpsAndBackground"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8560B075-3106-413B-9787-5C0439D8C07F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewISExtendedOptIn.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "SavrClick(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46FDEBF2-76CF-42F2-BE19-7E4282178032"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewISExtendedOptIn.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "SavrClick(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "551D3389-BCBC-4EBD-AA25-A6BB7E4359F9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewSettings.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "584"
+            endingLineNumber = "584"
+            landmarkName = "-DownloadChemicalList3"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

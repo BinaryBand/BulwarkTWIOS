@@ -92,6 +92,9 @@ class viewISExtendedOptIn: UIViewController {
       //  btnSave.isHidden = true
         
             hm = 1
+        
+        
+        
         // Do any additional setup after loading the view.
         
         updateTotals()
@@ -149,7 +152,7 @@ class viewISExtendedOptIn: UIViewController {
     @IBAction func SavrClick(_ sender: UIButton) {
         
         
-        let msgStr = "This will open your schedule for " + (HowMany.text ?? "1") + " IS Extended Availability Time Slots"
+        let msgStr = "This will open your schedule for " + String(hm) + " IS Extended Availability Time Slots"
         // Create Alert
         let dialogMessage = UIAlertController(title: "Confirm", message: msgStr, preferredStyle: .alert)
 

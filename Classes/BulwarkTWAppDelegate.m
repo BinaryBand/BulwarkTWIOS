@@ -23,6 +23,7 @@
     NSString *CustPhn;
     Boolean SendingtoServer;
     BulwarkTWAppDelegate* _workspace;
+    long gpsRequested;
 }
 
 @synthesize window;
@@ -76,8 +77,8 @@ NSString *kGCMMessageIDKey = @"";
         [application registerForRemoteNotifications];
         [self configureFireBase];
     }@catch(NSException *exc){
-        NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "Configuring Firebase ", [exc reason]];
-        NSLog(logmessage);
+        NSString *logmessage = [NSString stringWithFormat:@"Error %s: %@", "Configuring Firebase ", [exc reason]];
+        NSLog(@"%@", logmessage);
     }
  
     
@@ -107,7 +108,7 @@ NSString *kGCMMessageIDKey = @"";
     
     
     
-    alertGPS.delegate = self;
+   // alertGPS.delegate = self;
     alertCall.delegate = self;
     
     if(self.locationManager==nil){
@@ -119,37 +120,36 @@ NSString *kGCMMessageIDKey = @"";
         self.locationManager.desiredAccuracy=kCLLocationAccuracyBest;
         self.locationManager.distanceFilter = 1;
         
+ 
         
-        NSOperatingSystemVersion ios9_0_0 = (NSOperatingSystemVersion){9, 0, 0};
-        if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ios9_0_0]) {
-           self.locationManager.allowsBackgroundLocationUpdates = YES;
-        } else {
-            // iOS 8.0.0 and below logic
-        }
-       
+        self.locationManager.allowsBackgroundLocationUpdates = YES;
         
         
-        // iOS 8 - request location services via requestWhenInUseAuthorization.
+
         
     }
     
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [self.locationManager requestAlwaysAuthorization];
-        } else {
-            // iOS 7 - We can't use requestWhenInUseAuthorization -- we'll get an unknown selector crash!
-            // Instead, you just start updating location, and the OS will take care of prompting the user
-            // for permissions.
-            [self.locationManager startUpdatingLocation];
-        }
-        
-        
-    }
+    
+    
+    
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    // getting an NSString
+    
+    gpsRequested = 0;
+    
+    if([[[prefs dictionaryRepresentation] allKeys] containsObject:@"gpsR"]){
 
+         gpsRequested = [prefs integerForKey:@"gpsR"];
+    }
     
 
+    
+    
+
+    
+    
     [self checkGpsAndBackground];
     
     
@@ -173,24 +173,34 @@ NSString *kGCMMessageIDKey = @"";
     //We have to make sure that the Background App Refresh is enable for the Location updates to work in the background.
     if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied) {
         
-        alertGPS = [[UIAlertView alloc]initWithTitle:@""
-                                          message:@"The app doesn't work without the Background App Refresh enabled. To turn it on, go to Settings > TechnicianApp> Background App Refresh"
-                                         delegate:self
-                                cancelButtonTitle:@"Continue"
-                                otherButtonTitles:nil, nil];
-        [alertGPS show];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"App Settings" message:@"The app doesn't work without the Background App Refresh enabled. To turn it on, go to Settings > TechnicianApp> Background App Refresh" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            //NSString *strTemp = UIApplicationOpenSettingsURLString;
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+          
+        }]];
+    
+
+        
+        [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+        
+
         
     } else if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted) {
         
-        alertGPS = [[UIAlertView alloc]initWithTitle:@""
-                                             message:@"The app doesn't work without the Background App Refresh enabled. To turn it on, go to Settings > TechnicianApp> Background App Refresh"
-                                            delegate:self
-                                   cancelButtonTitle:@"Continue"
-                                   otherButtonTitles:nil, nil];
-        [alertGPS show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"App Settings" message:@"The app doesn't work without the Background App Refresh enabled. To turn it on, go to Settings > TechnicianApp> Background App Refresh" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+           // NSString *strTemp = UIApplicationOpenSettingsURLString;
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+          
+        }]];
         
-    } else {
         
+        
+        [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
         
     }
 
@@ -201,21 +211,95 @@ NSString *kGCMMessageIDKey = @"";
     if([CLLocationManager locationServicesEnabled]){
         
         NSLog(@"Location Services Enabled");
+        NSLog(@"%d", CLLocationManager.authorizationStatus);
+        NSLog(@"%d", kCLAuthorizationStatusRestricted);
+        //NSLog(kCLAuthorizationStatusNotDetermined);
+        NSLog(@"%d", kCLAuthorizationStatusAuthorizedAlways);
+        NSLog(@"%d", kCLAuthorizationStatusAuthorizedWhenInUse);
+     
         
-        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
-            alertGPS = [[UIAlertView alloc] initWithTitle:@"GPS Is Required" message:@"Please Go to Settings,Privacy,Location Services, TechnicianApp, and Select Location Always" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-            [alertGPS show];
+        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusNotDetermined){
+            [self.locationManager requestWhenInUseAuthorization];
+            
+        }else if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+              
+            }]];
+            
+            
+            
+            [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+        } else if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse){
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+              
+            }]];
+            
+            
+            
+            [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+        } else if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusRestricted){
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+              
+            }]];
+            
+            
+            
+            [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+        }
+            
+        
+        if (@available(iOS 14.0, *)) {
+            CLAccuracyAuthorization aa = self.locationManager.accuracyAuthorization;
+            
+            if(aa != CLAccuracyAuthorizationFullAccuracy){
+                
+                
+                
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Enable Precise Locations" preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+                  
+                }]];
+                
+                
+                
+                [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+                
+            }
+            
+        } else {
+            // Fallback on earlier versions
         }
         
-        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse){
-            alertGPS = [[UIAlertView alloc] initWithTitle:@"GPS Is Required" message:@"Please Go to Settings,Privacy,Location Services, TechnicianApp, and Select Location Always" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-            [alertGPS show];
-        }
+          
+        
+
         
     }else{
         
-        alertGPS = [[UIAlertView alloc] initWithTitle:@"GPS Is Required" message:@"Please Go to Settings the Privacy and enable Location Services" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-        [alertGPS show];
+      
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+               // NSString *strTemp = UIApplicationOpenSettingsURLString;
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+              
+            }]];
+            
+            
+            
+            [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+        
         
         
     }
@@ -260,20 +344,60 @@ NSString *kGCMMessageIDKey = @"";
     } else {
         
         if ( status == kCLAuthorizationStatusAuthorizedWhenInUse){
-            alertGPS = [[UIAlertView alloc] initWithTitle:@"GPS Is Required" message:@"Please Go to Settings,Privacy,Location Services, TechnicianApp, and Select Location Always" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-            [alertGPS show];
+            
+            if(gpsRequested == 0){
+               
+                
+                
+                NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+
+                // saving an NSString
+                [prefs setInteger:1 forKey:@"gpsR"];
+                [prefs synchronize];
+                gpsRequested = 1;
+                
+                [self.locationManager requestAlwaysAuthorization];
+                
+            }else{
+                
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                   // NSString *strTemp = UIApplicationOpenSettingsURLString;
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+                  
+                }]];
+                
+                
+                
+                [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+                
+            }
+            
+          //  alertGPS = [[UIAlertView alloc] initWithTitle:@"GPS Is Required" message:@"Please Go to Settings,Privacy,Location Services, TechnicianApp, and Select Location Always" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+           // [alertGPS show];
             
         }else{
         
         
         if(status == kCLAuthorizationStatusNotDetermined){
-            [manager requestAlwaysAuthorization];
+            [manager requestWhenInUseAuthorization];
         }else{
             
-            alertGPS = [[UIAlertView alloc] initWithTitle:@"GPS Is Required" message:@"Please Go to Settings,Privacy,Location Services TechnicianApp, and Select Location Always" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-            [alertGPS show];
+           // alertGPS = [[UIAlertView alloc] initWithTitle:@"GPS Is Required" message:@"Please Go to Settings,Privacy,Location Services TechnicianApp, and Select Location Always" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+           // [alertGPS show];
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+               // NSString *strTemp = UIApplicationOpenSettingsURLString;
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+              
+            }]];
             
             
+            
+            [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
         }
         
         }
@@ -520,19 +644,19 @@ NSString *kGCMMessageIDKey = @"";
 - (void)alertView : (UIAlertView *)alertView clickedButtonAtIndex : (NSInteger)buttonIndex
 {
 
-    if (alertView == alertGPS) {
+   // if (alertView == alertGPS) {
        
       //NSString *appurl = [(NSString) ];
         
         
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=TechnicianApp"]];
+      //  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=TechnicianApp"]];
 
-        NSURL *settings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+      //  NSURL *settings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         
      //   if ([[UIApplication sharedApplication] canOpenURL:settings])
-            [[UIApplication sharedApplication] openURL:settings];
+      //      [[UIApplication sharedApplication] openURL:settings];
         
-    }
+   // }
     
     
     if(alertView == alertCall){

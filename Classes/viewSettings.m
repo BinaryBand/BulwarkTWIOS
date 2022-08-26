@@ -607,8 +607,11 @@
         if(err.code != 0) {
             
             
-            [self toastScreenAsync:@"Chemicals" withMessage:@"Unable to download try again later"];
-            
+           
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Your code to run on the main queue/thread
+                [self toastScreenAsync:@"Chemicals" withMessage:@"Unable to download try again later"];
+            });
             
         }
         else {
@@ -622,8 +625,11 @@
             [myTxtFile writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
             
             
-            
-            [self toastScreenAsync:@"Chemicals" withMessage:@"Download Complete"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Your code to run on the main queue/thread
+                [self toastScreenAsync:@"Chemicals" withMessage:@"Download Complete"];
+            });
+          
         }
         
         

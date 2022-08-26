@@ -61,8 +61,8 @@ bool submittingWorkOrderBid = false;
         
     }
     @catch(NSException *exc){
-        NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "WorkOrderPhotosSubmitPhotoURL", [exc reason]];
-       NSLog(logmessage);
+        NSString *logmessage = [NSString stringWithFormat:@"Error %s: %@", "WorkOrderPhotosSubmitPhotoURL", [exc reason]];
+        NSLog(@"%@", logmessage);
         return NO;
     }
     
@@ -133,7 +133,7 @@ bool submittingWorkOrderBid = false;
         NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
         
         if([responseCode statusCode] != 200){
-            NSLog(@"Error POSTing to %@, HTTP status code %i", url, [responseCode statusCode]);
+            NSLog(@"Error POSTing to %@, HTTP status code %li", url, (long)[responseCode statusCode]);
             [self.view makeToast:@"Error submitting" duration:3.0 position:CSToastPositionTop];
             
  
@@ -147,8 +147,8 @@ bool submittingWorkOrderBid = false;
         
     }
     @catch(NSException *exc) {
-          NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "WorkOrderPhotosSubmitPhotoURL", [exc reason]];
-         NSLog(logmessage);
+        NSString *logmessage = [NSString stringWithFormat:@"Error %s: %@", "WorkOrderPhotosSubmitPhotoURL", [exc reason]];
+        NSLog(@"%@", logmessage);
     }
 }
 
@@ -296,6 +296,9 @@ UIViewController *controller;
     NSString *b646img = @"data:image/jpeg;base64,%@";
   bool result=  [WOP_Service SubmitMessage:@"1500" :@"11089355" :@"TEST" :true :b646img :true: true];
     bool result2 = result;
+    
+   
+    
 }
 
 @end
