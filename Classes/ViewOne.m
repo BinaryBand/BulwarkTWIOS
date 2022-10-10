@@ -345,7 +345,8 @@ return @"60";
     //NSString *hremptest = delegate.hrEmpId;
     
     if ([delegate.hrEmpId length] != 0){
-
+        [FIRAnalytics setUserID:delegate.hrEmpId];
+        
         [HUD show:YES];
         
         [NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
@@ -2131,11 +2132,16 @@ return @"60";
 		
 		//[webView loadRequest:request];
         
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.view makeToast:@"Copy of Route Loaded"
+                        duration:3.0
+                        position:CSToastPositionTop];
+            
+        });
+      
+       
         
-        
-        [self.view makeToast:@"Copy of Route Loaded"
-                    duration:3.0
-                    position:CSToastPositionTop];
         
 		//[[iToast makeText:NSLocalizedString(, @"")] show];
 		
@@ -6133,8 +6139,10 @@ return @"60";
     msg = [msg stringByAppendingString:@" "];
     msg= [msg stringByAppendingString:sMessage];
     
-    
-    [self.view makeToast:msg];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view makeToast:msg];
+    });
+  
     
     
    // [[[[iToast makeText:NSLocalizedString(msg, @"")]
@@ -6774,8 +6782,8 @@ return @"60";
             
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                lblFastCommMTD.text = [mtdvalue stringByAppendingString:@" MTD"];
-                lblFastCommPP.text = [ppvalue stringByAppendingString:@" Due"];
+                self->lblFastCommMTD.text = [mtdvalue stringByAppendingString:@" MTD"];
+                self->lblFastCommPP.text = [ppvalue stringByAppendingString:@" Due"];
             });
             
             //NSInteger *ISTSvalue = [stringFromServer intValue];

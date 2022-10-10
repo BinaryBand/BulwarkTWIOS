@@ -20,6 +20,8 @@
 
 @import Firebase;
 @import FirebaseMessaging;
+@import FirebaseAnalytics;
+@import FirebaseCrashlytics;
 
 @class ViewOne;
 @class viewReports;

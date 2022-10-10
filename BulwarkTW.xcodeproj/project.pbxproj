@@ -14,6 +14,7 @@
 		348DA0E912CA6F9F00FB51D0 /* ViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 348DA0E712CA6F9F00FB51D0 /* ViewOne.m */; };
 		34C42EBF164DBA3800DD6A91 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDD6DF164DA57400CB40B5 /* MBProgressHUD.m */; };
 		B30B305C28F48DEC00E6B253 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B30B305B28F48DEC00E6B253 /* FirebaseCrashlytics */; };
+		B30B305F28F4944D00E6B253 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B30B305E28F4944D00E6B253 /* FirebaseAnalytics */; };
 		B3122E8327D958F90003C75D /* TabbedStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3122E8227D958F90003C75D /* TabbedStoryBoard.storyboard */; };
 		B3122E8527DA77700003C75D /* viewRouteMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3122E8427DA77700003C75D /* viewRouteMap.swift */; };
 		B3122E8727DA88410003C75D /* viewMyPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3122E8627DA88410003C75D /* viewMyPay.swift */; };
@@ -207,6 +208,7 @@
 			files = (
 				B30B305C28F48DEC00E6B253 /* FirebaseCrashlytics in Frameworks */,
 				B3964A6B2895ADE6005F638D /* Toast in Frameworks */,
+				B30B305F28F4944D00E6B253 /* FirebaseAnalytics in Frameworks */,
 				E55D834127EE4962003A63CF /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +449,7 @@
 				E55D834027EE4962003A63CF /* FirebaseMessaging */,
 				B3964A6A2895ADE6005F638D /* Toast */,
 				B30B305B28F48DEC00E6B253 /* FirebaseCrashlytics */,
+				B30B305E28F4944D00E6B253 /* FirebaseAnalytics */,
 			);
 			productName = BulwarkTW;
 			productReference = 1D6058910D05DD3D006BFB54 /* BulwarkTW.app */;
@@ -507,6 +510,7 @@
 				E55D834427EE4E43003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				B30B305A28F48DEC00E6B253 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B30B305D28F4944D00E6B253 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -922,6 +926,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		B30B305D28F4944D00E6B253 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift";
@@ -961,6 +973,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B30B305A28F48DEC00E6B253 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		B30B305E28F4944D00E6B253 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E55D833827EE46B0003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 		B3964A6A2895ADE6005F638D /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

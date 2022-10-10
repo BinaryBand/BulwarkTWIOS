@@ -24,6 +24,11 @@
 #import "viewDriving.h"
 #import "viewMissedClockIn.h"
 
+@import Firebase;
+@import FirebaseMessaging;
+@import FirebaseAnalytics;
+@import FirebaseCrashlytics;
+
 #define BUFFER_LEN 4096
 
 @class MBProgressHUD;

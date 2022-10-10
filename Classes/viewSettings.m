@@ -528,6 +528,7 @@
                
                [self saveSettings];
                [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
+               
                [alertController dismissViewControllerAnimated:true completion:nil];
            }else{
               
