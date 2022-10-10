@@ -75,12 +75,7 @@
     UIImagePickerController *Termitepicker;
     
     
-	UIActionSheet *settingsAction;
-	UIActionSheet *MenuAction;
-	UIActionSheet *reportsAction;
-    UIActionSheet *ImageAction;
-    UIActionSheet *TermiteAction;
-    
+	
     IBOutlet UILabel *clockoutlabel;
     IBOutlet UIDatePicker *ClockOutDate;
     IBOutlet UILabel *ClockBack;

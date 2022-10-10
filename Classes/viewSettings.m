@@ -511,7 +511,7 @@
            NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
            if([stringFromServer containsString:@"true"] || [stringFromServer containsString:@"True"]){
-               txtHrEmpId.text = userfield.text;
+               self->txtHrEmpId.text = userfield.text;
                
          //      NSString *jsonStr = [stringFromServer stringByReplacingOccurrencesOfString:@"\\" withString:@""];
                NSData* jsonData = [stringFromServer dataUsingEncoding:NSUTF8StringEncoding];
@@ -521,10 +521,10 @@
                NSDictionary *object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
                
                //txtHrEmpId.text = [object valueForKey:@"hr_emp_id"];
-               txtName.text = [object valueForKey:@"FullName"];
-               txtLicense.text = [object valueForKey:@"applicatorLicene"];
-               txtPhoneNumber.text = [object valueForKey:@"Phone"];
-               txtOffice.text = [object valueForKey:@"OfficeCode"];
+               self->txtName.text = [object valueForKey:@"FullName"];
+               self->txtLicense.text = [object valueForKey:@"applicatorLicene"];
+               self->txtPhoneNumber.text = [object valueForKey:@"Phone"];
+               self->txtOffice.text = [object valueForKey:@"OfficeCode"];
                
                [self saveSettings];
                [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];

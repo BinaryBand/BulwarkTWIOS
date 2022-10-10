@@ -134,7 +134,7 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
         showActivityIndicator(show: false)
         
         let urlStr = webView.url?.absoluteString
-        
+        /*
         if ((urlStr?.localizedCaseInsensitiveContains("lookup")) == true){
         
             //let scriptSource = "document.body.style.backgroundColor = `red`;"
@@ -153,6 +153,7 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
             })
             
         }
+        */
             
             //urlStr is what you want
         

@@ -33,6 +33,7 @@ class viewISExtendedOptIn: UIViewController {
     @objc var isEarly:Int = 0
     @objc var routeDate:String!
     @objc var istoday:Int = 2
+    @objc var fromVR:Int = 0
     var Slider1Value:Int!
     var Slider2Value:Int!
     var Slider3Value:Int!
@@ -40,13 +41,15 @@ class viewISExtendedOptIn: UIViewController {
     var hm:Int!
     var ttlPossiblePay:Decimal!
     
+    @objc var viewRoute:viewRoutes!
+    
     @IBOutlet var viewCenter: UIView!
     @IBOutlet var viewBkGnd: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        fatalError("Crash Triggered hhhhhh")
         
         viewCenter.layer.borderColor = UIColor.black.cgColor
         viewCenter.layer.borderWidth = 2
@@ -82,11 +85,11 @@ class viewISExtendedOptIn: UIViewController {
         Miles3.isHidden = true
             
         
-        Slider2Value = 15
-        Slider3Value = 15
+        Slider2Value = 20
+        Slider3Value = 20
             
         }
-        Slider1Value = 15
+        Slider1Value = 20
         
        // Pay1.text = "test"
       //  btnSave.isHidden = true
@@ -164,14 +167,25 @@ class viewISExtendedOptIn: UIViewController {
             let h = appDelegate.hrEmpId ?? ""
             
             var isLate = "1"
+            var amt = "1"
+            var m2 = "15"
+            var m3 = "15"
             
             if(self.isEarly == 1){
                 isLate = "0"
+            }else{
+                amt = self.HowMany.text ?? "1"
+                 m2 = String(self.Slider2Value)
+                 m3 = String(self.Slider3Value)
             }
             
-            let amt = self.HowMany.text ?? "1"
+             
             let istdy = String(self.istoday)
             let rtDate = self.routeDate ?? ""
+            let m1 = String(self.Slider1Value)
+            
+            
+            
             
             var buildtheurl = "https://fbf2.bulwarkapp.com/fastcomm/SubmitEarlyLate.aspx?islate=" + isLate
             
@@ -179,7 +193,9 @@ class viewISExtendedOptIn: UIViewController {
             buildtheurl += "&istoday=" + istdy
             buildtheurl +=  "&hrempid=" + h
             buildtheurl += "&rdate=" + rtDate
-            
+            buildtheurl += "&m1=" + m1
+            buildtheurl += "&m2=" + m2
+            buildtheurl += "&m3=" + m3
             
             if let url = URL(string: buildtheurl) {
                 do {
@@ -225,7 +241,18 @@ class viewISExtendedOptIn: UIViewController {
     }
     
     func dismissThis(){
-        self.dismiss(animated: true, completion: nil)
+        
+        //if let pdfVC : viewRoutes = self.parent as? viewRoutes {
+        if(fromVR == 1){
+            viewRoute.webView.reload()
+        }
+            
+            //self.removeFromParentViewController()
+            //self.view.removeFromSuperview()
+            self.dismiss(animated: true, completion: nil)
+       // }
+        
+        
     }
     
     @IBAction func CancelClick(_ sender: UIButton) {
@@ -278,7 +305,7 @@ class viewISExtendedOptIn: UIViewController {
         var tp:Decimal = 0
         if(hm > 0){
             var p1:Decimal = 50.0
-            p1 += Decimal(Slider1Value) * 0.5
+            p1 += (Decimal(Slider1Value) - 15.0) * 0.5
             
             tp += p1
             if(isEarly == 0){
@@ -290,7 +317,7 @@ class viewISExtendedOptIn: UIViewController {
         }
         if(hm > 1){
             var p2:Decimal = 50.0
-            p2 += Decimal(Slider2Value) * 0.5
+            p2 += (Decimal(Slider2Value) - 15.0) * 0.5
             
             tp += p2
            
@@ -301,7 +328,7 @@ class viewISExtendedOptIn: UIViewController {
         }
         if(hm > 2){
             var p3:Decimal = 50.0
-            p3 += Decimal(Slider3Value) * 0.5
+            p3 += (Decimal(Slider3Value) - 15.0) * 0.5
             
             tp += p3
            

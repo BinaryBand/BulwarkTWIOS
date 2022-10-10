@@ -51,7 +51,7 @@
     CGPoint RWVpt;
     BOOL backgroundLoadingRoute;
     BOOL checkFastcomm;
-    NSInteger *ISTSval;
+    int ISTSval;
     
 }
 
@@ -302,14 +302,14 @@ return @"60";
 		
         
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
+        //if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        //{
             
             [RouteWebView loadRequest:srequest];
             [webView loadRequest:brequest];
-        }else{
-            [webView loadRequest:srequest];
-        }
+       // }else{
+       //     [webView loadRequest:srequest];
+        //}
 
      
     }
@@ -336,13 +336,13 @@ return @"60";
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
     {
-       [self LoadSettings];
+       //[self LoadSettings];
     }else{
         
         [self getSettings];
     }
     
-    NSString *hremptest = delegate.hrEmpId;
+    //NSString *hremptest = delegate.hrEmpId;
     
     if ([delegate.hrEmpId length] != 0){
 
@@ -370,6 +370,13 @@ return @"60";
     [NSTimer scheduledTimerWithTimeInterval:1800.0 target:self selector:@selector(loadInBackground) userInfo:nil repeats:YES];
     
     //[self connectWebSocket];
+    
+    
+    
+    
+    
+    
+    
 }
 
 -(void)getSettings{
@@ -455,6 +462,9 @@ return @"60";
     [refresh endRefreshing];
 }
 
+
+
+/*
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     
@@ -538,10 +548,10 @@ return @"60";
       //  [viewFound didMoveToParentViewController:self];
     }
 }
+*/
 
 
-
--(void)LoadSettings{
+//-(void)LoadSettings{
     
 
     
@@ -554,7 +564,7 @@ return @"60";
 
     
     
-}
+//}
 
 
 
@@ -571,7 +581,7 @@ return @"60";
     //textView.text = [textView.text stringByAppendingString:@"\n"];
 }
 
-
+/*
 - (IBAction)btnRoutesPressed {
 //[[GKAchievementHandler defaultHandler] notifyAchievementTitle:@"High Roller" andMessage:@"Earned 100 points online."];
 	
@@ -582,14 +592,15 @@ return @"60";
 	
 	
 }
+ */
+/*
 
 -(void)fcTooltipPP{
-  /*
     JDFTooltipView *tooltip = [[JDFTooltipView alloc] initWithTargetView:lblFastCommPP hostView:self.view tooltipText:@"This is a Tooltip" arrowDirection:JDFTooltipViewArrowDirectionUp width:200.0f];
     [tooltip show];
- */
+ 
 }
-
+ */
 -(void)fastcommcheck{
     
     
@@ -618,7 +629,7 @@ return @"60";
     NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     
-    NSInteger *ISTSvalue = [stringFromServer intValue];
+    int ISTSvalue = [stringFromServer intValue];
     
     
     NSDate *date = [NSDate date];
@@ -680,7 +691,7 @@ return @"60";
         
         
         NSDate *date = [NSDate date];
-        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
         NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
         [components setHour: 8];
         [components setMinute: 30];
@@ -716,7 +727,7 @@ return @"60";
         
         
         NSDate *date1 = [NSDate date];
-        NSCalendar *gregorian1 = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+        NSCalendar *gregorian1 = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
         NSDateComponents *components1 = [gregorian1 components: NSUIntegerMax fromDate: date1];
         [components1 setHour: 15];
         [components1 setMinute: 00];
@@ -731,9 +742,9 @@ return @"60";
         
         if( [secondDate timeIntervalSinceDate:firstDate1] > 0 ) {
             
-        fastCommMessage = @"This may extend my route for TOMORROW for services by one hour. \n\nThe office will not call me for further permission. \n\$5 Guaranteed just for accepting and \n$30 for IS or $13for CB if an service is added to your route.";
+        fastCommMessage = @"This may extend my route for TOMORROW for services by one hour. \n\nThe office will not call me for further permission. \n$5 Guaranteed just for accepting and \n$30 for IS or $13for CB if an service is added to your route.";
             if(ISTSval == 1){
-                fastCommMessage = @"This may extend my route for TOMORROW for services by one hour. \n\nThe office will not call me for further permission. \n\$5 Guaranteed just for accepting and \n$35 for IS or $13for CB if an service is added to your route.";
+                fastCommMessage = @"This may extend my route for TOMORROW for services by one hour. \n\nThe office will not call me for further permission. \n$5 Guaranteed just for accepting and \n$35 for IS or $13for CB if an service is added to your route.";
                 
             }
             
@@ -792,7 +803,7 @@ return @"60";
         NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
-        NSInteger *ISTSvalue = [stringFromServer intValue];
+        int ISTSvalue = [stringFromServer intValue];
         
         
         
@@ -800,28 +811,28 @@ return @"60";
            
             
             
-            if(ISTSvalue==-1){
-                ISTSval = 0;
+            if(ISTSvalue  == -1){
+                self->ISTSval = 0;
                 //lblFastCommMessage.text = @"To qualify for fast comm your schedule needs to be avaliable for services at least till 5";
-                lblFastCommMessage.hidden = NO;
+                self->lblFastCommMessage.hidden = NO;
                 
-                lblFastCommMTD.hidden = YES;
-                lblFastCommPP.hidden = YES;
-                lblFastComValue.hidden = YES;
-                lblfastcommlbl.hidden = YES;
-                btnFastComm.hidden = YES;
-                moneyimg.hidden = YES;
+                self->lblFastCommMTD.hidden = YES;
+                self->   lblFastCommPP.hidden = YES;
+                self->lblFastComValue.hidden = YES;
+                self->lblfastcommlbl.hidden = YES;
+                self->btnFastComm.hidden = YES;
+                self->moneyimg.hidden = YES;
                 
             }else{
                 
-                lblFastCommMessage.hidden = YES;
+                self->lblFastCommMessage.hidden = YES;
                 
-                lblFastCommMTD.hidden = NO;
-                 lblFastCommPP.hidden = NO;
-                lblFastComValue.hidden = NO;
-                lblfastcommlbl.hidden = NO;
-                btnFastComm.hidden = NO;
-                moneyimg.hidden = NO;
+                self->lblFastCommMTD.hidden = NO;
+                self->lblFastCommPP.hidden = NO;
+                self->lblFastComValue.hidden = NO;
+                self->lblfastcommlbl.hidden = NO;
+                self->btnFastComm.hidden = NO;
+                self->moneyimg.hidden = NO;
                 
                // btnFastComm.layer.borderWidth = 1.0f;
                 
@@ -838,12 +849,12 @@ return @"60";
             }
             
             if(ISTSvalue==1){
-                 ISTSval = 1;
-                lblFastComValue.text = @"$40 Per IS";
+                 self->ISTSval = 1;
+                self->lblFastComValue.text = @"$40 Per IS";
                 
             }else{
-                ISTSval = 0;
-                lblFastComValue.text = @"$35 Per IS";
+                self->ISTSval = 0;
+                self->lblFastComValue.text = @"$35 Per IS";
             }
             
             
@@ -869,7 +880,7 @@ return @"60";
 -(void)checkFastcommEight{
     
     NSDate *date = [NSDate date];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
     [components setHour: 8];
     [components setMinute: 30];
@@ -909,7 +920,7 @@ return @"60";
 }
 -(void)checkFastCommThree{
     NSDate *date = [NSDate date];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
     [components setHour: 15];
     [components setMinute: 00];
@@ -996,8 +1007,8 @@ return @"60";
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
-               lblFastCommMTD.text = [mtdvalue stringByAppendingString:@" MTD"];
-                lblFastCommPP.text = [ppvalue stringByAppendingString:@" Due"];
+            self->lblFastCommMTD.text = [mtdvalue stringByAppendingString:@" MTD"];
+            self->lblFastCommPP.text = [ppvalue stringByAppendingString:@" Due"];
         });
         
         
@@ -1026,7 +1037,7 @@ return @"60";
     
     [UIView transitionWithView:self.view duration:0.55
                        options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^ { [self.view addSubview:viewClockOut.view]; }
+                    animations:^ { [self.view addSubview:self->viewClockOut.view]; }
                     completion:nil];
 
     
@@ -1038,7 +1049,7 @@ return @"60";
 	
 	
 }
-
+/*
 - (IBAction)btnRequestPressed {
 	
 	reportsAction = [[UIActionSheet alloc] initWithTitle:@"Reports" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Daily Zone Retention",@"Proactive Dormancy",@"Proactive Delinquency", @"Dormant Accounts", @"Recent Cancels", @"Recent Moves",  nil];
@@ -1062,7 +1073,7 @@ return @"60";
     settingsAction = [[UIActionSheet alloc] initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Settings",@"Build Info", @"Update Application", @"Download Chemicals",@"Call for Support",@"Report a Problem",  nil];
 								  [settingsAction showInView:self.view];
 }
-
+*/
 
 
 -(IBAction)btnSearch{
@@ -1159,6 +1170,7 @@ return @"60";
     
     
 }
+/*
 -(IBAction)btnMyPay{
     NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
          BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -1182,8 +1194,8 @@ return @"60";
 
    
 }
-
-
+*/
+/*
 -(IBAction)btnMyStats{
     
      NSString *ReportUrl = @"https://fbf2.bulwarkapp.com/MgrApp2/TechStatsIpad.aspx?fromSup=0&t=1&h=%@&viewedby=%@";
@@ -1209,8 +1221,8 @@ return @"60";
     
 }
 
-
-
+*/
+/*
 -(IBAction)btnAvaliableRoutes{
   
     NSDate *today1 = [NSDate date];
@@ -1249,8 +1261,8 @@ return @"60";
     
     
 }
-
-
+*/
+/*
 -(IBAction)btnVideo{
     
     NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/videos/videos.aspx";
@@ -1265,6 +1277,8 @@ return @"60";
     
     
 }
+ */
+/*
 -(IBAction)btnCloseVideo:(id) sender{
     //UIButton *clicked = (UIButton *) sender;
    // NSString *test = clicked.accessibilityIdentifier;
@@ -1275,7 +1289,7 @@ return @"60";
     
     
 }
-
+*/
 
 
 
@@ -1460,6 +1474,36 @@ return @"60";
     
     if ([message hasPrefix:@"LateFast50TD"]){
      
+        
+        
+        
+        /*
+         
+         dispatch_async(dispatch_get_main_queue(), ^(){
+
+            
+            viewFBFSearch* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewFBFSearch"];
+            
+            //customView.DateFor = @"For Todays Route";
+            //customView.istoday = 1;
+            //customView.isEarly = 0;
+            //customView.routeDate = [self CurrentDate];
+            customView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            customView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            //[self.view addSubview:customView.view];
+            [self presentViewController:customView animated:YES completion:nil];
+            //[self addChildViewController:customView];
+
+     });
+        
+        
+        
+        
+         */
+        
+        
+        
+        
         dispatch_async(dispatch_get_main_queue(), ^(){
 
             
@@ -1476,6 +1520,8 @@ return @"60";
             //[self addChildViewController:customView];
 
      });
+        
+        
         completionHandler(NO);
         
         
@@ -1720,7 +1766,7 @@ return @"60";
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD show:YES];
+        [self->HUD show:YES];
     });
     //NSLog(@"didStartProvisionalNavigation: %@", navigation);
 }
@@ -1739,12 +1785,12 @@ return @"60";
 
 - (void)webView:(WKWebView *)webView didFinishLoadingNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD hide:YES];
-        if(backgroundLoadingRoute){
-            backgroundLoadingRoute=false;
+        [self->HUD hide:YES];
+        if(self->backgroundLoadingRoute){
+            self->backgroundLoadingRoute=false;
             
-            if(webView == RouteWebView){
-              [RouteWebView.scrollView setContentOffset:RWVpt animated:NO];
+            if(webView == self->RouteWebView){
+                [self->RouteWebView.scrollView setContentOffset:self->RWVpt animated:NO];
             }
             
         }
@@ -2072,14 +2118,14 @@ return @"60";
 		
 		NSURLRequest *request = [NSURLRequest requestWithURL:urlz];
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
+       // if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+      //  {
             
             [RouteWebView loadRequest:request];
             [webView loadRequest:brequest];
-        }else{
-            [webView loadRequest:request];
-        }
+       // }else{
+       //     [webView loadRequest:request];
+       // }
 		
 		
 		
@@ -2159,9 +2205,10 @@ return @"60";
 		else if (dpage==9){
 		
 			//UIWebView *printView;
+			// zzzzzzzzzzzzzzzzzzxzxzzxzxzxzxzxzxzxzxzxzxzzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzxzx
+            //origional print stuff not used in a very long time
 			
-			
-			
+		/*
 			NSString *HTMLData = [urlParamater stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];		
 		
 		
@@ -2187,7 +2234,7 @@ return @"60";
 			htmlFormatter.startPage = 0;
 			//htmlFormatter.maximumContentHeight = 6 * 72.0;
 			//htmlFormatter.
-			htmlFormatter.contentInsets = UIEdgeInsetsMake(5, -20, -20, -20); // 1 inch margins
+            htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(5, -20, -20, -20); // 1 inch margins
 			htmlFormatter.maximumContentWidth = 6 * 72.0;
 			pic.printFormatter = htmlFormatter;
 			
@@ -2207,13 +2254,13 @@ return @"60";
 			
 			 
 			 
-				
+			*/
 			
 		}
 		else if(dpage==10){
 			
 			
-			
+			/*
 			NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/chemicalsusediphone";
 			downloadFile= [downloadFile stringByAppendingString:delegate.office];
 			downloadFile= [downloadFile stringByAppendingString:@".html"];
@@ -2252,8 +2299,10 @@ return @"60";
 				UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Download" message: @"Download Complete" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
 				
 				[someError show];
+             
 			}
 
+             */
 		}
 	else if (dpage==11)
 	{
@@ -2282,8 +2331,8 @@ return @"60";
         
         NSString *arvtime = @"";
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
+       // if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        //{
  
         
         NSString *temparv = [self GetArrvTime];
@@ -2294,7 +2343,7 @@ return @"60";
             arvtime = [arr objectAtIndex:1];
         }
          
-        }
+        //}
         
         
         
@@ -2627,22 +2676,22 @@ return @"60";
         
         
         
-        for (int i=0; i < [someString length]; i=i+500) {
-            long er = 500;
+       // for (int i=0; i < [someString length]; i=i+500) {
+       //     long er = 500;
             
             
-            long ss = [someString length];
+         //   long ss = [someString length];
             
-            if((i+500)>= ss){
-                er= [someString length] - i;
-                
-            }
+         //   if((i+500)>= ss){
+        //        er= [someString length] - i;
+         //
+          //  }
             
-            NSRange r = NSMakeRange(i, er);
+            //NSRange r = NSMakeRange(i, er);
             
-            NSString *cup = [someString substringWithRange: r];
+            //NSString *cup = [someString substringWithRange: r];
             
-            int le = (int)[cup length] +1;
+            //int le = (int)[cup length] +1;
             
            // memcpy(txBuffer, [cup UTF8String], le);
             
@@ -2652,10 +2701,10 @@ return @"60";
             //[rscMgr write:txBuffer Length:le];
             
             
-            [NSThread sleepForTimeInterval:.001];
+          //  [NSThread sleepForTimeInterval:.001];
             
             //[characters addObject:ichar];
-       }
+      // }
         
         
 
@@ -3415,6 +3464,33 @@ return @"60";
         dispatch_async(dispatch_get_main_queue(), ^(){
             [self performSegueWithIdentifier:@"OpenWebView" sender:self];
         });
+        
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^(){
+
+            
+            viewModalWeb* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewModalWeb"];
+            
+            //customView.DateFor = @"For Todays Route";
+            //customView.istoday = 1;
+            //customView.isEarly = 0;
+            //customView.routeDate = [self CurrentDate];
+            customView.url = UrlStr;
+            customView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            customView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            //[self.view addSubview:customView.view];
+            [self presentViewController:customView animated:YES completion:nil];
+            //[self addChildViewController:customView];
+
+     });
+        
+        
+        
+        
+        
+        
+        
       
                /* NSURL *qurl = [NSURL URLWithString:UrlStr];
         

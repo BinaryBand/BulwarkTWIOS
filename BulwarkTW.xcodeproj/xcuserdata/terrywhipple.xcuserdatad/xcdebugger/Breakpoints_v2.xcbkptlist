@@ -15,8 +15,8 @@
             timestampString = "598307536.847733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7338"
-            endingLineNumber = "7338"
+            startingLineNumber = "7414"
+            endingLineNumber = "7414"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -32,8 +32,8 @@
             timestampString = "598307536.847813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7326"
-            endingLineNumber = "7326"
+            startingLineNumber = "7402"
+            endingLineNumber = "7402"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -49,8 +49,8 @@
             timestampString = "598307536.8478661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7380"
-            endingLineNumber = "7380"
+            startingLineNumber = "7456"
+            endingLineNumber = "7456"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -100,8 +100,8 @@
             timestampString = "598307536.8479429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2438"
-            endingLineNumber = "2438"
+            startingLineNumber = "2487"
+            endingLineNumber = "2487"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -117,8 +117,8 @@
             timestampString = "598307536.848048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2446"
-            endingLineNumber = "2446"
+            startingLineNumber = "2495"
+            endingLineNumber = "2495"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -134,8 +134,8 @@
             timestampString = "598307536.848097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2495"
-            endingLineNumber = "2495"
+            startingLineNumber = "2544"
+            endingLineNumber = "2544"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,8 +202,8 @@
             timestampString = "598307536.848176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2449"
-            endingLineNumber = "2449"
+            startingLineNumber = "2498"
+            endingLineNumber = "2498"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -219,8 +219,8 @@
             timestampString = "598307536.848227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3096"
-            endingLineNumber = "3096"
+            startingLineNumber = "3145"
+            endingLineNumber = "3145"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -236,8 +236,8 @@
             timestampString = "598307536.848274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3107"
-            endingLineNumber = "3107"
+            startingLineNumber = "3156"
+            endingLineNumber = "3156"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -253,8 +253,8 @@
             timestampString = "598307536.848321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3118"
-            endingLineNumber = "3118"
+            startingLineNumber = "3167"
+            endingLineNumber = "3167"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             timestampString = "598307536.848366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3129"
-            endingLineNumber = "3129"
+            startingLineNumber = "3178"
+            endingLineNumber = "3178"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -321,8 +321,8 @@
             timestampString = "598307536.848484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "570"
-            endingLineNumber = "570"
+            startingLineNumber = "580"
+            endingLineNumber = "580"
             landmarkName = "-countdownTracker:"
             landmarkType = "7">
          </BreakpointContent>
@@ -338,8 +338,8 @@
             timestampString = "598307536.848531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4638"
-            endingLineNumber = "4638"
+            startingLineNumber = "4714"
+            endingLineNumber = "4714"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -355,8 +355,8 @@
             timestampString = "598307536.848578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7420"
-            endingLineNumber = "7420"
+            startingLineNumber = "7496"
+            endingLineNumber = "7496"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -423,8 +423,8 @@
             timestampString = "598307536.848653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4947"
-            endingLineNumber = "4947"
+            startingLineNumber = "5023"
+            endingLineNumber = "5023"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,7 +442,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "644"
             endingLineNumber = "644"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -459,8 +459,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "643"
             endingLineNumber = "643"
-            landmarkName = "-checkGpsAndBackground"
-            landmarkType = "7">
+            landmarkName = "BulwarkTWAppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -476,7 +476,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1016"
             endingLineNumber = "1016"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-configureFireBase"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -527,7 +527,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1184"
             endingLineNumber = "1184"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-refreshSchedule"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -544,7 +544,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "996"
             endingLineNumber = "996"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -948,7 +948,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "633"
             endingLineNumber = "633"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -965,7 +965,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1173"
             endingLineNumber = "1173"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-HideDrivingFrm"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1016,7 +1016,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "632"
             endingLineNumber = "632"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1033,7 +1033,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "631"
             endingLineNumber = "631"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1050,7 +1050,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "463"
             endingLineNumber = "463"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1067,8 +1067,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "421"
             endingLineNumber = "421"
-            landmarkName = "-checkGpsAndBackground"
-            landmarkType = "7">
+            landmarkName = "BulwarkTWAppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1084,7 +1084,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "450"
             endingLineNumber = "450"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1101,7 +1101,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "428"
             endingLineNumber = "428"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1116,8 +1116,8 @@
             timestampString = "598307536.84899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7424"
-            endingLineNumber = "7424"
+            startingLineNumber = "7500"
+            endingLineNumber = "7500"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -1135,7 +1135,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "440"
             endingLineNumber = "440"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1186,7 +1186,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "434"
             endingLineNumber = "434"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1203,7 +1203,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1206"
             endingLineNumber = "1206"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-application:handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1218,8 +1218,8 @@
             timestampString = "598307536.8490649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4203"
-            endingLineNumber = "4203"
+            startingLineNumber = "4279"
+            endingLineNumber = "4279"
             landmarkName = "-CheckClockIn"
             landmarkType = "7">
          </BreakpointContent>
@@ -1235,8 +1235,8 @@
             timestampString = "598307536.8491319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4172"
-            endingLineNumber = "4172"
+            startingLineNumber = "4248"
+            endingLineNumber = "4248"
             landmarkName = "-SaveGPSFile:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1252,8 +1252,8 @@
             timestampString = "598307536.84918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4392"
-            endingLineNumber = "4392"
+            startingLineNumber = "4468"
+            endingLineNumber = "4468"
             landmarkName = "-SaveServiceFile:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1269,8 +1269,8 @@
             timestampString = "598307536.849227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4218"
-            endingLineNumber = "4218"
+            startingLineNumber = "4294"
+            endingLineNumber = "4294"
             landmarkName = "-CheckClockIn"
             landmarkType = "7">
          </BreakpointContent>
@@ -1286,8 +1286,8 @@
             timestampString = "598307536.849272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5935"
-            endingLineNumber = "5935"
+            startingLineNumber = "6011"
+            endingLineNumber = "6011"
             landmarkName = "-ConvertToDate:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1303,8 +1303,8 @@
             timestampString = "598307536.849317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6110"
-            endingLineNumber = "6110"
+            startingLineNumber = "6186"
+            endingLineNumber = "6186"
             landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -1320,8 +1320,8 @@
             timestampString = "598307536.8493609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3659"
-            endingLineNumber = "3659"
+            startingLineNumber = "3735"
+            endingLineNumber = "3735"
             landmarkName = "-base64Decode:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1337,8 +1337,8 @@
             timestampString = "598307536.849406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4676"
-            endingLineNumber = "4676"
+            startingLineNumber = "4752"
+            endingLineNumber = "4752"
             landmarkName = "-btnFixClockOut"
             landmarkType = "7">
          </BreakpointContent>
@@ -1354,8 +1354,8 @@
             timestampString = "598307536.849452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6156"
-            endingLineNumber = "6156"
+            startingLineNumber = "6232"
+            endingLineNumber = "6232"
             landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -1371,8 +1371,8 @@
             timestampString = "598307536.849497"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5919"
-            endingLineNumber = "5919"
+            startingLineNumber = "5995"
+            endingLineNumber = "5995"
             landmarkName = "-showEmailModalView"
             landmarkType = "7">
          </BreakpointContent>
@@ -1388,8 +1388,8 @@
             timestampString = "598307536.849542"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5931"
-            endingLineNumber = "5931"
+            startingLineNumber = "6007"
+            endingLineNumber = "6007"
             landmarkName = "-ConvertToDate:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1405,8 +1405,8 @@
             timestampString = "598307536.849586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4578"
-            endingLineNumber = "4578"
+            startingLineNumber = "4654"
+            endingLineNumber = "4654"
             landmarkName = "-mailComposeController:didFinishWithResult:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1422,8 +1422,8 @@
             timestampString = "598307536.849631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4574"
-            endingLineNumber = "4574"
+            startingLineNumber = "4650"
+            endingLineNumber = "4650"
             landmarkName = "-mailComposeController:didFinishWithResult:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1439,8 +1439,8 @@
             timestampString = "598307536.8496751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4570"
-            endingLineNumber = "4570"
+            startingLineNumber = "4646"
+            endingLineNumber = "4646"
             landmarkName = "-mailComposeController:didFinishWithResult:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1456,8 +1456,8 @@
             timestampString = "598307536.84972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4589"
-            endingLineNumber = "4589"
+            startingLineNumber = "4665"
+            endingLineNumber = "4665"
             landmarkName = "-mailComposeController:didFinishWithResult:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1473,8 +1473,8 @@
             timestampString = "598307536.849764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4589"
-            endingLineNumber = "4589"
+            startingLineNumber = "4665"
+            endingLineNumber = "4665"
             landmarkName = "-mailComposeController:didFinishWithResult:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1490,8 +1490,8 @@
             timestampString = "598307536.8498091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4578"
-            endingLineNumber = "4578"
+            startingLineNumber = "4654"
+            endingLineNumber = "4654"
             landmarkName = "-mailComposeController:didFinishWithResult:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1509,7 +1509,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "995"
             endingLineNumber = "995"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1558,8 +1558,8 @@
             timestampString = "598307536.849885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1866"
-            endingLineNumber = "1866"
+            startingLineNumber = "1912"
+            endingLineNumber = "1912"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1575,8 +1575,8 @@
             timestampString = "598307536.849979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2027"
-            endingLineNumber = "2027"
+            startingLineNumber = "2073"
+            endingLineNumber = "2073"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1592,8 +1592,8 @@
             timestampString = "598307536.850024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2029"
-            endingLineNumber = "2029"
+            startingLineNumber = "2075"
+            endingLineNumber = "2075"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1609,8 +1609,8 @@
             timestampString = "598307536.8502491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2395"
-            endingLineNumber = "2395"
+            startingLineNumber = "2444"
+            endingLineNumber = "2444"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1626,8 +1626,8 @@
             timestampString = "598307536.850294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2721"
-            endingLineNumber = "2721"
+            startingLineNumber = "2770"
+            endingLineNumber = "2770"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1643,8 +1643,8 @@
             timestampString = "598307536.8503391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2835"
-            endingLineNumber = "2835"
+            startingLineNumber = "2884"
+            endingLineNumber = "2884"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1660,8 +1660,8 @@
             timestampString = "598307536.850383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2853"
-            endingLineNumber = "2853"
+            startingLineNumber = "2902"
+            endingLineNumber = "2902"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1677,8 +1677,8 @@
             timestampString = "598307536.850428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2870"
-            endingLineNumber = "2870"
+            startingLineNumber = "2919"
+            endingLineNumber = "2919"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1694,8 +1694,8 @@
             timestampString = "598307536.850471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2887"
-            endingLineNumber = "2887"
+            startingLineNumber = "2936"
+            endingLineNumber = "2936"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1711,8 +1711,8 @@
             timestampString = "598307536.850515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2904"
-            endingLineNumber = "2904"
+            startingLineNumber = "2953"
+            endingLineNumber = "2953"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1728,8 +1728,8 @@
             timestampString = "598307536.8505599"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3845"
-            endingLineNumber = "3845"
+            startingLineNumber = "3921"
+            endingLineNumber = "3921"
             landmarkName = "-sendResults:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1745,8 +1745,8 @@
             timestampString = "598307536.850605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3848"
-            endingLineNumber = "3848"
+            startingLineNumber = "3924"
+            endingLineNumber = "3924"
             landmarkName = "-sendResults:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1762,8 +1762,8 @@
             timestampString = "598307536.850649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1715"
-            endingLineNumber = "1715"
+            startingLineNumber = "1761"
+            endingLineNumber = "1761"
             landmarkName = "-webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1779,8 +1779,8 @@
             timestampString = "598307536.8506939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2658"
-            endingLineNumber = "2658"
+            startingLineNumber = "2707"
+            endingLineNumber = "2707"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1796,8 +1796,8 @@
             timestampString = "598307536.850739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1706"
-            endingLineNumber = "1706"
+            startingLineNumber = "1752"
+            endingLineNumber = "1752"
             landmarkName = "-webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1813,8 +1813,8 @@
             timestampString = "598307536.8507839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1702"
-            endingLineNumber = "1702"
+            startingLineNumber = "1748"
+            endingLineNumber = "1748"
             landmarkName = "-webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1830,8 +1830,8 @@
             timestampString = "598307536.85083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1457"
-            endingLineNumber = "1457"
+            startingLineNumber = "1471"
+            endingLineNumber = "1471"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1847,8 +1847,8 @@
             timestampString = "598307536.8508739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1453"
-            endingLineNumber = "1453"
+            startingLineNumber = "1467"
+            endingLineNumber = "1467"
             landmarkName = "-webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1864,8 +1864,8 @@
             timestampString = "598307536.850919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1449"
-            endingLineNumber = "1449"
+            startingLineNumber = "1463"
+            endingLineNumber = "1463"
             landmarkName = "-webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1881,8 +1881,8 @@
             timestampString = "598307536.850965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1445"
-            endingLineNumber = "1445"
+            startingLineNumber = "1459"
+            endingLineNumber = "1459"
             landmarkName = "-webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1898,8 +1898,8 @@
             timestampString = "598307536.85101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1726"
-            endingLineNumber = "1726"
+            startingLineNumber = "1772"
+            endingLineNumber = "1772"
             landmarkName = "-webView:didStartProvisionalNavigation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1915,8 +1915,8 @@
             timestampString = "598307536.851055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1745"
-            endingLineNumber = "1745"
+            startingLineNumber = "1791"
+            endingLineNumber = "1791"
             landmarkName = "-webView:didFinishLoadingNavigation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1932,8 +1932,8 @@
             timestampString = "598307536.851101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1785"
-            endingLineNumber = "1785"
+            startingLineNumber = "1831"
+            endingLineNumber = "1831"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -1949,8 +1949,8 @@
             timestampString = "598307536.851146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1783"
-            endingLineNumber = "1783"
+            startingLineNumber = "1829"
+            endingLineNumber = "1829"
             landmarkName = "-webView:decidePolicyForNavigationResponse:decisionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1966,8 +1966,8 @@
             timestampString = "598307536.851281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1775"
-            endingLineNumber = "1775"
+            startingLineNumber = "1821"
+            endingLineNumber = "1821"
             landmarkName = "-webView:didFinishNavigation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1983,8 +1983,8 @@
             timestampString = "598307536.851328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1763"
-            endingLineNumber = "1763"
+            startingLineNumber = "1809"
+            endingLineNumber = "1809"
             landmarkName = "-_webViewWebProcessDidCrash:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2000,8 +2000,8 @@
             timestampString = "598307536.851373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3752"
-            endingLineNumber = "3752"
+            startingLineNumber = "3828"
+            endingLineNumber = "3828"
             landmarkName = "-sendResults:"
             landmarkType = "7">
             <Locations>
@@ -2049,8 +2049,8 @@
             timestampString = "598307536.851418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4304"
-            endingLineNumber = "4304"
+            startingLineNumber = "4380"
+            endingLineNumber = "4380"
             landmarkName = "-SaveClockOutTime"
             landmarkType = "7">
          </BreakpointContent>
@@ -2066,8 +2066,8 @@
             timestampString = "598307536.851506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1741"
-            endingLineNumber = "1741"
+            startingLineNumber = "1787"
+            endingLineNumber = "1787"
             landmarkName = "-webView:didFinishLoadingNavigation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2083,8 +2083,8 @@
             timestampString = "598307536.8515511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4914"
-            endingLineNumber = "4914"
+            startingLineNumber = "4990"
+            endingLineNumber = "4990"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2100,8 +2100,8 @@
             timestampString = "598307536.851596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "866"
-            endingLineNumber = "866"
+            startingLineNumber = "877"
+            endingLineNumber = "877"
             landmarkName = "-getfastcommIsTS"
             landmarkType = "7">
          </BreakpointContent>
@@ -2117,8 +2117,8 @@
             timestampString = "598307536.85164"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "781"
-            endingLineNumber = "781"
+            startingLineNumber = "792"
+            endingLineNumber = "792"
             landmarkName = "-getfastcommIsTS"
             landmarkType = "7">
          </BreakpointContent>
@@ -2134,8 +2134,8 @@
             timestampString = "598307536.851684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "866"
-            endingLineNumber = "866"
+            startingLineNumber = "877"
+            endingLineNumber = "877"
             landmarkName = "-getfastcommIsTS"
             landmarkType = "7">
          </BreakpointContent>
@@ -2151,8 +2151,8 @@
             timestampString = "598307536.851728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "866"
-            endingLineNumber = "866"
+            startingLineNumber = "877"
+            endingLineNumber = "877"
             landmarkName = "-getfastcommIsTS"
             landmarkType = "7">
          </BreakpointContent>
@@ -2168,8 +2168,8 @@
             timestampString = "598307536.851774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "942"
-            endingLineNumber = "942"
+            startingLineNumber = "953"
+            endingLineNumber = "953"
             landmarkName = "-getfastcommMTD"
             landmarkType = "7">
          </BreakpointContent>
@@ -2202,8 +2202,8 @@
             timestampString = "598307536.85188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4838"
-            endingLineNumber = "4838"
+            startingLineNumber = "4914"
+            endingLineNumber = "4914"
             landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
@@ -2219,8 +2219,8 @@
             timestampString = "598307536.851926"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4870"
-            endingLineNumber = "4870"
+            startingLineNumber = "4946"
+            endingLineNumber = "4946"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2270,10 +2270,10 @@
             timestampString = "598307536.851992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "587"
-            endingLineNumber = "587"
-            landmarkName = "-fcTooltipPP"
-            landmarkType = "7">
+            startingLineNumber = "599"
+            endingLineNumber = "599"
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2287,8 +2287,8 @@
             timestampString = "598307536.852039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "958"
-            endingLineNumber = "958"
+            startingLineNumber = "969"
+            endingLineNumber = "969"
             landmarkName = "-getfastcommMTD"
             landmarkType = "7">
          </BreakpointContent>
@@ -2304,8 +2304,8 @@
             timestampString = "598307536.852085"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6606"
-            endingLineNumber = "6606"
+            startingLineNumber = "6682"
+            endingLineNumber = "6682"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2321,8 +2321,8 @@
             timestampString = "598307536.8521301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6605"
-            endingLineNumber = "6605"
+            startingLineNumber = "6681"
+            endingLineNumber = "6681"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2338,8 +2338,8 @@
             timestampString = "598307536.852177"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3922"
-            endingLineNumber = "3922"
+            startingLineNumber = "3998"
+            endingLineNumber = "3998"
             landmarkName = "-sendResults:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2355,8 +2355,8 @@
             timestampString = "598307536.852231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4948"
-            endingLineNumber = "4948"
+            startingLineNumber = "5024"
+            endingLineNumber = "5024"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2372,8 +2372,8 @@
             timestampString = "598307536.852276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4952"
-            endingLineNumber = "4952"
+            startingLineNumber = "5028"
+            endingLineNumber = "5028"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2389,8 +2389,8 @@
             timestampString = "598307536.85232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
             landmarkName = "-handleRefresh:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2421,8 +2421,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4953"
-            endingLineNumber = "4953"
+            startingLineNumber = "5029"
+            endingLineNumber = "5029"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2437,8 +2437,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4954"
-            endingLineNumber = "4954"
+            startingLineNumber = "5030"
+            endingLineNumber = "5030"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2453,8 +2453,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4955"
-            endingLineNumber = "4955"
+            startingLineNumber = "5031"
+            endingLineNumber = "5031"
             landmarkName = "-ScheduleAlertsForCall:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2487,7 +2487,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "433"
             endingLineNumber = "433"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2503,8 +2503,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "414"
             endingLineNumber = "414"
-            landmarkName = "-checkGpsAndBackground"
-            landmarkType = "7">
+            landmarkName = "BulwarkTWAppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2519,8 +2519,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "412"
             endingLineNumber = "412"
-            landmarkName = "-checkGpsAndBackground"
-            landmarkType = "7">
+            landmarkName = "BulwarkTWAppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2551,8 +2551,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "425"
             endingLineNumber = "425"
-            landmarkName = "-checkGpsAndBackground"
-            landmarkType = "7">
+            landmarkName = "BulwarkTWAppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2581,8 +2581,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2836"
-            endingLineNumber = "2836"
+            startingLineNumber = "2885"
+            endingLineNumber = "2885"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2597,8 +2597,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2322"
-            endingLineNumber = "2322"
+            startingLineNumber = "2371"
+            endingLineNumber = "2371"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2613,8 +2613,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2319"
-            endingLineNumber = "2319"
+            startingLineNumber = "2368"
+            endingLineNumber = "2368"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2725,8 +2725,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3201"
-            endingLineNumber = "3201"
+            startingLineNumber = "3250"
+            endingLineNumber = "3250"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2741,8 +2741,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3139"
-            endingLineNumber = "3139"
+            startingLineNumber = "3188"
+            endingLineNumber = "3188"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2757,8 +2757,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3197"
-            endingLineNumber = "3197"
+            startingLineNumber = "3246"
+            endingLineNumber = "3246"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2773,8 +2773,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3133"
-            endingLineNumber = "3133"
+            startingLineNumber = "3182"
+            endingLineNumber = "3182"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2789,8 +2789,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3163"
-            endingLineNumber = "3163"
+            startingLineNumber = "3212"
+            endingLineNumber = "3212"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2805,8 +2805,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3165"
-            endingLineNumber = "3165"
+            startingLineNumber = "3214"
+            endingLineNumber = "3214"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2821,8 +2821,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3225"
-            endingLineNumber = "3225"
+            startingLineNumber = "3274"
+            endingLineNumber = "3274"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2837,8 +2837,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3260"
-            endingLineNumber = "3260"
+            startingLineNumber = "3309"
+            endingLineNumber = "3309"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2853,8 +2853,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3295"
-            endingLineNumber = "3295"
+            startingLineNumber = "3344"
+            endingLineNumber = "3344"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2885,8 +2885,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1911"
-            endingLineNumber = "1911"
+            startingLineNumber = "1957"
+            endingLineNumber = "1957"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2901,8 +2901,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1970"
-            endingLineNumber = "1970"
+            startingLineNumber = "2016"
+            endingLineNumber = "2016"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2917,8 +2917,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1607"
-            endingLineNumber = "1607"
+            startingLineNumber = "1653"
+            endingLineNumber = "1653"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
             <Locations>
@@ -2965,8 +2965,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6052"
-            endingLineNumber = "6052"
+            startingLineNumber = "6128"
+            endingLineNumber = "6128"
             landmarkName = "-CurrentTimeTimeOnly"
             landmarkType = "7">
          </BreakpointContent>
@@ -2981,8 +2981,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1488"
-            endingLineNumber = "1488"
+            startingLineNumber = "1534"
+            endingLineNumber = "1534"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2997,8 +2997,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3394"
-            endingLineNumber = "3394"
+            startingLineNumber = "3443"
+            endingLineNumber = "3443"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3013,8 +3013,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2437"
-            endingLineNumber = "2437"
+            startingLineNumber = "2486"
+            endingLineNumber = "2486"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3029,8 +3029,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2451"
-            endingLineNumber = "2451"
+            startingLineNumber = "2500"
+            endingLineNumber = "2500"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3045,8 +3045,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2467"
-            endingLineNumber = "2467"
+            startingLineNumber = "2516"
+            endingLineNumber = "2516"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3061,8 +3061,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2482"
-            endingLineNumber = "2482"
+            startingLineNumber = "2531"
+            endingLineNumber = "2531"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3077,8 +3077,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2528"
-            endingLineNumber = "2528"
+            startingLineNumber = "2577"
+            endingLineNumber = "2577"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3093,8 +3093,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2587"
-            endingLineNumber = "2587"
+            startingLineNumber = "2636"
+            endingLineNumber = "2636"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3109,8 +3109,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2585"
-            endingLineNumber = "2585"
+            startingLineNumber = "2634"
+            endingLineNumber = "2634"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3125,8 +3125,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2583"
-            endingLineNumber = "2583"
+            startingLineNumber = "2632"
+            endingLineNumber = "2632"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3141,8 +3141,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2629"
-            endingLineNumber = "2629"
+            startingLineNumber = "2678"
+            endingLineNumber = "2678"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3157,8 +3157,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2570"
-            endingLineNumber = "2570"
+            startingLineNumber = "2619"
+            endingLineNumber = "2619"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3173,8 +3173,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2537"
-            endingLineNumber = "2537"
+            startingLineNumber = "2586"
+            endingLineNumber = "2586"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3189,8 +3189,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2571"
-            endingLineNumber = "2571"
+            startingLineNumber = "2620"
+            endingLineNumber = "2620"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3205,8 +3205,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4231"
-            endingLineNumber = "4231"
+            startingLineNumber = "4307"
+            endingLineNumber = "4307"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -3221,8 +3221,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6783"
-            endingLineNumber = "6783"
+            startingLineNumber = "6859"
+            endingLineNumber = "6859"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3237,8 +3237,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6804"
-            endingLineNumber = "6804"
+            startingLineNumber = "6880"
+            endingLineNumber = "6880"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3253,8 +3253,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6805"
-            endingLineNumber = "6805"
+            startingLineNumber = "6881"
+            endingLineNumber = "6881"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3365,8 +3365,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6109"
-            endingLineNumber = "6109"
+            startingLineNumber = "6185"
+            endingLineNumber = "6185"
             landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -3381,8 +3381,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1329"
-            endingLineNumber = "1329"
+            startingLineNumber = "1343"
+            endingLineNumber = "1343"
             landmarkName = "-btnClockIn"
             landmarkType = "7">
          </BreakpointContent>
@@ -3397,8 +3397,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6188"
-            endingLineNumber = "6188"
+            startingLineNumber = "6264"
+            endingLineNumber = "6264"
             landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -3413,8 +3413,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6189"
-            endingLineNumber = "6189"
+            startingLineNumber = "6265"
+            endingLineNumber = "6265"
             landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -3429,8 +3429,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4713"
-            endingLineNumber = "4713"
+            startingLineNumber = "4789"
+            endingLineNumber = "4789"
             landmarkName = "-ClockInSaved:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3445,8 +3445,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4770"
-            endingLineNumber = "4770"
+            startingLineNumber = "4846"
+            endingLineNumber = "4846"
             landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
@@ -3461,8 +3461,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4779"
-            endingLineNumber = "4779"
+            startingLineNumber = "4855"
+            endingLineNumber = "4855"
             landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
@@ -3477,8 +3477,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6173"
-            endingLineNumber = "6173"
+            startingLineNumber = "6249"
+            endingLineNumber = "6249"
             landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -3493,8 +3493,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4780"
-            endingLineNumber = "4780"
+            startingLineNumber = "4856"
+            endingLineNumber = "4856"
             landmarkName = "-CheckClockOut"
             landmarkType = "7">
          </BreakpointContent>
@@ -3509,8 +3509,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1405"
-            endingLineNumber = "1405"
+            startingLineNumber = "1419"
+            endingLineNumber = "1419"
             landmarkName = "-btnClockOut"
             landmarkType = "7">
          </BreakpointContent>
@@ -3525,8 +3525,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5684"
-            endingLineNumber = "5684"
+            startingLineNumber = "5760"
+            endingLineNumber = "5760"
             landmarkName = "-loadAvailable"
             landmarkType = "7">
          </BreakpointContent>
@@ -3541,8 +3541,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4965"
-            endingLineNumber = "4965"
+            startingLineNumber = "5041"
+            endingLineNumber = "5041"
             landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
@@ -3557,10 +3557,10 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1188"
-            endingLineNumber = "1188"
-            landmarkName = "-btnMyStats"
-            landmarkType = "7">
+            startingLineNumber = "1200"
+            endingLineNumber = "1200"
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3733,8 +3733,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1878"
-            endingLineNumber = "1878"
+            startingLineNumber = "1924"
+            endingLineNumber = "1924"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3751,7 +3751,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1101"
             endingLineNumber = "1101"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-application:didReceiveLocalNotification:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3765,8 +3765,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5059"
-            endingLineNumber = "5059"
+            startingLineNumber = "5135"
+            endingLineNumber = "5135"
             landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
@@ -3781,8 +3781,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1823"
-            endingLineNumber = "1823"
+            startingLineNumber = "1869"
+            endingLineNumber = "1869"
             landmarkName = "-webView:decidePolicyForNavigationAction:decisionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3799,7 +3799,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1103"
             endingLineNumber = "1103"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-application:didReceiveLocalNotification:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3813,8 +3813,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1462"
-            endingLineNumber = "1462"
+            startingLineNumber = "1476"
+            endingLineNumber = "1476"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3829,8 +3829,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1493"
-            endingLineNumber = "1493"
+            startingLineNumber = "1539"
+            endingLineNumber = "1539"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3845,8 +3845,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1501"
-            endingLineNumber = "1501"
+            startingLineNumber = "1547"
+            endingLineNumber = "1547"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3861,8 +3861,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6128"
-            endingLineNumber = "6128"
+            startingLineNumber = "6204"
+            endingLineNumber = "6204"
             landmarkName = "-sendFilesToServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -3877,8 +3877,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2551"
-            endingLineNumber = "2551"
+            startingLineNumber = "2600"
+            endingLineNumber = "2600"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3991,7 +3991,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1123"
             endingLineNumber = "1123"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-CallNowPressed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4005,8 +4005,8 @@
             filePath = "Classes/viewRoutes.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4021,8 +4021,8 @@
             filePath = "Classes/viewRoutes.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4037,8 +4037,8 @@
             filePath = "Classes/viewRoutes.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "openMap(mpDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4055,7 +4055,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1112"
             endingLineNumber = "1112"
-            landmarkName = "-checkGpsAndBackground"
+            landmarkName = "-application:didReceiveLocalNotification:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4069,8 +4069,8 @@
             filePath = "Classes/viewRoutes.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4085,8 +4085,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7492"
-            endingLineNumber = "7492"
+            startingLineNumber = "7568"
+            endingLineNumber = "7568"
             landmarkName = "-didDiscoverPrinter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4101,8 +4101,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7433"
-            endingLineNumber = "7433"
+            startingLineNumber = "7509"
+            endingLineNumber = "7509"
             landmarkName = "ViewOne"
             landmarkType = "3">
          </BreakpointContent>
@@ -4117,8 +4117,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7478"
-            endingLineNumber = "7478"
+            startingLineNumber = "7554"
+            endingLineNumber = "7554"
             landmarkName = "-didDiscoverPrinter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4133,8 +4133,8 @@
             filePath = "Classes/viewRoutes.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4421,10 +4421,10 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
-            landmarkName = "-tabBar:didSelectItem:"
-            landmarkType = "7">
+            startingLineNumber = "470"
+            endingLineNumber = "470"
+            landmarkName = "ViewOne"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4437,8 +4437,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7640"
-            endingLineNumber = "7640"
+            startingLineNumber = "7716"
+            endingLineNumber = "7716"
             landmarkName = "-btnTest"
             landmarkType = "7">
          </BreakpointContent>
@@ -4453,8 +4453,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3419"
-            endingLineNumber = "3419"
+            startingLineNumber = "3495"
+            endingLineNumber = "3495"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
             <Locations>
@@ -4501,8 +4501,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3440"
-            endingLineNumber = "3440"
+            startingLineNumber = "3516"
+            endingLineNumber = "3516"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4517,8 +4517,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3462"
-            endingLineNumber = "3462"
+            startingLineNumber = "3538"
+            endingLineNumber = "3538"
             landmarkName = "-takePhoto"
             landmarkType = "7">
          </BreakpointContent>
@@ -4533,8 +4533,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3507"
-            endingLineNumber = "3507"
+            startingLineNumber = "3583"
+            endingLineNumber = "3583"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4549,8 +4549,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4977"
-            endingLineNumber = "4977"
+            startingLineNumber = "5053"
+            endingLineNumber = "5053"
             landmarkName = "-loadRoute"
             landmarkType = "7">
          </BreakpointContent>
@@ -4645,8 +4645,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4677,8 +4677,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "webView(_:didStartProvisionalNavigation:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4693,8 +4693,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "webView(_:didFail:withError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4709,10 +4709,10 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "webView(_:didStartProvisionalNavigation:)"
-            landmarkType = "7">
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "viewAddSale"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4735,14 +4735,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1F60E279-02C9-464A-B67D-638CB2D8DA36"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2315"
-            endingLineNumber = "2315"
+            startingLineNumber = "2364"
+            endingLineNumber = "2364"
             landmarkName = "-handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4837,8 +4837,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "webView(_:didFinish:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4901,8 +4901,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "webView(_:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4917,8 +4917,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "webView(_:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4933,8 +4933,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4949,8 +4949,8 @@
             filePath = "Classes/viewAddSale.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4965,8 +4965,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1613"
-            endingLineNumber = "1613"
+            startingLineNumber = "1659"
+            endingLineNumber = "1659"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4981,8 +4981,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1616"
-            endingLineNumber = "1616"
+            startingLineNumber = "1662"
+            endingLineNumber = "1662"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4997,8 +4997,8 @@
             filePath = "Classes/viewISExtendedOptIn.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "StepperChange(val:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5013,8 +5013,8 @@
             filePath = "Classes/viewISExtendedOptIn.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5029,8 +5029,8 @@
             filePath = "Classes/viewISExtendedOptIn.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "SavrClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5045,8 +5045,8 @@
             filePath = "Classes/viewRoutes.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5061,8 +5061,8 @@
             filePath = "Classes/viewRoutes.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5071,6 +5071,38 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FC9378F0-5DA0-4143-BC9F-3010F1CB07FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewRoutes.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B5E49CF-DE54-4163-B171-B7AFB503229E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewRoutes.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "931E82A7-BF33-442B-BE3C-F5F55D5D62E0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -5086,38 +5118,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B5E49CF-DE54-4163-B171-B7AFB503229E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewRoutes.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "931E82A7-BF33-442B-BE3C-F5F55D5D62E0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewRoutes.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "webView(_:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "53FD0B77-1D21-48EA-9B33-24B0E63A2B51"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -5125,8 +5125,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1466"
-            endingLineNumber = "1466"
+            startingLineNumber = "1510"
+            endingLineNumber = "1510"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5141,8 +5141,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1527"
-            endingLineNumber = "1527"
+            startingLineNumber = "1573"
+            endingLineNumber = "1573"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5157,8 +5157,8 @@
             filePath = "Classes/ViewOne.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1543"
-            endingLineNumber = "1543"
+            startingLineNumber = "1589"
+            endingLineNumber = "1589"
             landmarkName = "-webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5374,22 +5374,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8560B075-3106-413B-9787-5C0439D8C07F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewISExtendedOptIn.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "SavrClick(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "46FDEBF2-76CF-42F2-BE19-7E4282178032"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -5397,8 +5381,8 @@
             filePath = "Classes/viewISExtendedOptIn.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "SavrClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5416,6 +5400,54 @@
             startingLineNumber = "584"
             endingLineNumber = "584"
             landmarkName = "-DownloadChemicalList3"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "574270CB-FE86-462E-AEC2-CB68F5E2C01F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewISExtendedOptIn.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "SavrClick(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51B7D721-A36D-4B67-99DB-F7D216A56FF0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewISExtendedOptIn.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "SavrClick(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B86CA9F0-9305-47F1-AB9D-4344A7399603"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewISExtendedOptIn.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "dismissThis()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

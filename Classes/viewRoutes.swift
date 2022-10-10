@@ -13,8 +13,9 @@ import WebKit
     @IBOutlet var webView : WKWebView!
     var HUD: MBProgressHUD!
     var mapDate:String?
-    
-    
+     var refController:UIRefreshControl = UIRefreshControl()
+     
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,14 +54,19 @@ import WebKit
         getSchedule()
         
         
-        
+        refController.bounds = CGRect.init(x: 0.0, y: 50.0, width: refController.bounds.size.width, height: refController.bounds.size.height)
+        refController.addTarget(self, action: #selector(self.webviewRefresh(refresh:)), for: .valueChanged)
+        webView.scrollView.addSubview(refController)
      
 
         // Do any additional setup after loading the view.
     }
     
-    
-    
+     @objc func webviewRefresh(refresh:UIRefreshControl){
+         refController.endRefreshing()
+         webView.reload()
+     }
+     
     func showActivityIndicator(show: Bool) {
         if show {
             HUD.show(true)
@@ -154,7 +160,8 @@ import WebKit
                 customView?.routeDate = listItems[1]
                 customView?.istoday = 3
                 customView?.isEarly = 1
-                
+                customView?.fromVR = 1
+                customView?.viewRoute = self
                 customView?.modalTransitionStyle = .crossDissolve
                 customView?.modalPresentationStyle = .overCurrentContext
                 
@@ -191,7 +198,8 @@ import WebKit
             customView?.DateFor = d
                 customView?.routeDate = listItems[1]
                 customView?.istoday = 3
-              
+                customView?.fromVR = 1
+                customView?.viewRoute = self
                 customView?.modalTransitionStyle = .crossDissolve
                 customView?.modalPresentationStyle = .overCurrentContext
                 

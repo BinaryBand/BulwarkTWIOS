@@ -13,6 +13,7 @@
 		348D9A2112C1133B00FB51D0 /* results.html in Resources */ = {isa = PBXBuildFile; fileRef = 348D9A2012C1133B00FB51D0 /* results.html */; };
 		348DA0E912CA6F9F00FB51D0 /* ViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 348DA0E712CA6F9F00FB51D0 /* ViewOne.m */; };
 		34C42EBF164DBA3800DD6A91 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDD6DF164DA57400CB40B5 /* MBProgressHUD.m */; };
+		B30B305C28F48DEC00E6B253 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B30B305B28F48DEC00E6B253 /* FirebaseCrashlytics */; };
 		B3122E8327D958F90003C75D /* TabbedStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3122E8227D958F90003C75D /* TabbedStoryBoard.storyboard */; };
 		B3122E8527DA77700003C75D /* viewRouteMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3122E8427DA77700003C75D /* viewRouteMap.swift */; };
 		B3122E8727DA88410003C75D /* viewMyPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3122E8627DA88410003C75D /* viewMyPay.swift */; };
@@ -57,6 +58,11 @@
 		B3A0301A1AA918280097AACD /* TermiteEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A030181AA918280097AACD /* TermiteEmail.swift */; };
 		B3A0301B1AA918280097AACD /* TermiteEmail.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A030191AA918280097AACD /* TermiteEmail.xib */; };
 		B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */; };
+		B3B7F79228DBA16400B8F1F2 /* FBFSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7F79128DBA16400B8F1F2 /* FBFSearch.swift */; };
+		B3B7F79428DBA47100B8F1F2 /* viewFBFSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7F79328DBA47100B8F1F2 /* viewFBFSearch.swift */; };
+		B3B7F79728DBE7ED00B8F1F2 /* FBFCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B7F79628DBE7ED00B8F1F2 /* FBFCell.xib */; };
+		B3B7F79A28DC18B100B8F1F2 /* FBFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7F79828DC18B100B8F1F2 /* FBFCollectionViewCell.swift */; };
+		B3B7F79B28DC18B100B8F1F2 /* FBFCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B7F79928DC18B100B8F1F2 /* FBFCollectionViewCell.xib */; };
 		B3BBF58819BA400C0088C777 /* blank.html in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF58719BA400C0088C777 /* blank.html */; };
 		B3BBF59419BE518E0088C777 /* clock-7.png in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF59319BE518E0088C777 /* clock-7.png */; };
 		B3BBF59619BE52560088C777 /* clockin.png in Resources */ = {isa = PBXBuildFile; fileRef = B3BBF59519BE52560088C777 /* clockin.png */; };
@@ -65,6 +71,7 @@
 		B3C3D3C819FC0ACF008774E7 /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C3D3C719FC0ACF008774E7 /* MKNumberBadgeView.m */; };
 		B3CA93F927EB848100945F0C /* SplitStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */; };
 		B3CA93FD27F2385900945F0C /* viewRouteDayTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CA93FC27F2385900945F0C /* viewRouteDayTable.swift */; };
+		B3D5AE3428E50F5600FB3495 /* viewModalWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5AE3328E50F5600FB3495 /* viewModalWeb.swift */; };
 		B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCDD7327B1E00E00D93387 /* Images.xcassets */; };
 		B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCDD7827B1E8AC00D93387 /* viewChat.swift */; };
 		B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */; };
@@ -160,6 +167,11 @@
 		B3A030181AA918280097AACD /* TermiteEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermiteEmail.swift; sourceTree = "<group>"; };
 		B3A030191AA918280097AACD /* TermiteEmail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermiteEmail.xib; sourceTree = "<group>"; };
 		B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPopupWeb.swift; sourceTree = "<group>"; };
+		B3B7F79128DBA16400B8F1F2 /* FBFSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFSearch.swift; sourceTree = "<group>"; };
+		B3B7F79328DBA47100B8F1F2 /* viewFBFSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewFBFSearch.swift; sourceTree = "<group>"; };
+		B3B7F79628DBE7ED00B8F1F2 /* FBFCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBFCell.xib; sourceTree = "<group>"; };
+		B3B7F79828DC18B100B8F1F2 /* FBFCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3B7F79928DC18B100B8F1F2 /* FBFCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBFCollectionViewCell.xib; sourceTree = "<group>"; };
 		B3BBF58719BA400C0088C777 /* blank.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = blank.html; sourceTree = "<group>"; };
 		B3BBF59319BE518E0088C777 /* clock-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-7.png"; sourceTree = "<group>"; };
 		B3BBF59519BE52560088C777 /* clockin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockin.png; sourceTree = "<group>"; };
@@ -170,6 +182,7 @@
 		B3C3D3C719FC0ACF008774E7 /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
 		B3CA93F827EB848100945F0C /* SplitStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplitStoryBoard.storyboard; sourceTree = "<group>"; };
 		B3CA93FC27F2385900945F0C /* viewRouteDayTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRouteDayTable.swift; sourceTree = "<group>"; };
+		B3D5AE3328E50F5600FB3495 /* viewModalWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModalWeb.swift; sourceTree = "<group>"; };
 		B3DCDD7327B1E00E00D93387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BulwarkTW/Images.xcassets; sourceTree = "<group>"; };
 		B3DCDD7827B1E8AC00D93387 /* viewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewChat.swift; sourceTree = "<group>"; };
 		B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMyStats.swift; sourceTree = "<group>"; };
@@ -192,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B30B305C28F48DEC00E6B253 /* FirebaseCrashlytics in Frameworks */,
 				B3964A6B2895ADE6005F638D /* Toast in Frameworks */,
 				E55D834127EE4962003A63CF /* FirebaseMessaging in Frameworks */,
 			);
@@ -349,6 +363,8 @@
 		B3AB45E21C5FFD13003246AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3B7F79528DBE78D00B8F1F2 /* tableCells */,
+				B3B7F79028DBA13300B8F1F2 /* Models */,
 				B348C8AE1C7B7271000BDC7A /* video */,
 				348DA0E612CA6F9F00FB51D0 /* ViewOne.h */,
 				348DA0E712CA6F9F00FB51D0 /* ViewOne.m */,
@@ -380,8 +396,28 @@
 				B3FD0457283C1721006A1EE6 /* viewAddSale.swift */,
 				B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */,
 				B3440CBB28789588003E8C8E /* viewISExtendedOptIn.swift */,
+				B3B7F79328DBA47100B8F1F2 /* viewFBFSearch.swift */,
+				B3D5AE3328E50F5600FB3495 /* viewModalWeb.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B3B7F79028DBA13300B8F1F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3B7F79128DBA16400B8F1F2 /* FBFSearch.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B3B7F79528DBE78D00B8F1F2 /* tableCells */ = {
+			isa = PBXGroup;
+			children = (
+				B3B7F79628DBE7ED00B8F1F2 /* FBFCell.xib */,
+				B3B7F79828DC18B100B8F1F2 /* FBFCollectionViewCell.swift */,
+				B3B7F79928DC18B100B8F1F2 /* FBFCollectionViewCell.xib */,
+			);
+			name = tableCells;
 			sourceTree = "<group>";
 		};
 		B3FF793E2836F64A0030A22E /* Frameworks */ = {
@@ -410,6 +446,7 @@
 			packageProductDependencies = (
 				E55D834027EE4962003A63CF /* FirebaseMessaging */,
 				B3964A6A2895ADE6005F638D /* Toast */,
+				B30B305B28F48DEC00E6B253 /* FirebaseCrashlytics */,
 			);
 			productName = BulwarkTW;
 			productReference = 1D6058910D05DD3D006BFB54 /* BulwarkTW.app */;
@@ -469,6 +506,7 @@
 				E55D833F27EE4962003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E55D834427EE4E43003A63CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				B30B305A28F48DEC00E6B253 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -494,10 +532,12 @@
 				B3BBF58819BA400C0088C777 /* blank.html in Resources */,
 				B337A8EB1C653D0000FBEE18 /* left2-50.png in Resources */,
 				B337A8E91C650CBB00FBEE18 /* blue_close.png in Resources */,
+				B3B7F79B28DC18B100B8F1F2 /* FBFCollectionViewCell.xib in Resources */,
 				B3CA93F927EB848100945F0C /* SplitStoryBoard.storyboard in Resources */,
 				B348C8BE1C7B7291000BDC7A /* notdownloaded.PNG in Resources */,
 				B3BBF59A19BE54290088C777 /* clockin1.png in Resources */,
 				B3BBF59419BE518E0088C777 /* clock-7.png in Resources */,
+				B3B7F79728DBE7ED00B8F1F2 /* FBFCell.xib in Resources */,
 				B337A8E71C64FD2D00FBEE18 /* cancel_filled-50.png in Resources */,
 				B33C58111CBC887F00CE2C72 /* viewDriving.xib in Resources */,
 				B348C8BC1C7B7291000BDC7A /* downloaded.PNG in Resources */,
@@ -521,8 +561,10 @@
 				B36EC1B91A64887600F53D78 /* DFBlunoDevice.m in Sources */,
 				B3440CBC28789588003E8C8E /* viewISExtendedOptIn.swift in Sources */,
 				B337A93C1C73EDB300FBEE18 /* viewSettings.m in Sources */,
+				B3B7F79228DBA16400B8F1F2 /* FBFSearch.swift in Sources */,
 				B38DFC1A212E783C004CCBEF /* JDFTooltipView.m in Sources */,
 				B33C58101CBC887F00CE2C72 /* viewDriving.m in Sources */,
+				B3B7F79428DBA47100B8F1F2 /* viewFBFSearch.swift in Sources */,
 				B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */,
 				34C42EBF164DBA3800DD6A91 /* MBProgressHUD.m in Sources */,
 				B348C8C31C7B7291000BDC7A /* VideoTableView.m in Sources */,
@@ -542,12 +584,14 @@
 				B3A030161AA8B7770097AACD /* ReportProblemEmailViewController.swift in Sources */,
 				B348C8C01C7B7291000BDC7A /* RGSViewController.m in Sources */,
 				B3FEFAC127D01FF3004BF1A1 /* viewServiceSnapShot.swift in Sources */,
+				B3B7F79A28DC18B100B8F1F2 /* FBFCollectionViewCell.swift in Sources */,
 				B3819D141BE179C4002B7F4B /* TWBlunoManager.m in Sources */,
 				B36EC1B71A64887600F53D78 /* BLEDevice.m in Sources */,
 				B3F309851FABB762008AD53F /* viewMissedClockIn.m in Sources */,
 				B3E3AE7727BDB0B900A76EE3 /* viewMySales.swift in Sources */,
 				B3CA93FD27F2385900945F0C /* viewRouteDayTable.swift in Sources */,
 				B348C8BF1C7B7291000BDC7A /* RGSSystem.m in Sources */,
+				B3D5AE3428E50F5600FB3495 /* viewModalWeb.swift in Sources */,
 				B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */,
 				B38DFC19212E783C004CCBEF /* UILabel+JDFTooltips.m in Sources */,
 				B36D89FB1C0268F800A5F7DB /* viewMissedClockOut.m in Sources */,
@@ -580,7 +624,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 4.2;
+				CURRENT_PROJECT_VERSION = 4.3.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -593,7 +637,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BulwarkTW_Prefix.pch;
 				INFOPLIST_FILE = "BulwarkTW-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,7 +675,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 4.2;
+				CURRENT_PROJECT_VERSION = 4.3.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -642,7 +686,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BulwarkTW_Prefix.pch;
 				INFOPLIST_FILE = "BulwarkTW-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -702,7 +746,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -722,7 +766,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 4.2;
+				CURRENT_PROJECT_VERSION = 4.3.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -733,7 +777,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BulwarkTW_Prefix.pch;
 				INFOPLIST_FILE = "BulwarkTW-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -793,7 +837,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -835,7 +879,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -870,6 +914,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B30B305A28F48DEC00E6B253 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift";
@@ -905,6 +957,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B30B305B28F48DEC00E6B253 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B30B305A28F48DEC00E6B253 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		B3964A6A2895ADE6005F638D /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B3964A692895ADE5005F638D /* XCRemoteSwiftPackageReference "Toast-Swift" */;
