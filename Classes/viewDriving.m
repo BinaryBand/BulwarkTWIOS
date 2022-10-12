@@ -15,15 +15,15 @@
 
 @implementation viewDriving{
     
-    BulwarkTWAppDelegate *delegate;
-    int refreshing;
+   // BulwarkTWAppDelegate *delegate;
+   // int refreshing;
     
     
 }
 
 
 
-
+/*
 - (void)webViewDidStartLoad:(UIWebView *)nWebView {
     
 
@@ -39,16 +39,13 @@
         
     
 }
+*/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    
-    webview.delegate = self;
-    
-    
-    [self LoadRouteListData];
+   // [self LoadRouteListData];
     
     
     // Do any additional setup after loading the view from its nib.
@@ -56,7 +53,7 @@
 
 
 
-
+/*
 -(void)LoadRouteListData{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -171,19 +168,19 @@
 
 
 
-
+*/
 
 -(void)UpdateSpeed:(NSString *)Speed
 {
     
     
     
-    currSpeed.text =Speed;
+    currSpeed.text = Speed;
     
     
 }
 
-
+/*
 
 - (NSString *)Base64Encode:(NSString *)plainText
 {
@@ -214,6 +211,29 @@
     
     return base64Decoded;
 }
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning {

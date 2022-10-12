@@ -15,8 +15,6 @@
 
 //#import "RscMgr.h"
 
-#import <CoreTelephony/CoreTelephonyDefines.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import "DFBlunoManager.h"
 #import "TWBlunoManager.h"
 #import "BulwarkTWAppDelegate.h"
@@ -67,16 +65,10 @@
 	//NSString *printerIp;
 	NSURL *Rurl;
 	NSString *appBuild;
-	MPMoviePlayerViewController * controller;
+	
 	NSInteger *CurrentFile;
 	
-	UIAlertView *alertWithOkButton;
-	UIAlertView *alertWithYesNoButtons;
-    
-    UIAlertView *alertTruck;
-    
-    UIAlertView *CallInAdvanced;
-    
+	
     UIImagePickerController *Termitepicker;
     
     
@@ -96,7 +88,7 @@
     IBOutlet UIImageView *moneyimg;
     IBOutlet UILabel *lblFastCommPP;
     
-    UIAlertView *fastCommAlert;
+  
     
     
     IBOutlet UIBarButtonItem *gpsIcon;
@@ -162,6 +154,7 @@
 @property (nonatomic,strong)IBOutlet viewSchedule *viewSchedule;
 
 
+-(void)MsgBoxShow:(NSString *)title withMessage:(NSString *)msg withButtonLabel:(NSString *)btnLabel;
 
 - (IBAction)btnRefreshPressed;
 - (IBAction)btnRequestPressed;

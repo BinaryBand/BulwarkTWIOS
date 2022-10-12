@@ -8,12 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
-@interface viewDriving : UIViewController <UIWebViewDelegate>{
+
+@interface viewDriving : UIViewController{
     
     
-    IBOutlet UIWebView *webview;
-    MBProgressHUD *HUD;
-    UIRefreshControl *refreshControl;
+   
     IBOutlet UILabel *currSpeed;
     
 }

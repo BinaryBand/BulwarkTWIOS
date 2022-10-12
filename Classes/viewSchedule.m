@@ -296,89 +296,94 @@
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
-   // if(webView != self.wkWebView) {
-   //     decisionHandler(WKNavigationActionPolicyAllow);
-    //    return;
-   // }
-    
-    UIApplication *app1 = [UIApplication sharedApplication];
-    NSURL         *url = navigationAction.request.URL;
-    
-   // if (!navigationAction.targetFrame) {
-        //if ([app1 canOpenURL:url]) {
-            //[app1 openURL:url];
-           // decisionHandler(WKNavigationActionPolicyCancel);
-           // return;
-        //}
-    //}
-    if ([url.scheme isEqualToString:@"maps"])
-    {
-       // if ([app1 canOpenURL:url])
-       // {
-            [app1 openURL:url];
-            decisionHandler(WKNavigationActionPolicyCancel);
-            return;
-        //}
-    }
-    
-    if ([url.scheme isEqualToString:@"comgooglemaps"])
-    {
-       // if ([app1 canOpenURL:url])
-       // {
-            
-            NSString *mapsurllink = [url.absoluteString stringByReplacingOccurrencesOfString:@"comgooglemaps://?q=" withString:@""];
-            
-                NSString *Mstring = @"comgooglemaps://?directionsmode=driving&daddr=";
-            Mstring = [Mstring stringByAppendingString:mapsurllink];
-            
-                //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
-            
-            
-            [app1 openURL:[NSURL URLWithString:Mstring]];
-            decisionHandler(WKNavigationActionPolicyCancel);
-            return;
-       // }
-    }
-    
-    //[[UIApplication sharedApplication] openURL:url];
-    
-    
-    if ([url.scheme isEqualToString:@"bulwarktw"])
-    {
-       // if ([app1 canOpenURL:url])
-        //{
-            [app1 openURL:url];
-            decisionHandler(WKNavigationActionPolicyCancel);
-            return;
-       // }
-    }
-    if ([url.scheme isEqualToString:@"bulwarktwreports"])
-    {
-       // if ([app1 canOpenURL:url])
-       // {
-            [app1 openURL:url];
-            decisionHandler(WKNavigationActionPolicyCancel);
-            return;
-       // }
-    }
-    if ([url.scheme isEqualToString:@"bulwarktwmap"])
-    {
-       // if ([app1 canOpenURL:url])
-       // {
-            [app1 openURL:url];
-            decisionHandler(WKNavigationActionPolicyCancel);
-            return;
-       // }
-    }
-    if ([url.scheme isEqualToString:@"prefs"])
-    {
-       // if ([app1 canOpenURL:url])
-       // {
-            [app1 openURL:url];
-            decisionHandler(WKNavigationActionPolicyCancel);
-            return;
-       // }
-    }
+    // if(webView != self.wkWebView) {
+    //     decisionHandler(WKNavigationActionPolicyAllow);
+     //    return;
+    // }
+     
+     UIApplication *app1 = [UIApplication sharedApplication];
+     NSURL         *url = navigationAction.request.URL;
+     
+    // if (!navigationAction.targetFrame) {
+         //if ([app1 canOpenURL:url]) {
+             //[app1 openURL:url];
+            // decisionHandler(WKNavigationActionPolicyCancel);
+            // return;
+         //}
+     //}
+     if ([url.scheme isEqualToString:@"maps"])
+     {
+        // if ([app1 canOpenURL:url])
+        // {
+         [app1 openURL:url options:@{} completionHandler:nil];
+         //[app1 openURL:options:completionHandler::url];
+             decisionHandler(WKNavigationActionPolicyCancel);
+             return;
+         //}
+     }
+     
+     if ([url.scheme isEqualToString:@"comgooglemaps"])
+     {
+        // if ([app1 canOpenURL:url])
+        // {
+             
+             NSString *mapsurllink = [url.absoluteString stringByReplacingOccurrencesOfString:@"comgooglemaps://?q=" withString:@""];
+             
+                 NSString *Mstring = @"comgooglemaps://?directionsmode=driving&daddr=";
+             Mstring = [Mstring stringByAppendingString:mapsurllink];
+             
+                 //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+             
+         [app1 openURL:[NSURL URLWithString:Mstring] options:@{} completionHandler:nil];
+             //[app1 openURL:[NSURL URLWithString:Mstring]];
+             decisionHandler(WKNavigationActionPolicyCancel);
+             return;
+        // }
+     }
+     
+     //[[UIApplication sharedApplication] openURL:url];
+     
+     
+     if ([url.scheme isEqualToString:@"bulwarktw"])
+     {
+        // if ([app1 canOpenURL:url])
+         //{
+            // [app1 openURL:url];
+         [app1 openURL:url options:@{} completionHandler:nil];
+             decisionHandler(WKNavigationActionPolicyCancel);
+             return;
+        // }
+     }
+     if ([url.scheme isEqualToString:@"bulwarktwreports"])
+     {
+        // if ([app1 canOpenURL:url])
+        // {
+            // [app1 openURL:url];
+         [app1 openURL:url options:@{} completionHandler:nil];
+             decisionHandler(WKNavigationActionPolicyCancel);
+             return;
+        // }
+     }
+     if ([url.scheme isEqualToString:@"bulwarktwmap"])
+     {
+        // if ([app1 canOpenURL:url])
+        // {
+         [app1 openURL:url options:@{} completionHandler:nil];
+            // [app1 openURL:url];
+             decisionHandler(WKNavigationActionPolicyCancel);
+             return;
+        // }
+     }
+     if ([url.scheme isEqualToString:@"prefs"])
+     {
+        // if ([app1 canOpenURL:url])
+        // {
+         [app1 openURL:url options:@{} completionHandler:nil];
+             //[app1 openURL:url];
+             decisionHandler(WKNavigationActionPolicyCancel);
+             return;
+        // }
+     }
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 

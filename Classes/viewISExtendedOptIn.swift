@@ -49,7 +49,7 @@ class viewISExtendedOptIn: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fatalError("Crash Triggered hhhhhh")
+        //fatalError("Crash Triggered hhhhhh")
         
         viewCenter.layer.borderColor = UIColor.black.cgColor
         viewCenter.layer.borderWidth = 2

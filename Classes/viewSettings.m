@@ -7,6 +7,7 @@
 //
 
 #import "viewSettings.h"
+#import <BulwarkTW-Swift.h>
 
 //#import "ZipArchive/ZipArchive.h"
 
@@ -77,18 +78,21 @@
     // webView.frame = CGRectMake(300,64, 467, 910);
    //  [self.view addSubview:webView];
      
-     PopUpWebView = [[WKWebView alloc]init] ;
-     PopUpWebView.UIDelegate = self;
-     PopUpWebView.navigationDelegate = self;
-     PopUpWebView.frame = CGRectMake(75,102, 630, 830);
-     [self.view addSubview:PopUpWebView];
+     //PopUpWebView = [[WKWebView alloc]init] ;
+     //PopUpWebView.UIDelegate = self;
+     //PopUpWebView.navigationDelegate = self;
+     //PopUpWebView.frame = CGRectMake(75,102, 630, 830);
+     //[self.view addSubview:PopUpWebView];
     
-     [[PopUpWebView layer] setCornerRadius:10];
-     [PopUpWebView setClipsToBounds:YES];
-     [[PopUpWebView layer] setBorderColor:
-      [[UIColor colorWithRed:0.52 green:0.09 blue:0.07 alpha:1] CGColor]];
-     [[PopUpWebView layer] setBorderWidth:2.75];
-     [super viewDidLoad];
+     //[PopUpWebView layer] setCornerRadius:10];
+     //[PopUpWebView setClipsToBounds:YES];
+     //[[PopUpWebView layer] setBorderColor:
+      //[[UIColor colorWithRed:0.52 green:0.09 blue:0.07 alpha:1] CGColor]];
+     //[[PopUpWebView layer] setBorderWidth:2.75];
+    
+    
+    
+     //[super viewDidLoad];
      
      //[[webView layer] setCornerRadius:10];
     // [webView setClipsToBounds:YES];
@@ -101,9 +105,9 @@
      //  }else{
      //      webView.UIDelegate = self;
      //  }
-     PopUpWebView.hidden = YES;
+     //PopUpWebView.hidden = YES;
     //webView.hidden = YES;
-       [PopUpWebView loadHTMLString:@"" baseURL:nil];
+       //[PopUpWebView loadHTMLString:@"" baseURL:nil];
        
     
 }
@@ -239,28 +243,58 @@
                                          timeoutInterval:30.0];
     
     // Get the data
-    NSURLResponse *response;
+   // NSURLResponse *response;
     
-    NSError *error;
+    //NSError *error;
     
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    //NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    if(error==nil){
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+             NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
+             if ([httpResponse statusCode] == 200) {
+                 NSLog(@"Success");
+                 
+                 
+                 
+                 NSString  *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                 
+                 
+                 NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                 NSString *documentsDirectory = [paths objectAtIndex:0];
+                 
+                 NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"offices"];
+                 
+                 [responseString writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+                  
+
+                 
+                 
+                 
+                 
+                 
+             } else
+             {
+                 NSLog(@"Fail");
+             }
+
+         }] resume];
+    
+    
+    
+    
+    
+    
+    
+    //if(error==nil){
         
         
-        NSString  *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        
-        NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"offices"];
-        
-        [responseString writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+       
         //[HUD show:YES];
         
         
-    }
+   // }
     
     
     
@@ -347,8 +381,12 @@
     
     
     if(txtPhoneNumber.text.length >7){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Phone" message:@"Call is being placed when your phone is answered it will bridge in support" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+       // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Phone" message:@"Call is being placed when your phone is answered it will bridge in support" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        //[alertView show];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Phone" message:@"Call is being placed when your phone is answered it will bridge in support" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+        [self presentViewController:alertController animated:YES completion:^{}];
         
         NSString *Phone =  [[txtPhoneNumber.text componentsSeparatedByCharactersInSet:
                              [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
@@ -367,28 +405,48 @@
         UrlStr = [UrlStr stringByAppendingString:phn];
         UrlStr = [UrlStr stringByAppendingString:@"&o="];
         UrlStr = [UrlStr stringByAppendingString:delegate.office];
-        
-        NSURL *qurl = [NSURL URLWithString:UrlStr];
+
         
 
         
-       
-        NSURLRequest *req = [ NSURLRequest requestWithURL:qurl
-                                              cachePolicy:NSURLRequestReloadIgnoringCacheData
-                                          timeoutInterval:30.0 ];
-        NSError *err;
-        NSURLResponse *res;
-        NSData *d = [ NSURLConnection sendSynchronousRequest:req
-                                           returningResponse:&res
-                                                       error:&err ];
+        
+        NSURL *qurl = [NSURL URLWithString:UrlStr];
+        NSError *err = nil;
+        
+        NSString *html = [NSString stringWithContentsOfURL:qurl encoding:NSUTF8StringEncoding error:&err];
+        
+        if(err)
+        {
+            
+            
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Error Placing Call" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+            [self presentViewController:alertController animated:YES completion:^{}];
+            
+
+            
+            
+        }else{
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Done"  message:html preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+            [self presentViewController:alertController animated:YES completion:^{}];
+            
+      
+            
+        }
+        
         
         
         
         
     }else{
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Phone" message:@"Please add in your phone number then try again" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Phone" message:@"Please add in your phone number then try again" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+        [self presentViewController:alertController animated:YES completion:^{}];
+       // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Phone" message:@"Please add in your phone number then try again" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+       // [alertView show];
         
     }
     
@@ -397,11 +455,13 @@
 - (IBAction)btnDownloadChemicals{
     
 
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Chemicals" message:@"Product List will download" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+    [self presentViewController:alertController animated:YES completion:^{}];
     
     
-    
-     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Chemicals" message:@"Product List will download" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-      [alertView show];
+    // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Chemicals" message:@"Product List will download" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+     // [alertView show];
     
     [NSThread detachNewThreadSelector:@selector(DownloadChemicalList3) toTarget:self withObject:nil];
     
@@ -505,40 +565,78 @@
            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:14];
            request.HTTPMethod = @"POST";
            [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
-           NSURLResponse* response=nil;
-           NSError* error=nil;
-           NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-           NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            
-           if([stringFromServer containsString:@"true"] || [stringFromServer containsString:@"True"]){
-               self->txtHrEmpId.text = userfield.text;
-               
-         //      NSString *jsonStr = [stringFromServer stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-               NSData* jsonData = [stringFromServer dataUsingEncoding:NSUTF8StringEncoding];
-               
-               NSError *error = nil;
-               
-               NSDictionary *object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-               
-               //txtHrEmpId.text = [object valueForKey:@"hr_emp_id"];
-               self->txtName.text = [object valueForKey:@"FullName"];
-               self->txtLicense.text = [object valueForKey:@"applicatorLicene"];
-               self->txtPhoneNumber.text = [object valueForKey:@"Phone"];
-               self->txtOffice.text = [object valueForKey:@"OfficeCode"];
-               
-               [self saveSettings];
-               [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
-               
-               [alertController dismissViewControllerAnimated:true completion:nil];
-           }else{
-              
-              [self toastScreenAsync:@"Login Failed" withMessage:@"\n Invalid username or password"];
-               double delayInSeconds = 1.8;
-               dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-               dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                  [self PopupChangeHrEmpIdView:userfield.text];
-               });
-           }
+           //NSURLResponse* response=nil;
+           //NSError* error=nil;
+           
+           
+          // NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+           
+           
+           [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                    NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
+                    if ([httpResponse statusCode] == 200) {
+                        NSLog(@"Success");
+                        
+                        
+                        
+                        NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                         
+                        if([stringFromServer containsString:@"true"] || [stringFromServer containsString:@"True"]){
+                            
+                            dispatch_async(dispatch_get_main_queue(), ^(){
+                                
+                                self->txtHrEmpId.text = userfield.text;
+                            
+                      //      NSString *jsonStr = [stringFromServer stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+                            NSData* jsonData = [stringFromServer dataUsingEncoding:NSUTF8StringEncoding];
+                            
+                            NSError *error = nil;
+                            
+                            NSDictionary *object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+                            
+                            //txtHrEmpId.text = [object valueForKey:@"hr_emp_id"];
+                            self->txtName.text = [object valueForKey:@"FullName"];
+                            self->txtLicense.text = [object valueForKey:@"applicatorLicene"];
+                            self->txtPhoneNumber.text = [object valueForKey:@"Phone"];
+                                
+                                NSString *offCode = [object valueForKey:@"OfficeCode"];
+                                
+                                if([offCode isEqualToString:@"DD"]){
+                                    offCode = @"ME";
+                                }
+                                
+                            self->txtOffice.text = offCode;
+                            
+                            [self saveSettings];
+                            [self toastScreenAsync:@"Success" withMessage:@"You have been successfully logged in"];
+                            
+                            [alertController dismissViewControllerAnimated:true completion:nil];
+                            });
+                            
+                        }else{
+                           
+                           [self toastScreenAsync:@"Login Failed" withMessage:@"\n Invalid username or password"];
+                            double delayInSeconds = 1.8;
+                            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                               [self PopupChangeHrEmpIdView:userfield.text];
+                            });
+                        }
+                        
+                        
+                        
+                        
+                        
+                    } else
+                    {
+                        NSLog(@"Fail");
+                    }
+
+                }] resume];
+           
+           
+
            
        }];
      
@@ -561,21 +659,29 @@
 
 -(void)PopupForgotPasswordView{
               
-             NSString *url =@"https://endeavor.bulwarkapp.com?pronly=1";
-             
-        NSURL *qurl = [NSURL URLWithString:url];
-                  BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^(){
+
+        
+        viewModalWeb* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewModalWeb"];
+        
+        customView.url = @"https://endeavor.bulwarkapp.com?pronly=1";
+        customView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        customView.modalPresentationStyle = UIModalPresentationFormSheet;
+        //[self.view addSubview:customView.view];
+        [self presentViewController:customView animated:YES completion:nil];
+        //[self addChildViewController:customView];
+
+ });
+    
+
+    
+    
+    
+    
             
-          NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-          
-         // if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-         // {
-             
-              PopUpWebView.hidden = NO;
-              [PopUpWebView loadRequest:request];
-          //}else{
-            //  [webView loadRequest:request];
-        //  }
 }
 
 
@@ -595,12 +701,12 @@
         downloadFile= [downloadFile stringByAppendingString:@".html"];
         
         
-        downloadFile =
-        [downloadFile stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+        //downloadFile =
+        //[downloadFile stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
         
         NSError *err = [[NSError alloc] init];
-        NSString *url = [downloadFile stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *myTxtFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:&err];
+        //NSString *url = [downloadFile stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *myTxtFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:downloadFile] encoding:NSUTF8StringEncoding error:&err];
         
         
         
@@ -609,10 +715,10 @@
             
             
            
-            dispatch_async(dispatch_get_main_queue(), ^{
+           // dispatch_async(dispatch_get_main_queue(), ^{
                 // Your code to run on the main queue/thread
                 [self toastScreenAsync:@"Chemicals" withMessage:@"Unable to download try again later"];
-            });
+           // });
             
         }
         else {
@@ -626,10 +732,10 @@
             [myTxtFile writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
             
             
-            dispatch_async(dispatch_get_main_queue(), ^{
+            //dispatch_async(dispatch_get_main_queue(), ^{
                 // Your code to run on the main queue/thread
                 [self toastScreenAsync:@"Chemicals" withMessage:@"Download Complete"];
-            });
+            //});
           
         }
         
@@ -657,33 +763,38 @@
 -(void)toastScreenAsync:(NSString *)sTitle withMessage:(NSString *)sMessage{
     
     
-    NSString *msg = sTitle;
-    msg = [msg stringByAppendingString:@" "];
-    msg= [msg stringByAppendingString:sMessage];
-    
-    
-    [self.view makeToast:msg duration:3.0 position:CSToastPositionTop];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // Your code to run on the main queue/thread
+        NSString *msg = sTitle;
+        msg = [msg stringByAppendingString:@" "];
+        msg= [msg stringByAppendingString:sMessage];
+        
+        
+        [self.view makeToast:msg duration:3.0 position:CSToastPositionTop];
+        
+        
+        
+    });
+
        
     
 
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-  // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"TextField Begin Editing Method Called!" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-  //  [alertView show];
+
     [textField resignFirstResponder];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-   // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"TextField End Editing Method Called!" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    //[alertView show];
+ 
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-   // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"TextField Should Return Method Called!" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-   // [alertView show];
+
     
     
     return YES;
@@ -795,66 +906,30 @@
             subpaths = [fileManager subpathsAtPath:exportPath];
         }
         
-    //    NSString *archivePath = [docDirectory stringByAppendingString:@"services.zip"];
+
         
-     //   NSString *archivePath1 = [docDirectory stringByAppendingString:@"gps.zip"];
-     //   NSString *archivePath2 = [docDirectory stringByAppendingString:@"settings"];
-        
-        
-        
-    //    if([self zipServices] && [self zipGPS]){
-            
-            
-            
-            
-         //   ReportProblemEmailViewController *rpemail = [[ReportProblemEmailViewController alloc] init];
-            
-         //
-         //   rpemail.emlSubject =[@"Application Problem " stringByAppendingString:delegate.hrEmpId];
-         //   rpemail.attach1 = archivePath;
-         //   rpemail.attach2 = archivePath1;
-         //   rpemail.attach3 = archivePath2;
-            
-            
-        //    [self.view addSubview:[rpemail view]];
-        //    NSData *fileData1 = [NSData dataWithContentsOfFile:archivePath];
-        //    NSData *fileData2 = [NSData dataWithContentsOfFile:archivePath1];
-         //   NSData *fileData3 = [NSData dataWithContentsOfFile:archivePath2];
-            
-            
             
            	MFMailComposeViewController *controller2 = [[MFMailComposeViewController alloc] init];
             controller2.mailComposeDelegate = self;
             [controller2 setSubject:@"Problem In App"];
             [controller2 setMessageBody:@"" isHTML:NO];
-          //  [controller2 addAttachmentData:fileData1 mimeType:@"application/zip" fileName:@"services.zip"];
-          //  [controller2 addAttachmentData:fileData2 mimeType:@"application/zip" fileName:@"gps.zip"];
-           // [controller2 addAttachmentData:fileData3 mimeType:@"application/zip" fileName:@"settings.txt"];
+
             
             NSArray *toRecipients = [NSArray arrayWithObject:@"titans@bulwarkpest.com"];
             [controller2 setToRecipients:toRecipients];
             [self presentViewController:controller2 animated:YES completion:nil];
             
-            
-            
-            
-            
-            
-   //     }
-   //     else{
-            
-            //NSLog(@"Fail");
-  //      }
+
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
-                                                        message:@"Your Email is not Set up"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        //[alert release];
+        
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Failure" message:@"Your Emnail is not set up" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+        [self presentViewController:alertController animated:YES completion:^{}];
+        
+
     }
     
     
@@ -915,47 +990,8 @@ numberOfRowsInComponent:(NSInteger)component
 }
 */
 
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-  NSLog(@"didFailNavigation: %@, error %@", navigation, error);
-}
 
-- (void)_webViewWebProcessDidCrash:(WKWebView *)webView {
-    NSLog(@"WebContent process crashed; reloading");
-}
 
-- (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
-    dispatch_async(dispatch_get_main_queue(), ^{
-      
-    });
-   NSLog(@"didFinishNavigation");
-}
 
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-    NSLog(@"decidePolicyForNavigationResponse");
-   decisionHandler(WKNavigationResponsePolicyAllow);
-}
 
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
-{
-    NSLog(@"decidePolicyForNavigationAction");
-    UIApplication *app1 = [UIApplication sharedApplication];
-      NSURL         *url = navigationAction.request.URL;
-    if ([url.scheme isEqualToString:@"bulwarktw"])
-      {
-          NSString *URLString = [url absoluteString];
-                    NSArray *paramater = [URLString componentsSeparatedByString:@"?"];
-                    NSString *urlParamater = [paramater objectAtIndex: 2];
-                    NSString *spage =[paramater objectAtIndex: 1];
-                    double dpage = [spage doubleValue];
-      
-    if (dpage==32){
-        //close PopupWindow
-        PopUpWebView.hidden=YES;
-        [PopUpWebView loadHTMLString:@"" baseURL:nil];
-               decisionHandler(WKNavigationActionPolicyCancel);
-               return;
-    }
-      }
-     decisionHandler(WKNavigationResponsePolicyAllow);
-}
 @end

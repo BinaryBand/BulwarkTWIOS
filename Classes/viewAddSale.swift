@@ -133,7 +133,7 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         showActivityIndicator(show: false)
         
-        let urlStr = webView.url?.absoluteString
+       // let urlStr = webView.url?.absoluteString
         /*
         if ((urlStr?.localizedCaseInsensitiveContains("lookup")) == true){
         
@@ -161,7 +161,7 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
         
        
         
-        let js = "const sb = document.getElementsByClassName('.sidebar')[0]; sb.style.display = 'none';"
+        //let js = "const sb = document.getElementsByClassName('.sidebar')[0]; sb.style.display = 'none';"
         
        // webView.evaluateJavaScript("document.getElementById('someElement').innerText") { (result, error) in
            // if error == nil {
@@ -255,14 +255,14 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
 
-        let headers = navigationAction.request.allHTTPHeaderFields
+        //let headers = navigationAction.request.allHTTPHeaderFields
         
-        print(headers)
+       // print(headers)
         
         
         let url = navigationAction.request.url;
         
-        print(url)
+        //print(url)
         
         if(url?.scheme == "bulwarktw"){
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)

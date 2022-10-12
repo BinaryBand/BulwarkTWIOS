@@ -156,7 +156,44 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-                decisionHandler(.allow)
+       
+        
+        
+        let url = navigationAction.request.url;
+        
+        if(url?.scheme == "bulwarktw"){
+            
+            let strprt = url?.absoluteString
+            let arr = strprt?.split(separator: "?")
+            let spage = arr?[1] ?? "0"
+            let dpage = Int(spage) ?? 0
+            
+            if(dpage==32){
+               
+                
+                decisionHandler(.cancel)
+                self.dismissThis()
+                
+            }else{
+                
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                decisionHandler(.cancel)
+            }
+
+           
+        }else{
+            
+            decisionHandler(.allow)
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+                
               
 
     }

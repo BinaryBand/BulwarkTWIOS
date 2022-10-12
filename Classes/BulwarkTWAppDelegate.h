@@ -13,7 +13,6 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "viewDriving.h"
 #import <CoreLocation/CoreLocation.h> 
-#import "VideoTableView.h"
 #import "PayrollDetailReportsService.h"
 
 
@@ -39,7 +38,7 @@
     viewRoutes *viewSched;
     
     viewDriving *vDriving;
-    UIAlertView *alertGPS;
+    //UIAlertView *alertGPS;
     UIAlertView *alertCall;
 	NSTimer *timer;
 	//MFMailComposeViewController *Mcontroller;
@@ -76,7 +75,7 @@
 
 @property (nonatomic) Boolean driving;
 @property (nonatomic,strong) NSMutableArray *placesArray;
-@property (nonatomic,strong) VideoTableView *videoTableView;
+//@property (nonatomic,strong) VideoTableView *videoTableView;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;

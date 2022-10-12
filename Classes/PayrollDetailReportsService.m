@@ -93,11 +93,11 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
                         completion:^(BOOL finished) {
             self.view.backgroundColor = [UIColor colorWithRed:234 green:234 blue:234 alpha:1];
             [self.view.superview bringSubviewToFront:self.view];
-            [self.view bringSubviewToFront:webviewbutton];
+            [self.view bringSubviewToFront:self->webviewbutton];
             self.view.userInteractionEnabled = YES;
-            webviewbutton.userInteractionEnabled = YES;
+            self->webviewbutton.userInteractionEnabled = YES;
             self.webView.userInteractionEnabled = YES;
-            [self.view bringSubviewToFront:webviewbutton];
+            [self.view bringSubviewToFront:self->webviewbutton];
         }];
         
         
@@ -107,7 +107,7 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
         
         //  self.view.superview.userInteractionEnabled = false;
     }@catch(NSException *exc){
-        NSString *fhdj = @"";
+        //NSString *fhdj = @"";
     }
 }
 /*-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
@@ -123,8 +123,8 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
     }
     @catch(NSException *exc) {
         @try{
-            NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "doneButtonTapped", [exc reason]];
-            NSLog(logmessage);
+            NSString *logmessage = [NSString stringWithFormat:@"Error %s: %@", "doneButtonTapped", [exc reason]];
+            NSLog(@"%@", logmessage);
         }@catch(NSException *exc){}
     }
     

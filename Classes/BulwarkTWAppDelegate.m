@@ -10,7 +10,7 @@
 #import "ViewOne.h"
 #import "viewReports.h"
 
-#import "PayrollDetailReportsService.h"
+//#import "PayrollDetailReportsService.h"
 #import "BulwarkTW-Swift.h"
 
 
@@ -1148,7 +1148,11 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 -(void)ShowDrivingFrm{
     
-       CGRect nframe = CGRectMake(0, 20, 768, 956);
+    
+    
+    
+    
+       CGRect nframe = [UIScreen mainScreen].bounds;
       vDriving = [[viewDriving alloc] initWithNibName:@"viewDriving" bundle:nil];
     //vDriving = [[viewDriving alloc] initWithFrame:nframe];
     vDriving.view.frame = nframe;

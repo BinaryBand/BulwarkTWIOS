@@ -166,7 +166,7 @@
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD show:YES];
+        [self->HUD show:YES];
     });
     NSLog(@"didStartProvisionalNavigation: %@", navigation);
 }
@@ -185,7 +185,7 @@
 
 - (void)webView:(WKWebView *)webView didFinishLoadingNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD hide:YES];
+        [self->HUD hide:YES];
        
         
         
@@ -212,7 +212,7 @@
 
 - (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD hide:YES];
+        [self->HUD hide:YES];
     });
     NSLog(@"didFinish: %@; stillLoading:%@", [webView URL], (webView.loading?@"NO":@"YES"));
 }
@@ -222,7 +222,7 @@
     decisionHandler(WKNavigationResponsePolicyAllow);
 }
 
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
    // if(webView != self.wkWebView) {
    //     decisionHandler(WKNavigationActionPolicyAllow);
@@ -243,7 +243,8 @@
     {
        // if ([app1 canOpenURL:url])
        // {
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
+        //[app1 openURL:options:completionHandler::url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
         //}
@@ -261,8 +262,8 @@
             
                 //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
             
-            
-            [app1 openURL:[NSURL URLWithString:Mstring]];
+        [app1 openURL:[NSURL URLWithString:Mstring] options:@{} completionHandler:nil];
+            //[app1 openURL:[NSURL URLWithString:Mstring]];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        // }
@@ -275,7 +276,8 @@
     {
        // if ([app1 canOpenURL:url])
         //{
-            [app1 openURL:url];
+           // [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        // }
@@ -284,7 +286,8 @@
     {
        // if ([app1 canOpenURL:url])
        // {
-            [app1 openURL:url];
+           // [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        // }
@@ -293,7 +296,8 @@
     {
        // if ([app1 canOpenURL:url])
        // {
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
+           // [app1 openURL:url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        // }
@@ -302,13 +306,15 @@
     {
        // if ([app1 canOpenURL:url])
        // {
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
+            //[app1 openURL:url];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        // }
     }
-    decisionHandler(WKNavigationActionPolicyAllow);
+   decisionHandler(WKNavigationActionPolicyAllow);
 }
+
 
 
 
@@ -377,16 +383,26 @@
         if(err)
         {
             
-            UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Error Loading" message: @"Error Adding to route please contact support"  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
             
-            [someError show];
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error Loading" message:@"Error Adding to route please contact support" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+            [self presentViewController:alertController animated:YES completion:^{}];
+            
+            //UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Error Loading" message: @"Error Adding to route please contact support"  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+            
+            //[someError show];
             
             
         }else{
             
-            UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Done" message: html  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Done"  message:html preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+            [self presentViewController:alertController animated:YES completion:^{}];
             
-            [someError show];
+          //  UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Done" message: html  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+            
+           // [someError show];
             
         }
         
@@ -404,7 +420,7 @@
 
 - (IBAction)btnSearch{
     
-    NSString *txtbox =[txtSearch.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *txtbox =[txtSearch.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 
     NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptsearch.aspx?hr_emp_id=";
     
@@ -790,10 +806,10 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"ReportsMenue"]) {
-        viewRetReports *customViewController = (viewRetReports *)segue.destinationViewController;
+    //if ([segue.identifier isEqualToString:@"ReportsMenue"]) {
+    //    viewRetReports *customViewController = (viewRetReports *)segue.destinationViewController;
         
-    }
+    //}
 }
 
 

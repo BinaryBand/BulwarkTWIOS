@@ -5,7 +5,7 @@
 //  Created by Terry Whipple on 12/28/10.
 //  Copyright 2010 bulwark. All rights reserved.
 //
-#import "CTMessageCenter.h"
+
 #import "ViewOne.h"
 
 //#import "Socket.h"
@@ -465,110 +465,6 @@ return @"60";
 
 
 
-/*
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
-    
-    int selectedTag = tabBar.selectedItem.tag;
-   // NSLog(@"%d",selectedTag);
-    CGRect nframe = CGRectMake(0, 20, 768, 956);
-    
-    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-
-    
-    if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-        
-        nframe = CGRectMake(0, 20, 768, 956);
-       // sMap.view.frame =nframe;
-    }else{
-      
-         nframe = CGRectMake(0, 20, 1024, 704);
-      //  sMap.view.frame =nframe;
-    }
-    
-    if (selectedTag==0)
-    {
-        //Do what ever you want
-        
-        //  UIView *container = [[UIView alloc] initWithFrame:nframe];
-    //    vid.view.frame = nframe;
-    //    [self addChildViewController:vid];                 // 1
-        // 2
-  //      [self.view addSubview:vid.view];
-   //     [vid didMoveToParentViewController:self];
-        
-    }
-    else if(selectedTag==1)
-    {
-        
-        Videos.badgeValue = @"1";
-        
-        
-         //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://98.190.138.213/Mail.mobileconfig"]];
-        
-        //Do what ever you want
-      ///  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"1" message:@"I pressed the 2nd button" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-      //  [alert show];
-    
-    }
-    else if(selectedTag==3){
-        //Do what ever you want
-       
-        //  UIView *container = [[UIView alloc] initWithFrame:nframe];
-        //sMap.view.frame = nframe;
-       // [self addChildViewController:sMap];                 // 1
-        // 2
-   //     [self.view addSubview:sMap.view];
-    //    [sMap didMoveToParentViewController:self];
-        
-        settingsAction = [[UIActionSheet alloc] initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Settings",@"Build Info", @"Update Application", @"Download Chemicals",@"Call for Support",@"Report a Problem",  nil];
-        [settingsAction showInView:self.view];
-        
-        
-        
-        
-    }
-    else if(selectedTag==2)
-    {
-       
-        
-
-        MenuAction = [[UIActionSheet alloc] initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Available Routes",@"Route Backup", @"Gate Codes", @"Clock In", @"Clock Out",@"Send Document",  nil];
-        [MenuAction showInView:self.view];
-        
-    }
-    else if(selectedTag==5)
-    {
-        
-        
-        //  UIView *container = [[UIView alloc] initWithFrame:nframe];
-      //  viewFound.view.frame = nframe;
-      //  [self addChildViewController:viewFound];                 // 1
-        // 2
-       // [self.view addSubview:viewFound.view];
-      //  [viewFound didMoveToParentViewController:self];
-    }
-}
-*/
-
-
-//-(void)LoadSettings{
-    
-
-    
-
-    
-//self.tabBarController.selectedIndex = 5;
-    
-    
-    
-
-    
-    
-//}
-
-
-
 
 
 - (void)startup:(NSTimer *)theTimer{
@@ -582,26 +478,8 @@ return @"60";
     //textView.text = [textView.text stringByAppendingString:@"\n"];
 }
 
-/*
-- (IBAction)btnRoutesPressed {
-//[[GKAchievementHandler defaultHandler] notifyAchievementTitle:@"High Roller" andMessage:@"Earned 100 points online."];
-	
 
-	MenuAction = [[UIActionSheet alloc] initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Available Routes",@"Route Backup", @"Gate Codes", @"Clock In", @"Clock Out",@"Send Document",  nil];
-	[MenuAction showInView:self.view];
-	
-	
-	
-}
- */
-/*
 
--(void)fcTooltipPP{
-    JDFTooltipView *tooltip = [[JDFTooltipView alloc] initWithTargetView:lblFastCommPP hostView:self.view tooltipText:@"This is a Tooltip" arrowDirection:JDFTooltipViewArrowDirectionUp width:200.0f];
-    [tooltip show];
- 
-}
- */
 -(void)fastcommcheck{
     
     
@@ -622,12 +500,12 @@ return @"60";
     
     
     
-    NSString* link = UrlStr;
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
-    NSURLResponse* response=nil;
-    NSError* error=nil;
-    NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSString* link = UrlStr;
+    //NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
+    //NSURLResponse* response=nil;
+    //NSError* error=nil;
+    //NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSString* stringFromServer =[self getStringFromSite:UrlStr];
     
     
     int ISTSvalue = [stringFromServer intValue];
@@ -636,7 +514,7 @@ return @"60";
     NSDate *date = [NSDate date];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
-    [components setHour: 15];
+    [components setHour: 13];
     [components setMinute: 00];
     [components setSecond: 00];
     
@@ -730,7 +608,7 @@ return @"60";
         NSDate *date1 = [NSDate date];
         NSCalendar *gregorian1 = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
         NSDateComponents *components1 = [gregorian1 components: NSUIntegerMax fromDate: date1];
-        [components1 setHour: 15];
+        [components1 setHour: 13];
         [components1 setMinute: 00];
         [components1 setSecond: 00];
         
@@ -756,13 +634,126 @@ return @"60";
         
         
   
-    
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:FastTitle message:fastCommMessage preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Accept" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            
+            
+            
+            NSString *UrlStr = @"https://fbf2.bulwarkapp.com/Fastcomm/FastCommSubmit.ashx?hr_emp_id=";
+            
+            UrlStr = [UrlStr stringByAppendingString:self->delegate.hrEmpId];
+            UrlStr = [UrlStr stringByAppendingString:@"&v=1&t="];
+            
+            NSDate *date = [NSDate date];
+            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
+            NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
+            [components setHour: 13];
+            [components setMinute: 00];
+            [components setSecond: 00];
+            
+            NSDate *firstDate = [gregorian dateFromComponents: components];
+            
+            //NSDate *firstdate
+            
+            NSDate *secondDate = [NSDate date];
+            
+            
+            
+            if( [secondDate timeIntervalSinceDate:firstDate] > 0 ) {
+                
+                
+                //[btnFastComm setTitle:@"$5 Guaranteed"];
+                
+                UrlStr = [UrlStr stringByAppendingString:[self CurrentFastCommTomorrow]];
+                
+                
+
+            }else{
+                
+                UrlStr = [UrlStr stringByAppendingString:[self CurrentTimeUrl]];
+                
+            }
+            
+            
+            
+            
+            NSString* link = UrlStr;
+            //NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
+            //NSURLResponse* response=nil;
+            //NSError* error=nil;
+            //NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            //NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            NSString* ret = [self getStringFromSite:link];
+            
+            
+            NSArray *items = [ret componentsSeparatedByString:@"-"];   //take the one array for split the string
+            NSString *mtd1 = @"0";
+            NSString *pp1 = @"0";
+            
+            if(items.count == 2){
+                mtd1 =[items objectAtIndex:0];
+                pp1 = [items objectAtIndex:1];
+            }else{
+                
+                mtd1 = ret;
+                
+            }
+            
+            
+            
+            
+            NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+            f.numberStyle = NSNumberFormatterDecimalStyle;
+            NSNumber *myNumber = [f numberFromString:mtd1];
+            
+            
+            
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            NSString *mtdvalue = [formatter stringFromNumber:myNumber];
+            
+            
+            
+            NSNumberFormatter *f1 = [[NSNumberFormatter alloc] init];
+            f1.numberStyle = NSNumberFormatterDecimalStyle;
+            NSNumber *myNumber1 = [f1 numberFromString:pp1];
+            
+            
+            
+            NSNumberFormatter *formatter1 = [[NSNumberFormatter alloc] init];
+            [formatter1 setNumberStyle:NSNumberFormatterCurrencyStyle];
+            NSString *ppvalue = [formatter1 stringFromNumber:myNumber1];
+            
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self->lblFastCommMTD.text = [mtdvalue stringByAppendingString:@" MTD"];
+                self->lblFastCommPP.text = [ppvalue stringByAppendingString:@" Due"];
+            });
+            
+            //NSInteger *ISTSvalue = [stringFromServer intValue];
+            
+            
+
+            
+            
+            
+            
+           
+            
+            
+            
+            
+            
+          
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+           
+        }]];
+        [self presentViewController:alertController animated:YES completion:^{}];
         
-        
-        fastCommAlert = [[UIAlertView alloc] initWithTitle:FastTitle
-                                                           message:fastCommMessage delegate:self cancelButtonTitle:@"Accept" otherButtonTitles:@"Cancel", nil];
-        
-        [fastCommAlert show];
+
         
     
         
@@ -776,10 +767,10 @@ return @"60";
     
     }else{
         
+        [self MsgBoxShow:@"Fast Commissions Already Clicked" withMessage:@"You can only click for fast comm once per day, you can click for tomorrow as early as 3pm the today" withButtonLabel:@"Ok"];
         
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fast Commissions Already Clicked" message:@"You can only click for fast comm once per day, you can click for tomorrow as early as 3pm the today" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-        [alert show];
+        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fast Commissions Already Clicked" message:@"You can only click for fast comm once per day, you can click for tomorrow as early as 3pm the today" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+        //[alert show];
         
         
         
@@ -797,12 +788,12 @@ return @"60";
         
         
         
-        NSString* link = UrlStr;
-        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
-        NSURLResponse* response=nil;
-        NSError* error=nil;
-        NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+       // NSString* link = UrlStr;
+       // NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
+        //NSURLResponse* response=nil;
+        //NSError* error=nil;
+       // NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        NSString* stringFromServer = [self getStringFromSite:UrlStr];
         
         int ISTSvalue = [stringFromServer intValue];
         
@@ -959,12 +950,12 @@ return @"60";
         
         
         
-        NSString* link = UrlStr;
-        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
-        NSURLResponse* response=nil;
-        NSError* error=nil;
-        NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+       // NSString* link = UrlStr;
+        //NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
+        //NSURLResponse* response=nil;
+        //NSError* error=nil;
+        //NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        NSString* stringFromServer = [self getStringFromSite:UrlStr];
         
         
         
@@ -1019,278 +1010,11 @@ return @"60";
     
     
     
-- (IBAction)btnRefreshPressed {
-	
-    //NSString *nstr = @"\x1b\nthis is a test\n\r\n\r";
-   // NSData* data = [nstr dataUsingEncoding:NSUTF8StringEncoding];
-   // [self.printManager writeDataToDevice:data Device:self.printDev];
-    
-    
-    viewClockOut = [[viewMissedClockOut alloc]init];
-    viewClockOut.delegate = self;
-    viewClockOut->date = @"11/20/2015";
-    viewClockOut->hr_emp_id = delegate.hrEmpId;
-    [viewClockOut setDate];
-    CGRect nframe = CGRectMake(0, 20, 322, 322);
-    
-    viewClockOut.view.frame = nframe;
-    
-    
-    [UIView transitionWithView:self.view duration:0.55
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^ { [self.view addSubview:self->viewClockOut.view]; }
-                    completion:nil];
-
-    
-    
-	//[HUD show:YES];
-    
-	//[NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
-	
-	
-	
-}
-/*
-- (IBAction)btnRequestPressed {
-	
-	reportsAction = [[UIActionSheet alloc] initWithTitle:@"Reports" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Daily Zone Retention",@"Proactive Dormancy",@"Proactive Delinquency", @"Dormant Accounts", @"Recent Cancels", @"Recent Moves",  nil];
-	[reportsAction showInView:self.view];
-	
-	
-	
-	
-}
-
-- (IBAction)btnSettingsPressed {
-    
-    
-    
-    
-    
-    
-   // [[CTMessageCenter sharedMessageCenter]  sendSMSWithText:@"test" serviceCenter:nil toAddress:@"4807455226"];
-
-	
-    settingsAction = [[UIActionSheet alloc] initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Settings",@"Build Info", @"Update Application", @"Download Chemicals",@"Call for Support",@"Report a Problem",  nil];
-								  [settingsAction showInView:self.view];
-}
-*/
 
 
--(IBAction)btnSearch{
-    
-    
-    NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/search.aspx?hr_emp_id=";
-    
-    
- 
-    UrlStr = [UrlStr stringByAppendingString:delegate.hrEmpId];
-    NSURL *qurl = [NSURL URLWithString:UrlStr];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    PopUpWebView.hidden = NO;
-    [PopUpWebView loadRequest:srequest];
-    
-    
-    
-    
-}
-
--(IBAction)btnMap{
-    /*
-    hrEmpId = @"12345";
-    empName = @"";
-    password = @"";
-    license = @"";
-    office = @"";
-    printerIp = @"";
-    NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-    
-    NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-    {
-        
-    }
-    else {
-        
-        
-        NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-        
-        NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-        
-        empName = [paramater2 objectAtIndex: 0];
-        
-        hrEmpId = [paramater2 objectAtIndex: 1];
-        
-        password = [paramater2 objectAtIndex: 2];
-        @try {
-            license = [paramater2 objectAtIndex: 3];
-            
-            office = [paramater2 objectAtIndex: 4];
-            printerIp = [paramater2 objectAtIndex: 5];
-        }
-        @catch (NSException * e) {
-            //NSString *except =	@"office";
-            
-            
-        }
-        
-        
-        
-    }
-    */
-    
-    NSArray *paths1 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory1 = [paths1 objectAtIndex:0];
-    
-    NSString *myPathDocs1 =  [documentsDirectory1 stringByAppendingPathComponent:@"rdate.tw"];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs1])
-    {
-        rdate = @"1/1/2000";
-    }
-    else {
-        
-        rdate = [[NSString alloc] initWithContentsOfFile:myPathDocs1 encoding:NSUTF8StringEncoding error:NULL];
-    }
-    NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/hh/RouteMap.aspx?hr_emp_id=";
-    
-    
-    
-    UrlStr = [UrlStr stringByAppendingString:delegate.hrEmpId];
-    UrlStr = [UrlStr stringByAppendingString:@"&d="];
-    UrlStr = [UrlStr stringByAppendingString:rdate];
-    NSURL *qurl = [NSURL URLWithString:UrlStr];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    PopUpWebView.hidden = NO;
-    [PopUpWebView loadRequest:srequest];
-    
-    
-    
-}
-/*
--(IBAction)btnMyPay{
-    NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
-         BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
-      NSString *hrempid = del.hrEmpId;
-    
-        NSString *url = [NSString stringWithFormat:ReportUrl, hrempid,hrempid];
-        
-   NSURL *qurl = [NSURL URLWithString:url];
-        
-       
-     NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-     
-     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-     {
-         PopUpWebView.hidden = NO;
-         [PopUpWebView loadRequest:request];
-     }else{
-         [webView loadRequest:request];
-     }
-    
-
-   
-}
-*/
-/*
--(IBAction)btnMyStats{
-    
-     NSString *ReportUrl = @"https://fbf2.bulwarkapp.com/MgrApp2/TechStatsIpad.aspx?fromSup=0&t=1&h=%@&viewedby=%@";
-          BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
-       NSString *hrempid = del.hrEmpId;
-     
-         NSString *url = [NSString stringWithFormat:ReportUrl, hrempid,hrempid];
-         
-    NSURL *qurl = [NSURL URLWithString:url];
-         
-        
-      NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-      
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-      {
-          PopUpWebView.hidden = NO;
-          [PopUpWebView loadRequest:request];
-      }else{
-          [webView loadRequest:request];
-      }
-    
-    
-    
-}
-
-*/
-/*
--(IBAction)btnAvaliableRoutes{
-  
-    NSDate *today1 = [NSDate date];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"MM/dd/yyyy"];
-    
-    NSString *dateString11 = [dateFormat stringFromDate:today1];
-    NSString *urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIphone.aspx?hr_emp_id=";
-    
-    
-
-        urlParamater = @"https://ipadapp.bulwarkapp.com/AvailableIpad.aspx?hr_emp_id=";
 
 
-    
-    urlParamater = [urlParamater stringByAppendingString:delegate.hrEmpId];
-    urlParamater = [urlParamater stringByAppendingString:@"&date="];
-    urlParamater = [urlParamater stringByAppendingString:dateString11];
-    urlParamater = [urlParamater stringByAppendingString:@"&build="];
-    urlParamater = [urlParamater stringByAppendingString:[self CurrentAppBuild]];
-    
-    
 
-    
-    NSURL *finalURL = [NSURL URLWithString: urlParamater];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:finalURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        PopUpWebView.hidden = NO;
-        [PopUpWebView loadRequest:request];
-    }else{
-        [webView loadRequest:request];
-    }
-    
-    
-}
-*/
-/*
--(IBAction)btnVideo{
-    
-    NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/videos/videos.aspx";
-    // NSString *UrlStr = @"https://ipadapp.bulwarkapp.com/HH/Schedule/Schedule.aspx?office=5&manager=1&modifiedBy=481217&hrempid=245339&date=11/1/2014";
-
-    NSURL *qurl = [NSURL URLWithString:UrlStr];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    PopUpWebView.hidden = NO;
-    [PopUpWebView loadRequest:srequest];
-    
-    
-    
-}
- */
-/*
--(IBAction)btnCloseVideo:(id) sender{
-    //UIButton *clicked = (UIButton *) sender;
-   // NSString *test = clicked.accessibilityIdentifier;
-    
-    
-    [controller.moviePlayer stop];
-    
-    
-    
-}
-*/
 
 
 
@@ -1820,7 +1544,7 @@ return @"60";
 
 - (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [HUD hide:YES];
+        [self->HUD hide:YES];
     });
    // NSLog(@"didFinish: %@; stillLoading:%@", [webView URL], (webView.loading?@"NO":@"YES"));
 }
@@ -1841,7 +1565,7 @@ return @"60";
     if ([url.scheme isEqualToString:@"maps"])
     {
 
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
         
@@ -1858,8 +1582,8 @@ return @"60";
             
                 //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
             
-            
-            [app1 openURL:[NSURL URLWithString:Mstring]];
+        [app1 openURL:[NSURL URLWithString:Mstring] options:@{} completionHandler:nil];
+           
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        
@@ -1871,7 +1595,7 @@ return @"60";
     if ([url.scheme isEqualToString:@"bulwarktw"])
     {
    
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        
@@ -1879,7 +1603,7 @@ return @"60";
     if ([url.scheme isEqualToString:@"bulwarktwreports"])
     {
 
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        
@@ -1887,7 +1611,7 @@ return @"60";
     if ([url.scheme isEqualToString:@"bulwarktwmap"])
     {
        
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
        
@@ -1895,7 +1619,7 @@ return @"60";
     if ([url.scheme isEqualToString:@"prefs"])
     {
     
-            [app1 openURL:url];
+        [app1 openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
      
@@ -2192,19 +1916,20 @@ return @"60";
 			
             
             
-			alertWithYesNoButtons = [[UIAlertView alloc] initWithTitle:@"Clock In"
-															   message:@"Are you sure you want to Clock In?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+			//alertWithYesNoButtons = [[UIAlertView alloc] initWithTitle:@"Clock In"
+			//												   message:@"Are you sure you want to Clock In?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
 			
-			[alertWithYesNoButtons show];
+			//[alertWithYesNoButtons show];
 	
 		
 		
 		}
 		else if (dpage==8){
-			alertWithOkButton = [[UIAlertView alloc] initWithTitle:@"Clock Out"
-															   message:@"Are you sure you want to Clock Out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+			//alertWithOkButton = [[UIAlertView alloc] initWithTitle:@"Clock Out"
+			//												   message:@"Are you sure you want to Clock Out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
 			
-			[alertWithOkButton show];
+            
+			//[alertWithOkButton show];
 			
 			
 		}				
@@ -2401,6 +2126,9 @@ return @"60";
 		
 		
 		NSString* addr = urlParamater;
+        
+    
+        
 		NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 		
          [NSThread detachNewThreadSelector:@selector(openurl_in_background:) toTarget:self withObject:url];
@@ -2417,15 +2145,15 @@ return @"60";
 	}
 	else if (dpage==21){
 		
-		NSString *Build = [self CurrentAppBuild];
+		//NSString *Build = [self CurrentAppBuild];
 		
-		NSString *msg = @"Current build is ";
+		//NSString *msg = @"Current build is ";
 		
-		msg = [msg stringByAppendingString: Build];	
+		//msg = [msg stringByAppendingString: Build];
 		
-		UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"Build Info" message: msg  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+		//UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"Build Info" message: msg  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
 		
-		[someError1 show];
+		//[someError1 show];
 		
 		
 	}
@@ -3004,15 +2732,21 @@ return @"60";
         UrlStr = [UrlStr stringByAppendingString:urlParamater];
         
         
-        NSURL *qurl = [NSURL URLWithString:UrlStr];
+        //NSURL *qurl = [NSURL URLWithString:UrlStr];
         
-        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-        PopUpWebView.hidden = YES;
-        [PopUpWebView loadRequest:srequest];
+        //NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
+        //PopUpWebView.hidden = YES;
+        //[PopUpWebView loadRequest:srequest];
         
-        UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Anytime" message: @"This Customer has Been Set as Anytime"  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+        
+        
+        [self getStringFromSite:UrlStr];
+        
+        [self MsgBoxShow:@"Anytime" withMessage:@"This Customer has Been Set as Anytime" withButtonLabel:@"OK"];
+        
+       // UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Anytime" message: @"This Customer has Been Set as Anytime"  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
 		
-		[someError show];
+		//[someError show];
 		//[someError release];
         
         
@@ -3525,7 +3259,10 @@ return @"60";
 
 - (void)openurl_in_background:(NSURL *)url
 {
-    [[UIApplication sharedApplication] openURL:url];
+    
+    
+    [[UIApplication sharedApplication]  openURL:url options:@{} completionHandler:nil];
+    
 }
 
 - (void)takeTermitePhoto {
@@ -3586,9 +3323,12 @@ return @"60";
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     
-    UIAlertView *someError2 = [[UIAlertView alloc] initWithTitle: @"Image Uploading" message: @"Your Image will be uploaded in the background"  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
     
-    [someError2 show];
+    [self MsgBoxShow:@"Image Uploading" withMessage:@"Your Image will be uploaded in the background"  withButtonLabel:@"Ok"];
+    
+  //  UIAlertView *someError2 = [[UIAlertView alloc] initWithTitle: @"Image Uploading" message: @"Your Image will be uploaded in the background"  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+    
+   // [someError2 show];
     
    
         [NSThread detachNewThreadSelector:@selector(uploadImageBackground:) toTarget:self withObject:chosenImage];
@@ -3905,9 +3645,12 @@ return @"60";
 				successmsg = [successmsg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 				
                 if ([successmsg isEqualToString:@"Success"]){
-					UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Success" message: @"Posted Successfully" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+                    
+                    [self MsgBoxShow:@"Success" withMessage:@"Posted Successfully" withButtonLabel:@"Ok"];
+                    
+					//UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Success" message: @"Posted Successfully" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
 					
-					[someError show];
+					//[someError show];
 					// the path to write file
 					NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"main"];
 					
@@ -3994,17 +3737,17 @@ return @"60";
         
         dispatch_async(dispatch_get_main_queue(), ^{
            
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
+            //if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            //{
                 
-                [RouteWebView loadRequest:request3];
-                [webView loadRequest:brequest];
-            }else{
-                [webView loadRequest:request3];
-            }
+            [self->RouteWebView loadRequest:request3];
+            [self->webView loadRequest:brequest];
+            //}else{
+           //     [webView loadRequest:request3];
+           // }
 
             
-            [HUD hide:YES];
+            [self->HUD hide:YES];
             
           
         });
@@ -4146,6 +3889,14 @@ return @"60";
     }
 
 }
+
+
+-(void)MsgBoxShow:(NSString *)title withMessage:(NSString *)msg withButtonLabel:(NSString *)btnLabel{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:btnLabel style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
+    [self presentViewController:alertController animated:YES completion:^{}];
+    
+    }
 
 
 -(void) emailResults:(NSURL *)url {
@@ -4297,10 +4048,89 @@ return @"60";
     }
     else if(result==NSOrderedDescending){
         
-        alertWithYesNoButtons = [[UIAlertView alloc] initWithTitle:@"Clock In"
-                                                           message:@"You havent clocked in yet do you want to now?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         
-        [alertWithYesNoButtons show];
+        
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Clock In" message:@"You havent Clocked In do you want to do so now?" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+               // NSLog(@"Destructive");
+            }];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                NSLog(@"OK");
+                [self SaveClockInTime];
+                
+                
+                
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    
+                    
+                    
+                NSDate *today1 = [NSDate date];
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                [dateFormat setDateFormat:@"MM/dd/yyyy"];
+                
+                NSString *dateString11 = [dateFormat stringFromDate:today1];
+                
+
+                self->viewClockIn = [[viewMissedClockIn alloc]init];
+                self->viewClockIn.delegate = self;
+                self->viewClockIn->date = dateString11;
+                self->viewClockIn->hr_emp_id = self->delegate.hrEmpId;
+                self->viewClockIn.view.layer.borderWidth = 1;
+                self->viewClockIn.view.layer.borderColor = UIColor.darkGrayColor.CGColor;
+                self->viewClockIn.view.layer.cornerRadius = 5;
+                //[viewClockIn setDate];
+                CGRect nframe = CGRectMake(223, 320, 322, 322);
+                
+                self->viewClockIn.view.frame = nframe;
+                
+                
+                
+                self->viewClockIn.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+                [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                    self->viewClockIn.view.transform = CGAffineTransformIdentity;
+                } completion:^(BOOL finished){
+                    // do something once the animation finishes, put it here
+                }];
+                
+                
+               
+                    
+                    [self.view addSubview:self->viewClockIn.view];
+                    
+                    
+                    
+                });
+           
+                                
+                
+                
+               
+               
+                
+                
+                
+                
+            }];
+            
+            [alertController addAction:destructiveAction];
+            [alertController addAction:okAction];
+            [self presentViewController:alertController animated: YES completion: nil];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
     }
         
         
@@ -4903,9 +4733,11 @@ return @"60";
                     } completion:^(BOOL finished){
                         // do something once the animation finishes, put it here
                     }];
-                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
                     [self.view addSubview:self->viewClockOut.view];
-
+                        
+                    });
                 }
                 
                 
@@ -5295,19 +5127,19 @@ return @"60";
 		
 		
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
+            //if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            //{
                 
-                [RouteWebView loadRequest:srequest];
-                [webView loadRequest:brequest];
-            }else{
-                [webView loadRequest:srequest];
-            }
+            [self->RouteWebView loadRequest:srequest];
+            [self->webView loadRequest:brequest];
+            //}else{
+               //    [webView loadRequest:srequest];
+            //}
        
         
 
      
-            [HUD hide:YES];
+            [self->HUD hide:YES];
        
 
 	
@@ -5372,47 +5204,7 @@ return @"60";
 
 -(void)DownloadChemicalList{
 	
-	/*
-	hrEmpId = @"12345";
-	empName = @"";
-	password = @"";
-	printerIp = @"192.168.1.50";
-	office = @"ME";
-	
-	NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-	
-	NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-	
-	if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-	{
-		
-	}  
-	else {
-		
-		
-		NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-		
-		NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-		
-		empName = [paramater2 objectAtIndex: 0];
-		
-		hrEmpId = [paramater2 objectAtIndex: 1];	
-		
-		password = [paramater2 objectAtIndex: 2];		
-		@try {
-			license = [paramater2 objectAtIndex: 3];
-			
-			office = [paramater2 objectAtIndex: 4];	
-			printerIp = [paramater2 objectAtIndex: 5];	
-		}
-		@catch (NSException * e) {
-			//NSString *except =	@"office";
-			
-			
-		}		
-	}		
-	*/
+
 	NSString *offcode =delegate.office;
     
     if([offcode length] ==0){
@@ -5429,20 +5221,18 @@ return @"60";
 	downloadFile= [downloadFile stringByAppendingString:@".html"];
 	
 	
-	downloadFile =
-	[downloadFile stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];				
+	//downloadFile =
+	//[downloadFile stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
 	
 	NSError *err = [[NSError alloc] init];
-	NSString *url = [downloadFile stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSString *myTxtFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:&err];
+	//NSString *url = [downloadFile stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *myTxtFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:downloadFile] encoding:NSUTF8StringEncoding error:&err];
 	
 	
 	
 	
 	if(err.code != 0) {
-		//UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Download" message: @"Unable to Download New Chemical List" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-		
-		//[someError show];
+//unable to downloasd
 		
 		
 	}
@@ -5451,18 +5241,12 @@ return @"60";
 		NSString *documentsDirectory = [paths objectAtIndex:0];
 		
 		
-		//NSString *appFile = [[NSBundle mainBundle]
-		//				  pathForResource:@"chemicalsused"
-		//				  ofType:@"html"]; 				
-		// the path to write file
+
 		NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"chemicalsused.html"];
 		
 		[myTxtFile writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
 		 NSLog(@"Chemical list Downloaded");
-		//UIAlertView *someError = [[UIAlertView alloc] initWithTitle: @"Download" message: @"Download Complete" delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-		
-		//[someError show];
-		//[someError release];				
+			
 	}
 	
 	
@@ -5478,50 +5262,10 @@ return @"60";
 	
 }
 
-
+/*
 -(void)DownloadChemicalList2{
 	@autoreleasepool {	
-	/*
-		hrEmpId = @"12345";
-		empName = @"";
-		password = @"";
-		printerIp = @"192.168.1.50";
-		office = @"ME";
-		
-		NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-		
-		NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-		
-		if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-		{
-			
-		}  
-		else {
-			
-			
-			NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-			
-			NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-			
-			empName = [paramater2 objectAtIndex: 0];
-			
-			hrEmpId = [paramater2 objectAtIndex: 1];	
-			
-			password = [paramater2 objectAtIndex: 2];		
-			@try {
-				license = [paramater2 objectAtIndex: 3];
-				
-				office = [paramater2 objectAtIndex: 4];	
-				printerIp = [paramater2 objectAtIndex: 5];	
-			}
-			@catch (NSException * e) {
-				//NSString *except =	@"office";
-				
-				
-			}		
-		}		
-		*/
+
         NSString *offcode =delegate.office;
         
      //   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -5592,47 +5336,7 @@ return @"60";
 }
 -(void)DownloadChemicalList3{
 	@autoreleasepool {
-        /*
-		hrEmpId = @"12345";
-		empName = @"";
-		password = @"";
-		printerIp = @"192.168.1.50";
-		office = @"ME";
-		
-		NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-		
-		NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-		
-		if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-		{
-			
-		}
-		else {
-			
-			
-			NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
-			
-			NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-			
-			empName = [paramater2 objectAtIndex: 0];
-			
-			hrEmpId = [paramater2 objectAtIndex: 1];
-			
-			password = [paramater2 objectAtIndex: 2];
-			@try {
-				license = [paramater2 objectAtIndex: 3];
-				
-				office = [paramater2 objectAtIndex: 4];
-				printerIp = [paramater2 objectAtIndex: 5];
-			}
-			@catch (NSException * e) {
-				//NSString *except =	@"office";
-				
-				
-			}
-		}
-		*/
+
         NSString *offcode =delegate.office;
         
         //if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -5698,7 +5402,7 @@ return @"60";
 	
 	
 }
-
+*/
 
 -(void)loadAvailable{
 	@autoreleasepool {	
@@ -5722,43 +5426,7 @@ return @"60";
 		
 		
 		
-		
-		
-		
-		
-		
-		/*
-		NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
-		
-		NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
-		
-		if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-		{
-			
-		}  
-		else {
-			
-			@try {
-				
-				
-				NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-				
-				NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
-				
-				empName = [paramater2 objectAtIndex: 0];
-				
-				hrEmpId = [paramater2 objectAtIndex: 1];	
-				
-				password = [paramater2 objectAtIndex: 2];		
-				
-			}
-			@catch (NSException * e) {
-				
-			}		
-		}
-		
-		*/
+
 		
 		NSArray *paths1 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 		NSString *documentsDirectory1 = [paths1 objectAtIndex:0];
@@ -5840,20 +5508,10 @@ return @"60";
 			}
 			
 			
-
-		
+            [self toastScreenAsync:@"Copy" withMessage:@"Copy Loaded could not connect to server"];
     
-    UIAlertView *alert = [[UIAlertView alloc]
-                           initWithTitle:@"Copy"
-                           message:@"Copy Loaded could not connect to server"
-                           delegate:self
-                           cancelButtonTitle:@"OK"
-                           otherButtonTitles: nil];
-    [alert
-     performSelector:@selector(show)
-     onThread:[NSThread mainThread]
-     withObject:nil
-     waitUntilDone:NO];
+
+
 		
 			
 		}
@@ -5904,18 +5562,7 @@ return @"60";
 				else {
 					spage = [[NSString alloc] initWithContentsOfFile:myPathDocs encoding:NSUTF8StringEncoding error:NULL];
 				}
-            UIAlertView *alert = [[UIAlertView alloc]
-                                   initWithTitle:@"Copy"
-                                   message:@"Copy Loaded could not connect to server"
-                                   delegate:self
-                                   cancelButtonTitle:@"OK"
-                                   otherButtonTitles: nil];
-            [alert
-             performSelector:@selector(show)
-             onThread:[NSThread mainThread]
-             withObject:nil
-             waitUntilDone:NO];
-				
+                [self toastScreenAsync:@"Copy" withMessage:@"Copy Loaded could not connect to server"];
 				
 			}
 			
@@ -5957,14 +5604,14 @@ return @"60";
 		
 		
 		
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
+       // if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+       // {
             PopUpWebView.hidden=NO;
             [PopUpWebView loadHTMLString:spage baseURL:nil];
             
-        }else{
-            [webView loadHTMLString:spage baseURL:nil];
-        }
+        //}else{
+        //    [webView loadHTMLString:spage baseURL:nil];
+        //}
 
 		
 
@@ -5989,17 +5636,7 @@ return @"60";
 
 
 
--(void) showEmailModalView {
-	[timer invalidate];
-	MFMailComposeViewController *controller2 = [[MFMailComposeViewController alloc] init];
-	controller2.mailComposeDelegate = self;
-	[controller2 setSubject:@"In app email..."];
-	[controller2 setMessageBody:@"...a tutorial from mobileorchard.com" isHTML:NO];
-	NSArray *toRecipients = [NSArray arrayWithObject:@"terryw@bulwarkpest.com"];
-	[controller2 setToRecipients:toRecipients];
-	[self presentViewController:controller2 animated:YES completion:nil];
-	
-}
+
 
 -(NSDate*)ConvertToDate:(NSString *)stringDate{
    
@@ -6158,7 +5795,7 @@ return @"60";
 -(NSString*)getStringFromSite:(NSString *)urlstr{
 
 
-    NSCharacterSet *set = [NSCharacterSet URLHostAllowedCharacterSet];
+    //NSCharacterSet *set = [NSCharacterSet URLHostAllowedCharacterSet];
     //NSString *encodedUrl = [urlstr stringByAddingPercentEncodingWithAllowedCharacters:set];
     
     NSError *err = [[NSError alloc] init];
@@ -6666,13 +6303,11 @@ return @"60";
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
-                                                        message:@"Your Email is not Set up"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        //[alert release];
+        
+        
+        [self MsgBoxShow:@"Failure" withMessage:@"Email Not Set Up" withButtonLabel:@"Ok"];
+      
+       
     }
     
     
@@ -6681,124 +6316,14 @@ return @"60";
 
 
 
-
+/*
 
 - (void)alertView : (UIAlertView *)alertView clickedButtonAtIndex : (NSInteger)buttonIndex
 {
 
 
     
-    
-    if(alertView==fastCommAlert){
-        if(buttonIndex == 0)
-        {
-            NSLog(@"accept button was pressed\n");
-            
-            
-            
-            NSString *UrlStr = @"https://fbf2.bulwarkapp.com/Fastcomm/FastCommSubmit.ashx?hr_emp_id=";
-            
-            UrlStr = [UrlStr stringByAppendingString:delegate.hrEmpId];
-            UrlStr = [UrlStr stringByAppendingString:@"&v=1&t="];
-            
-            NSDate *date = [NSDate date];
-            NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
-            NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate: date];
-            [components setHour: 15];
-            [components setMinute: 00];
-            [components setSecond: 00];
-            
-            NSDate *firstDate = [gregorian dateFromComponents: components];
-            
-            //NSDate *firstdate
-            
-            NSDate *secondDate = [NSDate date];
-            
-            
-            
-            if( [secondDate timeIntervalSinceDate:firstDate] > 0 ) {
-                
-                
-                //[btnFastComm setTitle:@"$5 Guaranteed"];
-                
-                UrlStr = [UrlStr stringByAppendingString:[self CurrentFastCommTomorrow]];
-                
-                
-            }else{
-                
-                UrlStr = [UrlStr stringByAppendingString:[self CurrentTimeUrl]];
-                
-            }
-            
-            
-            
-            
-            NSString* link = UrlStr;
-            NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
-            NSURLResponse* response=nil;
-            NSError* error=nil;
-            NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            NSString* stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            
-           
-            
-            NSArray *items = [stringFromServer componentsSeparatedByString:@"-"];   //take the one array for split the string
-            NSString *mtd1 = @"0";
-            NSString *pp1 = @"0";
-            
-            if(items.count == 2){
-                mtd1 =[items objectAtIndex:0];
-                pp1 = [items objectAtIndex:1];
-            }else{
-                
-                mtd1 = stringFromServer;
-                
-            }
-            
-            
-            
-            
-            NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-            f.numberStyle = NSNumberFormatterDecimalStyle;
-            NSNumber *myNumber = [f numberFromString:mtd1];
-            
-            
-            
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-            [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-            NSString *mtdvalue = [formatter stringFromNumber:myNumber];
-            
-            
-            
-            NSNumberFormatter *f1 = [[NSNumberFormatter alloc] init];
-            f1.numberStyle = NSNumberFormatterDecimalStyle;
-            NSNumber *myNumber1 = [f1 numberFromString:pp1];
-            
-            
-            
-            NSNumberFormatter *formatter1 = [[NSNumberFormatter alloc] init];
-            [formatter1 setNumberStyle:NSNumberFormatterCurrencyStyle];
-            NSString *ppvalue = [formatter1 stringFromNumber:myNumber1];
-            
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self->lblFastCommMTD.text = [mtdvalue stringByAppendingString:@" MTD"];
-                self->lblFastCommPP.text = [ppvalue stringByAppendingString:@" Due"];
-            });
-            
-            //NSInteger *ISTSvalue = [stringFromServer intValue];
-            
-            
-        }
-        else
-        {
-            
-            
-            
-        }
-        
-    }
-    
+  
     
     if(alertView == alertTruck){
         NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
@@ -6868,154 +6393,17 @@ return @"60";
         
         
     }
-	
-	if(alertView == alertWithYesNoButtons)
-	{
-		if(buttonIndex == 0)
-		{
-			//NSLog(@"no button was pressed\n");
-			
-			
-			
-			
-		}
-		else
-		{
-            
-            
-            
-           [self SaveClockInTime];
-            
-			NSLog(@"yes button was pressed\n");
-			
-			
-            
-            NSDate *today1 = [NSDate date];
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"MM/dd/yyyy"];
-            
-            NSString *dateString11 = [dateFormat stringFromDate:today1];
-            
 
-            viewClockIn = [[viewMissedClockIn alloc]init];
-            viewClockIn.delegate = self;
-            viewClockIn->date = dateString11;
-            viewClockIn->hr_emp_id = delegate.hrEmpId;
-            viewClockIn.view.layer.borderWidth = 1;
-            viewClockIn.view.layer.borderColor = UIColor.darkGrayColor.CGColor;
-            viewClockIn.view.layer.cornerRadius = 5;
-            //[viewClockIn setDate];
-            CGRect nframe = CGRectMake(223, 320, 322, 322);
-            
-            viewClockIn.view.frame = nframe;
-            
-            
-            
-            viewClockIn.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
-            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                self->viewClockIn.view.transform = CGAffineTransformIdentity;
-            } completion:^(BOOL finished){
-                // do something once the animation finishes, put it here
-            }];
-            
-            
-            
-       [self.view addSubview:self->viewClockIn.view];
-                            
-            
-            
-            
-            
-            
-			//NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com/Clock.aspx?hr_emp_id=";
-			//fdataUrl =  [fdataUrl stringByAppendingString:delegate.hrEmpId];
-			
-			
-			//fdataUrl =  [fdataUrl stringByAppendingString:@"&type=1&time="];
-			
-			
-			
-
-			
-			//NSString *spage1 = @"Clock IN ";
-			//fdataUrl=  [fdataUrl stringByAppendingString:dateString11];
-			
-			
-            //NSLog(@"%@", fdataUrl);
-            
-			//[self SaveServiceFile:fdataUrl];
-			
-			//NSString *timestr = @"Clocked in at ";
-			//timestr = [timestr stringByAppendingString:[self CurrentTimeTimeOnly]];
-			
-            //[self CheckClockOut];
-			
-			//[[GKAchievementHandler defaultHandler] notifyAchievementTitle:@"Clocked In" andMessage:timestr];			
-			
-			//[self toastScreenAsync:@"Clocked In" withMessage:timestr];
-            //[self sendFilesToServerAsync];
-            
-            
-			
-		}
-	}
 	
-		if(alertView == alertWithOkButton)
-		{
-			if(buttonIndex == 0)
-			{
-				//NSLog(@"no button was pressed\n");
-				
-				
-				
-				
-			}
-			else
-			{
-				NSLog(@"yes button was pressed\n");
-				
-				
-				NSString *fdataUrl = @"https://ipadapp.bulwarkapp.com.com/Clock.aspx?hr_emp_id=";
-				fdataUrl =  [fdataUrl stringByAppendingString:delegate.hrEmpId];
-				
-				
-				fdataUrl =  [fdataUrl stringByAppendingString:@"&type=2&time="];
-				
-				
-				
-				NSDate *today1 = [NSDate date];
-				NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-				[dateFormat setDateFormat:@"MM/dd/yyyy%20HH:mm"];
-				
-				NSString *dateString11 = [dateFormat stringFromDate:today1];
-				
-				//NSString *spage1 = @"Clock Out ";
-				fdataUrl=  [fdataUrl stringByAppendingString:dateString11];			
-				
-				
-                NSLog(@"%@", fdataUrl);
-				[self SaveServiceFile:fdataUrl];
-				 
-				NSString *timestr = @"Clocked Out at ";
-				timestr = [timestr stringByAppendingString:[self CurrentTimeTimeOnly]];
-				
-				
-				[self toastScreenAsync:@"Clocked Out" withMessage:timestr];
-                [self sendFilesToServerAsync];
-			}
-            
-	}
+	
+
+    
 
     
 	
 	
-}/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- 
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 */
 
 
@@ -7034,12 +6422,13 @@ return @"60";
     // Release any cached data, images, etc. that aren't in use.
 }
 
+/*
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
+*/
 
 #pragma mark - Serial Connect Delegates
 
@@ -7722,7 +7111,7 @@ return @"60";
     
   //  UIDevice.currentDevice.isProximityMonitoringEnabled = TRUE;
     //UIDevice.current.isProximityMonitoringEnabled = true;
-    
+    /*
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
     localNotification.alertBody = @"Account:103328 01:00 to 04:00 Call:On the Way";
@@ -7738,7 +7127,7 @@ return @"60";
    // [delegate ShowDrivingFrm];
    // delegate.driving = YES;
   //  driving=YES;
-    
+    */
     
 }
 
