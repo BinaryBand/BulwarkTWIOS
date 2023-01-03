@@ -11,21 +11,21 @@ import WebKit
 class viewServiceSnapShot: UIViewController,WKNavigationDelegate,WKUIDelegate  {
 
     @IBOutlet var webView : WKWebView!
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 15, *){
+       // if #available(iOS 15, *){
           //  print("Create the collection view!")
-        }else{
+       // }else{
             
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
-            self.navigationController?.navigationBar.shadowImage = UIImage()
-            self.navigationController?.navigationBar.isTranslucent = true
-            self.navigationController?.view.backgroundColor = .clear
-        }
+         //   self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+         //   self.navigationController?.navigationBar.shadowImage = UIImage()
+         //   self.navigationController?.navigationBar.isTranslucent = true
+         //   self.navigationController?.view.backgroundColor = .clear
+        //}
 
         webView.navigationDelegate = self
         //view = webView
@@ -39,9 +39,9 @@ class viewServiceSnapShot: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         let h = appDelegate.hrEmpId ?? ""
         
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+       // HUD.hide(true)
         
         
         
@@ -63,9 +63,11 @@ class viewServiceSnapShot: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     
     func showActivityIndicator(show: Bool) {
         if show {
-            HUD.show(true)
+            //HUD.show(true)
+            self.view.makeToastActivity(.center)
         } else {
-            HUD.hide(true)
+            self.view.hideToastActivity()
+            //HUD.hide(true)
         }
     }
     

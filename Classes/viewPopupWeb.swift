@@ -11,7 +11,7 @@ import WebKit
 class viewPopupWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
 
     @IBOutlet var webView : WKWebView!
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
     @objc  var url:String!
     
     override func viewDidLoad() {
@@ -19,9 +19,9 @@ class viewPopupWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
         super.viewDidLoad()
         
         
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+       // view.addSubview(HUD)
+       // HUD.hide(true)
         
         
     webView.navigationDelegate = self
@@ -36,12 +36,15 @@ class viewPopupWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
 
     func showActivityIndicator(show: Bool) {
-        if show {
-            HUD.show(true)
-        } else {
-            HUD.hide(true)
-        }
+            if show {
+                //HUD.show(true)
+                self.view.makeToastActivity(.center)
+            } else {
+                self.view.hideToastActivity()
+                //HUD.hide(true)
+            }
     }
+    
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         showActivityIndicator(show: false)

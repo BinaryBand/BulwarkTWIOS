@@ -75,7 +75,7 @@
     NSDate *newDate1 = [minimumTime dateByAddingTimeInterval:60*60*23*daysToAdd];
     
     
-    NSDate *newDate2 = [minimumTime dateByAddingTimeInterval:60*60*17*daysToAdd];
+    //NSDate *newDate2 = [minimumTime dateByAddingTimeInterval:60*60*17*daysToAdd];
     [ClockInDate setMaximumDate:newDate1];
     
     NSDate *today1 = [NSDate date];

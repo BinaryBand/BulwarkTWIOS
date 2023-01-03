@@ -9,6 +9,7 @@
 #import "viewReports.h"
 #import "BulwarkTWAppDelegate.h"
 #import "BulwarkTW-Swift.h"
+#import "UIView+Toast.h"
 
 @interface viewReports ()
 
@@ -47,9 +48,12 @@
     webviewReports.navigationDelegate = self;
     webviewReports.UIDelegate = self;
    
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    [HUD hide:YES];
+    
+    
+    
+    //HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    //[self.view addSubview:HUD];
+    //[HUD hide:YES];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -166,7 +170,8 @@
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
+       // [self->HUD show:YES];
     });
     NSLog(@"didStartProvisionalNavigation: %@", navigation);
 }
@@ -185,8 +190,8 @@
 
 - (void)webView:(WKWebView *)webView didFinishLoadingNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD hide:YES];
-       
+        //[self->HUD hide:YES];
+        [self.view hideToastActivity];
         
         
     });
@@ -212,7 +217,9 @@
 
 - (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD hide:YES];
+        //[self->HUD hide:YES];
+        [self.view hideToastActivity];
+        
     });
     NSLog(@"didFinish: %@; stillLoading:%@", [webView URL], (webView.loading?@"NO":@"YES"));
 }

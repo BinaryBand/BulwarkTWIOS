@@ -7,159 +7,197 @@
 
 import UIKit
 
-class viewFBFSearch: UIViewController {
-
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
-
-    var dataSource: DataSource!
+class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource{
    
     
-    @IBOutlet var collectionView: UICollectionView!
+    var fbfList: [FBFSearch] = []
+    var currentIndex = 0
+    //var HUD: MBProgressHUD!
+    
+    @objc var HrEmpId:String!
+    @objc var ServiceType:String!
+    @objc var accountNumber:String!
+    @objc var FromPage:String!
+    @objc var CustomerId:Int = 0
+    @objc var ServiceId:Int = 0
+    @objc var isNC:Bool = false
+    @objc var viewOne: ViewOne!
+    
+    
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var acctLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let listLayout = listLayout()
-        /*
-        lazy var gridLayout: UICollectionViewLayout = {
-            let ignored = NSCollectionLayoutDimension.absolute(999)
-
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: ignored,
-                heightDimension: .fractionalHeight(1)
-            )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(120)
-            )
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: groupSize,
-                subitem: item,
-                count: 3
-            )
-
-            let section = NSCollectionLayoutSection(group: group)
-
-            return UICollectionViewCompositionalLayout(section: section)
-        }()
-*/
+     
         
-        collectionView.collectionViewLayout = listLayout
+        self.view.layer.borderWidth = 2
+        self.view.layer.borderColor = UIColor.darkGray.cgColor
+        self.view.layer.cornerRadius = 15
+        //tableView.layer.cornerRadius = 15
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+        //HUD.show(true)
+        loadData()
+        
+        
+        
+        
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fbfList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //FBFMyRouteCell
+        
+        let type = fbfList[indexPath.row].type
+        
+        if(type == 1){
+            //normal cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FBFCell", for: indexPath) as! FBFCell
 
-        let cellRegistration = UICollectionView.CellRegistration { (cell: UICollectionViewListCell, indexPath: IndexPath, itemIdentifier: String) in
-            let reminder = FBFSearch.sampleData[indexPath.item]
-            var contentConfiguration = FBFCellContentConfiguration()
-                        contentConfiguration.text = reminder.title
-                contentConfiguration.secondaryText = "3 years old"
-                        cell.contentConfiguration = contentConfiguration
+            cell.viewController = self
+            
+            let stb = Date(fromString: fbfList[indexPath.row].tbStart, format: .usDateTime12WithSec)
+            let etb = Date(fromString: fbfList[indexPath.row].tbEnd, format: .usDateTime12WithSec)
+            cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy HH:mm"))
+            cell.route_id = fbfList[indexPath.row].route_id
+            cell.fromHrEMPId = self.HrEmpId
+            cell.fromPage = self.FromPage
+            cell.customer_id = self.CustomerId
+            cell.service_id = self.ServiceId
+            cell.isNC = false
+            
+            
+            
+            
+            let rdate = Date(fromString: fbfList[indexPath.row].rDate, format: Date.DateFormatType.usDate)
+            cell.lblWeekDay.text = rdate?.toString(format: .custom("EEEE"))
+            cell.lblDate.text = rdate?.toString(format: .custom("M/d/yyyy"))
+            cell.lblTitle.text = fbfList[indexPath.row].title
+            cell.lblTimeBlock.text = (stb?.toString(format: .custom("h:mm a")) ??  "") + " to " + (etb?.toString(format: .custom("h:mm a")) ?? "")
+            cell.lblDistance.text = String(format: "%.2f", fbfList[indexPath.row].dist)
+            
+            
+
+            
+            
+            
+            
+            //cell.layer.cornerRadius = 5
+            return cell
+            
+            
+        } else if(type == 10){
+            //my route for today
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FBFMyRouteCell", for: indexPath) as! FBFCell
+
+            cell.viewController = self
+            
+            let stb = Date(fromString: fbfList[indexPath.row].tbStart, format: .usDateTime12WithSec)
+          
+            cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy+HH:mm"))
+            cell.route_id = fbfList[indexPath.row].route_id
+            
+                      
+            cell.lblWeekDay.text = "Today"
+            cell.lblDate.text = "My Route"
+            
+            return cell
+            
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FBFMyRouteCell", for: indexPath) as! FBFCell
+
+            cell.viewController = self
+            
+            let stb = Date(fromString: fbfList[indexPath.row].tbStart, format: .usDateTime12WithSec)
+          
+            cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy+HH:mm"))
+            cell.route_id = fbfList[indexPath.row].route_id
+            
+                      
+            cell.lblWeekDay.text = "err"
+            cell.lblDate.text = "err"
+            cell.lblTitle.text = "err"
+            return cell
+            
+            
         }
         
-        dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: String) in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-                }
         
-        var snapshot = Snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(FBFSearch.sampleData.map { $0.title })
-        dataSource.apply(snapshot)
         
-        collectionView.dataSource = dataSource
-        // Do any additional setup after loading the view.
+
+        
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return 66
     }
     
 
-    private func listLayout() -> UICollectionViewCompositionalLayout {
-        var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        listConfiguration.showsSeparators = true
-       // listConfiguration.headerMode = HeaderMode.firstItemInSection
-        listConfiguration.backgroundColor = .clear
-        return UICollectionViewCompositionalLayout.list(using: listConfiguration)
-    }
-    
-    
+    func loadData(){
+        
+        
+        self.view.makeToastActivity(.center)
+        
+        let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+        //appDelegate.viewSched = self
+       
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-struct FBFCellContentConfiguration: UIContentConfiguration {
-    var text: String?
-    var secondaryText: String?
-    func makeContentView() -> UIView & UIContentView {
-        FBFCellContent(configuration: self)
-    }
-    
-    func updated(
-        for state: UIConfigurationState
-    ) -> FBFCellContentConfiguration {
-        self
-    }
-}
-
-// MARK: UIContentView
-class TaskCell: UICollectionViewCell {
-
-    @IBOutlet weak var exerciseTitle: UILabel!
-
-
-
-
-}
-
-class FBFCellContent: UIView, UIContentView {
-    var configuration: UIContentConfiguration {
-        get { cellConfiguration }
-        set { configureCell() }
-    }
-    private var cellConfiguration: FBFCellContentConfiguration
-    private weak var label: UILabel!
+        
+        
+        
  
-    @IBOutlet var lblTimeBlock: UILabel!
-    @IBOutlet var lblMiles: UILabel!
-    @IBOutlet var btnAddToRoute: UIButton!
-    
-    @IBOutlet var lblRtTitle: UILabel!
-    
-    
-    @IBOutlet var lblRouteFor: UILabel!
-    
-    
-    
-    init(configuration: FBFCellContentConfiguration) {
-        self.cellConfiguration = configuration
-        super.init(frame: .zero)
-        addLabel()
-        configureCell()
+        let h = appDelegate.hrEmpId ?? ""
+        
+        //let fbfSamp = FBFSearch.sampleData
+       
+        
+        var urlStr = "https://fbf.bulwarkapp.com/api/ScheduleIpadApp.ashx?"
+        
+        urlStr += "AccountNumber="
+        urlStr += self.accountNumber
+        urlStr += "&ServiceType="
+        urlStr += self.ServiceType
+        urlStr += "&user=Ipad-"
+        urlStr += self.HrEmpId
+        
+        
+        Task {
+            
+            do {
+                
+                fbfList = try await JsonFetcher.fetchFBFResultsAsync(urlStr: urlStr, hrEmpId: h)
+                
+                // Update collection view content
+                self.tableView.reloadData()
+                
+                //HUD.hide(true)
+                self.view.hideToastActivity()
+                
+            } catch {
+                print("Request failed with error: \(error)")
+            }
+            
+        }
+
+
+
+        
+        
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func addLabel() {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(label)
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            label.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-        ])
-        self.label = label
-    }
-    
-    private func configureCell() {
-        label.text = cellConfiguration.text
-    }
+
+
 }

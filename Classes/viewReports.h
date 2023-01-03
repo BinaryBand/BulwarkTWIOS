@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBProgressHUD.h"
 #import <WebKit/WebKit.h>
 
 
@@ -23,7 +22,7 @@
     IBOutlet UIView *popView;
     
     
-    MBProgressHUD *HUD;
+    //MBProgressHUD *HUD;
     
 }
 

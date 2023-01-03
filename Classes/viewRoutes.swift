@@ -11,7 +11,7 @@ import WebKit
  class viewRoutes: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     
     @IBOutlet var webView : WKWebView!
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
     var mapDate:String?
      var refController:UIRefreshControl = UIRefreshControl()
      
@@ -45,9 +45,9 @@ import WebKit
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         appDelegate.viewSched = self
        
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+        //HUD.hide(true)
         
         
         
@@ -67,13 +67,15 @@ import WebKit
          webView.reload()
      }
      
-    func showActivityIndicator(show: Bool) {
-        if show {
-            HUD.show(true)
-        } else {
-            HUD.hide(true)
-        }
-    }
+     func showActivityIndicator(show: Bool) {
+         if show {
+             //HUD.show(true)
+             self.view.makeToastActivity(.center)
+         } else {
+             self.view.hideToastActivity()
+             //HUD.hide(true)
+         }
+     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         showActivityIndicator(show: false)

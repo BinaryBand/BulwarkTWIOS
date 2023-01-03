@@ -14,6 +14,10 @@
 
 #import "ViewOne.h"
 
+
+
+
+
 @interface viewSettings : UIViewController  <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,MFMailComposeViewControllerDelegate>{
     
    IBOutlet UITextField *txtName;

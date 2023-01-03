@@ -11,7 +11,7 @@ import WebKit
 class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
 
     @IBOutlet var webView : WKWebView!
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
     @objc  var url:String!
     var refController:UIRefreshControl = UIRefreshControl()
 
@@ -21,9 +21,9 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
         super.viewDidLoad()
         
         
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+        //HUD.hide(true)
         
         
     webView.navigationDelegate = self
@@ -48,9 +48,12 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     func showActivityIndicator(show: Bool) {
         if show {
-            HUD.show(true)
+            self.view.makeToastActivity(.center)
+            
+            //HUD.show(true)
         } else {
-            HUD.hide(true)
+            self.view.hideToastActivity()
+            //HUD.hide(true)
         }
     }
     

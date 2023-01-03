@@ -12,7 +12,7 @@ import WebKit
 class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
 
     @IBOutlet var webView : WKWebView!
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
     var mapDate:String?
     
     
@@ -55,9 +55,9 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         //appDelegate.viewSched = self
        
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+        //HUD.hide(true)
         
         
         
@@ -124,9 +124,11 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     func showActivityIndicator(show: Bool) {
         if show {
-            HUD.show(true)
+            self.view.makeToastActivity(.center)
+            //HUD.show(true)
         } else {
-            HUD.hide(true)
+            self.view.hideToastActivity()
+            //HUD.hide(true)
         }
     }
     

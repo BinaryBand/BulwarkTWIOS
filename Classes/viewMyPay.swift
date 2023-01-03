@@ -11,7 +11,7 @@ import WebKit
 class viewMyPay: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     
     @IBOutlet var webView : WKWebView!
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
      var rurl:String?
     
     
@@ -40,9 +40,9 @@ class viewMyPay: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         let h = appDelegate.hrEmpId ?? ""
         
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+        //HUD.hide(true)
         
         
         let urlStr = "https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=" + h + "&viewedby=" + h
@@ -70,9 +70,11 @@ class viewMyPay: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     
     func showActivityIndicator(show: Bool) {
         if show {
-            HUD.show(true)
+            self.view.makeToastActivity(.center)
+            //HUD.show(true)
         } else {
-            HUD.hide(true)
+            self.view.hideToastActivity()
+            //HUD.hide(true)
         }
     }
     

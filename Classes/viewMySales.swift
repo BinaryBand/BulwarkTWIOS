@@ -16,7 +16,7 @@ class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
     @IBOutlet var webView : WKWebView!
     var refController:UIRefreshControl = UIRefreshControl()
     
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +41,9 @@ class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
         
        // webView.scrollView.isScrollEnabled = false
         
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+        //HUD.hide(true)
         
 
         
@@ -77,9 +77,11 @@ class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     func showActivityIndicator(show: Bool) {
         if show {
-            HUD.show(true)
+            self.view.makeToastActivity(.center)
+            //HUD.show(true)
         } else {
-            HUD.hide(true)
+            self.view.hideToastActivity()
+            //HUD.hide(true)
         }
     }
     

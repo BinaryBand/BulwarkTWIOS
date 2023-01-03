@@ -202,7 +202,7 @@ class viewISExtendedOptIn: UIViewController {
                     let contents = try String(contentsOf: url)
                     print(contents)
                     
-                    self.view.makeToast(contents, duration: 3.0, position: CSToastPositionTop)
+                    self.view.makeToast(contents, duration: 3.0, position: .top)
                     
                     
                     

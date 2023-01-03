@@ -122,7 +122,7 @@
 
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    if (central.state != CBCentralManagerStatePoweredOn)
+    if (central.state != CBManagerStatePoweredOn)
     {
         _bSupported = NO;
         NSArray* aryDeviceKeys = [self.dicBlunoDevices allKeys];

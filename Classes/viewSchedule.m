@@ -9,6 +9,7 @@
 #import "viewSchedule.h"
 #import "BulwarkTWAppDelegate.h"
 #import <BulwarkTW-Swift.h>
+#import "UIView+Toast.h"
 
 @interface viewSchedule ()
 
@@ -25,9 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    [HUD hide:YES];
+    //HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    //[self.view addSubview:HUD];
+    //[HUD hide:YES];
     delegate = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
     
   
@@ -219,7 +220,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if(self->refreshing==0){
-            [self->HUD show:YES];
+            //[self->HUD show:YES];
+            [self.view makeToastActivity:CSToastPositionCenter];
         }
     });
     NSLog(@"didStartProvisionalNavigation: %@", navigation);
@@ -246,8 +248,8 @@
             [self->refreshControl endRefreshing];
         }else{
             
-            [self->HUD hide:YES];
-            
+            //[self->HUD hide:YES];
+            [self.view hideToastActivity];
         }
        
         
@@ -282,7 +284,8 @@
             [self->refreshControl endRefreshing];
         }else{
             
-            [self->HUD hide:YES];
+            //[self->HUD hide:YES];
+            [self.view hideToastActivity];
             
         }
     });

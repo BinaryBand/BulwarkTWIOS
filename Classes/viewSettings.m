@@ -9,9 +9,10 @@
 #import "viewSettings.h"
 #import <BulwarkTW-Swift.h>
 
+
 //#import "ZipArchive/ZipArchive.h"
 
-
+@import Toast;
 
 
 @interface viewSettings ()
@@ -65,9 +66,10 @@
     
     
     
-    
-    [NSThread detachNewThreadSelector:@selector(UpdateOfficeList) toTarget:self withObject:nil];
-     [NSThread detachNewThreadSelector:@selector(loadOffices) toTarget:self withObject:nil];
+    [self UpdateOfficeList];
+    //[self loadOffices];
+    //[NSThread detachNewThreadSelector:@selector(UpdateOfficeList) toTarget:self withObject:nil];
+     //[NSThread detachNewThreadSelector:@selector(loadOffices) toTarget:self withObject:nil];
     
     [self getSettings];
     
@@ -214,7 +216,7 @@
 
     }else{
         
-        [self UpdateOfficeList];
+        //[self UpdateOfficeList];
        
         
     }
@@ -771,6 +773,9 @@
         msg= [msg stringByAppendingString:sMessage];
         
         
+        
+     
+        
         [self.view makeToast:msg duration:3.0 position:CSToastPositionTop];
         
         
@@ -889,6 +894,27 @@
 }
 
 */
+
+
+-(NSString*)getStringFromSite:(NSString *)urlstr{
+
+
+    //NSCharacterSet *set = [NSCharacterSet URLHostAllowedCharacterSet];
+    //NSString *encodedUrl = [urlstr stringByAddingPercentEncodingWithAllowedCharacters:set];
+    
+    NSError *err = [[NSError alloc] init];
+    NSString *strVal = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlstr] encoding:NSUTF8StringEncoding error:&err];
+    
+    if(err.code != 0) {
+        return @"Error";
+        
+
+    }else{
+        return strVal;
+    }
+    
+}
+
 
 -(void)zipEmail{
     

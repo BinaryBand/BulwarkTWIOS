@@ -11,7 +11,7 @@ import WebKit
 class viewRouteMap: UIViewController,WKNavigationDelegate,WKUIDelegate  {
 
     @IBOutlet var webView : WKWebView!
-    var HUD: MBProgressHUD!
+    //var HUD: MBProgressHUD!
     var rurl:String?
     
     
@@ -42,9 +42,9 @@ class viewRouteMap: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         let h = appDelegate.hrEmpId ?? ""
         
-        HUD = MBProgressHUD(view: view)
-        view.addSubview(HUD)
-        HUD.hide(true)
+        //HUD = MBProgressHUD(view: view)
+        //view.addSubview(HUD)
+        //HUD.hide(true)
         
         
         
@@ -71,9 +71,11 @@ class viewRouteMap: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     
     func showActivityIndicator(show: Bool) {
         if show {
-            HUD.show(true)
+            //HUD.show(true)
+            self.view.makeToastActivity(.center)
         } else {
-            HUD.hide(true)
+            self.view.hideToastActivity()
+            //HUD.hide(true)
         }
     }
     

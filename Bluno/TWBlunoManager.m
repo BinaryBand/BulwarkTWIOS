@@ -130,7 +130,7 @@
 
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    if (central.state != CBCentralManagerStatePoweredOn)
+    if (central.state != CBManagerStatePoweredOn)
     {
         _bSupported = NO;
         NSArray* aryDeviceKeys = [self.dicBlunoDevices allKeys];
@@ -248,7 +248,7 @@
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
     
-    NSString* uuidstr = [service.UUID UUIDString];
+   // NSString* uuidstr = [service.UUID UUIDString];
     
     if ([service.UUID isEqual:sUUID])
     {
@@ -256,12 +256,13 @@
         
         
         
-        for (CBCharacteristic *characteristic in service.characteristics) {
+        //for (CBCharacteristic *characteristic in service.characteristics) {
          //   NSLog(@"Discovered characteristic %@", characteristic);
-            NSString * chars = [characteristic.UUID UUIDString];
+           // NSString * chars = [characteristic.UUID UUIDString];
           //  NSLog(chars);
         
-        }
+        //}
+        
         [self configureSensorTag:peripheral];
     }
 

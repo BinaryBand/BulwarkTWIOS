@@ -397,6 +397,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     }
     
     UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    [activityIndicatorView setColor:UIColor.whiteColor];
     
     activityIndicatorView.center = CGPointMake(activityView.bounds.size.width / 2, activityView.bounds.size.height / 2);
     [activityView addSubview:activityIndicatorView];
