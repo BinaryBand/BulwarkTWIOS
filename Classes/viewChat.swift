@@ -63,6 +63,8 @@ class viewChat: UIViewController,WKNavigationDelegate,WKUIDelegate {
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         let h = appDelegate.hrEmpId ?? ""
         
+        //kpwebapi2.bulwarkapp.com/chat?hrempid=""
+        
         let url = URL(string: "https://servicesnapshot.bulwarkapp.com/WebApp?hrempid=" + h + "&p=conversationPage&id=chatrelay&hidetoolbar=1&hidebackbtn=1")!
         webView.load(URLRequest(url: url))
         

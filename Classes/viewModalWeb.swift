@@ -13,10 +13,17 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
     @IBOutlet var webView : WKWebView!
     //var HUD: MBProgressHUD!
     @objc  var url:String!
+    
+    @objc var hrEmpId:String!
+    
+     var useCookie:Bool!
+    
+    
+    
     var refController:UIRefreshControl = UIRefreshControl()
 
 
-    override func viewDidLoad() {
+    override func viewDidLoad()  {
         
         super.viewDidLoad()
         
@@ -31,8 +38,63 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     webView.uiDelegate = self
         
-        let turl = URL(string: url)!
-       webView.load(URLRequest(url: turl))
+        
+        
+        
+        
+        if let hascookie = useCookie{
+            
+            if hascookie{
+                
+                
+                
+                Task {
+                    
+                    do {
+                        
+                        let cookie = try await JsonFetcher.postAuthCookieJson(hrEmpId: hrEmpId)
+                        await webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+                        // Update collection view content
+                       
+                        
+                        //HUD.hide(true)
+                   
+                        
+                        let turl = URL(string: url)!
+                        
+ 
+                       webView.load(URLRequest(url: turl))
+                        
+                        
+                    } catch {
+                        print("Request failed with error: \(error)")
+                    }
+                    
+                }
+                
+                
+                
+            }else{
+                
+                let turl = URL(string: url)!
+            
+                
+               webView.load(URLRequest(url: turl))
+                
+                
+            }
+            
+            
+            
+        }else{
+            let turl = URL(string: url)!
+            
+
+           webView.load(URLRequest(url: turl))
+        }
+        
+        
+       
         // Do any additional setup after loading the view.
         
         

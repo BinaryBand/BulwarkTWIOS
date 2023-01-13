@@ -12,12 +12,21 @@
 @interface viewDriving : UIViewController{
     
     
-   
+    IBOutlet UILabel *lblVin;
+    
+    IBOutlet UILabel *lblOdo;
     IBOutlet UILabel *currSpeed;
+    IBOutlet UILabel *lbldtcdist;
     
 }
 
 -(void)UpdateSpeed:(NSString *)Speed;
+-(void)UpdateODO:(NSString *)Odometer;
+
+
+-(void)UpdateVin:(NSString *)vin;
+
+-(void)UpdateReadTime:(NSString *)dtcdist;
 
 
 @end

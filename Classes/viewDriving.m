@@ -180,6 +180,30 @@
     
 }
 
+
+-(void)UpdateODO:(NSString *)Odometer
+{
+    
+    NSString * str = [@"Odometer: " stringByAppendingString:Odometer];
+    
+    lblOdo.text = str;
+    
+    
+}
+
+-(void)UpdateVin:(NSString *)vin
+{
+    NSString * str = [@"Vin: " stringByAppendingString:vin];
+    lblVin.text = str;
+ 
+}
+
+-(void)UpdateReadTime:(NSString *)readtime
+{
+    NSString * str = [@"Last Read: " stringByAppendingString:readtime];
+    
+    lbldtcdist.text = str;
+}
 /*
 
 - (NSString *)Base64Encode:(NSString *)plainText

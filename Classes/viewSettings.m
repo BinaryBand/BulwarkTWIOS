@@ -33,7 +33,7 @@
     
     delegate = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    
+    delegate.viewsett = self;
     txtOffice.delegate = self;
     
     NSString * appBuildString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
@@ -119,7 +119,93 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)UpdateObdField:(NSString *)readtime withVin:(NSString *)Vin withOdometer:(NSString *)odo
+{
+   
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+        
+        
+        
+   
+
+    NSString * str = [@"Last Read: " stringByAppendingString:readtime];
+    
+        self->lblLastObd.text = str;
+    
+    NSString * str1 = [@"Vin: " stringByAppendingString:Vin];
+    
+        self->lblVin.text = str1;
+    
+    NSString * str2 = [@"Odometer: " stringByAppendingString:odo];
+    
+        self->lblOdo.text = str2;
+    
+    });
+    
+}
+
+- (IBAction)btnConnectObd:(id)sender {
+    
+    [delegate ConnectOBD];
+    
+}
+
+
 -(void)getSettings{
+    
+    
+    //
+    
+    //lbldtcdist.text = str;
+    
+    
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    // getting an NSString
+    
+    if([[[prefs dictionaryRepresentation] allKeys] containsObject:@"lastObd"]){
+
+         long ti = [prefs integerForKey:@"lastObd"];
+        
+        
+        NSDate *lor = [NSDate dateWithTimeIntervalSince1970:ti];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+            [formatter setDateFormat: @"MM/dd/yyyy HH:mm:ss"];
+        
+        //Optionally for time zone conversions
+          [formatter setTimeZone:[NSTimeZone localTimeZone]];
+
+        NSString *stringFromDate = [formatter stringFromDate:lor];
+ 
+        NSString *str = [@"Last Read: " stringByAppendingString:stringFromDate];
+        lblLastObd.text = str;
+        
+        
+        
+    }
+    if([[[prefs dictionaryRepresentation] allKeys] containsObject:@"odometer"]){
+
+         NSString *stt = [prefs stringForKey:@"odometer"];
+        NSString *str = [@"odometer: " stringByAppendingString:stt];
+        lblOdo.text = str;
+        
+       
+    }
+    if([[[prefs dictionaryRepresentation] allKeys] containsObject:@"vin"]){
+
+        NSString *Vin = [prefs stringForKey:@"vin"];
+        NSString *str = [@"Vin: " stringByAppendingString:Vin];
+        lblVin.text = str;
+        
+       
+    }
+    
+    
     
     
     

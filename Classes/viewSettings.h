@@ -27,7 +27,10 @@
    IBOutlet UITextField *txtOffice;
     
     
-   IBOutlet UILabel *version;
+    IBOutlet UILabel *lblLastObd;
+    IBOutlet UILabel *lblOdo;
+    IBOutlet UILabel *lblVin;
+    IBOutlet UILabel *version;
     
     IBOutlet UIView *officeView;
     
@@ -57,6 +60,6 @@
 
 -(void)UpdateOfficeList;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
-
+-(void)UpdateObdField:(NSString *)readtime withVin:(NSString *)Vin withOdometer:(NSString *)odo; 
 
 @end
