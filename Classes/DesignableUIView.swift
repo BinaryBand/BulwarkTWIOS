@@ -53,13 +53,16 @@ import Foundation
        }
     
     @IBInspectable var cornerRadius: CGFloat {
-           get { return layer.cornerRadius }
+           get { return 9 //layer.cornerRadius
+               
+           }
            set {
-                 layer.cornerRadius = newValue
+               
+                 layer.cornerRadius = 9
 
                  // If masksToBounds is true, subviews will be
                  // clipped to the rounded corners.
-                 layer.masksToBounds = (newValue > 0)
+                 layer.masksToBounds = true//(newValue > 0)
            }
     
        }

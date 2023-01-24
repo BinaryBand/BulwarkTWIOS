@@ -31,7 +31,7 @@
 
 #pragma mark- Functions
 
-+ (id)sharedInstance
++ (TWBlunoManager *)sharedInstance
 {
 	static TWBlunoManager* this	= nil;
     

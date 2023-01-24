@@ -80,7 +80,7 @@
 [""] *
 [""] *	@return	DFBlunoManager
 [""] */
-+ (id)sharedInstance;
++ (TWBlunoManager *)sharedInstance;
 
 /**
 [""] *	@brief	Scan the BLUNO device

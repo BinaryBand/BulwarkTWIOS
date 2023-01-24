@@ -784,7 +784,7 @@
         // }
         
         
-        NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/chemicalsusediphone";
+        NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/ProductsUsed";
         downloadFile= [downloadFile stringByAppendingString:offcode];
         downloadFile= [downloadFile stringByAppendingString:@".html"];
         

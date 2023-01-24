@@ -35,6 +35,14 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet var lblDtcDist: UILabel!
     
     @IBOutlet var viewPhotoRatio: DesignableUIView!
+    var rs:RouteStop!
+    
+    var routeStop: RouteStop?{
+        didSet {
+            refreshRouteStopSelected()
+        }
+    }
+    
     
     //@IBOutlet var cvSales: UICollectionView!
     override func viewDidLoad() {
@@ -45,7 +53,10 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         //cvSales.dataSource = self
         cvPhotos.delegate = self
         cvPhotos.dataSource = self
-        tabbar.delegate = self
+       // tabbar.delegate = self
+        
+        viewToday.delegate = self
+        
         
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
         hrempid = appDelegate.hrEmpId ?? ""
@@ -61,12 +72,34 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         //cvPhotos.reloadData()
         loadPhotos()
+        
+        splitViewController?.show(.primary)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabbar.selectedItem = tabbar.items![0]
+        //tabbar.selectedItem = tabbar.items![0]
     }
     
+    
+    func stopSelected(selectedRouteStop: RouteStop){
+        
+        rs = selectedRouteStop
+        
+        tabUrl = selectedRouteStop.encodedurl
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showRouteStop", sender: nil)
+        splitViewController?.hide(.primary)
+        
+    }
+    
+    func refreshRouteStopSelected() {
+        
+        
+        
+        
+        
+        
+    }
     
     func loadPhotos(){
         
@@ -168,8 +201,8 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
         
     @IBAction func unwindToMain(segue: UIStoryboardSegue){
-        
-        
+           // let temp = "temp message"
+           // print(temp)
        }
         
     
@@ -205,7 +238,19 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             
             
         }
+        if segue.identifier == "showRouteStop" {
+            
+            
 
+            
+                let destinationController = segue.destination as! viewRouteStop
+                destinationController.url = tabUrl
+            destinationController.rs = self.rs
+            //destinationController.hrEmpId = hrempid
+          
+
+            
+        }
         if segue.identifier == "showMyPhotos" {
             
             
@@ -225,10 +270,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if(item == tabBarItemChat) {
             // Code for item 1
-            tabUrl = "https://kpwebapi2.bulwarkapp.com/chat?hrempid=" + hrempid
-            useCookieInWeb = true
-            print(tabUrl!)
-            performSegue(withIdentifier: "showWeb", sender: nil)
+
             
             
             
@@ -241,8 +283,10 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
 
     @IBAction func ChatClicked(){
-        
-        
+        tabUrl = "https://kpwebapi2.bulwarkapp.com/chat?hrempid=" + hrempid
+        useCookieInWeb = true
+        print(tabUrl!)
+        performSegue(withIdentifier: "showWeb", sender: nil)
        
     }
     
@@ -281,4 +325,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     
     
+}
+extension viewDashboard:StopSelectionDelegate{
+    func stopSelected(_ newStop: RouteStop){
+        routeStop = newStop
+    }
 }

@@ -10,11 +10,11 @@
 @interface DFBlunoDevice : NSObject
 {
 @public
-    BOOL _bReadyToWrite;
+    Boolean _bReadyToWrite;
 }
 
 @property(strong, nonatomic) NSString* identifier;
 @property(strong, nonatomic) NSString* name;
-@property(assign, nonatomic, readonly) BOOL bReadyToWrite;
+@property(assign, nonatomic, readonly) Boolean bReadyToWrite;
 
 @end
