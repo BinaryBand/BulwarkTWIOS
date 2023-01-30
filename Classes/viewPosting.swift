@@ -28,7 +28,7 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
     @objc var lastObdRead:Date!
     var rs:RouteStop!
     var appDelegate:BulwarkTWAppDelegate!
-    
+    var dontScan:Bool = false
     
     override func viewDidLoad() {
         
@@ -48,7 +48,7 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
         printManager?.delegate = self
         printDevices = []
         
-        Utilities.delay(bySeconds: 4){
+        Utilities.delay(bySeconds: 0.2, dispatchLevel: .main){
             
             self.printManager?.scan()
             
@@ -85,8 +85,9 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
     }
     
     override func viewWillDisappear(_ animated: Bool){
-       
+       dontScan = true
         printManager?.stop()
+        printManager?.disconnect(to: printDev)
         
         super.viewWillDisappear(animated)
         
@@ -419,7 +420,7 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                 
                 let obdDate = appDelegate.lastObdRead.toString(format: .usDateTime24WithSec) ?? "1/1/1900"
                 
-                let saveResults = SaveFileUtilities.SavePostingResults(UrlToStave: pres.url, Lat: appDelegate.lat, Lon: appDelegate.lon, Vin: appDelegate.vin, Odometer: appDelegate.odo, OdoLastUpdated: obdDate, Rdate: rs.rdate)
+                let saveResults = DataUtilities.SavePostingResults(UrlToStave: pres.url, Lat: appDelegate.lat, Lon: appDelegate.lon, Vin: appDelegate.vin, Odometer: appDelegate.odo, OdoLastUpdated: obdDate, Rdate: rs.rdate)
                 
                 if saveResults == true {
                     
@@ -430,8 +431,10 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                             let fetch = try await JsonFetcher.SendPostingResultsAsync(hrEmpId: appDelegate.hrEmpId)
                             
                             if fetch {
-                                
-                                performSegue(withIdentifier: "unwindToDash", sender: self)
+                                if pres.printTicket == false{
+                                    performSegue(withIdentifier: "unwindToDash", sender: self)
+                                }
+                               
                             }
                             
                             
@@ -469,13 +472,13 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
         
         let lfChar = String(UnicodeScalar(10)) //linefeed 10 dec or 0A hex
         
-        var s = printStr.replacingOccurrences(of: "<ESC>", with: escChar).replacingOccurrences(of: "<LF>", with: lfChar).replacingOccurrences(of: "&comma;", with: ",").trimmingCharacters(in: .whitespaces)
+        let s = printStr.replacingOccurrences(of: "<ESC>", with: escChar).replacingOccurrences(of: "<LF>", with: lfChar).replacingOccurrences(of: "&comma;", with: ",").trimmingCharacters(in: .whitespaces)
         
         let isReady = printDev?.bReadyToWrite ?? false
         
         if isReady {
             
-            var wsp = escChar + "\n\n\r\n\r"
+            let wsp = escChar + "\n\n\r\n\r"
             let dw = wsp.data(using: .utf8)
             printManager?.writeData(toDevice: dw, device: printDev)
             Utilities.delay(bySeconds: 0.3){
@@ -501,7 +504,7 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                     self.printManager?.writeData(toDevice: data, device: self.printDev)
 
 
-                    Thread.sleep(forTimeInterval: 0.01)
+                    Thread.sleep(forTimeInterval: 0.1)
 
                     //[characters addObject:ichar];
                     i = i + 50
@@ -523,7 +526,9 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
     
     func printDidUpdateState(_ bleSupported: Bool) {
         if bleSupported {
-            printManager?.scan()
+            if !dontScan {
+               // printManager?.scan()
+            }
         }
     }
     
@@ -557,16 +562,18 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
     }
     
     func ready(toPrint dev: DFBlunoDevice!) {
-        printDev = dev
-        printIcon.tintColor = .white
-        
+        if !dontScan {
+            printDev = dev
+            printIcon.tintColor = .white
+        }
         
     }
     
     func didDisconnectPrinter(_ dev: DFBlunoDevice!) {
-        printManager?.scan()
-        printIcon.tintColor = .clear
-        
+        if !dontScan {
+            printManager?.scan()
+            printIcon.tintColor = .clear
+        }
     }
     
     func didPrintData(_ dev: DFBlunoDevice!) {

@@ -254,16 +254,64 @@ import WebKit
         let url = navigationAction.request.url;
         
         if(url?.scheme == "bulwarktw"){
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-            decisionHandler(.cancel)
-            return
-        }
-        if(url?.scheme == "bulwarktwmap"){
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            
+            let urlparams = url?.absoluteString.components(separatedBy: "?")
+            
+            if urlparams?.count ?? 0 > 2{
+                let dpage = Double(urlparams?[1] ?? "-1")
+                let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+                
+                
+                if dpage == 43 {
+                    let param = urlparams?[2] ?? Utilities.CurrentDateString()
+                    
+                    _ = DataUtilities.saveCurrentRouteDate(dateStr: param)
+                    self.dismiss(animated: true, completion: nil)
+                    
+                    Task {
+                        do{
+                            _ = try await JsonFetcher.fetchRouteStopsAsync(rdate: param, hrEmpId: appDelegate.hrEmpId)
+                            
+                            print("Route Updated--ViewRoutes")
+                        }catch{
+                            print(error)
+                        }
+                       
+                    }
+                    //paramsToPass = param
+                    //performSegue(withIdentifier: "showPosting", sender: nil)
+                    
+                }
+                    
+                
+            }
+                
             decisionHandler(.cancel)
             return
         }
         
+        if(url?.scheme == "bulwarktwmap"){
+            
+            let urlparams = url?.absoluteString.components(separatedBy: "?")
+            
+            if urlparams?.count ?? 0 > 2{
+                let dpage = Double(urlparams?[1] ?? "-1")
+                
+                let param = urlparams?[2]
+                if dpage == 1 {
+                    
+                    
+                    //paramsToPass = param
+                    //performSegue(withIdentifier: "showPosting", sender: nil)
+                    
+                }
+                    
+                
+            }
+                
+            decisionHandler(.cancel)
+            return
+        }
         
         decisionHandler(.allow)
         

@@ -55,18 +55,14 @@
     //[self.view addSubview:HUD];
     //[HUD hide:YES];
     
+    NSURL *qurl = [NSURL URLWithString:_url];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-          selector:@selector(receiveLoadReportNotification:)
-          name:@"LoadReport"
-          object:nil];
+    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
+    [webviewReports loadRequest:srequest];
     
     
-    dispatch_async(dispatch_get_main_queue(), ^(){
-        [self performSegueWithIdentifier:@"ReportsMenue" sender:self];
-    });
-  
     
+   
     
 }
 
@@ -382,6 +378,29 @@
         UrlStr = [UrlStr stringByAppendingString:urlParamater];
         
         
+        
+        
+        
+        
+        viewFBFSearch* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewFBFSearch"];
+        
+        customView.HrEmpId = self->delegate.hrEmpId;
+        customView.FromPage = @"Account Search";
+        customView.CustomerId = 100492;
+        customView.ServiceId = 3627;
+        customView.isNC = false;
+        customView.accountNumber = @"103328";
+        customView.ServiceType = @"MO,IS";
+        //customView.istoday = 1;
+
+        customView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        customView.modalPresentationStyle = UIModalPresentationPageSheet;
+        //[self.view addSubview:customView.view];
+        [self presentViewController:customView animated:YES completion:nil];
+        
+        
+        
+        
         NSURL *qurl = [NSURL URLWithString:UrlStr];
         NSError *err = nil;
         
@@ -425,198 +444,12 @@
 
 
 
-- (IBAction)btnSearch{
-    
-    NSString *txtbox =[txtSearch.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptsearch.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    UrlString = [UrlString stringByAppendingString:@"&t="];
-    UrlString = [UrlString stringByAppendingString:txtbox];
-    
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
 
-}
-- (IBAction)btnDailyZone{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptdailyzone.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
-- (IBAction)btnProDormancy{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedormancy.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
-- (IBAction)btnProDelenquency{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedelinquency.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
-- (IBAction)btnDormantAccounts{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptdormantaccounts.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
-- (IBAction)btnRecentCancels{
-    
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptrecentcancelsipad.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-   
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-     [webviewReports loadRequest:srequest];
-    
-}
-- (IBAction)btnRecentMoves{
-    
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptrecentmoves.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
-- (IBAction)btnPool{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptpool.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
 
-    
-}
 
-- (IBAction)btnontime{
-    
-    
-    
-    NSString *UrlString = @"https://fbf.bulwarkapp.com/mgrapp/ontimetech.aspx?h=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-    
-}
 
-- (IBAction)btnNearMe{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptpoolloc.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
-- (IBAction)btnCancelBucket{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptbucketcancel.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
+
 - (IBAction)btnCloseWindow{
     webviewDetails.hidden = YES;
     closeButton.hidden = YES;
@@ -629,167 +462,6 @@
     if([webviewDetails canGoBack]){
         [webviewDetails goBack];
     }
-    
-}
-
-- (IBAction)btnGateCodes{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptgatecodes.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&long="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-    
-}
-- (IBAction)btnCompletion{
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptcompletionrate.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-}
-
-- (IBAction)btnTMLeaderboard{
-    
-    
-    NSString *UrlString = @"https://fbf.bulwarkapp.com/report/Tech24Month.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-    UrlString = [UrlString stringByAppendingString:delegate.lat];
-    UrlString = [UrlString stringByAppendingString:@"&lon="];
-    UrlString = [UrlString stringByAppendingString:delegate.lon];
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-    
-    
-    /*
-    NSString *UrlString1 = @"https://ipadapp.bulwarkapp.com/hh/retention/rptEmpId.aspx?hr_emp_id=";
-    
-    UrlString1 = [UrlString1 stringByAppendingString:delegate.hrEmpId];
-
-    
-    
-    NSURL *url = [ NSURL URLWithString: UrlString1];
-    NSURLRequest *req = [ NSURLRequest requestWithURL:url
-                                          cachePolicy:NSURLRequestReloadIgnoringCacheData
-                                      timeoutInterval:30.0 ];
-    NSError *err;
-    NSURLResponse *res;
-    NSData *d = [ NSURLConnection sendSynchronousRequest:req
-                                       returningResponse:&res
-                                                   error:&err ];
-    if(err==nil){
-    NSString *responseString = [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
-    
-    
-    
-        if(responseString.length >12){
-            
-            NSURL *qurl = [NSURL URLWithString:UrlString1];
-            
-            NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-            [webviewReports loadRequest:srequest];
-            
-            
-        }else{
-            
-            NSString *UrlString = @"http://bulwarkadmin.com/branch/board?FKPersonnel_ID=";
-            
-            UrlString = [UrlString stringByAppendingString:responseString];
-            
-            
-            
-            NSURL *qurl = [NSURL URLWithString:UrlString];
-            
-            NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-            [webviewReports loadRequest:srequest];
-            
-            
-            
-        }
-
-    
-    }else{
-        NSURL *qurl = [NSURL URLWithString:UrlString1];
-        
-        NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-        [webviewReports loadRequest:srequest];
-        
-        
-        
-    }
-    
-    */
-    
-}
-
-
-
-
-
-
-
-- (IBAction)btnTermiteFup{
-    NSString *UrlString =  @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?APIKEY=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=";
-       
-       UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-       UrlString = [UrlString stringByAppendingString:@"&lat="];
-       UrlString = [UrlString stringByAppendingString:delegate.lat];
-       UrlString = [UrlString stringByAppendingString:@"&lon="];
-       UrlString = [UrlString stringByAppendingString:delegate.lon];
-       
-       
-       NSURL *qurl = [NSURL URLWithString:UrlString];
-       
-       NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-       [webviewReports loadRequest:srequest];
-       
-       
-    
-    
-    /*
-    NSString *UrlString = @"https://ipadapp.bulwarkapp.com/hh/retention/rptTermiteFUPList.aspx?hr_emp_id=";
-    
-    UrlString = [UrlString stringByAppendingString:delegate.hrEmpId];
-    UrlString = [UrlString stringByAppendingString:@"&lat="];
-
-    
-    
-    NSURL *qurl = [NSURL URLWithString:UrlString];
-    
-    NSURLRequest *srequest = [NSURLRequest requestWithURL:qurl];
-    [webviewReports loadRequest:srequest];
-
-    */
-    
-    
-    
-    
-    
-    
-    
     
 }
 

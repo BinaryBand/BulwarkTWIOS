@@ -22,28 +22,17 @@
     IBOutlet UIView *popView;
     
     
+    
     //MBProgressHUD *HUD;
     
 }
 
+@property (nonatomic,strong) NSString *url;
 
-- (IBAction)btnSearch;
-- (IBAction)btnDailyZone;
-- (IBAction)btnProDormancy;
-- (IBAction)btnProDelenquency;
-- (IBAction)btnDormantAccounts;
-- (IBAction)btnRecentCancels;
-- (IBAction)btnRecentMoves;
-- (IBAction)btnPool;
-- (IBAction)btnNearMe;
-- (IBAction)btnCancelBucket;
+
 - (IBAction)btnCloseWindow;
 - (IBAction)btnBack;
-- (IBAction)btnGateCodes;
-- (IBAction)btnCompletion;
-- (IBAction)btnTMLeaderboard;
-- (IBAction)btnTermiteFup;
-- (IBAction)btnontime;
+
 
 -(void)loadWebViewDetails:(NSString *)UrlString;
 - (void)handleOpenURL:(NSURL *)url;

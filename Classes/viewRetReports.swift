@@ -15,20 +15,12 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     //var mapDate:String?
     @IBOutlet var txtSearch : UITextField!
     
+    var url:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if #available(iOS 15, *){
-          //  print("Create the collection view!")
-        }else{
-            
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
-            self.navigationController?.navigationBar.shadowImage = UIImage()
-            self.navigationController?.navigationBar.isTranslucent = true
-            self.navigationController?.view.backgroundColor = .clear
-        }
+        url = "";
 
         
 
@@ -56,22 +48,19 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
 
     
     @IBAction func btnPdorm() {
-        
-        
-    
-        
         let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
-        
         let h = appDelegate.hrEmpId ?? ""
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedormancy.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedormancy.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
+
+ 
+        performSegue(withIdentifier: "showReport", sender: nil)
         
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
+         //  self.dismiss(animated: true, completion: nil)
         
         
     }
@@ -92,13 +81,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         
         
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptsearch.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon + "&t=" + newacct
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptsearch.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon + "&t=" + newacct
         
         
         
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
@@ -114,12 +101,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedelinquency.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptproactivedelinquency.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
@@ -135,13 +121,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptdormantaccounts.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptdormantaccounts.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
-        
+        performSegue(withIdentifier: "showReport", sender: nil)
         
     }
     
@@ -156,12 +140,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptrecentcancelsipad.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptrecentcancelsipad.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
@@ -177,12 +160,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptrecentmoves.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptrecentmoves.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
@@ -198,12 +180,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptpool.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptpool.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
@@ -219,12 +200,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptbucketcancel.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptbucketcancel.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
@@ -240,12 +220,11 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptpoolloc.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        url = "https://ipadapp.bulwarkapp.com/hh/retention/rptpoolloc.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
@@ -262,18 +241,33 @@ class viewRetReports: UIViewController,WKNavigationDelegate,WKUIDelegate  {
         let lat = appDelegate.lat ?? ""
         let lon = appDelegate.lon ?? ""
         
-        appDelegate.reportUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptgatecodes.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+       url = "https://ipadapp.bulwarkapp.com/hh/retention/rptgatecodes.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
         
         
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoadReport"), object: nil)
-           self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "showReport", sender: nil)
         
         
     }
     
     
-
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
+        
+        if segue.identifier == "showReport" {
+            
+            
+            
+            
+            let destinationController = segue.destination as! viewReports
+            destinationController.url = url
+            //destinationController.hrEmpId = hrempid
+            
+           
+            
+            
+        }
+    }
 }

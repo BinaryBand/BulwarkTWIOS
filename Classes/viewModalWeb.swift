@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import Toast
 
 class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
 
@@ -39,8 +40,7 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
     webView.uiDelegate = self
         
         
-        
-        
+        self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
         
         if let hascookie = useCookie{
             
@@ -103,6 +103,15 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
         webView.scrollView.addSubview(refController)
         
     }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            if keyPath == #keyPath(WKWebView.title) {
+                self.title = self.webView.title
+            }
+        }
+    
+    
+    
     @objc func webviewRefresh(refresh:UIRefreshControl){
         refController.endRefreshing()
         webView.reload()
@@ -246,6 +255,146 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
             }
 
            
+        }else if url?.scheme == "bulwarktwfbf"{
+            
+            let strprt = url?.absoluteString
+            let arr = strprt?.split(separator: "?")
+            let spage = arr?[1] ?? "0"
+            let dpage = Int(spage) ?? 0
+            let param = arr?[2] ?? ""
+            if(dpage==1){
+               //open fbfsearch to add to a reoute
+                //bulwarktwfbf://?1?customerId=556330&serviceId=679795&servicetype=QT&report=DormantAccounts&hrempid=417812
+                
+                let urlparamarr = param.split(separator: "&")
+                var customerId = 0
+                var serviceId = 0
+                var serviceType = ""
+                var report = ""
+                var account = ""
+                
+                for p in urlparamarr{
+                    
+                    
+                    let ss = p.split(separator: "=")
+                    if ss.count == 2{
+                        let k = String(ss[0])
+                        let v = String(ss[1])
+                        
+                        
+                        if k == "customerId"{
+                            customerId = Int(v) ?? 0
+                        }
+                        if k == "serviceId"{
+                            serviceId = Int(v) ?? 0
+                        }
+                        if k == "servicetype" {
+                            serviceType = v
+                        }
+                        if k == "report"{
+                            report = v
+                        }
+                        if k == "account"{
+                            account = v
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }
+                        
+                
+                
+                let customView = self.storyboard?.instantiateViewController(withIdentifier: "viewFBFSearch") as? viewFBFSearch
+                
+                customView?.HrEmpId = hrEmpId;
+                customView?.FromPage = report
+                customView?.CustomerId = customerId;
+                customView?.ServiceId = serviceId;
+                customView?.isNC = false;
+                customView?.accountNumber = account;
+                customView?.ServiceType = serviceType;
+                //customView.istoday = 1;
+
+                
+                customView?.modalTransitionStyle = .coverVertical
+                customView?.modalPresentationStyle = .pageSheet
+                
+
+                
+                self.present(customView!,animated:true, completion:nil)
+                
+                
+                decisionHandler(.cancel)
+                //self.dismissThis()
+                
+            }else if dpage==2{
+                //transfer soft contacted
+                let urlparamarr = param.split(separator: "&")
+                var customerId = 0
+                var workOrderId = 0
+                var serviceType = ""
+                var report = ""
+                var account = ""
+                
+                for p in urlparamarr{
+                    
+                    
+                    let ss = p.split(separator: "=")
+                    if ss.count == 2{
+                        let k = String(ss[0])
+                        let v = String(ss[1])
+                        
+                        
+                        if k == "customerId"{
+                            customerId = Int(v) ?? 0
+                        }
+                        if k == "workorderid"{
+                            workOrderId = Int(v) ?? 0
+                        }
+                        if k == "servicetype" {
+                            serviceType = v
+                        }
+                        if k == "report"{
+                            report = v
+                        }
+                        if k == "account"{
+                            account = v
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }
+                        
+                
+                
+                self.transferService(routeId: route, workOrderId: <#T##Int#>, fromPage: <#T##String#>)
+                
+                
+                
+                decisionHandler(.cancel)
+                //self.dismissThis()
+            }else if dpage==3{
+                //transfer hard contact
+                
+                decisionHandler(.cancel)
+                //self.dismissThis()
+                
+            }else{
+                
+                
+                
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                decisionHandler(.cancel)
+            }
+
+            
+            
+            
+            
         }else{
             
             decisionHandler(.allow)
@@ -262,6 +411,118 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
               
 
     }
+    
+    
+    
+    func transferService(routeId: Int, workOrderId:Int, fromPage: String){
+        let message = "Transfer the service to my route today?"
+        
+        
+        let alertController = UIAlertController(title: "Confirm", message: message, preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (action) in
+            
+            self.view.makeToastActivity(.center)
+        
+            let atrp = AddToRouteParams(RouteId: routeId, StartAt: "8:00 AM", FromHrEmpId: hrEmpId, RollingKey: "", FromPage: fromPage, CustomerId: 0, ServiceId: 0, isNC: false, isTransfer: true, workOrderId: workOrderId)
+        
+        
+            let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+            //appDelegate.viewSched = self
+           
+
+            
+            
+            
+     
+         //   let h = appDelegate.hrEmpId ?? ""
+            
+            //let fbfSamp = FBFSearch.sampleData
+           
+            
+            var urlStr = "https://twapiweb.bulwarkapp.com/AddToRoute"
+            
+            //urlStr = "http://10.211.55.4:5095/AddToRoute"
+            
+            
+            Task {
+                
+                do {
+                    
+                    let auResult = try await JsonFetcher.postAddToRouteJson(urlStr: urlStr, addToRouteParam: atrp)
+                    
+                    // Update collection view content
+                    //self.tableView.reloadData()
+                    
+                    //HUD.hide(true)
+                    if(auResult.Success == false){
+                        print(auResult.Error)
+                        
+                        let msg = "Error adding with reason " + auResult.Error + " Contact the support center to add this service to route"
+                        
+                        let alertController2 = UIAlertController(title: "Error Adding To Route", message: msg, preferredStyle: .alert)
+                        alertController2.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
+                            //self.viewController?.dismiss(animated: true, completion: nil)
+                            
+                            
+                        }))
+                        
+                        self.present(alertController2, animated: true)
+                        
+                        
+                    }else{
+                        
+                        self.view.hideToastActivity()
+                        
+                        var style = ToastStyle()
+                        style.titleFont = UIFont(name: "Arial-BoldMT", size: 14)!
+                        style.messageFont = UIFont(name: "ArialMT", size: 12)!
+                        //style.messageColor = UIColor.yellow
+                        style.messageAlignment = .center
+                        style.imageSize = CGSize(width: 50, height: 45)
+                        style.backgroundColor = UIColor(red: 62.0 / 255.0, green: 128.0 / 255.0, blue: 180.0 / 255.0, alpha: 0.9)
+                        
+                        self.view.makeToast("Account added to route", duration: 2.2, position: .center, title: "Success", image: UIImage(named: "GreenCheckmark.png"), style: style)
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
+                        }
+                    
+                    
+                    
+                } catch {
+                    print("Request failed with error: \(error)")
+                }
+                
+            }
+
+
+
+            
+            
+            
+        
+        }))
+
+        alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in
+          
+            
+
+            
+        }))
+
+
+        self.present(alertController, animated: true)
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
        

@@ -36,12 +36,44 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet var viewPhotoRatio: DesignableUIView!
     var rs:RouteStop!
+    var mapStops:[MapStop] = []
+    var sphome:SPHomeGps!
+    var proactiveList:[ProactiveAccount] = []
     
-    var routeStop: RouteStop?{
-        didSet {
-            refreshRouteStopSelected()
-        }
-    }
+    
+    
+    
+    @IBOutlet var lblPhotoRatio: UILabel!
+    @IBOutlet var lblOntime: UILabel!
+    @IBOutlet var lblFinisher: UILabel!
+    @IBOutlet var lblCompletion: UILabel!
+    @IBOutlet var lblProactiveAdds: UILabel!
+    @IBOutlet var lblReviewsAll: UILabel!
+    @IBOutlet var lblReviewsBad: UILabel!
+    @IBOutlet var lblRetRolling: UILabel!
+    @IBOutlet var lblRet31: UILabel!
+    @IBOutlet var lblEarnedDaysOff: UILabel!
+    @IBOutlet var lblIsExtOptins: UILabel!
+    @IBOutlet var lblFastComm: UILabel!
+    @IBOutlet var lblFastCommDue: UILabel!
+    @IBOutlet var lblSalesYTD: UILabel!
+    @IBOutlet var lblFastCommMTD: UILabel!
+    @IBOutlet var lblSalesMTD: UILabel!
+    @IBOutlet var lblSalesAK: UILabel!
+    @IBOutlet var lblSalesAKCount: UILabel!
+    @IBOutlet var lblSalesYTDCount: UILabel!
+    @IBOutlet var lblRankYTD: UILabel!
+    @IBOutlet var lblSalesMTDCount: UILabel!
+    @IBOutlet var lblRankMTD: UILabel!
+    
+    
+    var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+    
+   // var routeStop: RouteStop?{
+   //     didSet {
+   //         refreshRouteStopSelected()
+    //    }
+    //}
     
     
     //@IBOutlet var cvSales: UICollectionView!
@@ -58,7 +90,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         viewToday.delegate = self
         
         
-        let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+     
         hrempid = appDelegate.hrEmpId ?? ""
         
         appDelegate.viewDash = self
@@ -72,6 +104,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         //cvPhotos.reloadData()
         loadPhotos()
+        loadStats()
+        loadHomeGPS()
+        loadProactiveList()
         
         splitViewController?.show(.primary)
     }
@@ -81,18 +116,113 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
-    func stopSelected(selectedRouteStop: RouteStop){
-        
-        rs = selectedRouteStop
-        
-        tabUrl = selectedRouteStop.encodedurl
-        useCookieInWeb = false
-        performSegue(withIdentifier: "showRouteStop", sender: nil)
+
+    
+
+
+    
+    
+    @IBAction func btnMyRoutesClick(_ sender: Any) {
+        performSegue(withIdentifier: "showRoutes", sender: nil)
         splitViewController?.hide(.primary)
         
     }
+    func loadProactiveList(){
+        
+        Task{
+            
+            do{
+                proactiveList = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+            } catch {
+               print(error)
+            }
+            
+            
+            
+            do{
+                //proactiveList = try await DataUtilities.getProactiveRetentionList(hrempid: hrempid)
+            }catch{
+                print(error)
+            }
+            
+            
+        }
+           
+        
+    }
+    func loadHomeGPS(){
+        Task {
+            
+            do{
+              
+                let h = try await DataUtilities.getHomeGps(hrempid: hrempid)
+                sphome = h
+                
+                
+            } catch {
+                
+                print(error)
+                
+            }
+            
+            
+        }
+    }
     
-    func refreshRouteStopSelected() {
+    
+    func loadStats(){
+        
+        
+        Task {
+            
+            do {
+                
+                let stats = try await JsonFetcher.fetchDashStatsJson(hrEmpId: hrempid)
+                
+                Utilities.delay(bySeconds: 0.5, dispatchLevel: .main){ [self] in
+                    
+                  
+                    
+                    lblOntime.text = stats.serviceprostats.onTime.toPercentString(decimalPlaces: 1)
+                    lblPhotoRatio.text = stats.serviceprostats.photoRatio.toPercentString(decimalPlaces: 1)
+                    lblFinisher.text = stats.serviceprostats.finisher.toPercentString(decimalPlaces: 1)
+                    lblCompletion.text = stats.serviceprostats.completion.toPercentString(decimalPlaces: 1)
+                    lblProactiveAdds.text = String(stats.serviceprostats.proactiveAdds)
+                    lblReviewsAll.text = String(stats.serviceprostats.reviewsAll)
+                    lblReviewsBad.text = String(stats.serviceprostats.reviewsBad)
+                    lblRet31.text = stats.serviceprostats.retention31.toPercentString(decimalPlaces: 1)
+                    lblRetRolling.text = stats.serviceprostats.retentionRolling.toPercentString(decimalPlaces: 1)
+                    lblEarnedDaysOff.text = String(stats.serviceprostats.isExtDaysOff)
+                    lblIsExtOptins.text = String(stats.serviceprostats.isExtOptIns)
+                    lblFastComm.text = stats.serviceprostats.fastComm.toPercentString(decimalPlaces: 1)
+                    lblFastCommDue.text = stats.serviceprostats.fastCommDue.toMoneyString()
+                    lblFastCommMTD.text = stats.serviceprostats.fastCommMtd.toMoneyString()
+                    lblSalesYTD.text = stats.serviceprostats.salesYtdpay.toMoneyString()
+                    lblSalesYTDCount.text = "Rank: " + stats.serviceprostats.salesYtdcount.toString()
+                    lblSalesMTD.text = stats.serviceprostats.salesMtdpay.toMoneyString()
+                    lblSalesMTDCount.text = "Sales: " + stats.serviceprostats.salesMtdcount.toString()
+                    lblRankMTD.text = "Rank: " + stats.serviceprostats.salesMtdrank.toString()
+                    lblRankYTD.text = "Rank: " + stats.serviceprostats.salesYtdrank.toString()
+                    
+                    //let ak = stats.serviceprostats.
+                    
+                    
+                    
+                }
+                
+                // Update collection view content
+                //self.cvPhotos.reloadData()
+                
+                //HUD.hide(true)
+                //self.view.hideToastActivity()
+                
+            } catch {
+                print("Request failed with error: \(error)")
+            }
+            
+        }
+        
+        
         
         
         
@@ -104,7 +234,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     func loadPhotos(){
         
         
-        self.view.makeToastActivity(.center)
+        //self.view.makeToastActivity(.center)
         
         
         
@@ -126,6 +256,12 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             }
             
         }
+        
+        
+        
+        
+        
+        
         
         
         
@@ -261,6 +397,17 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
    
             
         }
+        
+        if segue.identifier == "showMap"{
+            
+            
+            let dc = segue.destination as! viewMap
+            dc.mapStops = mapStops
+            dc.homegps = sphome
+            dc.proactivList = proactiveList
+            
+            
+        }
 
         
         
@@ -300,6 +447,14 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
+    @IBAction func btnTodaysMap(_ sender: Any) {
+        
+        
+        performSegue(withIdentifier: "showMap", sender: nil)
+        
+    }
+    
+    
     @IBAction func myPhotosClick(_ sender: Any) {
         
         performSegue(withIdentifier: "showMyPhotos", sender: nil)   
@@ -307,7 +462,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBAction func btnSalesClick(_ sender: Any) {
         
-        tabUrl = "https://fbf2.bulwarkapp.com/mgrapp2/salesstats.aspx?h=" + hrempid
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/salesstats?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
         
@@ -323,11 +478,160 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
     }
     
+    @IBAction func btnReports(_ sender: Any) {
+        
+        //showRetentionList
+        
+        
+        performSegue(withIdentifier: "showRetentionList", sender: nil)
+        
+        
+        
+    }
     
+    @IBAction func btnMyPay(_ sender: Any) {
+        
+        tabUrl = "https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=" + hrempid + "&viewedby=" + hrempid
+        useCookieInWeb = true
+        print(tabUrl!)
+        performSegue(withIdentifier: "showWeb", sender: nil)
+        
+        
+    }
+    
+    
+    @IBAction func btnIsExt7am(_ sender: Any) {
+        
+        let customView = self.storyboard?.instantiateViewController(withIdentifier: "popIsextEarly") as? viewISExtendedOptIn
+        
+
+        let d = "For Tomorrows Route"
+        
+    customView?.DateFor = d
+        
+        customView?.istoday = 0
+        customView?.isEarly = 1
+        
+        
+        customView?.modalTransitionStyle = .crossDissolve
+        customView?.modalPresentationStyle = .overCurrentContext
+        
+        
+        
+        
+        
+        //let nframe = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+
+        self.present(customView!,animated:true, completion:nil)
+        
+        
+    }
+    
+    @IBAction func btnIsExt6PmTomorrow(_ sender: Any) {
+        let customView = self.storyboard?.instantiateViewController(withIdentifier: "popIsext") as? viewISExtendedOptIn
+        
+
+        let d = "For Tomorrows Route"
+        
+    customView?.DateFor = d
+        
+        customView?.istoday = 0
+        customView?.isEarly = 0
+        
+        customView?.modalTransitionStyle = .crossDissolve
+        customView?.modalPresentationStyle = .overCurrentContext
+
+        self.present(customView!,animated:true, completion:nil)
+        
+    }
+    
+    
+    
+    @IBAction func btnIsExt6PmToday(_ sender: Any) {
+        
+        let customView = self.storyboard?.instantiateViewController(withIdentifier: "popIsext") as? viewISExtendedOptIn
+        
+
+        let d = "For Tomorrows Route"
+        
+    customView?.DateFor = d
+        
+        customView?.istoday = 1
+        customView?.isEarly = 0
+        
+        customView?.modalTransitionStyle = .crossDissolve
+        customView?.modalPresentationStyle = .overCurrentContext
+
+        self.present(customView!,animated:true, completion:nil)
+        
+        
+    }
+    
+    
+    
+    
+    @IBAction func btnServiceSnapShot(_ sender: Any) {
+        
+        //fbf test
+        
+        
+        //viewFBFSearch* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewFBFSearch"];
+        
+        let customView = self.storyboard?.instantiateViewController(withIdentifier: "viewFBFSearch") as? viewFBFSearch
+        
+        customView?.HrEmpId = hrempid;
+        customView?.FromPage = "Account Search"
+        customView?.CustomerId = 100492;
+        customView?.ServiceId = 3627;
+        customView?.isNC = false;
+        customView?.accountNumber = "103328";
+        customView?.ServiceType = "MO";
+        //customView.istoday = 1;
+
+        
+        customView?.modalTransitionStyle = .coverVertical
+        customView?.modalPresentationStyle = .pageSheet
+        
+
+        
+        self.present(customView!,animated:true, completion:nil)
+        
+        
+        
+        
+        
+    }
+    
+    @IBAction func btnNewSale(_ sender: Any) {
+        
+        performSegue(withIdentifier: "showAddSales", sender: nil)
+        
+        
+        
+    }
     
 }
 extension viewDashboard:StopSelectionDelegate{
-    func stopSelected(_ newStop: RouteStop){
-        routeStop = newStop
+    func routeLoaded(ms: [MapStop]) {
+        mapStops = ms
     }
+    
+    
+    func stopSelected(selectedRouteStop: RouteStop){
+        
+        rs = selectedRouteStop
+        
+        tabUrl = selectedRouteStop.encodedurl
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showRouteStop", sender: nil)
+        splitViewController?.hide(.primary)
+        
+    }
+    
+    func routeSelected(){
+        performSegue(withIdentifier: "showRoutes", sender: nil)
+        splitViewController?.hide(.primary)
+    }
+
+    
 }

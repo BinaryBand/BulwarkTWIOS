@@ -9,15 +9,13 @@
 
 //#define kBlunoService @"49535343-FE7D-4AE5-8FA9-9FAFD205E455" //@"F000FFC0-0451-4000-B000-000000000000"//
 //#define kBlunoDataCharacteristic @"49535343-8841-43F4-A8D4-ECBE34729BB3" //@"F000FFC2-0451-4000-B000-000000000000"//
-//#define BTPrintService @"18F0"
-//#define BTPrintCharisteristic @"2AF1"
+#define tBTPrintService @"18f0"
+#define tBTPrintCharisteristic @"2af1"
 
 @interface TWBlunoManager ()
 {
     BOOL _bSupported;
-    
-    CBUUID *sUUID; //= [CBUUID UUIDWithString:kBlunoService];
-    CBUUID *cUUID; //= [CBUUID UUIDWithString:kBlunoDataCharacteristic];
+
     
 }
 
@@ -52,8 +50,8 @@
 - (void)configureSensorTag:(CBPeripheral*)peripheral
 {
     
-    //CBUUID *sUUID = [CBUUID UUIDWithString:kBlunoService];
-    //CBUUID *cUUID = [CBUUID UUIDWithString:kBlunoDataCharacteristic];
+    CBUUID *sUUID = [CBUUID UUIDWithString:tBTPrintService];
+    CBUUID *cUUID = [CBUUID UUIDWithString:tBTPrintCharisteristic];
     
     [BLEUtility setNotificationForCharacteristic:peripheral sCBUUID:sUUID cCBUUID:cUUID enable:YES];
     NSString* key = [peripheral.identifier UUIDString];
@@ -69,8 +67,8 @@
 - (void)deConfigureSensorTag:(CBPeripheral*)peripheral
 {
     
-    //CBUUID *sUUID = [CBUUID UUIDWithString:kBlunoService];
-   // CBUUID *cUUID = [CBUUID UUIDWithString:kBlunoDataCharacteristic];
+    CBUUID *sUUID = [CBUUID UUIDWithString:tBTPrintService];
+    CBUUID *cUUID = [CBUUID UUIDWithString:tBTPrintCharisteristic];
     
     [BLEUtility setNotificationForCharacteristic:peripheral sCBUUID:sUUID cCBUUID:cUUID enable:NO];
     
@@ -83,7 +81,8 @@
     //[self.dicBlunoDevices removeAllObjects];
     if (_bSupported)
     {
-        [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+        //[self.centralManager scanForPeripheralsWithServices:nil options:nil];
+        [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:tBTPrintService]] options:nil];
     }
 
 }
@@ -123,7 +122,7 @@
         return;
     }
     BLEDevice* bleDev = [self.dicBleDevices objectForKey:dev.identifier];
-    [BLEUtility writeCharacteristic:bleDev.peripheral sUUID:[sUUID  UUIDString] cUUID:[cUUID UUIDString] data:data];
+    [BLEUtility writeCharacteristic:bleDev.peripheral sUUID:tBTPrintService cUUID:tBTPrintCharisteristic data:data];
 }
 
 #pragma mark - CBCentralManager delegate
@@ -158,35 +157,30 @@
 {
     NSString* devName = peripheral.name;
     
-  //  NSLog(@"BLE Device: %@", devName);
-    
+    //NSLog(@"BLE Device: %@", devName);
+    //NSLog(@"SUUID: %ld", (long)peripheral.state);
    // NSLog(devName);
     
     
-    if([devName containsString:@"STAR"] || [devName containsString:@"Printer"]){
+    //if([devName containsString:@"STAR"] || [devName containsString:@"Printer"]){
     
         
-        if([devName containsString:@"STAR"]){
+        //if([devName containsString:@"STAR"]){
             
-            sUUID = [CBUUID UUIDWithString:@"49535343-FE7D-4AE5-8FA9-9FAFD205E455"];
-            cUUID = [CBUUID UUIDWithString:@"49535343-8841-43F4-A8D4-ECBE34729BB3"];
+         //   sUUID = [CBUUID UUIDWithString:@"49535343-FE7D-4AE5-8FA9-9FAFD205E455"];
+          //  cUUID = [CBUUID UUIDWithString:@"49535343-8841-43F4-A8D4-ECBE34729BB3"];
             
-        }else{
+       // }else{
          //   sUUID = [CBUUID UUIDWithString:@"F000FFC0-0451-4000-B000-000000000000"];
          //   cUUID = [CBUUID UUIDWithString:@"F000FFC2-0451-4000-B000-000000000000"];
             
             
-            sUUID = [CBUUID UUIDWithString:@"18F0"];
-            cUUID = [CBUUID UUIDWithString:@"2AF1"];
+           // sUUID = [CBUUID UUIDWithString:@"18F0"];
+           // cUUID = [CBUUID UUIDWithString:@"2AF1"];
 
             
             
-        }
-        
-        
-        
-        
-        
+     //   }
         
     NSString* key = [peripheral.identifier UUIDString];
     BLEDevice* dev = [self.dicBleDevices objectForKey:key];
@@ -218,7 +212,7 @@
             [_delegate didDiscoverPrinter:blunoDev];
         }
     }
-    }
+   // }
 }
 
 
@@ -248,8 +242,9 @@
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
     
-   // NSString* uuidstr = [service.UUID UUIDString];
-    
+    //NSString* uuidstr = [service.UUID UUIDString];
+    CBUUID *sUUID = [CBUUID UUIDWithString:tBTPrintService];
+    //NSLog(@"UUIDv: %@", uuidstr);
     if ([service.UUID isEqual:sUUID])
     {
         

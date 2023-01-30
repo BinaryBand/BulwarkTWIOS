@@ -52,12 +52,12 @@
     
     
     officeView.hidden = YES;
-    [[officeView layer] setCornerRadius:10];
-    [officeView setClipsToBounds:YES];
-    [[officeView layer] setBorderColor:
-     [[UIColor darkGrayColor] CGColor]];
+    //[[officeView layer] setCornerRadius:10];
+    //[officeView setClipsToBounds:YES];
+    //[[officeView layer] setBorderColor:
+     //[[UIColor darkGrayColor] CGColor]];
     
-    [[officeView layer] setBorderWidth:2.75];
+    //[[officeView layer] setBorderWidth:2.75];
     
     
     
