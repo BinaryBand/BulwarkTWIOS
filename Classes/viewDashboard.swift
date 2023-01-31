@@ -39,7 +39,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     var mapStops:[MapStop] = []
     var sphome:SPHomeGps!
     var proactiveList:[ProactiveAccount] = []
-    
+    var RouteId = 0
     
     
     
@@ -65,6 +65,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet var lblRankYTD: UILabel!
     @IBOutlet var lblSalesMTDCount: UILabel!
     @IBOutlet var lblRankMTD: UILabel!
+    @IBOutlet var txtRouteNotes: UITextView!
+    @IBOutlet var lblRouteProgress: UILabel!
+    
     
     
     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
@@ -103,12 +106,20 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         self.viewPhotoRatio.addGestureRecognizer(gesture)
         
         //cvPhotos.reloadData()
-        loadPhotos()
-        loadStats()
-        loadHomeGPS()
-        loadProactiveList()
-        
+        Task{
+            await loadPhotos()
+            await loadStats()
+            await loadHomeGPS()
+            await loadProactiveList()
+        }
         splitViewController?.show(.primary)
+        
+        _ = Timer.scheduledTimer(timeInterval: 500.0, target: self, selector: #selector(self.sendFilesToServer), userInfo: nil, repeats: true)
+
+        _ = Timer.scheduledTimer(timeInterval: 3600.0, target: self, selector: #selector(self.fetchStats), userInfo: nil, repeats: true)
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,20 +127,41 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
-
+    @objc func sendFilesToServer()
+    {
+        Task{
+            do{
+                
+                _ = try await JsonFetcher.SendPostingResultsAsync(hrEmpId: hrempid)
+                
+                
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
     
+    @objc func fetchRoute()
+    {
 
-
-    
-    
+    }
+    @objc func fetchStats()
+    {
+        Task{
+                           
+               await loadStats()
+                
+        }
+    }
     @IBAction func btnMyRoutesClick(_ sender: Any) {
         performSegue(withIdentifier: "showRoutes", sender: nil)
         splitViewController?.hide(.primary)
         
     }
-    func loadProactiveList(){
+    func loadProactiveList() async{
         
-        Task{
+      
             
             do{
                 proactiveList = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
@@ -140,18 +172,17 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             
             
             do{
-                //proactiveList = try await DataUtilities.getProactiveRetentionList(hrempid: hrempid)
+             //   proactiveList = try await DataUtilities.getProactiveRetentionList(hrempid: hrempid)
             }catch{
                 print(error)
             }
             
             
-        }
-           
+        
         
     }
-    func loadHomeGPS(){
-        Task {
+    func loadHomeGPS() async{
+       
             
             do{
               
@@ -166,14 +197,14 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             }
             
             
-        }
+       
     }
     
     
-    func loadStats(){
+    func loadStats() async{
         
         
-        Task {
+   
             
             do {
                 
@@ -220,9 +251,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
                 print("Request failed with error: \(error)")
             }
             
-        }
-        
-        
+   
         
         
         
@@ -231,7 +260,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
     }
     
-    func loadPhotos(){
+    func loadPhotos() async{
         
         
         //self.view.makeToastActivity(.center)
@@ -239,10 +268,10 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         
         
-        Task {
+  
+        do{
             
-            do {
-                
+     
                 photoList = try await JsonFetcher.fetchExcelentPhotosAsync(hrempid: "")
                 
                 // Update collection view content
@@ -251,12 +280,11 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
                 //HUD.hide(true)
                 self.view.hideToastActivity()
                 
-            } catch {
-                print("Request failed with error: \(error)")
-            }
-            
+
+        }catch{
+            print(error)
+            self.view.hideToastActivity()
         }
-        
         
         
         
@@ -455,6 +483,20 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
+    
+    @IBAction func btnTabMap(_ sender: Any) {
+        
+        performSegue(withIdentifier: "showMap", sender: nil)
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     @IBAction func myPhotosClick(_ sender: Any) {
         
         performSegue(withIdentifier: "showMyPhotos", sender: nil)   
@@ -483,7 +525,24 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         //showRetentionList
         
         
-        performSegue(withIdentifier: "showRetentionList", sender: nil)
+        let customView = self.storyboard?.instantiateViewController(withIdentifier: "viewRetentionLists") as? viewRetentionList
+        
+        customView?.hrempid = hrempid;
+        customView?.plist = proactiveList
+        
+        //customView.istoday = 1;
+
+        
+        customView?.modalTransitionStyle = .coverVertical
+        customView?.modalPresentationStyle = .pageSheet
+        
+
+        
+        self.present(customView!,animated:true, completion:nil)
+        
+        
+        
+      //  performSegue(withIdentifier: "showRetentionList", sender: nil)
         
         
         
@@ -572,11 +631,19 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBAction func btnServiceSnapShot(_ sender: Any) {
         
+        
+        tabUrl = "https://servicesnapshot.bulwarkapp.com?&hrempid=" + hrempid
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showWeb", sender: nil)
+        
+        
+        
+        
         //fbf test
         
         
         //viewFBFSearch* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewFBFSearch"];
-        
+       /*
         let customView = self.storyboard?.instantiateViewController(withIdentifier: "viewFBFSearch") as? viewFBFSearch
         
         customView?.HrEmpId = hrempid;
@@ -596,7 +663,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         self.present(customView!,animated:true, completion:nil)
         
-        
+        */
         
         
         
@@ -612,9 +679,13 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
 }
 extension viewDashboard:StopSelectionDelegate{
-    func routeLoaded(ms: [MapStop]) {
+    func routeLoaded(ms: [MapStop], routeNotes: String, routeprogress: String) {
         mapStops = ms
+        txtRouteNotes.text = routeNotes
+        lblRouteProgress.text = routeprogress
     }
+    
+
     
     
     func stopSelected(selectedRouteStop: RouteStop){
@@ -632,6 +703,7 @@ extension viewDashboard:StopSelectionDelegate{
         performSegue(withIdentifier: "showRoutes", sender: nil)
         splitViewController?.hide(.primary)
     }
+    
 
     
 }

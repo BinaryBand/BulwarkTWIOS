@@ -266,21 +266,24 @@ import WebKit
                     let param = urlparams?[2] ?? Utilities.CurrentDateString()
                     
                     _ = DataUtilities.saveCurrentRouteDate(dateStr: param)
-                    self.dismiss(animated: true, completion: nil)
                     
-                    Task {
+                    
+                Task {
                         do{
                             _ = try await JsonFetcher.fetchRouteStopsAsync(rdate: param, hrEmpId: appDelegate.hrEmpId)
                             
                             print("Route Updated--ViewRoutes")
                         }catch{
                             print(error)
+                            //self.dismiss(animated: true, completion: nil)
+                            
                         }
-                       
+                      
                     }
                     //paramsToPass = param
                     //performSegue(withIdentifier: "showPosting", sender: nil)
-                    
+                  
+                   self.dismiss(animated: true, completion: nil)
                 }
                     
                 

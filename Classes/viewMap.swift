@@ -126,7 +126,37 @@ class viewMap: UIViewController {
                 let pin = MyPointAnnotation()
                 pin.title = p.address
                 pin.subtitle = "Proactive"
-                pin.identifier = 10
+                
+                
+                var tid = 10;
+                
+                if p.typeId == 1{
+                    // 31 Dormant
+                    tid = 10;
+                    
+                }
+                
+                if p.typeId == 2{
+                    // 31 Proactive
+                    tid = 11;
+                    
+                }
+                if p.typeId == 3{
+                    // RR Extra
+                    tid = 12;
+                    
+                }
+                if p.typeId == 4{
+                    // RR Going Dormant
+                    tid = 13;
+                    
+                }
+                
+                
+                
+                pin.identifier = tid
+                
+                
                 pin.stopNumber = 0
                 pin.coordinate = coord
                 pin.proactiveAcct = p
@@ -144,15 +174,32 @@ class viewMap: UIViewController {
         let anno = map.annotations
         
         for a in anno{
-            if a is MyPointAnnotation{
+            if let p = a as? MyPointAnnotation{
                 
-                if a.subtitle == "Proactive"{
+                if p.identifier == 10 {
                     
                     map.removeAnnotation(a)
                     
                     
                 }
-                
+                if p.identifier == 11 {
+                    
+                    map.removeAnnotation(a)
+                    
+                    
+                }
+                if p.identifier == 12 {
+                    
+                    map.removeAnnotation(a)
+                    
+                    
+                }
+                if p.identifier == 13 {
+                    
+                    map.removeAnnotation(a)
+                    
+                    
+                }
             }
             
             
@@ -169,16 +216,17 @@ class viewMap: UIViewController {
                 var stpnum = 1
                 
                 
-                
+                let hlat = homegps?.lat ?? 0
+                let hlon = homegps?.lon ?? 0
                 
                 var lastcoord = CLLocationCoordinate2D(
                     latitude: 0,
                     longitude: 0
                 )
                 
-                if homegps?.lat != 0{
-                    lastcoord.latitude = homegps?.lat ?? 0
-                    lastcoord.longitude = homegps?.lon ?? 0
+                if hlat != 0{
+                    lastcoord.latitude = hlat
+                    lastcoord.longitude = hlon
                     
                     let pin = MyPointAnnotation()
                     pin.title = homegps?.address
@@ -262,8 +310,12 @@ class viewMap: UIViewController {
                     
                     
                 }
-                if homegps?.lat != 0 {
-                    let hcoord = CLLocationCoordinate2D(latitude: homegps!.lat, longitude: homegps!.lon)
+                
+        
+                
+                
+                if hlat != 0 {
+                    let hcoord = CLLocationCoordinate2D(latitude: hlat, longitude: hlon)
                     
                     if lastcoord.latitude != 0.0 {
                         
@@ -405,7 +457,46 @@ extension viewMap : MKMapViewDelegate {
                 view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
                 view.markerTintColor = .purple
                 view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "circle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }else if annotation.identifier == 11{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .purple
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "square.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }else if annotation.identifier == 12{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .magenta
+                view.displayPriority = .required// Background color of the balloon shape pin
                 view.glyphImage = UIImage(systemName: "star.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }else if annotation.identifier == 13{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .magenta
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "triangle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
                  //view.glyphText = annotation.stopNumber.toString() // Text instead of image
                 view.glyphTintColor = .white // The color of the image if this is a icon
                 view.canShowCallout = true
@@ -425,12 +516,12 @@ extension viewMap : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKGradientPolylineRenderer(overlay: overlay)
         renderer.setColors([
-            UIColor(red: 0.02, green: 0.91, blue: 0.05, alpha: 1.00),
-            UIColor(red: 1.00, green: 0.48, blue: 0.00, alpha: 1.00),
+            UIColor(red: 0.02, green: 0.70, blue: 0.25, alpha: 1.00),
+            UIColor(red: 1.00, green: 0.00, blue: 0.41, alpha: 1.00),
             UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 1.00)
         ], locations: [])
         renderer.lineCap = .round
-        renderer.lineWidth = 3.0
+        renderer.lineWidth = 4.0
     return renderer
     }
     
@@ -439,6 +530,24 @@ extension viewMap : MKMapViewDelegate {
       if let atmPin = view.annotation as? MyPointAnnotation
         {
           if atmPin.identifier == 10{
+              anotherViewController.hrEmpId = appDelegate.hrEmpId
+              anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
+              anotherViewController.useCookie = false
+              anotherViewController.title = atmPin.proactiveAcct?.accountNumber
+          }
+          if atmPin.identifier == 11{
+              anotherViewController.hrEmpId = appDelegate.hrEmpId
+              anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
+              anotherViewController.useCookie = false
+              anotherViewController.title = atmPin.proactiveAcct?.accountNumber
+          }
+          if atmPin.identifier == 12{
+              anotherViewController.hrEmpId = appDelegate.hrEmpId
+              anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
+              anotherViewController.useCookie = false
+              anotherViewController.title = atmPin.proactiveAcct?.accountNumber
+          }
+          if atmPin.identifier == 13{
               anotherViewController.hrEmpId = appDelegate.hrEmpId
               anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
               anotherViewController.useCookie = false

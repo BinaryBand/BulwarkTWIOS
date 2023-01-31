@@ -35,7 +35,7 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
         
         self.view.layer.borderWidth = 2
         self.view.layer.borderColor = UIColor.darkGray.cgColor
-        self.view.layer.cornerRadius = 15
+        self.view.layer.cornerRadius = 9
         //tableView.layer.cornerRadius = 15
         
         tableView.delegate = self

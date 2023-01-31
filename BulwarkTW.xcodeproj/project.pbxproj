@@ -63,6 +63,8 @@
 		B3574A122984A244006DC9E2 /* viewMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3574A112984A244006DC9E2 /* viewMap.swift */; };
 		B3574A162985CBD8006DC9E2 /* SPHomeGps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3574A152985CBD8006DC9E2 /* SPHomeGps.swift */; };
 		B3574A18298623D8006DC9E2 /* ProactiveItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3574A17298623D8006DC9E2 /* ProactiveItems.swift */; };
+		B3574A1A2988C89A006DC9E2 /* viewRetentionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3574A192988C89A006DC9E2 /* viewRetentionList.swift */; };
+		B3574A1C2988D291006DC9E2 /* ProactiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3574A1B2988D291006DC9E2 /* ProactiveCell.swift */; };
 		B36D89FB1C0268F800A5F7DB /* viewMissedClockOut.m in Sources */ = {isa = PBXBuildFile; fileRef = B36D89F91C0268F800A5F7DB /* viewMissedClockOut.m */; };
 		B36D89FC1C0268F800A5F7DB /* viewMissedClockOut.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36D89FA1C0268F800A5F7DB /* viewMissedClockOut.xib */; };
 		B36EC1B71A64887600F53D78 /* BLEDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B36EC1B01A64887600F53D78 /* BLEDevice.m */; };
@@ -204,6 +206,8 @@
 		B3574A112984A244006DC9E2 /* viewMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMap.swift; sourceTree = "<group>"; };
 		B3574A152985CBD8006DC9E2 /* SPHomeGps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPHomeGps.swift; sourceTree = "<group>"; };
 		B3574A17298623D8006DC9E2 /* ProactiveItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProactiveItems.swift; sourceTree = "<group>"; };
+		B3574A192988C89A006DC9E2 /* viewRetentionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRetentionList.swift; sourceTree = "<group>"; };
+		B3574A1B2988D291006DC9E2 /* ProactiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProactiveCell.swift; sourceTree = "<group>"; };
 		B36D89F81C0268F800A5F7DB /* viewMissedClockOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewMissedClockOut.h; sourceTree = "<group>"; };
 		B36D89F91C0268F800A5F7DB /* viewMissedClockOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = viewMissedClockOut.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B36D89FA1C0268F800A5F7DB /* viewMissedClockOut.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = viewMissedClockOut.xib; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 				B33229B9297A08B6008ECE5B /* viewRouteStop.swift */,
 				B33229BB297AFA51008ECE5B /* viewPosting.swift */,
 				B3574A112984A244006DC9E2 /* viewMap.swift */,
+				B3574A192988C89A006DC9E2 /* viewRetentionList.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 				B3CDC5902919AD55008957B1 /* FBFCell.swift */,
 				B3CDC618292C11B2008957B1 /* PhotoCell.swift */,
 				B343203329663CAF005CFD18 /* MyPhotosCell.swift */,
+				B3574A1B2988D291006DC9E2 /* ProactiveCell.swift */,
 			);
 			name = tableCells;
 			sourceTree = "<group>";
@@ -692,6 +698,7 @@
 				B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */,
 				B3CDC59A2927100F008957B1 /* AddToRouteParams.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				B3574A1C2988D291006DC9E2 /* ProactiveCell.swift in Sources */,
 				B3122E8727DA88410003C75D /* viewMyPay.swift in Sources */,
 				B3574A18298623D8006DC9E2 /* ProactiveItems.swift in Sources */,
 				B34320362966630C005CFD18 /* viewMyPhoto.swift in Sources */,
@@ -755,6 +762,7 @@
 				B33229BC297AFA51008ECE5B /* viewPosting.swift in Sources */,
 				B3574A162985CBD8006DC9E2 /* SPHomeGps.swift in Sources */,
 				B3432079296C7D78005CFD18 /* LTBTLEWriteCharacteristicStream.m in Sources */,
+				B3574A1A2988C89A006DC9E2 /* viewRetentionList.swift in Sources */,
 				B34F6D1D293A659800CFBC8F /* stringFetcher.swift in Sources */,
 				B3432074296C7D78005CFD18 /* LTOBD2Mode6TestResult.m in Sources */,
 				E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */,
@@ -816,7 +824,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/BulwarkTW-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
@@ -867,7 +875,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/BulwarkTW-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -961,7 +969,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/BulwarkTW-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Bulwark;

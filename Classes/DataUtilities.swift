@@ -32,14 +32,28 @@ struct DataUtilities {
         
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             
-            let fileURL = dir.appendingPathComponent("services").appendingPathComponent(uniqueFileName())
+            let fileURL = dir.appendingPathComponent("services")
             //let fileName = uniqueFileName()
+            
+            if !FileManager.default.fileExists(atPath: fileURL.path) { //if does not exist
+                    do {
+                        try FileManager.default.createDirectory(atPath: fileURL.path, withIntermediateDirectories: false, attributes: nil) //Create folder
+                    } catch {
+                        print(error)
+                    }
+                }
+
+            let rtfile = fileURL.appendingPathComponent(uniqueFileName())
+            
+            
+            
             //writing
              do {
-             try UrlToSave.write(to: fileURL, atomically: true, encoding: .utf8)
+             try UrlToSave.write(to: rtfile, atomically: true, encoding: .utf8)
                  return true
              }
              catch {
+                 print(error)
                 let fal = false
                  return fal
                  
@@ -125,8 +139,7 @@ struct DataUtilities {
     
     static func getRouteStopListFromFile() -> [RouteStop]{
         
-        let rl = [RouteStop]()
-   
+        let rl : [RouteStop] = []
         
        if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
            let pathWithFileName = documentDirectory.appendingPathComponent("routes").appendingPathComponent("current.json")
@@ -282,7 +295,7 @@ struct DataUtilities {
                         let tthours =  seconds / 3600
                         
                         
-                        if tthours > 48 {
+                        if tthours > 4 {
                             
                             let list = try await JsonFetcher.fetchEmployeeHomeJson(hrEmpId: hrempid)
                             return list

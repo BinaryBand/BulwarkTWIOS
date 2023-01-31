@@ -29,4 +29,5 @@ struct ProactiveAccount: Codable {
     var routeId       : Int?
     var contacted     : Bool?
     var workOrderId   : Int?
+    var typeId        : Int?
 }
