@@ -6,8 +6,27 @@
 //
 
 import Foundation
+import Toast
 struct Utilities {
     
+    
+    
+    static func haversine(lat1:Double, lon1:Double, lat2:Double, lon2:Double) -> Double {
+        let lat1rad = lat1 * Double.pi/180
+        let lon1rad = lon1 * Double.pi/180
+        let lat2rad = lat2 * Double.pi/180
+        let lon2rad = lon2 * Double.pi/180
+        
+        let dLat = lat2rad - lat1rad
+        let dLon = lon2rad - lon1rad
+        let a = sin(dLat/2) * sin(dLat/2) + sin(dLon/2) * sin(dLon/2) * cos(lat1rad) * cos(lat2rad)
+        let c = 2 * asin(sqrt(a))
+        let R = 3959.0
+        
+        return R * c
+    }
+
+
     static func CurrentDateString() -> String {
         
         var formatter: DateFormatter?
@@ -67,6 +86,20 @@ struct Utilities {
         }
         
             
+        
+        
+    }
+    
+    
+    static func toastStyleCheckmark() -> ToastStyle{
+        var style = ToastStyle()
+        style.titleFont = UIFont(name: "Arial-BoldMT", size: 14)!
+        style.messageFont = UIFont(name: "ArialMT", size: 12)!
+        //style.messageColor = UIColor.yellow
+        style.messageAlignment = .center
+        style.imageSize = CGSize(width: 50, height: 45)
+        style.backgroundColor = UIColor(red: 62.0 / 255.0, green: 128.0 / 255.0, blue: 180.0 / 255.0, alpha: 0.9)
+        return style
         
         
     }
@@ -147,4 +180,50 @@ public extension Int {
     
 }
 
-
+extension Calendar {
+  func startOfDay(byAdding component: Calendar.Component,
+                value: Int,
+                to date: Date,
+                wrappingComponents: Bool = false) -> Date? {
+    guard let newDate = self.date(byAdding: component,
+                                  value: value,
+                                  to: date,
+              wrappingComponents: wrappingComponents) else {
+        return nil
+    }
+    return self.startOfDay(for: newDate)
+  }
+    
+    func startOfDay(in days: Int) -> Date? {
+      return self.startOfDay(byAdding: .day,
+                             value: days,
+                             to: Date())
+    }
+    
+    
+}
+ extension UIAlertController {
+    func showAlert(animated: Bool = true, completionHandler: (() -> Void)? = nil) {
+        guard let rootVC = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene)?.keyWindow }).first?.rootViewController else {
+            return
+        }
+        rootVC.present(self, animated: animated, completion: completionHandler)
+    }
+}
+extension URLRequest {
+    init?(urlStr: String, hrempid:String, jsonData: Data){
+        
+        let tempurl = URL(string: urlStr)!
+        
+        var tempRequest = URLRequest(
+            url: tempurl
+        )
+        
+        tempRequest.httpBody = jsonData
+        tempRequest.httpMethod = "POST"
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        self = tempRequest
+        return
+    }
+}

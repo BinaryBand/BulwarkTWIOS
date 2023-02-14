@@ -19,6 +19,12 @@
 		B3122E8527DA77700003C75D /* viewRouteMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3122E8427DA77700003C75D /* viewRouteMap.swift */; };
 		B3122E8727DA88410003C75D /* viewMyPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3122E8627DA88410003C75D /* viewMyPay.swift */; };
 		B3122E8927DAAFAF0003C75D /* viewRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3122E8827DAAFAF0003C75D /* viewRoutes.swift */; };
+		B32AD0A4298D70CA00F1154D /* viewTimePunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32AD0A3298D70CA00F1154D /* viewTimePunch.swift */; };
+		B32AD0A6298D748000F1154D /* TimePunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32AD0A5298D748000F1154D /* TimePunch.swift */; };
+		B32AD0A829915B8A00F1154D /* StartOffTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32AD0A729915B8A00F1154D /* StartOffTimeCell.swift */; };
+		B32AD0AA29916AAA00F1154D /* isTerritorySteward.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32AD0A929916AAA00F1154D /* isTerritorySteward.swift */; };
+		B32AD0AC29919D5600F1154D /* FastComm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32AD0AB29919D5600F1154D /* FastComm.swift */; };
+		B32AD0AE2991D46100F1154D /* FastCommModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32AD0AD2991D46100F1154D /* FastCommModels.swift */; };
 		B33229BA297A08B6008ECE5B /* viewRouteStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33229B9297A08B6008ECE5B /* viewRouteStop.swift */; };
 		B33229BC297AFA51008ECE5B /* viewPosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33229BB297AFA51008ECE5B /* viewPosting.swift */; };
 		B337A8E71C64FD2D00FBEE18 /* cancel_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B337A8E61C64FD2D00FBEE18 /* cancel_filled-50.png */; };
@@ -77,7 +83,7 @@
 		B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */; };
 		B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */; };
 		B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */; };
-		B3A64D0C296CFBFA000D1C0B /* AuthCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A64D0B296CFBFA000D1C0B /* AuthCookie.swift */; };
+		B3A64D0C296CFBFA000D1C0B /* ApiPostObjs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A64D0B296CFBFA000D1C0B /* ApiPostObjs.swift */; };
 		B3A64D0E296D020E000D1C0B /* AuthCookieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A64D0D296D020E000D1C0B /* AuthCookieResult.swift */; };
 		B3AE2E4229650A3F0026F911 /* ExcelentPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AE2E4129650A3F0026F911 /* ExcelentPhotos.swift */; };
 		B3AE2E4429652F900026F911 /* viewPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AE2E4329652F900026F911 /* viewPhoto.swift */; };
@@ -138,6 +144,12 @@
 		B3122E8627DA88410003C75D /* viewMyPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMyPay.swift; sourceTree = "<group>"; };
 		B3122E8827DAAFAF0003C75D /* viewRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRoutes.swift; sourceTree = "<group>"; };
 		B31BCA252908529B00253D52 /* FastCommCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCommCell.swift; sourceTree = "<group>"; };
+		B32AD0A3298D70CA00F1154D /* viewTimePunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTimePunch.swift; sourceTree = "<group>"; };
+		B32AD0A5298D748000F1154D /* TimePunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePunch.swift; sourceTree = "<group>"; };
+		B32AD0A729915B8A00F1154D /* StartOffTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOffTimeCell.swift; sourceTree = "<group>"; };
+		B32AD0A929916AAA00F1154D /* isTerritorySteward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isTerritorySteward.swift; sourceTree = "<group>"; };
+		B32AD0AB29919D5600F1154D /* FastComm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastComm.swift; sourceTree = "<group>"; };
+		B32AD0AD2991D46100F1154D /* FastCommModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCommModels.swift; sourceTree = "<group>"; };
 		B33229B9297A08B6008ECE5B /* viewRouteStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRouteStop.swift; sourceTree = "<group>"; };
 		B33229BB297AFA51008ECE5B /* viewPosting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPosting.swift; sourceTree = "<group>"; };
 		B337A8E61C64FD2D00FBEE18 /* cancel_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_filled-50.png"; sourceTree = "<group>"; };
@@ -228,7 +240,7 @@
 		B39FD19B1DF9C50F009DB4B5 /* BulwarkTW.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BulwarkTW.entitlements; sourceTree = "<group>"; };
 		B3A0300F1AA8288D0097AACD /* BulwarkTW-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BulwarkTW-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPopupWeb.swift; sourceTree = "<group>"; };
-		B3A64D0B296CFBFA000D1C0B /* AuthCookie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCookie.swift; sourceTree = "<group>"; };
+		B3A64D0B296CFBFA000D1C0B /* ApiPostObjs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPostObjs.swift; sourceTree = "<group>"; };
 		B3A64D0D296D020E000D1C0B /* AuthCookieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCookieResult.swift; sourceTree = "<group>"; };
 		B3AE2E4129650A3F0026F911 /* ExcelentPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcelentPhotos.swift; sourceTree = "<group>"; };
 		B3AE2E4329652F900026F911 /* viewPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPhoto.swift; sourceTree = "<group>"; };
@@ -492,6 +504,7 @@
 				B33229BB297AFA51008ECE5B /* viewPosting.swift */,
 				B3574A112984A244006DC9E2 /* viewMap.swift */,
 				B3574A192988C89A006DC9E2 /* viewRetentionList.swift */,
+				B32AD0A3298D70CA00F1154D /* viewTimePunch.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -504,13 +517,16 @@
 				B3CDC5992927100F008957B1 /* AddToRouteParams.swift */,
 				B3CDC60429271479008957B1 /* AddUpdateApiResult.swift */,
 				B3AE2E4129650A3F0026F911 /* ExcelentPhotos.swift */,
-				B3A64D0B296CFBFA000D1C0B /* AuthCookie.swift */,
+				B3A64D0B296CFBFA000D1C0B /* ApiPostObjs.swift */,
 				B3A64D0D296D020E000D1C0B /* AuthCookieResult.swift */,
 				B30F469F297B6BB4008748E9 /* PrintSend.swift */,
 				B3574A0B2983278A006DC9E2 /* DashStats.swift */,
 				B3574A0F2984A1D7006DC9E2 /* MapStops.swift */,
 				B3574A152985CBD8006DC9E2 /* SPHomeGps.swift */,
 				B3574A17298623D8006DC9E2 /* ProactiveItems.swift */,
+				B32AD0A5298D748000F1154D /* TimePunch.swift */,
+				B32AD0A929916AAA00F1154D /* isTerritorySteward.swift */,
+				B32AD0AD2991D46100F1154D /* FastCommModels.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -525,6 +541,7 @@
 				B3CDC618292C11B2008957B1 /* PhotoCell.swift */,
 				B343203329663CAF005CFD18 /* MyPhotosCell.swift */,
 				B3574A1B2988D291006DC9E2 /* ProactiveCell.swift */,
+				B32AD0A729915B8A00F1154D /* StartOffTimeCell.swift */,
 			);
 			name = tableCells;
 			sourceTree = "<group>";
@@ -537,6 +554,7 @@
 				B3CDC597291C9031008957B1 /* XOREncrypt.swift */,
 				B34F6D1C293A659800CFBC8F /* stringFetcher.swift */,
 				B30F46A1297EEE78008748E9 /* DataUtilities.swift */,
+				B32AD0AB29919D5600F1154D /* FastComm.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -686,6 +704,7 @@
 				B337A93C1C73EDB300FBEE18 /* viewSettings.m in Sources */,
 				B3B7F79228DBA16400B8F1F2 /* FBFSearch.swift in Sources */,
 				B33C58101CBC887F00CE2C72 /* viewDriving.m in Sources */,
+				B32AD0A4298D70CA00F1154D /* viewTimePunch.swift in Sources */,
 				B3B7F79428DBA47100B8F1F2 /* viewFBFSearch.swift in Sources */,
 				B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */,
 				B30F46A6297F66A9008748E9 /* Utilities.swift in Sources */,
@@ -709,7 +728,9 @@
 				B3574A122984A244006DC9E2 /* viewMap.swift in Sources */,
 				B3CDC6132928522E008957B1 /* UIView+Toast.m in Sources */,
 				B352E35A2907770600FF55DD /* RouteNotesCell.swift in Sources */,
+				B32AD0AE2991D46100F1154D /* FastCommModels.swift in Sources */,
 				B343206E296C7D78005CFD18 /* LTOBD2ProtocolISO9141_2.m in Sources */,
+				B32AD0A6298D748000F1154D /* TimePunch.swift in Sources */,
 				B3432032296638BC005CFD18 /* viewMyPhotos.swift in Sources */,
 				B3574A0C2983278A006DC9E2 /* DashStats.swift in Sources */,
 				B3CDC58F2911DFCB008957B1 /* FastCommCell.swift in Sources */,
@@ -749,10 +770,12 @@
 				B343206B296C7D78005CFD18 /* LTOBD2O2Sensor.m in Sources */,
 				B3CDC5912919AD55008957B1 /* FBFCell.swift in Sources */,
 				B36D89FB1C0268F800A5F7DB /* viewMissedClockOut.m in Sources */,
+				B32AD0AC29919D5600F1154D /* FastComm.swift in Sources */,
 				B3432073296C7D78005CFD18 /* LTOBD2AdapterCaptureFile.m in Sources */,
 				B352E3542907443200FF55DD /* RouteStopCell.swift in Sources */,
+				B32AD0A829915B8A00F1154D /* StartOffTimeCell.swift in Sources */,
 				B343206C296C7D78005CFD18 /* LTVIN.m in Sources */,
-				B3A64D0C296CFBFA000D1C0B /* AuthCookie.swift in Sources */,
+				B3A64D0C296CFBFA000D1C0B /* ApiPostObjs.swift in Sources */,
 				B38AA54A1C56A83900283461 /* viewReports.m in Sources */,
 				B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */,
 				B352E3572907521000FF55DD /* RouteStop.swift in Sources */,
@@ -768,6 +791,7 @@
 				E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */,
 				B3432075296C7D78005CFD18 /* LTSupportAutomotive.m in Sources */,
 				B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */,
+				B32AD0AA29916AAA00F1154D /* isTerritorySteward.swift in Sources */,
 				B3A64D0E296D020E000D1C0B /* AuthCookieResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

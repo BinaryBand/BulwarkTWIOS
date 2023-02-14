@@ -9,6 +9,6 @@ import Foundation
 
 struct AddUpdateApiResult: Codable{
     
-    var Success: Bool
-    var Error: String
+    var success: Bool
+    var error: String
 }

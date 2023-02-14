@@ -50,21 +50,22 @@ class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
         refController.bounds = CGRect.init(x: 0.0, y: 50.0, width: refController.bounds.size.width, height: refController.bounds.size.height)
         refController.addTarget(self, action: #selector(self.webviewRefresh(refresh:)), for: .valueChanged)
         webView.scrollView.addSubview(refController)
+        let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+        let h = appDelegate.hrEmpId ?? ""
+        let urlstr = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/salesstats?ipad=yes&h=" + h
+        //let url = URL(string: "https://fbf2.bulwarkapp.com/mgrapp2/salesstats.aspx?h=" + h)!
         
-        
-        
-        
+        let url = URL(string: urlstr)!
+        webView.load(URLRequest(url: url))
 
     }
     
 
     override func viewWillAppear(_ animated: Bool) {
         
-        let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
-        let h = appDelegate.hrEmpId ?? ""
         
-        let url = URL(string: "https://fbf2.bulwarkapp.com/mgrapp2/salesstats.aspx?h=" + h)!
-        webView.load(URLRequest(url: url))
+        
+        
         
         
     }
@@ -97,7 +98,69 @@ class viewMySales: UIViewController,WKNavigationDelegate,WKUIDelegate {
         showActivityIndicator(show: false)
     }
     
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        
+        if let url = navigationAction.request.url {
+            
+            let urlStr = url.absoluteString
+            
+            if urlStr.starts(with: "bulwarktwsales"){
+                
+                
+                let urlparams = urlStr.components(separatedBy: "?")
+                
+                if urlparams.count > 2{
+                    let dpage = Double(urlparams[1])
+                    
+                    //let param = urlparams[2]
+                    
+                    
+                    
+                    if dpage == 3 {
+                        performSegue(withIdentifier: "showAKInfo", sender: nil)
+                        
+                    }
+                    
+                    
+                }
+                
+            
+            
+            // guard
+            //     let component = URLComponents(string: url.absoluteString),
+            // let account = component.queryItems?.first(where: { $0.name == "accountnumber" })?.value,
+            // let routestopid = component.queryItems?.first(where: { $0.name == "routestopid" })?.value,
+            // let hrempid = component.queryItems?.first(where: { $0.name == "hr_emp_id" })?.value
+            // let servicetypecode = component.queryItems?.first(where: { $0.name == "hr_emp_id" })?.value
+            
+            // else {
+            //        return
+            //    }
+            
+            
+            
+            decisionHandler(.cancel)
+            return
+        }
+        
+    }
+            
+        
+        
+        
+        decisionHandler(.allow)
+              
+        
+        
+
+    }
     
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+       
+
+        decisionHandler(.allow)
+    }
     /*
     // MARK: - Navigation
 

@@ -19,7 +19,7 @@ struct ProactiveAccount: Codable {
     var lastService   : String?
     var lat           : Double?
     var lon           : Double?
-    var distance      : Int?
+    var distance      : Double?
     var needs         : String?
     var status        : String?
     var detailsUrl    : String?
@@ -30,4 +30,9 @@ struct ProactiveAccount: Codable {
     var contacted     : Bool?
     var workOrderId   : Int?
     var typeId        : Int?
+}
+extension ProactiveAccount: Comparable {
+    static func <(lhs: ProactiveAccount, rhs: ProactiveAccount) -> Bool {
+        lhs.distance ?? -100 < rhs.distance ?? -100
+    }
 }

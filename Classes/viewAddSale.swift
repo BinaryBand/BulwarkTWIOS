@@ -14,7 +14,7 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
     @IBOutlet var webView : WKWebView!
     //var HUD: MBProgressHUD!
     var mapDate:String?
-    
+    var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +84,10 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 
                 let tempurl = URL(string: "https://pro.tem-pest.com/login.php")!
                 
+                //https://pro.tem-pest.com/lookup/?sm=7220&cid=new
+                
+               // let tempurl = URL(string: "https://pro.tem-pest.com/lookup/?sm=7220&cid=564552")!
+                
                 var tempRequest = URLRequest( //2
                     url: tempurl
                 )
@@ -101,7 +105,13 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 webView.load(tempRequest)
                 
                 
-                
+                Utilities.delay(bySeconds: 25){
+                   // let tempurl1 = URL(string: "https://pro.tem-pest.com/lookup/?sm=7220&cid=564552")!
+                    //self.webView.load(URLRequest(url: tempurl1))
+                }
+                Utilities.delay(bySeconds: 45){
+                   // self.displayAlert()
+                }
                 
                 
             } catch {
@@ -135,12 +145,51 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         showActivityIndicator(show: false)
         
-       // let urlStr = webView.url?.absoluteString
-        /*
+        let urlStr = webView.url?.absoluteString
+        
         if ((urlStr?.localizedCaseInsensitiveContains("lookup")) == true){
         
-            //let scriptSource = "document.body.style.backgroundColor = `red`;"
             
+            
+            webView.evaluateJavaScript("document.getElementById('VG_NewCustId').value") {(result, error) in
+                   guard error == nil else {
+                      // print(error!)
+                       return
+                   }
+                   
+                if let cid = result as? String {
+                       
+                    print(cid)
+                    
+                    
+                    if cid != "" {
+                        self.displayScheduleContractAlert(customerId: cid, serviceType: "IS")
+                    }
+                    
+                    }
+                
+               }
+            
+            
+            Utilities.delay(bySeconds: 0.3)
+            {
+                
+                        webView.evaluateJavaScript("$('#serviceAgreementIpad').modal('hide');") {(result, error) in
+                   guard error == nil else {
+                      // print(error!)
+                       return
+                   }
+                   
+               
+                
+               }
+            }
+            //
+            
+            
+            
+            //let scriptSource = "document.body.style.backgroundColor = `red`;"
+            /*
             var script = "document.querySelector('body > div.page-content.pt-0 > div.sidebar.sidebar-light.sidebar-main.sidebar-expand-md.align-self-start').style.display = 'none'; document.querySelector('body > div.navbar.navbar-expand-md.navbar-dark').style.display = 'none';  document.querySelector('body > div.page-header').style.display = 'none';  document.querySelector('body > div.navbar.navbar-expand-lg.navbar-light').style.display = 'none';  document.getElementById('endeavorBtn').style.display = 'none';  document.getElementById('SendQuote').style.display = 'none';  document.getElementById('NearLocation').style.display = 'none';  document.getElementById('Address').removeAttribute('onfocus');"
             
             let script2 = "document.querySelector('body > div.navbar.navbar-expand-lg.navbar-light').style.display = 'none';"
@@ -153,9 +202,9 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
            webView.evaluateJavaScript(script, completionHandler: { (object, error) in
                 
             })
-            
+            */
         }
-        */
+        
             
             //urlStr is what you want
         
@@ -186,6 +235,10 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
 
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
 
+        if !message.starts(with: "schedule="){
+            
+        
+        
             let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let title = NSLocalizedString("OK", comment: "OK Button")
             let ok = UIAlertAction(title: title, style: .default) { (action: UIAlertAction) -> Void in
@@ -193,6 +246,7 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
             }
             alert.addAction(ok)
             present(alert, animated: true)
+        }
             completionHandler()
         
         }
@@ -261,8 +315,12 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
         
        // print(headers)
         
+        if let postbody = navigationAction.request.httpBody {
+            print(String(data: postbody, encoding: .utf8) ?? "")
+        }
         
-        let url = navigationAction.request.url;
+        
+        let url = navigationAction.request.url
         
         //print(url)
         
@@ -290,7 +348,170 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
     }
     
     
+    func displayAlert() {
+         // Declare Alert message
+         let dialogMessage = UIAlertController(title: "Schedule?", message: "Do you want to add this account to a route?", preferredStyle: .alert)
+         
+         // Create OK button with action handler
+         let ok = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+             print("Ok button tapped")
+         
+             
+             
+             let customView = self.storyboard?.instantiateViewController(withIdentifier: "viewFBFSearch") as? viewFBFSearch
+             
+             customView?.HrEmpId = "215734";
+             customView?.FromPage = "AddSale"
+             customView?.CustomerId = 376665;
+             customView?.ServiceId = 0;
+             customView?.isNC = true;
+             customView?.accountNumber = "NC-376665";
+             customView?.ServiceType = "IS";
+             //customView.istoday = 1;
 
+             
+             customView?.modalTransitionStyle = .coverVertical
+             customView?.modalPresentationStyle = .pageSheet
+             
+
+             
+             self.present(customView!,animated:true, completion:nil)
+             
+             
+             
+             
+         })
+         
+         // Create Cancel button with action handlder
+         let cancel = UIAlertAction(title: "No", style: .cancel) { (action) -> Void in
+             print("Cancel button tapped")
+         }
+         
+         //Add OK and Cancel button to dialog message
+         dialogMessage.addAction(ok)
+         dialogMessage.addAction(cancel)
+         
+         // Present dialog message to user
+         self.present(dialogMessage, animated: true, completion: nil)
+         
+     }
+    
+    
+    func displayScheduleContractAlert(customerId: String, serviceType: String){
+        
+        
+        webView.evaluateJavaScript("document.getElementById('ServiceAgreementSigned').value") {(result, error) in
+               guard error == nil else {
+                  // print(error!)
+                   return
+               }
+               
+            if let sig = result as? String {
+                   
+                print(sig)
+                
+                
+                if sig != "" {
+                    
+                }
+                
+                
+            
+           
+        
+        
+        let alert = UIAlertController(title: "Sale Saved", message: "", preferredStyle: .actionSheet)
+               
+            
+            
+            if sig != "1" {
+                
+            
+            alert.addAction(UIAlertAction(title: "Sign Contract on Ipad", style: .default, handler: { (_) in
+                    //document.getElementsByTagName('button')[0].click();
+                    
+                    Utilities.delay(bySeconds: 0.1)
+                    { [self] in
+                        
+                                webView.evaluateJavaScript("document.getElementById('OnIpad').click();") {(result, error) in
+                           guard error == nil else {
+                              // print(error!)
+                               return
+                           }
+                           
+                       
+                        
+                       }
+                    }
+                   
+                    
+                    
+                }))
+
+        alert.addAction(UIAlertAction(title: "Text/Email Contract", style: .default, handler: { [self] (_) in
+                    
+            Utilities.delay(bySeconds: 0.1)
+            { [self] in
+                
+                        webView.evaluateJavaScript("document.getElementById('SendNormalAgreement').click();") {(result, error) in
+                   guard error == nil else {
+                      // print(error!)
+                       return
+                   }
+                   
+               
+                
+               }
+            }
+            
+            
+                }))
+                
+            }
+                alert.addAction(UIAlertAction(title: "Schedule Service", style: .default, handler: { [self] (_) in
+                    
+                    let customView = self.storyboard?.instantiateViewController(withIdentifier: "viewFBFSearch") as? viewFBFSearch
+                    
+                    customView?.HrEmpId = appDelegate.hrEmpId;
+                    customView?.FromPage = "AddSale"
+                    customView?.CustomerId = Int(customerId) ?? 0;
+                    customView?.ServiceId = 0;
+                    customView?.isNC = true;
+                    customView?.accountNumber = "NC-" + customerId;
+                    customView?.ServiceType = "IS";
+                    //customView.istoday = 1;
+
+                    
+                    customView?.modalTransitionStyle = .coverVertical
+                    customView?.modalPresentationStyle = .pageSheet
+                    
+
+                    
+                    self.present(customView!,animated:true, completion:nil)
+                    
+            
+            
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (_) in
+                    print("User click Dismiss button")
+                }))
+
+        
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view //to set the source of your alert
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0) // you can set this as per your requirement.
+            popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
+        }
+        
+        
+                self.present(alert, animated: true, completion: {
+                    print("completion block")
+                })
+            }
+        }
+    }
+    
     
     
     // MARK: - Navigation

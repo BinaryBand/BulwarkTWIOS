@@ -10,12 +10,14 @@
 #import <MessageUI/MessageUI.h>
 #import "BulwarkTWAppDelegate.h"
 #import "UIView+Toast.h"
+#import "BulwarkTW-Bridging-Header.h"
 
 
 #import "ViewOne.h"
 
 
 
+@class jsonFetcher;
 
 
 @interface viewSettings : UIViewController  <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,MFMailComposeViewControllerDelegate>{
@@ -36,6 +38,8 @@
     
 
     IBOutlet UIPickerView *picker;
+    
+    viewDashboard *dash;
     
     //IBOutlet WKWebView *webView;
     //IBOutlet WKWebView *PopUpWebView;

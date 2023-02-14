@@ -455,10 +455,10 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
                     //self.tableView.reloadData()
                     
                     //HUD.hide(true)
-                    if(auResult.Success == false){
-                        print(auResult.Error)
+                    if(auResult.success == false){
+                        print(auResult.error)
                         
-                        let msg = "Error adding with reason " + auResult.Error + " Contact the support center to add this service to route"
+                        let msg = "Error adding with reason " + auResult.error + " Contact the support center to add this service to route"
                         
                         let alertController2 = UIAlertController(title: "Error Adding To Route", message: msg, preferredStyle: .alert)
                         alertController2.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in

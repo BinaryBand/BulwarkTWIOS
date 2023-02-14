@@ -185,6 +185,28 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
                 decisionHandler(.cancel)
                 return
             }
+          //  NSString *mapsurllink = [url.absoluteString stringByReplacingOccurrencesOfString:@"comgooglemaps://?q=" withString:@""];
+            
+          //      NSString *Mstring = @"comgooglemaps://?directionsmode=driving&daddr=";
+          //  Mstring = [Mstring stringByAppendingString:mapsurllink];
+            
+            
+            if url.scheme == "comgooglemaps"{
+                
+                var mapparam = url.absoluteString.replacingOccurrences(of: "comgooglemaps://?q=", with: "")
+                
+                let mstr = "comgooglemaps://?directionsmode=driving&daddr=" + mapparam
+                
+                UIApplication.shared.open(URL(string: mstr)!)
+                decisionHandler(.cancel)
+            }
+            
+            if url.scheme == "maps"{
+                UIApplication.shared.open(url)
+                decisionHandler(.cancel)
+            }
+            
+            
             
             
             

@@ -170,6 +170,10 @@ NSString* const LTBTLESerialTransporterDidUpdateSignalStrength = @"LTBTLESerialT
 
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral*)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI
 {
+    NSString* devName = peripheral.name;
+    
+    if([devName containsString:@"OBD"]){
+    
     if ( _adapter )
     {
         LOG( @"[IGNORING] DISCOVER %@ (RSSI=%@) w/ advertisement %@", peripheral, RSSI, advertisementData );
@@ -180,6 +184,8 @@ NSString* const LTBTLESerialTransporterDidUpdateSignalStrength = @"LTBTLESerialT
     [_possibleAdapters addObject:peripheral];
     peripheral.delegate = self;
     [_manager connectPeripheral:peripheral options:nil];
+}
+    
 }
 
 -(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral

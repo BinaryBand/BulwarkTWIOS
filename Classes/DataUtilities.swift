@@ -67,7 +67,8 @@ struct DataUtilities {
         
         
     }
-            
+     
+    
             
             
         
@@ -168,6 +169,86 @@ struct DataUtilities {
         
     }
     
+    static func saveTimePunch(punch:Date, isIn: Bool, hrempid: String) -> String{
+        
+        var type = "2"
+        if isIn{
+            type = "1"
+        }
+        let pt = punch.toString(format: .usDateTime24WithSec)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "1/1/1900"
+        
+        
+        let punchUrl = "https://ipadapp.bulwarkapp.com/Clock.aspx?hr_emp_id=" + hrempid + "&type=" + type + "&time=" + pt
+        
+        SaveTimePunchLocal(punch: punch, isIn: isIn)
+        
+      _ = SaveUrlToPost(UrlToSave: punchUrl);
+        
+        let dateFormatter = DateFormatter()
+         
+        dateFormatter.dateFormat = "h:mm a"
+         
+        let result = dateFormatter.string(from: punch)
+        return result
+        
+    }
+    static func SaveIsTS(ists: Bool){
+        let defaults = UserDefaults.standard
+        
+    defaults.set(Date().timeIntervalSince1970, forKey: "isTSCheck")
+    defaults.set(ists, forKey: "ists")
+ 
+    }
+    static func GetIsTS(hrempid: String) async -> Bool {
+        
+        let defaults = UserDefaults.standard
+        
+        let punchint = defaults.double(forKey: "isTSCheck")
+        let punchdate = Date(timeIntervalSince1970: punchint)
+        let isTS = defaults.bool(forKey: "ists")
+        
+        let now = Date()
+        
+        let differenceInSeconds = now.timeIntervalSince(punchdate)
+        
+        if differenceInSeconds > 86400{ //24 hours
+            do{
+                
+            
+            let t = try await JsonFetcher.fetchIsTerritorySteward(hrEmpId: hrempid)
+                if t.success == 1{
+                    SaveIsTS(ists: t.isTS)
+                    return t.isTS
+                }else{
+                    return false
+                }
+            } catch {
+                print(error)
+                return false
+            }
+        }else{
+            return isTS
+        }
+        
+    }
+    
+    
+    
+    static func SaveTimePunchLocal(punch: Date, isIn: Bool){
+            let defaults = UserDefaults.standard
+            
+        defaults.set(punch.timeIntervalSince1970, forKey: "timePunch")
+        defaults.set(isIn, forKey: "isPunchIn")
+    }
+    
+    static func getLastTimePunch() -> TimePunch{
+        let defaults = UserDefaults.standard
+        
+        let punchint = defaults.double(forKey: "timePunch")
+        let punchdate = Date(timeIntervalSince1970: punchint)
+        let isin = defaults.bool(forKey: "isPunchIn")
+        return TimePunch(punchTime: punchdate, isIn: isin)
+    }
     
     static func saveCurrentRouteDate(dateStr: String) -> Bool {
         

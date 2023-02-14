@@ -74,7 +74,7 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
             cell.fromPage = self.FromPage
             cell.customer_id = self.CustomerId
             cell.service_id = self.ServiceId
-            cell.isNC = false
+            cell.isNC = isNC
             
             
             
@@ -106,7 +106,7 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
           
             cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy+HH:mm"))
             cell.route_id = fbfList[indexPath.row].route_id
-            
+            cell.isNC = isNC
                       
             cell.lblWeekDay.text = "Today"
             cell.lblDate.text = "My Route"
@@ -124,7 +124,7 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
             cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy+HH:mm"))
             cell.route_id = fbfList[indexPath.row].route_id
             
-                      
+            cell.isNC = isNC
             cell.lblWeekDay.text = "err"
             cell.lblDate.text = "err"
             cell.lblTitle.text = "err"
@@ -155,6 +155,7 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
         //appDelegate.viewSched = self
        
 
+        acctLabel.text = "Account:" + accountNumber + "  " + ServiceType
         
         
         
@@ -167,11 +168,19 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
         var urlStr = "https://fbf.bulwarkapp.com/api/ScheduleIpadApp.ashx?"
         
         urlStr += "AccountNumber="
-        urlStr += self.accountNumber
+        if self.isNC == true {
+            urlStr += "NC-" + CustomerId.toString()
+        }else{
+            urlStr += self.accountNumber
+        }
         urlStr += "&ServiceType="
         urlStr += self.ServiceType
         urlStr += "&user=Ipad-"
         urlStr += self.HrEmpId
+        
+        if self.isNC == true {
+            urlStr += "&ccid=" + CustomerId.toString()
+        }
         
         
         Task {

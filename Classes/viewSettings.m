@@ -33,6 +33,8 @@
     
     delegate = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    dash = delegate.viewDash;
+    
     delegate.viewsett = self;
     txtOffice.delegate = self;
     
@@ -450,6 +452,7 @@
     delegate.office = OffCode;
     delegate.phone = Phone;
     
+    [dash fetchNewProactive];
     
     
     

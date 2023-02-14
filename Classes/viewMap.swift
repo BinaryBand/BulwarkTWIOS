@@ -36,8 +36,10 @@ class viewMap: UIViewController {
         //annotation1.subtitle = "Example 0 subtitle" // Optional
         //annotation1.identifier = 1
         //self.map.addAnnotation(annotation1)
-        
-        
+        map.showsScale = true
+        map.showsCompass = true
+        //map.mapType = .hybrid
+        map.pointOfInterestFilter = .init(including: [.airport,.bank,.gasStation,.hospital,.atm,.restroom,.store,.foodMarket,.restaurant])
         self.setViewBox()
         //self.setRouteLines()
 
@@ -295,7 +297,7 @@ class viewMap: UIViewController {
                     }
                     
                     lastcoord = cord
-                    Thread.sleep(forTimeInterval: 0.3)
+                    Thread.sleep(forTimeInterval: 0.2)
                     //Utilities.delay(bySeconds: 0.05, dispatchLevel: .main) {
                         
                     
@@ -457,9 +459,9 @@ extension viewMap : MKMapViewDelegate {
                 view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
                 view.markerTintColor = .purple
                 view.displayPriority = .required// Background color of the balloon shape pin
-                view.glyphImage = UIImage(systemName: "circle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                view.glyphImage = UIImage(systemName: "star.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
                  //view.glyphText = annotation.stopNumber.toString() // Text instead of image
-                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.glyphTintColor = .yellow // The color of the image if this is a icon
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                       view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
@@ -470,7 +472,7 @@ extension viewMap : MKMapViewDelegate {
                 view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
                 view.markerTintColor = .purple
                 view.displayPriority = .required// Background color of the balloon shape pin
-                view.glyphImage = UIImage(systemName: "square.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                view.glyphImage = UIImage(systemName: "circle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
                  //view.glyphText = annotation.stopNumber.toString() // Text instead of image
                 view.glyphTintColor = .white // The color of the image if this is a icon
                 view.canShowCallout = true
@@ -485,7 +487,7 @@ extension viewMap : MKMapViewDelegate {
                 view.displayPriority = .required// Background color of the balloon shape pin
                 view.glyphImage = UIImage(systemName: "star.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
                  //view.glyphText = annotation.stopNumber.toString() // Text instead of image
-                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.glyphTintColor = .yellow // The color of the image if this is a icon
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                       view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
@@ -496,7 +498,7 @@ extension viewMap : MKMapViewDelegate {
                 view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
                 view.markerTintColor = .magenta
                 view.displayPriority = .required// Background color of the balloon shape pin
-                view.glyphImage = UIImage(systemName: "triangle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                view.glyphImage = UIImage(systemName: "circle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
                  //view.glyphText = annotation.stopNumber.toString() // Text instead of image
                 view.glyphTintColor = .white // The color of the image if this is a icon
                 view.canShowCallout = true
@@ -516,9 +518,9 @@ extension viewMap : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKGradientPolylineRenderer(overlay: overlay)
         renderer.setColors([
-            UIColor(red: 0.02, green: 0.70, blue: 0.25, alpha: 1.00),
-            UIColor(red: 1.00, green: 0.00, blue: 0.41, alpha: 1.00),
-            UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 1.00)
+            .red,
+            .purple,
+            .blue
         ], locations: [])
         renderer.lineCap = .round
         renderer.lineWidth = 4.0
@@ -526,39 +528,66 @@ extension viewMap : MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-      let anotherViewController = self.storyboard?.instantiateViewController(withIdentifier: "modalWeb") as! viewModalWeb
-      if let atmPin = view.annotation as? MyPointAnnotation
+      //let anotherViewController = self.storyboard?.instantiateViewController(withIdentifier: "modalWeb") as! viewModalWeb
+        
+        
+        if let atmPin = view.annotation as? MyPointAnnotation
         {
-          if atmPin.identifier == 10{
-              anotherViewController.hrEmpId = appDelegate.hrEmpId
-              anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
-              anotherViewController.useCookie = false
-              anotherViewController.title = atmPin.proactiveAcct?.accountNumber
-          }
-          if atmPin.identifier == 11{
-              anotherViewController.hrEmpId = appDelegate.hrEmpId
-              anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
-              anotherViewController.useCookie = false
-              anotherViewController.title = atmPin.proactiveAcct?.accountNumber
-          }
-          if atmPin.identifier == 12{
-              anotherViewController.hrEmpId = appDelegate.hrEmpId
-              anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
-              anotherViewController.useCookie = false
-              anotherViewController.title = atmPin.proactiveAcct?.accountNumber
-          }
-          if atmPin.identifier == 13{
-              anotherViewController.hrEmpId = appDelegate.hrEmpId
-              anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
-              anotherViewController.useCookie = false
-              anotherViewController.title = atmPin.proactiveAcct?.accountNumber
-          }
-        //anotherViewController.currentAtmPin = atmPin
-          
-          
-      }
-      self.navigationController?.pushViewController(anotherViewController, animated: true)
-
+            let customView = self.storyboard?.instantiateViewController(withIdentifier: "modalWeb") as? viewModalWeb
+            
+            
+            //let d = "For Tomorrows Route"
+            
+            customView?.hrEmpId = appDelegate.hrEmpId
+            
+            
+            
+            customView?.url = atmPin.proactiveAcct?.detailsUrl
+            customView?.useCookie = false
+            customView?.title = atmPin.proactiveAcct?.accountNumber
+            
+            customView?.modalTransitionStyle = .crossDissolve
+            customView?.modalPresentationStyle = .pageSheet
+            
+            
+            self.present(customView!,animated:true, completion:nil)
+            
+            
+            
+            
+            /*
+             
+             if atmPin.identifier == 10{
+             anotherViewController.hrEmpId = appDelegate.hrEmpId
+             anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
+             anotherViewController.useCookie = false
+             anotherViewController.title = atmPin.proactiveAcct?.accountNumber
+             }
+             if atmPin.identifier == 11{
+             anotherViewController.hrEmpId = appDelegate.hrEmpId
+             anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
+             anotherViewController.useCookie = false
+             anotherViewController.title = atmPin.proactiveAcct?.accountNumber
+             }
+             if atmPin.identifier == 12{
+             anotherViewController.hrEmpId = appDelegate.hrEmpId
+             anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
+             anotherViewController.useCookie = false
+             anotherViewController.title = atmPin.proactiveAcct?.accountNumber
+             }
+             if atmPin.identifier == 13{
+             anotherViewController.hrEmpId = appDelegate.hrEmpId
+             anotherViewController.url = atmPin.proactiveAcct?.detailsUrl
+             anotherViewController.useCookie = false
+             anotherViewController.title = atmPin.proactiveAcct?.accountNumber
+             }
+             //anotherViewController.currentAtmPin = atmPin
+             
+             
+             }
+             self.navigationController?.pushViewController(anotherViewController, animated: true)
+             */
+        }
     }
     
     

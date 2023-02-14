@@ -14,3 +14,13 @@ struct AuthCookie:Codable{
     var RollingKey: String
     
 }
+
+struct ProactiveApiPost:Codable{
+    
+    var HrEmpId: String
+    var RollingKey: String
+    var lat: Double
+    var lon:Double
+    var reportType:Int
+    var searchString:String
+}

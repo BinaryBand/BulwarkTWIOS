@@ -8,8 +8,15 @@
 import UIKit
 import WebKit
 
+
+protocol RouteChangedDelegate: AnyObject{
+    func routeChanged()
+}
+
  class viewRoutes: UIViewController,WKNavigationDelegate,WKUIDelegate  {
     
+     static var delegate:RouteChangedDelegate?
+     
     @IBOutlet var webView : WKWebView!
     //var HUD: MBProgressHUD!
     var mapDate:String?
@@ -259,7 +266,7 @@ import WebKit
             
             if urlparams?.count ?? 0 > 2{
                 let dpage = Double(urlparams?[1] ?? "-1")
-                let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+                _ = UIApplication.shared.delegate as! BulwarkTWAppDelegate
                 
                 
                 if dpage == 43 {
@@ -268,21 +275,22 @@ import WebKit
                     _ = DataUtilities.saveCurrentRouteDate(dateStr: param)
                     
                     
-                Task {
-                        do{
-                            _ = try await JsonFetcher.fetchRouteStopsAsync(rdate: param, hrEmpId: appDelegate.hrEmpId)
+                //Task {
+                //        do{
+                          //  _ = try await JsonFetcher.fetchRouteStopsAsync(rdate: param, hrEmpId: appDelegate.hrEmpId)
                             
-                            print("Route Updated--ViewRoutes")
-                        }catch{
-                            print(error)
-                            //self.dismiss(animated: true, completion: nil)
-                            
-                        }
+                //            print("Route Updated--ViewRoutes")
+                 //       }catch{
+                 //           print(error)
+                 //           //self.dismiss(animated: true, completion: nil)
+                  //
+                  //      }
                       
-                    }
+                  //  }
                     //paramsToPass = param
                     //performSegue(withIdentifier: "showPosting", sender: nil)
-                  
+                    viewRoutes.delegate?.routeChanged()
+                    
                    self.dismiss(animated: true, completion: nil)
                 }
                     
