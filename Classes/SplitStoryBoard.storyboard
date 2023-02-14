@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="67E-E9-O5J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="67E-E9-O5J">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -1771,8 +1771,14 @@
                         <outlet property="lblSalesYTD" destination="5Bm-ic-nOk" id="GcI-bM-HRJ"/>
                         <outlet property="lblSalesYTDCount" destination="WNz-HH-HCU" id="gK7-an-Aky"/>
                         <outlet property="txtRouteNotes" destination="9S5-lb-CRe" id="I9y-p2-97f"/>
+                        <outlet property="viewCompletin" destination="0x2-a3-O5f" id="Vki-5Z-q2Q"/>
+                        <outlet property="viewFinisher" destination="fqW-i5-5qH" id="Jhe-Pj-5OA"/>
                         <outlet property="viewOntime" destination="nNX-UE-Lpv" id="dcw-Ph-eLi"/>
                         <outlet property="viewPhotoRatio" destination="JIf-nE-t3n" id="103-H9-Ino"/>
+                        <outlet property="viewProactiveAdds" destination="3ER-a5-F6S" id="yqT-eN-stK"/>
+                        <outlet property="viewReviews" destination="QdQ-nd-aJV" id="rky-P7-1gh"/>
+                        <outlet property="viewRolling" destination="oog-RK-los" id="eYF-KY-lt3"/>
+                        <outlet property="viewThiryOnePlus" destination="6PM-51-Bgl" id="Y3L-FK-kvR"/>
                         <segue destination="W3u-Ze-Fq2" kind="presentation" identifier="showPhoto" id="63h-iY-cKj"/>
                         <segue destination="Rd7-Vp-Q66" kind="show" identifier="showWeb" id="gyP-kc-9Ce"/>
                         <segue destination="a1d-uw-pDO" kind="show" identifier="showMyPhotos" id="pHw-r7-Epz"/>
@@ -5626,8 +5632,8 @@
         <image name="6.circle" catalog="system" width="128" height="123"/>
         <image name="arrow.turn.down.left" catalog="system" width="128" height="99"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
-        <image name="camera" catalog="system" width="128" height="93"/>
         <image name="camera" width="21" height="16"/>
+        <image name="camera" catalog="system" width="128" height="93"/>
         <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="123"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
