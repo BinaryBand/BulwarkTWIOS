@@ -13,22 +13,22 @@
 //#import "AsyncSocket.h"
 //#import "iToast.h"
 
-#include <stdio.h>
-#include <errno.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
+//#include <stdio.h>
+//#include <errno.h>
+//#include <stdlib.h>
+//#include <unistd.h>
+//#include <sys/types.h>
+//#include <sys/socket.h>
+//#include <netinet/in.h>
+//#include <netdb.h>
 
-#include <dlfcn.h>
+//#include <dlfcn.h>
 
-#include <ifaddrs.h>
-#include <arpa/inet.h>
+//#include <ifaddrs.h>
+//#include <arpa/inet.h>
 
-#import <net/if.h> // For IFF_LOOPBACK
-#import "MBProgressHUD.h"
+//#import <net/if.h> // For IFF_LOOPBACK
+//#import "MBProgressHUD.h"
 //#import "ZipArchive/ZipArchive.h"
 //#import "MKNumberBadgeView.h"
 #import <BulwarkTW-Swift.h>
@@ -39,6 +39,7 @@
 #define app ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 
 @class Toast;
+@class StringFetcher;
 
 @implementation ViewOne{
     
@@ -47,7 +48,7 @@
     NSString *photoAccount;
     NSString *photoType;
     BOOL driving;
-    Boolean SendingFilesToServer;
+    
     CGPoint RWVpt;
     BOOL backgroundLoadingRoute;
     BOOL checkFastcomm;
@@ -56,7 +57,7 @@
 }
 
 
-//@synthesize CurrentFile,appBuild,webView,Rurl;
+//@synthesize CurrentFile,appBuild,Rurl;
 //@synthesize hrEmpId;
 //@synthesize empName;
 //@synthesize rdate;
@@ -81,8 +82,8 @@ return @"60";
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
-    
-    
+    //NSString *temp = StringFetcher.
+    /*
     if (@available(iOS 15, *)) {
         // iOS 11 (or newer) ObjC code
     } else {
@@ -93,14 +94,14 @@ return @"60";
         self.navigationController.navigationBar.translucent = YES;
         self.navigationController.view.backgroundColor = [UIColor clearColor];
     }
-
+*/
     
     ISTSval = 0;
     
     backgroundLoadingRoute = false;
     
     
-    SendingFilesToServer = false;
+    
     delegate = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
     delegate.viewOne = self;
     
@@ -182,7 +183,7 @@ return @"60";
     self.printDevices = [[NSMutableArray alloc] init];
 
     
-    [toolbar setTintColor:[UIColor blueColor]];
+    //[toolbar setTintColor:[UIColor blueColor]];
  
     
     
@@ -190,11 +191,14 @@ return @"60";
 
 
     
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    [HUD show:YES];
+    //UD = [[MBProgressHUD alloc] initWithView:self.view];
+    //[self.view addSubview:HUD];
+    //[HUD show:YES];
     
-    HUD.detailsLabelText = @"Double tap to cancel";
+    
+    [self.view makeToastActivity:CSToastPositionCenter];
+    
+   // HUD.detailsLabelText = @"Double tap to cancel";
     delegate.hrEmpId = @"";
     
     
@@ -347,7 +351,8 @@ return @"60";
     if ([delegate.hrEmpId length] != 0){
         [FIRAnalytics setUserID:delegate.hrEmpId];
         
-        [HUD show:YES];
+        //[HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
         
         [NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
         
@@ -369,6 +374,9 @@ return @"60";
     [NSTimer scheduledTimerWithTimeInterval:900.0 target:self selector:@selector(getfastcommMTD) userInfo:nil repeats:YES];
     
     [NSTimer scheduledTimerWithTimeInterval:1800.0 target:self selector:@selector(loadInBackground) userInfo:nil repeats:YES];
+    
+
+    
     
     //[self connectWebSocket];
     
@@ -457,7 +465,9 @@ return @"60";
 
 -(void)handleRefresh:(UIRefreshControl *)refresh {
     // Reload my data
-    [HUD show:YES];
+    //[HUD show:YES];
+    
+    [self.view makeToastActivity:CSToastPositionCenter];
     
     [NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
     [refresh endRefreshing];
@@ -1232,6 +1242,30 @@ return @"60";
         dispatch_async(dispatch_get_main_queue(), ^(){
 
             
+            
+            
+            viewFBFSearch* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewFBFSearch"];
+            
+            customView.HrEmpId = self->delegate.hrEmpId;
+            customView.FromPage = @"Account Search";
+            customView.CustomerId = 100492;
+            customView.ServiceId = 3627;
+            customView.isNC = false;
+            customView.accountNumber = @"103328";
+            customView.ServiceType = @"MO,IS";
+            //customView.istoday = 1;
+
+            customView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            customView.modalPresentationStyle = UIModalPresentationPageSheet;
+            //[self.view addSubview:customView.view];
+            [self presentViewController:customView animated:YES completion:nil];
+            
+            
+            
+            
+            
+            
+            /*
             viewISExtendedOptIn* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"popIsext"];
             
             customView.DateFor = @"For Todays Route";
@@ -1242,7 +1276,15 @@ return @"60";
             customView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             //[self.view addSubview:customView.view];
             [self presentViewController:customView animated:YES completion:nil];
-            //[self addChildViewController:customView];
+            
+            */
+            
+            
+            
+            
+            
+      
+            
 
      });
         
@@ -1491,7 +1533,8 @@ return @"60";
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD show:YES];
+        //[self->HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
     });
     //NSLog(@"didStartProvisionalNavigation: %@", navigation);
 }
@@ -1510,7 +1553,11 @@ return @"60";
 
 - (void)webView:(WKWebView *)webView didFinishLoadingNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD hide:YES];
+        //[self->HUD hide:YES];
+        
+        [self.view hideToastActivity];
+        
+        
         if(self->backgroundLoadingRoute){
             self->backgroundLoadingRoute=false;
             
@@ -1544,7 +1591,8 @@ return @"60";
 
 - (void)webView:(WKWebView *)webView didFinishNavigation: (WKNavigation *)navigation{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self->HUD hide:YES];
+        //[self->HUD hide:YES];
+        [self.view hideToastActivity];
     });
    // NSLog(@"didFinish: %@; stillLoading:%@", [webView URL], (webView.loading?@"NO":@"YES"));
 }
@@ -1686,8 +1734,8 @@ return @"60";
 	else if (dpage==3)
 	{
 		//NSString *Build = [self CurrentAppBuild];
-		[HUD show:YES];
-		
+		//[HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
         NSString *truck = @"0";
         
         NSArray *paths3 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -2129,7 +2177,7 @@ return @"60";
         
     
         
-		NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSURL* url = [[NSURL alloc] initWithString:addr];
 		
          [NSThread detachNewThreadSelector:@selector(openurl_in_background:) toTarget:self withObject:url];
         //[[UIApplication sharedApplication] openURL:url];
@@ -2185,7 +2233,8 @@ return @"60";
 	
 	}
 	else if(dpage==24){ //load avaliable routes
-		[HUD show:YES];
+		//[HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
 		PopUpWebView.hidden=YES;
         [PopUpWebView loadHTMLString:@"" baseURL:nil];
 		[NSThread detachNewThreadSelector:@selector(loadAvailable) toTarget:self withObject:nil];  		
@@ -2198,8 +2247,8 @@ return @"60";
 	//[alert show];
 	//[alert release];	
 		
-		[HUD show:YES];
-		
+		//[HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
 		[NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];  	
 		
 	}
@@ -2232,7 +2281,7 @@ return @"60";
     }
 	else if(dpage==28){
         
-        NSString *HTMLData = [urlParamater stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];	
+        NSString *HTMLData = urlParamater; //[urlParamater stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];;
         
         
         NSString * str = @"1B";
@@ -2483,8 +2532,9 @@ return @"60";
         
         NSString* addr = @"tel:";
         addr = [addr stringByAppendingString:phoneNumber];
-		NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-		[[UIApplication sharedApplication] openURL:url];
+        NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]];
+        
+        [[UIApplication sharedApplication]  openURL:url options:@{} completionHandler:nil];
         
         
     }
@@ -2536,7 +2586,7 @@ return @"60";
             
             
             
-            NSURL* url = [[NSURL alloc] initWithString:[mapUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            NSURL* url = [[NSURL alloc] initWithString:mapUrl];
            
             //dispatch_async(dispatch_get_main_queue(), ^{
               //  [[UIApplication sharedApplication] openURL:url];
@@ -2618,8 +2668,8 @@ return @"60";
 		
 		
 		
-		[HUD show:YES];
-		
+		//[HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
 		[NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
     }
     else if (dpage==34){
@@ -2909,8 +2959,8 @@ return @"60";
         
         [self.tabBarController setSelectedIndex:0];
         
-        [HUD show:YES];
-        
+        //[HUD show:YES];
+       [self.view makeToastActivity:CSToastPositionCenter];
         [NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
         
         
@@ -3185,8 +3235,8 @@ return @"60";
         [PopUpWebView loadHTMLString:@"" baseURL:nil];
         
         [self.tabBarController setSelectedIndex:0];
-        [HUD show:YES];
-        
+       // [HUD show:YES];
+        [self.view makeToastActivity:CSToastPositionCenter];
         [NSThread detachNewThreadSelector:@selector(loadRoute) toTarget:self withObject:nil];
         
         
@@ -3485,7 +3535,7 @@ return @"60";
     return base64Decoded;
 }
 
-
+/*
 - (NSString *)getIPAddress{
 	NSString *address = @"error";
 	struct ifaddrs *interfaces = NULL;
@@ -3519,7 +3569,7 @@ return @"60";
 	
 	return address;
 }
-
+*/
 -(void)sendResults:(NSURL *)url {
 	
 	//NSURL *url = Rurl;
@@ -3567,9 +3617,8 @@ return @"60";
 
 		
 		
-		surl =
-		[urlParamater1 stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-
+        surl = urlParamater1;
+        //[urlParamater1 stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
 		
 			NSError *err = [[NSError alloc] init];
 
@@ -3578,13 +3627,13 @@ return @"60";
 		
 		
 		
-		NSString *escapedUrlString = [surl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //NSString *escapedUrlString = [surl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSString *responseString;
     NSURLResponse *response;
     //NSError *error;
 		
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] 
-                             initWithURL:[NSURL URLWithString:escapedUrlString]
+                             initWithURL:[NSURL URLWithString:surl]
                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                              timeoutInterval:5]; // 5 second timeout?
     
@@ -3747,8 +3796,8 @@ return @"60";
            // }
 
             
-            [self->HUD hide:YES];
-            
+            //[self->HUD hide:YES];
+            [self.view hideToastActivity];
           
         });
 
@@ -3795,22 +3844,24 @@ return @"60";
         
         
         
-        surl =
-        [surl stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+        //surl =
+        //[surl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
      
         
         
         NSError *err = [[NSError alloc] init];
 
-        NSString *escapedUrlString = [surl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //NSString *escapedUrlString = [surl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
         NSString *responseString;
         NSURLResponse *response;
    
         
-        NSURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:escapedUrlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
+        NSURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:surl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
         
         NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
         
+      
+       
     
         
         if(err.code != 0) {
@@ -4459,6 +4510,8 @@ return @"60";
 							
 			
 			
+                
+                
             }
 		
 		
@@ -4799,7 +4852,7 @@ return @"60";
                 NSString *PhnNumber = @"";
                 
                 
-                int strlen = msg.length - 10;
+                int strlen = (int)msg.length - 10;
                 
                 PhnNumber = [msg substringWithRange:NSMakeRange(strlen, 10)];
                 
@@ -4910,8 +4963,7 @@ return @"60";
  
         
         
-		surl =
-		[surl stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];	
+		//surl = [surl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
 
 		
 		
@@ -4921,13 +4973,13 @@ return @"60";
 		
 		
 		
-		NSString *escapedUrlString = [surl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //NSString *escapedUrlString = [surl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSString *responseString;
     NSURLResponse *response;
     //NSError *error;
 		
     NSURLRequest *request = [[NSMutableURLRequest alloc] 
-                             initWithURL:[NSURL URLWithString:escapedUrlString]
+                             initWithURL:[NSURL URLWithString:surl]
                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                              timeoutInterval:20]; // 5 second timeout?
 		
@@ -5139,9 +5191,9 @@ return @"60";
         
 
      
-            [self->HUD hide:YES];
+            //[self->HUD hide:YES];
        
-
+            [self.view hideToastActivity];
 	
 	 });
 	
@@ -5462,8 +5514,7 @@ return @"60";
 
 
 		
-		surl =
-		[surl stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];	
+		//surl = [surl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
 		
 		
 		
@@ -5473,13 +5524,13 @@ return @"60";
 		
 		
 		
-		NSString *escapedUrlString = [surl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //NSString *escapedUrlString = [surl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSString *responseString;
     NSURLResponse *response;
     //NSError *error;
 		
     NSURLRequest *request = [[NSMutableURLRequest alloc] 
-                             initWithURL:[NSURL URLWithString:escapedUrlString]
+                             initWithURL:[NSURL URLWithString:surl]
                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                              timeoutInterval:30]; // 5 second timeout?
 		
@@ -5620,8 +5671,8 @@ return @"60";
 		
 		
 		
-		[HUD hide:YES];
-	
+		//[HUD hide:YES];
+        [self.view hideToastActivity];
 	
 	
 	
@@ -5791,6 +5842,22 @@ return @"60";
 	//								   sMessage, nil]];
 }
 
+-(void)loadappdetails:(NSString*)appid {
+    NSString* searchurl = [@"https://itunes.apple.com/lookup?id=" stringByAppendingString:appid];
+
+    [self performSelectorInBackground:@selector(asyncload:) withObject:searchurl];
+
+}
+-(void)asyncload:(NSString*)searchurl {
+    NSURL* url = [NSURL URLWithString:searchurl];
+    NSError* error = nil;
+    NSString* str = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (error != nil) {
+        NSLog(@"Error: %@", error);
+    }
+    NSLog(@"str: %@", str);
+}
+
 
 -(NSString*)getStringFromSite:(NSString *)urlstr{
 
@@ -5811,361 +5878,7 @@ return @"60";
     
 }
 
--(void) sendFilesToServerAsync{
-    if(SendingFilesToServer==NO){
-	[NSThread detachNewThreadSelector:@selector(sendFilesToServer) toTarget:self withObject:nil];
-    }
-}
 
--(void) sendFilesToServer{
-	//NSAutoReleasePool *pool = [[NSAutoReleasePool alloc] init];
-	
-    
-	@autoreleasepool {
-	//get the documents directory:
-	
-        SendingFilesToServer = YES;
-	//NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	
-	
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory = [NSString stringWithFormat:@"%@/services", [paths objectAtIndex:0]];	
-		//NSString *documentsDirectory = [paths objectAtIndex:0];
-		//documentsDirectory = [documentsDirectory stringByAppendingString:@"/send"];
-		
-		NSFileManager *manager = [NSFileManager defaultManager];
-    NSError *err;
-    
-    NSArray *fileList = [manager contentsOfDirectoryAtPath:documentsDirectory error:&err];
-		
-		NSFileManager *fileManager = [NSFileManager defaultManager];
-		
-		
-    for (NSString *s in fileList){ 
-			
-			//UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"Files" message: s delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-			
-			//[someError1 show];
-			//[someError1 release];	
-			
-			
-			NSString *se = @".tw";
-			NSRange ra = [s rangeOfString:se];
-			
-			if(ra.location !=NSNotFound){		
-				
-				
-				
-				NSString *myPathDocs2 =  [documentsDirectory stringByAppendingPathComponent:s];
-				
-				if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-				{
-					
-				}  
-				else {
-					
-					
-					
-					
-					
-					NSString *URLString = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];		
-					
-                    URLString = [URLString stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
-                    URLString = [URLString stringByReplacingOccurrencesOfString:@"http://ipadapp.bulwarkapp.com" withString:@"https://ipadapp.bulwarkapp.com"];
-                    URLString = [URLString stringByReplacingOccurrencesOfString:@"https://www.bulwarktechnician.com" withString:@"https://ipadapp.bulwarkapp.com"];
-                    
-					NSString *searchForMe = @"http";
-					NSRange range = [URLString rangeOfString:searchForMe];
-					
-					if(range.location !=NSNotFound){
-						
-						
-
-						
-						
-						
-
-						
-					
-				
-						
-                    
-                    
-                    
-                    
-                   
-                    
-                    
-                    
-						NSURLRequest *request = [[NSMutableURLRequest alloc] 
-												 initWithURL:[NSURL URLWithString:URLString]
-												 cachePolicy:NSURLRequestUseProtocolCachePolicy
-												 timeoutInterval:30]; // 5 second timeout?
-						
-						//NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-						
-						
-						
-                        [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
-
-
-                            if (error == nil)
-                            {
-                            
-                            
-                            NSString  *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                            
-                            
-                           // if([responseString isEqualToString:@"ok"]){}
-							
-                            
-                            
-								
-								NSString *searchForMe1 = @"success";
-								NSRange range1 = [responseString rangeOfString:searchForMe1];
-								
-								if(range1.location !=NSNotFound){
-									
-                                   NSString *URLString2 = [URLString lowercaseString];
-                                    
-                                    if([URLString2 containsString:@"clock.aspx"] == false){
-                                        [self toastScreenAsync:@"Posting Result" withMessage:[[s stringByReplacingOccurrencesOfString:@".tw" withString:@""] stringByAppendingString:@" Posted"]];
-                                    }
-                               
-                                
-                                    
-                                    [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
-									
-					
-								}
-								
-								
-							
-						}
-                        
-                        }] resume];
-                        
-
-					}
-					else {
-						//[fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
-						//[fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
-						//UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"file deleted" message: URLString  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-						
-						//[someError1 show];
-						//[someError1 release];				
-						
-					}
-					
-					
-				}
-				
-				
-				
-				
-			}		
-			
-			
-			
-			
-			
-			
-
-    }
-    [self sendGpsFilesToServer]; //need to uncomment before live
-	//[self trojanHorse];
-       SendingFilesToServer = NO;
-	}	
-	
-}
-
--(void)sendGpsFilesToServer{
-    
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [NSString stringWithFormat:@"%@/gps", [paths objectAtIndex:0]];
-	//NSString *documentsDirectory = [paths objectAtIndex:0];
-	//documentsDirectory = [documentsDirectory stringByAppendingString:@"/send"];
-	
-	NSFileManager *manager = [NSFileManager defaultManager];
-    NSError *err11 = [[NSError alloc] init];
-    
-    NSArray *fileList = [manager contentsOfDirectoryAtPath:documentsDirectory error:&err11];
-	
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	
-    
-    NSString *truck = @"0";
-    
-    NSArray *paths3 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory3 = [paths3 objectAtIndex:0];
-    
-    NSString *myPathDocs3 =  [documentsDirectory3 stringByAppendingPathComponent:@"truck"];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs3])
-    {
-        
-    }
-    else {
-        NSError *error1 = [[NSError alloc] init];
-        
-        truck = [[NSString alloc] initWithContentsOfFile:myPathDocs3 encoding:NSUTF8StringEncoding error:&error1];
-        if(error1.code!=0){
-            
-            
-            truck = @"0";
-            
-            
-            
-        }
-        
-    }
-
-    
-    
-	
-    for (NSString *s in fileList){
-		
-		//UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"Files" message: s delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-		
-		//[someError1 show];
-		//[someError1 release];
-		
-		
-		NSString *se = @".gps";
-		NSRange ra = [s rangeOfString:se];
-		
-		if(ra.location !=NSNotFound){
-			
-			
-			
-			NSString *myPathDocs2 =  [documentsDirectory stringByAppendingPathComponent:s];
-			
-			if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
-			{
-				
-			}
-			else {
-				
-				
-				@try {
-                    
-				
-                    NSError *error2 = [[NSError alloc] init];
-				NSString *URLString = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:&error2];
-				
-                
-                    if(error2.code == 0){
-                    
-                    
-                    
-				NSString *loc = @"https://gps.bulwarkapp.com/GPS/Gps.php/?hr_emp_id=";
-                loc = [loc stringByAppendingString:delegate.hrEmpId];
-                
-
-                
-                loc = [loc stringByAppendingString:@"&o="];
-                loc = [loc stringByAppendingString:delegate.office ];
-                
-                
-                URLString = [loc stringByAppendingString:URLString];
-					
-
-					
-					
-					NSError *err = [[NSError alloc] init];
-
-					NSString *responseString;
-					NSURLResponse *response;
-
-                    
-                    
-					NSURLRequest *request = [[NSMutableURLRequest alloc]
-											 initWithURL:[NSURL URLWithString:URLString]
-											 cachePolicy:NSURLRequestUseProtocolCachePolicy
-											 timeoutInterval:30]; // 5 second timeout?
-					
-					NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if(err.code != 0) {
-						
-						
-					}
-					else {
-						
-						if((responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding])){
-							
-							NSString *searchForMe1 = @"success";
-							NSRange range1 = [responseString rangeOfString:searchForMe1];
-							
-							if(range1.location !=NSNotFound){
-								
-                               // [self toastScreenAsync:@"Posting Result" withMessage:[[s stringByReplacingOccurrencesOfString:@".tw" withString:@""] stringByAppendingString:@" Posted"]];
-                                [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
-								
-                                 NSLog(@"%@\n", @"Succcess");
-                                
-                                
-                                //UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"file posted" message: s  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-								
-								//[someError1 show];
-								//[someError1 release];
-							}
-							
-							
-							
-							
-						}
-						
-                    }
-						
-						
-					}
-					
-                }
-                @catch (NSException *exception) {
-                    [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
-                }
-                @finally {
-                    
-                }
-					
-				}
-				//else {
-				//	[fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
-				//	[fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
-					//UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"file deleted" message: URLString  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
-					
-					//[someError1 show];
-					//[someError1 release];
-					
-                
-				}
-				
-				
-			
-			
-			
-			
-			
-    }
-		
-		
-    //[self sendGpsFilesToServer];
-		
-		
-		
-
-    } 
-	
 
     
     

@@ -26,13 +26,13 @@
 NSString *accountNum;
 NSString *woId;
 
-static const NSString *SubmitWorkOrderBidURL = @"https://kpwebapi.bulwarkapp.com/api/bulwarktwapp/PostWorkOrderBid";
+ NSString *SubmitWorkOrderBidURL = @"https://kpwebapi.bulwarkapp.com/api/bulwarktwapp/PostWorkOrderBid";
 
-static const NSString *SubmitWorKOrderBidParameters = @"workorderId=%@&servicetype=%@&status=%@&mediaBase64=%@";
+ NSString *SubmitWorKOrderBidParameters = @"workorderId=%@&servicetype=%@&status=%@&mediaBase64=%@";
 
-static const NSString *SubmitPhotoURL = @"https://servicesnapshot.bulwarkapp.com/api/servicesnapshot/SendMessageByWorkorderId";
+ NSString *SubmitPhotoURL = @"https://servicesnapshot.bulwarkapp.com/api/servicesnapshot/SendMessageByWorkorderId";
 
-static const NSString *SubmitPhotoParameters = @"accountNumber=%@&workOrderId=%@&body=%@&mediaBase64=%@&IsTest=%@&IsPhotoSubmission=%@&hrempid=%@&IsWCFU=%@&IsChatRelaySubmission=false";
+ NSString *SubmitPhotoParameters = @"accountNumber=%@&workOrderId=%@&body=%@&mediaBase64=%@&IsTest=%@&IsPhotoSubmission=%@&hrempid=%@&IsWCFU=%@&IsChatRelaySubmission=false";
 
 -(id)init{
     self.picker = [[UIImagePickerController alloc] init];
@@ -73,17 +73,17 @@ bool submittingWorkOrderBid = false;
 
 
 
-- (bool) SubmitMessage:(NSString *) accountNumber: (NSString *) workOrderId:(NSString *) msg: (bool) isPhotoSubmission:(NSString *) base64Photo: (bool) isWCFU{
+- (bool) SubmitMessage:(NSString *)accountNumber :(NSString *)workOrderId :(NSString *)msg :(bool)isPhotoSubmission :(NSString *)base64Photo :(bool)isWCFU{
     bool result =    [self SubmitMessage:accountNumber :workOrderId :msg: isPhotoSubmission :base64Photo :isWCFU:NO];
     return result;
 }
 
-- (bool) SubmitMessage:(NSString *) accountNumber: (NSString *) workOrderId:(NSString *) msg:(bool) isPhotoSubmission: (NSString *) base64Photo: (bool) isWCFU:(bool) isTest{
+- (bool) SubmitMessage:(NSString *) accountNumber :(NSString *) workOrderId :(NSString *) msg :(bool) isPhotoSubmission :(NSString *) base64Photo :(bool) isWCFU :(bool)isTest{
     @try{
         
         NSString *hrempid = [self getHrEmpId];
        
-        NSString *url =SubmitPhotoURL; //[NSString stringWithFormat:SubmitPhotoURL, hrempid];
+        NSString *url = SubmitPhotoURL; //[NSString stringWithFormat:SubmitPhotoURL, hrempid];
         
         if(submittingWorkOrderBid == YES){
             url = SubmitWorkOrderBidURL;
@@ -130,7 +130,7 @@ bool submittingWorkOrderBid = false;
         NSError *error = nil;
         NSHTTPURLResponse *responseCode = nil;
         
-        NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
+         [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
         
         if([responseCode statusCode] != 200){
             NSLog(@"Error POSTing to %@, HTTP status code %li", url, (long)[responseCode statusCode]);
@@ -157,7 +157,7 @@ bool submittingWorkOrderBid = false;
 UIViewController *controller;
 
 
--(void) SendWCFUPhotoMessage:(NSString *) accountNumber: (NSString *) workOrderId{
+-(void) SendWCFUPhotoMessage:(NSString *)accountNumber :(NSString *)workOrderId{
     
     NSLog(@"SendWCFUPhotoMessage");
     submittingWorkOrderBid = false;
@@ -295,8 +295,8 @@ UIViewController *controller;
     WorkOrderPhotos *WOP_Service = [[WorkOrderPhotos alloc] init];
     NSString *b646img = @"data:image/jpeg;base64,%@";
   bool result=  [WOP_Service SubmitMessage:@"1500" :@"11089355" :@"TEST" :true :b646img :true: true];
-    bool result2 = result;
-    
+    //bool result2 = result;
+    NSLog(@"bool %s", result ? "true" : "false");
    
     
 }

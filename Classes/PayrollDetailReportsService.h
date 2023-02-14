@@ -6,24 +6,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MBProgressHUD.h"
+//#import "MBProgressHUD.h"
 #import <UIKit/UIWebView.h>
 
-@interface PayrollDetailReportsService : UIViewController <UIWebViewDelegate>{
+@interface PayrollDetailReportsService : UIViewController{
     
     //IBOutlet UIWebView *webview;
-    MBProgressHUD *HUD;
+    //MBProgressHUD *HUD;
     IBOutlet UISegmentedControl *seg;
     
 }
-@property (nonatomic, strong) UIWebView *webView;
+//@property (nonatomic, strong) UIWebView *webView;
   //@property (atomic, strong)  UIAlertView *askOpenReport;
 //- (UIAlertView *)askOpenReport;
 
  //@property (nonatomic, strong ) UIAlertView *askOpenReport;
 
 -(void) openReport:(UIWindow *)window;
--  (void)  updatePushToken:(NSData *)pushToken: (NSString *) deviceIdUUID;
+-  (void)  updatePushToken :(NSData *)pushToken :(NSString *)deviceIdUUID;
 - (BOOL) techHasPendingCommisionReport;
 
 @end

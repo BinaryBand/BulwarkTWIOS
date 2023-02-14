@@ -29,7 +29,7 @@
 
 #define BUFFER_LEN 4096
 
-@class MBProgressHUD;
+//@class MBProgressHUD;
 @class viewSchedule;
 
 
@@ -46,7 +46,7 @@
 
     
     
-	 IBOutlet UIToolbar *toolbar;
+	 //IBOutlet UIToolbar *toolbar;
 	IBOutlet UIActivityIndicatorView *activityIndicator;
 	NSInputStream *iStream;
 	NSOutputStream *oStream;
@@ -104,7 +104,7 @@
     
     
     
-	MBProgressHUD *HUD;
+	//MBProgressHUD *HUD;
     
 
     
@@ -121,8 +121,8 @@
 -(void)emailResults:(NSURL *)url;
 
 -(void)SaveGPSFile:(NSString *)url;
-- (void)backgroundHandler;
-- (void) BtConnectPrinter : (NSString *)s;
+//- (void)backgroundHandler;
+//- (void) BtConnectPrinter : (NSString *)s;
 - (void) takeTermitePhoto;
 
 
@@ -156,24 +156,24 @@
 
 -(void)MsgBoxShow:(NSString *)title withMessage:(NSString *)msg withButtonLabel:(NSString *)btnLabel;
 
-- (IBAction)btnRefreshPressed;
-- (IBAction)btnRequestPressed;
-- (IBAction)btnRoutesPressed;
-- (IBAction)btnSettingsPressed;
-- (IBAction)btnTestSerial;
--(IBAction)btnClockIn;
--(IBAction)btnClockOut;
--(IBAction)btnSearch;
--(IBAction)btnMap;
--(IBAction)btnAvaliableRoutes;
--(IBAction)btnMyPay;
--(IBAction)btnVideo;
--(IBAction)btnFixClockOut;
--(IBAction)btncancelClockOut;
--(IBAction)btnScreenShot;
-    -(IBAction)btnFastComm;
--(IBAction)btnMyStats;
--(IBAction)btnTest;
+//- (IBAction)btnRefreshPressed;
+//- (IBAction)btnRequestPressed;
+//- (IBAction)btnRoutesPressed;
+//- (IBAction)btnSettingsPressed;
+//- (IBAction)btnTestSerial;
+//-(IBAction)btnClockIn;
+//-(IBAction)btnClockOut;
+//-(IBAction)btnSearch;
+//-(IBAction)btnMap;
+//-(IBAction)btnAvaliableRoutes;
+//-(IBAction)btnMyPay;
+//-(IBAction)btnVideo;
+//-(IBAction)btnFixClockOut;
+//-(IBAction)btncancelClockOut;
+//-(IBAction)btnScreenShot;
+  //  -(IBAction)btnFastComm;
+//-(IBAction)btnMyStats;
+//-(IBAction)btnTest;
 -(IBAction)gestOpenMap;
 
 

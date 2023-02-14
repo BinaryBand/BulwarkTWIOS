@@ -9,13 +9,12 @@
 #import "BulwarkTWAppDelegate.h"
 #import "ViewOne.h"
 #import "viewReports.h"
-
+#import "viewSettings.h"
 //#import "PayrollDetailReportsService.h"
 #import "BulwarkTW-Swift.h"
 
 
-//#import “MessageUI.h” 
-//#import “MFMailComposeViewController.h”
+
 
 @implementation BulwarkTWAppDelegate{
     
@@ -24,8 +23,19 @@
     Boolean SendingtoServer;
     BulwarkTWAppDelegate* _workspace;
     long gpsRequested;
-}
+    //NSString *Vin;
+    //NSString *Odo;
+    NSString *DtcDist;
+    //NSDate *lastObdRead;
+    Boolean isConnectedToObd;
+    long obdsecs;
+    int cntping;
+    BOOL updatesettingsvin;
+    Boolean SendingFilesToServer;
 
+    //viewDashboard *viewDash;
+}
+//viewDashboard *viewDash;
 @synthesize window;
 @synthesize viewController;
 //@synthesize Mcontroller;
@@ -33,21 +43,39 @@
 @synthesize viewRpt;
 @synthesize viewMap;
 @synthesize viewSched;
+@synthesize viewsett;
+//@synthesize viewDash;
+
+
 
 NSString *kGCMMessageIDKey = @"";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
+    updatesettingsvin = false;
+    isConnectedToObd = NO;
+    cntping = 0;
     // Example 1, loading the content from a URLNSURL
     isstopped = NO;
     self.driving = NO;
-    _lat = @"0";
-    _lon = @"0";
+    _lat = [self Getlat];
+    _lon = [self GetLon];
     _mapDate = @"";
     _mapinit = @"";
 
-    int cacheSizeMemory = 4*1024*1024; // 4MB
-    int cacheSizeDisk = 32*1024*1024; // 32MB
+    _Vin = @"";
+    _Odo = @"";
+    DtcDist = @"";
+    SendingFilesToServer = false;
+
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:1];
+    [comps setMonth:1];
+    [comps setYear:1970];
+    _lastObdRead = [[NSCalendar currentCalendar] dateFromComponents:comps];
+    obdsecs = 0;
+ 
+    int cacheSizeMemory = 16*1024*1024; // 4MB
+    int cacheSizeDisk = 64*1024*1024; // 32MB
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
     [NSURLCache setSharedURLCache:sharedCache];
     
@@ -55,25 +83,26 @@ NSString *kGCMMessageIDKey = @"";
         [FIRApp configure];
         [FIRMessaging messaging].delegate = self;
         
-        if ([UNUserNotificationCenter class] != nil) {
+        //if ([UNUserNotificationCenter class] != nil) {
             // iOS 10 or later
             // For iOS 10 display notification (sent via APNS)
-            [UNUserNotificationCenter currentNotificationCenter].delegate = self;
-            UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
-                UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
-            [[UNUserNotificationCenter currentNotificationCenter]
-                requestAuthorizationWithOptions:authOptions
-                completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            [UNUserNotificationCenter currentNotificationCenter].delegate = self; UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+            [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
                   
                 }];
-          } else {
+        
+        
+        
+         // } else {
             // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
-            UIUserNotificationType allNotificationTypes =
-            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-            UIUserNotificationSettings *settings =
-            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-            [application registerUserNotificationSettings:settings];
-          }
+          //  UIUserNotificationType allNotificationTypes =
+          //  (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+          //  UIUserNotificationSettings *settings =
+          //  [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+          //  [application registerUserNotificationSettings:settings];
+          //}
+        
+        
         [application registerForRemoteNotifications];
         [self configureFireBase];
     }@catch(NSException *exc){
@@ -82,10 +111,10 @@ NSString *kGCMMessageIDKey = @"";
     }
  
     
-    
+    [self getSettings];
 
  
-    
+        
     
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
    if (localNotification) {
@@ -109,7 +138,7 @@ NSString *kGCMMessageIDKey = @"";
     
     
    // alertGPS.delegate = self;
-    alertCall.delegate = self;
+    //alertCall.delegate = self;
     
     if(self.locationManager==nil){
         self.locationManager=[[CLLocationManager alloc] init];
@@ -125,6 +154,21 @@ NSString *kGCMMessageIDKey = @"";
         self.locationManager.allowsBackgroundLocationUpdates = YES;
         
         
+        NSMutableArray<CBUUID*>* ma = [NSMutableArray array];
+            [@[ @"FFF0", @"FFE0", @"BEEF" , @"E7810A71-73AE-499D-8C15-FAA9AEF0C3F2"] enumerateObjectsUsingBlock:^(NSString* _Nonnull uuid, NSUInteger idx, BOOL * _Nonnull stop) {
+                [ma addObject:[CBUUID UUIDWithString:uuid]];
+            }];
+            _serviceUUIDs = [NSArray arrayWithArray:ma];
+        
+        
+        
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAdapterChangedState:) name:LTOBD2AdapterDidUpdateState object:nil];
+        
+       // [self connect];
+        
+  
 
         
     }
@@ -144,10 +188,29 @@ NSString *kGCMMessageIDKey = @"";
          gpsRequested = [prefs integerForKey:@"gpsR"];
     }
     
+    if([[[prefs dictionaryRepresentation] allKeys] containsObject:@"lastObd"]){
 
+         obdsecs = [prefs integerForKey:@"lastObd"];
+        
+        
+        _lastObdRead = [NSDate dateWithTimeIntervalSince1970:obdsecs];
+    }
+    if([[[prefs dictionaryRepresentation] allKeys] containsObject:@"odometer"]){
+
+         _Odo = [prefs stringForKey:@"odometer"];
+       
+    }
+    if([[[prefs dictionaryRepresentation] allKeys] containsObject:@"vin"]){
+
+         _Vin = [prefs stringForKey:@"vin"];
+       
+    }
     
     
-
+//odometer
+    
+    
+    
     
     
     [self checkGpsAndBackground];
@@ -159,9 +222,89 @@ NSString *kGCMMessageIDKey = @"";
     
 
             viewPayrollDetailReports = [[PayrollDetailReportsService alloc] init];
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:600.0 target:self selector:@selector(CheckOBDCnt) userInfo:nil repeats:YES];
+    
+    //[self connect];
 	return YES;
 	
 	
+}
+
+- (void)CheckOBDCnt {
+    if(cntping == 10){
+        if(isConnectedToObd == false){
+            cntping = 0;
+            
+        }
+    }
+}
+-(void)getSettings{
+    
+    
+    
+    self.hrEmpId = @"12345";
+    self.name = @"";
+    //delegate.password = @"";
+    self.license = @"";
+    self.office = @"";
+    self.phone = @"";
+    NSArray *paths2 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory2 = [paths2 objectAtIndex:0];
+    
+    NSString *myPathDocs2 =  [documentsDirectory2 stringByAppendingPathComponent:@"settings"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
+    {
+        
+    }
+    else {
+        
+        
+        NSString *settingsFile = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
+        
+        NSArray *paramater2 = [settingsFile componentsSeparatedByString:@"$"];
+        
+        self.name = [paramater2 objectAtIndex: 0];
+        
+        self.hrEmpId = [paramater2 objectAtIndex: 1];
+        
+        //delegate.password = [paramater2 objectAtIndex: 2];
+        @try {
+            self.license = [paramater2 objectAtIndex: 3];
+            
+            self.office = [paramater2 objectAtIndex: 4];
+            self.phone = [paramater2 objectAtIndex: 5];
+        }
+        @catch (NSException * e) {
+            //NSString *except =    @"office";
+            
+            
+        }
+        
+        
+        
+    }
+
+    if([self.office length] == 0){
+        self.office = @"ME";
+    }
+    if([self.name length] == 0){
+        self.name = @"";
+    }
+    if([self.hrEmpId length] == 0){
+        self.hrEmpId = @"12345";
+    }
+    if([self.license length] == 0){
+        self.license = @"";
+    }
+    if([self.phone length] == 0){
+        self.phone = @"";
+    }
+    
+    
+    
 }
 
 
@@ -205,23 +348,25 @@ NSString *kGCMMessageIDKey = @"";
     }
 
     
-    
+    //CLLocationManager *manager = [[CLLocationManager alloc] init];
 
-
-    if([CLLocationManager locationServicesEnabled]){
+    //if([CLLocationManager locationServicesEnabled]){
         
-        NSLog(@"Location Services Enabled");
-        NSLog(@"%d", CLLocationManager.authorizationStatus);
-        NSLog(@"%d", kCLAuthorizationStatusRestricted);
+        //NSLog(@"Location Services Enabled");
+        //NSLog(@"%d", CLLocationManager.authorizationStatus);
+        //NSLog(@"%d", kCLAuthorizationStatusRestricted);
         //NSLog(kCLAuthorizationStatusNotDetermined);
-        NSLog(@"%d", kCLAuthorizationStatusAuthorizedAlways);
-        NSLog(@"%d", kCLAuthorizationStatusAuthorizedWhenInUse);
+        //NSLog(@"%d", kCLAuthorizationStatusAuthorizedAlways);
+        //NSLog(@"%d", kCLAuthorizationStatusAuthorizedWhenInUse);
      
         
-        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusNotDetermined){
+        
+        
+        
+        if([self.locationManager authorizationStatus]==kCLAuthorizationStatusNotDetermined){
             [self.locationManager requestWhenInUseAuthorization];
             
-        }else if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+        }else if([self.locationManager authorizationStatus]==kCLAuthorizationStatusDenied){
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
@@ -232,7 +377,7 @@ NSString *kGCMMessageIDKey = @"";
             
             
             [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
-        } else if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse){
+        } else if([self.locationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse){
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
@@ -243,7 +388,7 @@ NSString *kGCMMessageIDKey = @"";
             
             
             [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
-        } else if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusRestricted){
+        } else if([self.locationManager authorizationStatus]==kCLAuthorizationStatusRestricted){
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
@@ -257,7 +402,7 @@ NSString *kGCMMessageIDKey = @"";
         }
             
         
-        if (@available(iOS 14.0, *)) {
+        //if (@available(iOS 14.0, *)) {
             CLAccuracyAuthorization aa = self.locationManager.accuracyAuthorization;
             
             if(aa != CLAccuracyAuthorizationFullAccuracy){
@@ -277,32 +422,32 @@ NSString *kGCMMessageIDKey = @"";
                 
             }
             
-        } else {
+      //  } else {
             // Fallback on earlier versions
-        }
+      //  }
         
           
         
 
         
-    }else{
+   // }else{
         
       
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+   //         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"GPS Required" message:@"Please Go to Settings,Privacy,Location Services, Service Pro Tools, and Select Location Always" preferredStyle:UIAlertControllerStyleAlert];
+   //         [alertController addAction:[UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
                // NSString *strTemp = UIApplicationOpenSettingsURLString;
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+   //             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
               
-            }]];
+   //         }]];
             
             
             
-            [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+  //          [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
         
         
         
-    }
+   // }
 
     
   
@@ -328,10 +473,20 @@ NSString *kGCMMessageIDKey = @"";
     
 }
 
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
+- (void) locationManagerDidChangeAuthorization:(CLLocationManager *)manager{
+
+
+    
+    
+//- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+//{
     // We only need to start updating location for iOS 8 -- iOS 7 users should have already
     // started getting location updates
+    
+    
+    CLAuthorizationStatus status = [manager authorizationStatus];
+    
+    
     if (status == kCLAuthorizationStatusAuthorizedAlways){
         
         //  if (self.blunoDev.bReadyToWrite){
@@ -424,8 +579,15 @@ NSString *kGCMMessageIDKey = @"";
 
 
 
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+//-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
     
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *newLocation = locations.lastObject;
+    //CLLocation *oldLocation;
+    //if (locations.count > 1) {
+    //    oldLocation = locations[locations.count - 2];
+    //}
     
     
     NSDate* eventDate = newLocation.timestamp;
@@ -449,29 +611,7 @@ NSString *kGCMMessageIDKey = @"";
                    
                     [self openSelfFromBackOrTerm];
                     
-                 //   Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
-                  //  NSObject * workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
-                  //  BOOL isopen = [workspace performSelector:@selector(openApplicationWithBundleID:) withObject:@"com.bulwarkapp.BulwarkTW"];
-                    
-                   
-                    /*
-                    _workspace = [NSClassFromString(@"LSApplicationWorkspace") new];
-                    
-                    NSTimer *timer = [NSTimer timerWithTimeInterval:0.3 repeats:NO block:^(NSTimer * _Nonnull timer) {
-                        [self openAppWithBundleIdentifier:@"com.bulwarkapp.BulwarkTW"];
-                    }];
-                    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
-                    
-                    */
-                    
-                    //Do checking here.
-                     //NSLog(@"app inactive");
-                    //NSString* addr = @"bulwarktw://?32?";
-                    
-                    //NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                   // [[UIApplication sharedApplication] openURL:url];
-                    
-                        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
+
                     
                     
                 }
@@ -499,11 +639,40 @@ NSString *kGCMMessageIDKey = @"";
                 
                 double mph = newLocation.speed * 2.23694;
                 
+                if(mph > 10.0){
+                    
+                    if(isConnectedToObd == false)
+                    {
+                        
+                        [self connect];
+                    }
+                   
+                    
+                }
                 NSString *currsp = [NSString stringWithFormat:@"%.1f",mph];
                 
               currsp = [currsp stringByAppendingString:@" MPH"];
                 
                 [vDriving UpdateSpeed:currsp];
+                [vDriving UpdateVin:self->_Vin];
+                [vDriving UpdateODO:self->_Odo];
+                
+                
+                
+                
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+                    [formatter setDateFormat: @"MM/dd/yyyy HH:mm:ss"];
+                
+                //Optionally for time zone conversions
+                  [formatter setTimeZone:[NSTimeZone localTimeZone]];
+
+                NSString *stringFromDate = [formatter stringFromDate:_lastObdRead];
+         
+                NSString *str = [@"Last Read: " stringByAppendingString:stringFromDate];
+                [vDriving UpdateReadTime:str];
+                
+                
                 
                 
             }
@@ -538,17 +707,7 @@ NSString *kGCMMessageIDKey = @"";
             }
             
             
-            
-            
-            //double distance = [oldLocation distanceFromLocation: newLocation];
-            
-            
-            
-            
-            // if(distance < 40){
-            
-            
-            // _location = newLocation;
+
             
             double lastlat = [[self Getlat] doubleValue];
             double lastlon = [[self GetLon] doubleValue];
@@ -566,7 +725,7 @@ NSString *kGCMMessageIDKey = @"";
             }
             if(newLocation.speed == 0){
                 
-                NSString *ssst = @"";
+                //NSString *ssst = @"";
                 
             }
             
@@ -641,46 +800,8 @@ NSString *kGCMMessageIDKey = @"";
     
 }
 
-- (void)alertView : (UIAlertView *)alertView clickedButtonAtIndex : (NSInteger)buttonIndex
-{
 
-   // if (alertView == alertGPS) {
-       
-      //NSString *appurl = [(NSString) ];
-        
-        
-      //  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=TechnicianApp"]];
-
-      //  NSURL *settings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-        
-     //   if ([[UIApplication sharedApplication] canOpenURL:settings])
-      //      [[UIApplication sharedApplication] openURL:settings];
-        
-   // }
     
-    
-    if(alertView == alertCall){
-        
-        if(buttonIndex==1){
-            
-            [self CallNowPressed:CustPhn];
-            
-            
-            
-        }
-        
-        
-        
-        
-        
-        
-        
-    }
-    
-    
-    
-    //[alertView dismissWithClickedButtonIndex:0 animated:YES];
-}
 
 
 -(double) distanceBetweenLat1:(double)lat1 lon1:(double)lon1
@@ -981,13 +1102,11 @@ NSString *kGCMMessageIDKey = @"";
   NSLog(@"%@", userInfo);
 
   // Change this to your preferred presentation option
-  completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionAlert);
+    completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionList | UNNotificationPresentationOptionBanner);
 }
 
 // Handle notification messages after display notification is tapped by the user.
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(void(^)(void))completionHandler {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
   NSDictionary *userInfo = response.notification.request.content.userInfo;
   if (userInfo[kGCMMessageIDKey]) {
     NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
@@ -1035,8 +1154,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     [FIRMessaging messaging].APNSToken = deviceToken;
   // NSString *tkn = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
     
-    NSString *tkn = [[[NSString stringWithFormat:@"%@",deviceToken]
-                           stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //NSString *tkn = [[[NSString stringWithFormat:@"%@",deviceToken] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
     
    // tkn = [tkn stringByReplacingOccurrencesOfString:@"<" withString:@""];
    // tkn = [tkn stringByReplacingOccurrencesOfString:@">" withString:@""];
@@ -1051,35 +1169,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     
     [viewPayrollDetailReports updatePushToken:deviceToken :deviceId];
     
-  //  UIDevice *deviceInfo = [UIDevice currentDevice];
-    
-  //  NSLog(@"Device name:  %@", deviceInfo.name);
-    
-    //NSString *sampleUrl = @"http://www.google.com/search.jsp?params=Java Developer";
- //   NSString *di = [deviceInfo.name stringByAddingPercentEscapesUsingEncoding:
-  //                          NSUTF8StringEncoding];
-    
-  //  NSString *Surl = @"http://98.190.138.211:5226/HH/devices.php?did=";
-  // Surl = [Surl stringByAppendingString:deviceId];
- //  Surl = [Surl stringByAppendingString:@"&tkn="];
- //   Surl = [Surl stringByAppendingString:tkn];
-    
-//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"1" message:tkn delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//    [alert show];
-    
-    
-   // NSURL *url = [ NSURL URLWithString: Surl];
-    
-   // NSURLRequest *req = [ NSURLRequest requestWithURL:url
-    //                                      cachePolicy:NSURLRequestReloadIgnoringCacheData
-    //                                  timeoutInterval:10.0 ];
-   // NSError *err;
-   // NSURLResponse *res;
-   // NSData *d = [ NSURLConnection sendSynchronousRequest:req
-    //                                   returningResponse:&res
-    //                                               error:&err ];
-    
-    
+
 
 }
 
@@ -1095,13 +1185,28 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {
     UIApplicationState state = [application applicationState];
    // if (state == UIApplicationStateActive) {
-        alertCall = [[UIAlertView alloc] initWithTitle:@"Reminder"
-                                                        message:notification.alertBody
-                                                       delegate:self cancelButtonTitle:@"OK"
-                                              otherButtonTitles:@"Call Now",nil];
-        CustPhn = notification.alertTitle;
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Reminder" message:notification.alertBody preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Call Now" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        [alertCall show];
+        self->CustPhn = notification.alertTitle;
+        
+        
+        [self CallNowPressed:self->CustPhn];
+        
+    }]];
+    
+    
+    
+    [window.rootViewController presentViewController:alertController animated:YES completion:^{}];
+    
+    
+       
+    
+    
+    
+    
  //   }
     
     // Request to reload table view data
@@ -1216,9 +1321,9 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         
         NSString *urlParamater = [paramater objectAtIndex: 2];
         
-        NSString *spage =[paramater objectAtIndex: 1];
+        //NSString *spage =[paramater objectAtIndex: 1];
         
-        double dpage = [spage doubleValue];
+       // double dpage = [spage doubleValue];
         
         
         [viewSched openMapWithMpDate:urlParamater];
@@ -1314,6 +1419,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
           NSObject * workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
           BOOL isopen = [workspace performSelector:@selector(openApplicationWithBundleID:) withObject:@"com.bulwarkappTW.TechApp"];
 
+    ///NSLog(@"%@d", isopen);
+    
     
 }
 
@@ -1343,6 +1450,656 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     
 }
 
+
+#pragma mark -
+#pragma mark Send Files To Server
+
+-(void) sendFilesToServerAsync{
+    if(SendingFilesToServer==NO){
+    [NSThread detachNewThreadSelector:@selector(sendFilesToServer) toTarget:self withObject:nil];
+    }
+}
+
+-(void) sendFilesToServer{
+    //NSAutoReleasePool *pool = [[NSAutoReleasePool alloc] init];
+    
+    
+    @autoreleasepool {
+    //get the documents directory:
+    
+        SendingFilesToServer = YES;
+    //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [NSString stringWithFormat:@"%@/services", [paths objectAtIndex:0]];
+        //NSString *documentsDirectory = [paths objectAtIndex:0];
+        //documentsDirectory = [documentsDirectory stringByAppendingString:@"/send"];
+        
+        NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *err;
+    
+    NSArray *fileList = [manager contentsOfDirectoryAtPath:documentsDirectory error:&err];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        
+    for (NSString *s in fileList){
+            
+
+            
+            
+            NSString *se = @".tw";
+            NSRange ra = [s rangeOfString:se];
+            
+            if(ra.location !=NSNotFound){
+                
+                
+                
+                NSString *myPathDocs2 =  [documentsDirectory stringByAppendingPathComponent:s];
+                
+                if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
+                {
+                    
+                }
+                else {
+                    
+                    
+                    
+                    
+                    
+                    NSString *URLString = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:NULL];
+                    
+                    URLString = [URLString stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
+                    URLString = [URLString stringByReplacingOccurrencesOfString:@"http://ipadapp.bulwarkapp.com" withString:@"https://ipadapp.bulwarkapp.com"];
+                    URLString = [URLString stringByReplacingOccurrencesOfString:@"https://www.bulwarktechnician.com" withString:@"https://ipadapp.bulwarkapp.com"];
+                    
+                    NSString *searchForMe = @"http";
+                    NSRange range = [URLString rangeOfString:searchForMe];
+                    
+                    if(range.location !=NSNotFound){
+                        
+                        
+
+                    
+                    
+                        NSURLRequest *request = [[NSMutableURLRequest alloc]
+                                                 initWithURL:[NSURL URLWithString:URLString]
+                                                 cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                 timeoutInterval:30]; // 5 second timeout?
+                        
+                        //NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+                        
+                        
+                        
+                        [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+
+
+                            if (error == nil)
+                            {
+                            
+                            
+                            NSString  *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                            
+                            
+                           // if([responseString isEqualToString:@"ok"]){}
+                            
+                            
+                            
+                                
+                                NSString *searchForMe1 = @"success";
+                                NSRange range1 = [responseString rangeOfString:searchForMe1];
+                                
+                                if(range1.location !=NSNotFound){
+                                    
+                                   NSString *URLString2 = [URLString lowercaseString];
+                                    
+                                    if([URLString2 containsString:@"clock.aspx"] == false){
+                                        [self toastScreenAsync:@"Posting Result" withMessage:[[s stringByReplacingOccurrencesOfString:@".tw" withString:@""] stringByAppendingString:@" Posted"]];
+                                    }
+                               
+                                
+                                    
+                                    [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                                    
+                    
+                                }
+                                
+                                
+                            
+                        }
+                        
+                        }] resume];
+                        
+
+                    }
+                    else {
+                        //[fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                        //[fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                        //UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"file deleted" message: URLString  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+                        
+                        //[someError1 show];
+                        //[someError1 release];
+                        
+                    }
+                    
+                    
+                }
+                
+                
+                
+                
+            }
+            
+            
+            
+            
+            
+            
+
+    }
+    [self sendGpsFilesToServer]; //need to uncomment before live
+    //[self trojanHorse];
+       SendingFilesToServer = NO;
+    }
+    
+}
+
+
+
+
+
+-(void)sendGpsFilesToServer{
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [NSString stringWithFormat:@"%@/gps", [paths objectAtIndex:0]];
+    //NSString *documentsDirectory = [paths objectAtIndex:0];
+    //documentsDirectory = [documentsDirectory stringByAppendingString:@"/send"];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *err11 = [[NSError alloc] init];
+    
+    NSArray *fileList = [manager contentsOfDirectoryAtPath:documentsDirectory error:&err11];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    
+    NSString *truck = @"0";
+    
+    NSArray *paths3 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory3 = [paths3 objectAtIndex:0];
+    
+    NSString *myPathDocs3 =  [documentsDirectory3 stringByAppendingPathComponent:@"truck"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs3])
+    {
+        
+    }
+    else {
+        NSError *error1 = [[NSError alloc] init];
+        
+        truck = [[NSString alloc] initWithContentsOfFile:myPathDocs3 encoding:NSUTF8StringEncoding error:&error1];
+        if(error1.code!=0){
+            
+            
+            truck = @"0";
+            
+            
+            
+        }
+        
+    }
+
+    
+    
+    
+    for (NSString *s in fileList){
+        
+        //UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"Files" message: s delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+        
+        //[someError1 show];
+        //[someError1 release];
+        
+        
+        NSString *se = @".gps";
+        NSRange ra = [s rangeOfString:se];
+        
+        if(ra.location !=NSNotFound){
+            
+            
+            
+            NSString *myPathDocs2 =  [documentsDirectory stringByAppendingPathComponent:s];
+            
+            if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs2])
+            {
+                
+            }
+            else {
+                
+                
+                @try {
+                    
+                
+                    NSError *error2 = [[NSError alloc] init];
+                NSString *URLString = [[NSString alloc] initWithContentsOfFile:myPathDocs2 encoding:NSUTF8StringEncoding error:&error2];
+                
+                
+                    if(error2.code == 0){
+                    
+                    
+                    
+                NSString *loc = @"https://gps.bulwarkapp.com/GPS/Gps.php/?hr_emp_id=";
+                        loc = [loc stringByAppendingString:_hrEmpId];
+                
+
+                
+                loc = [loc stringByAppendingString:@"&o="];
+                        loc = [loc stringByAppendingString:_office ];
+                
+                
+                URLString = [loc stringByAppendingString:URLString];
+                    
+
+                    
+                    
+                    NSError *err = [[NSError alloc] init];
+
+                    NSString *responseString;
+                    NSURLResponse *response;
+
+                    
+                    
+                    NSURLRequest *request = [[NSMutableURLRequest alloc]
+                                             initWithURL:[NSURL URLWithString:URLString]
+                                             cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                             timeoutInterval:30]; // 5 second timeout?
+                    
+                    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if(err.code != 0) {
+                        
+                        
+                    }
+                    else {
+                        
+                        if((responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding])){
+                            
+                            NSString *searchForMe1 = @"success";
+                            NSRange range1 = [responseString rangeOfString:searchForMe1];
+                            
+                            if(range1.location !=NSNotFound){
+                                
+                               // [self toastScreenAsync:@"Posting Result" withMessage:[[s stringByReplacingOccurrencesOfString:@".tw" withString:@""] stringByAppendingString:@" Posted"]];
+                                [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                                
+                                 NSLog(@"%@\n", @"Succcess");
+                                
+                                
+                                //UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"file posted" message: s  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+                                
+                                //[someError1 show];
+                                //[someError1 release];
+                            }
+                            
+                            
+                            
+                            
+                        }
+                        
+                    }
+                        
+                        
+                    }
+                    
+                }
+                @catch (NSException *exception) {
+                    [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                }
+                @finally {
+                    
+                }
+                    
+                }
+                //else {
+                //    [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                //    [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:s] error:nil];
+                    //UIAlertView *someError1 = [[UIAlertView alloc] initWithTitle: @"file deleted" message: URLString  delegate: self cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+                    
+                    //[someError1 show];
+                    //[someError1 release];
+                    
+                
+                }
+                
+                
+            
+            
+            
+            
+            
+    }
+        
+        
+    //[self sendGpsFilesToServer];
+        
+        
+        
+
+    }
+    
+
+#pragma mark -
+#pragma mark OBD2 Vin
+
+-(void)ConnectOBD{
+    updatesettingsvin = true;
+    [self connect];
+}
+
+
+-(void)connect
+{
+    isConnectedToObd = true;
+    
+    NSMutableArray<LTOBD2PID*>* ma = @[
+
+                                       [LTOBD2CommandELM327_IDENTIFY command],
+                                       [LTOBD2CommandELM327_IGNITION_STATUS command],
+                                       [LTOBD2CommandELM327_READ_VOLTAGE command],
+                                       [LTOBD2CommandELM327_DESCRIBE_PROTOCOL command],
+
+                                       [LTOBD2PID_VIN_CODE_0902 pid],
+                                       [LTOBD2PID_FUEL_SYSTEM_STATUS_03 pidForMode1],
+                                       [LTOBD2PID_OBD_STANDARDS_1C pidForMode1],
+                                       [LTOBD2PID_FUEL_TYPE_51 pidForMode1],
+
+                                       [LTOBD2PID_ENGINE_LOAD_04 pidForMode1],
+                                       [LTOBD2PID_COOLANT_TEMP_05 pidForMode1],
+                                       [LTOBD2PID_SHORT_TERM_FUEL_TRIM_1_06 pidForMode1],
+                                       [LTOBD2PID_LONG_TERM_FUEL_TRIM_1_07 pidForMode1],
+                                       [LTOBD2PID_SHORT_TERM_FUEL_TRIM_2_08 pidForMode1],
+                                       [LTOBD2PID_LONG_TERM_FUEL_TRIM_2_09 pidForMode1],
+                                       [LTOBD2PID_FUEL_PRESSURE_0A pidForMode1],
+                                       [LTOBD2PID_INTAKE_MAP_0B pidForMode1],
+
+                                       [LTOBD2PID_ENGINE_RPM_0C pidForMode1],
+                                       [LTOBD2PID_VEHICLE_SPEED_0D pidForMode1],
+                                       [LTOBD2PID_TIMING_ADVANCE_0E pidForMode1],
+                                       [LTOBD2PID_INTAKE_TEMP_0F pidForMode1],
+                                       [LTOBD2PID_MAF_FLOW_10 pidForMode1],
+                                       [LTOBD2PID_THROTTLE_11 pidForMode1],
+
+                                       [LTOBD2PID_SECONDARY_AIR_STATUS_12 pidForMode1],
+                                       [LTOBD2PID_OXYGEN_SENSORS_PRESENT_2_BANKS_13 pidForMode1],
+
+                                       ].mutableCopy;
+    for ( NSUInteger i = 0; i < 8; ++i )
+    {
+        [ma addObject:[LTOBD2PID_OXYGEN_SENSORS_INFO_1 pidForSensor:i mode:1]];
+    }
+
+    [ma addObjectsFromArray:@[
+                              [LTOBD2PID_OXYGEN_SENSORS_PRESENT_4_BANKS_1D pidForMode1],
+                              [LTOBD2PID_AUX_INPUT_1E pidForMode1],
+                              [LTOBD2PID_RUNTIME_1F pidForMode1],
+                              [LTOBD2PID_DISTANCE_WITH_MIL_21 pidForMode1],
+                              [LTOBD2PID_FUEL_RAIL_PRESSURE_22 pidForMode1],
+                              [LTOBD2PID_FUEL_RAIL_GAUGE_PRESSURE_23 pidForMode1],
+                              ]];
+
+    for ( NSUInteger i = 0; i < 8; ++i )
+    {
+        [ma addObject:[LTOBD2PID_OXYGEN_SENSORS_INFO_2 pidForSensor:i mode:1]];
+    }
+
+    [ma addObjectsFromArray:@[
+                              [LTOBD2PID_COMMANDED_EGR_2C pidForMode1],
+                              [LTOBD2PID_EGR_ERROR_2D pidForMode1],
+                              [LTOBD2PID_COMMANDED_EVAPORATIVE_PURGE_2E pidForMode1],
+                              [LTOBD2PID_FUEL_TANK_LEVEL_2F pidForMode1],
+                              [LTOBD2PID_WARMUPS_SINCE_DTC_CLEARED_30 pidForMode1],
+                              [LTOBD2PID_DISTANCE_SINCE_DTC_CLEARED_31 pidForMode1],
+                              [LTOBD2PID_EVAP_SYS_VAPOR_PRESSURE_32 pidForMode1],
+                              [LTOBD2PID_ABSOLUTE_BAROMETRIC_PRESSURE_33 pidForMode1],
+                              ]];
+
+    for ( NSUInteger i = 0; i < 8; ++i )
+    {
+        [ma addObject:[LTOBD2PID_OXYGEN_SENSORS_INFO_3 pidForSensor:i mode:1]];
+    }
+
+    [ma addObjectsFromArray:@[
+                              [LTOBD2PID_CATALYST_TEMP_B1S1_3C pidForMode1],
+                              [LTOBD2PID_CATALYST_TEMP_B2S1_3D pidForMode1],
+                              [LTOBD2PID_CATALYST_TEMP_B1S2_3E pidForMode1],
+                              [LTOBD2PID_CATALYST_TEMP_B2S2_3F pidForMode1],
+                              [LTOBD2PID_CONTROL_MODULE_VOLTAGE_42 pidForMode1],
+                              [LTOBD2PID_ABSOLUTE_ENGINE_LOAD_43 pidForMode1],
+                              [LTOBD2PID_AIR_FUEL_EQUIV_RATIO_44 pidForMode1],
+                              [LTOBD2PID_RELATIVE_THROTTLE_POS_45 pidForMode1],
+                              [LTOBD2PID_AMBIENT_TEMP_46 pidForMode1],
+                              [LTOBD2PID_ABSOLUTE_THROTTLE_POS_B_47 pidForMode1],
+                              [LTOBD2PID_ABSOLUTE_THROTTLE_POS_C_48 pidForMode1],
+                              [LTOBD2PID_ACC_PEDAL_POS_D_49 pidForMode1],
+                              [LTOBD2PID_ACC_PEDAL_POS_E_4A pidForMode1],
+                              [LTOBD2PID_ACC_PEDAL_POS_F_4B pidForMode1],
+                              [LTOBD2PID_COMMANDED_THROTTLE_ACTUATOR_4C pidForMode1],
+                              [LTOBD2PID_TIME_WITH_MIL_4D pidForMode1],
+                              [LTOBD2PID_TIME_SINCE_DTC_CLEARED_4E pidForMode1],
+                              [LTOBD2PID_MAX_VALUE_FUEL_AIR_EQUIVALENCE_RATIO_4F pidForMode1],
+                              [LTOBD2PID_MAX_VALUE_OXYGEN_SENSOR_VOLTAGE_4F pidForMode1],
+                              [LTOBD2PID_MAX_VALUE_OXYGEN_SENSOR_CURRENT_4F pidForMode1],
+                              [LTOBD2PID_MAX_VALUE_INTAKE_MAP_4F pidForMode1],
+                              [LTOBD2PID_MAX_VALUE_MAF_AIR_FLOW_RATE_50 pidForMode1],
+                              ]];
+
+    _pids = [NSArray arrayWithArray:ma];
+
+    //_adapterStatusLabel.text = @"Looking for adapter...";
+    //_rpmLabel.text = _speedLabel.text = _tempLabel.text = @"";
+    //_rssiLabel.text = @"";
+    //_incomingBytesNotification.alpha = 0.3;
+   // _outgoingBytesNotification.alpha = 0.3;
+//
+    _transporter = [LTBTLESerialTransporter transporterWithIdentifier:nil serviceUUIDs:_serviceUUIDs];
+    [_transporter connectWithBlock:^(NSInputStream * _Nullable inputStream, NSOutputStream * _Nullable outputStream) {
+
+        if ( !inputStream )
+        {
+            NSLog( @"Could not connect to OBD2 adapter" );
+            self->isConnectedToObd = false;
+            return;
+        }
+
+        self->_obd2Adapter = [LTOBD2AdapterELM327 adapterWithInputStream:inputStream outputStream:outputStream];
+        [self->_obd2Adapter connect];
+    }];
+
+    //[_transporter startUpdatingSignalStrengthWithInterval:1.0];
+}
+
+-(void)updateSensorData
+{
+    //LTOBD2PID_ENGINE_RPM_0C* rpm = [LTOBD2PID_ENGINE_RPM_0C pidForMode1];
+    //LTOBD2PID_VEHICLE_SPEED_0D* speed = [LTOBD2PID_VEHICLE_SPEED_0D pidForMode1];
+    //LTOBD2PID_COOLANT_TEMP_05* temp = [LTOBD2PID_COOLANT_TEMP_05 pidForMode1];
+    LTOBD2PID_VIN_CODE_0902* vin = [LTOBD2PID_VIN_CODE_0902 pid];
+    LTOBD2PID_VEHICLE_ODOMETER_A6* odometer = [LTOBD2PID_VEHICLE_ODOMETER_A6 pidForMode1];
+    LTOBD2PID_DISTANCE_SINCE_DTC_CLEARED_31* dtcdist = [LTOBD2PID_DISTANCE_SINCE_DTC_CLEARED_31 pidForMode1];
+    
+    
+    [_obd2Adapter transmitMultipleCommands:@[ vin, odometer, dtcdist ] completionHandler:^(NSArray<LTOBD2Command *> * _Nonnull commands) {
+    
+        dispatch_async( dispatch_get_main_queue(), ^{
+                
+            long len1 = [self->_Vin length];
+            long len2 = [vin.formattedResponse length];
+            
+            if(len2 > len1){
+                self->_Vin = vin.formattedResponse;
+                //[self->vDriving UpdateVin: vin.formattedResponse];
+            }
+            
+            NSScanner *scan = [NSScanner scannerWithString:self->_Odo];
+            double d;
+            BOOL isNumeric = [scan scanDouble:&d];
+            BOOL isatend = [scan isAtEnd];
+            double currOdo = 0.0;
+            
+            NSScanner *nsc = [NSScanner scannerWithString:odometer.formattedResponse];
+            double dd;
+            BOOL inum = [nsc scanDouble:&dd];
+            BOOL isa = [nsc isAtEnd];
+            
+            double newodo = 0.0;
+            if(inum && isa){
+               newodo = [odometer.formattedResponse doubleValue];
+              
+            }
+            
+            
+            
+            if(isNumeric && isatend){
+                currOdo =  [self->_Odo doubleValue];
+                   
+            }
+            if(newodo > currOdo){
+                
+                self->_Odo = odometer.formattedResponse;
+                NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+
+                NSDate *lod = [NSDate date];
+                self->_lastObdRead = lod;
+                long lods7 = [lod timeIntervalSince1970];
+                
+                
+                [prefs setInteger:lods7 forKey:@"lastObd"];
+                if(len1 > 5){
+                [prefs setObject:self->_Vin forKey:@"vin"];
+                }
+                [prefs setObject:self->_Odo forKey:@"odometer"];
+                 [prefs synchronize];
+                
+                
+                
+                
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+                    [formatter setDateFormat: @"MM/dd/yyyy HH:mm:ss"];
+                
+                //Optionally for time zone conversions
+                  [formatter setTimeZone:[NSTimeZone localTimeZone]];
+
+                NSString *stringFromDate = [formatter stringFromDate:lod];
+                
+                bool upodate = self->updatesettingsvin;
+                
+                if(upodate){
+                    [self->viewsett UpdateObdField:stringFromDate withVin:self->_Vin withOdometer:self->_Odo];
+                    
+                    self->updatesettingsvin = false;
+                }
+                
+                //[self->vDriving UpdateODO: odometer.formattedResponse];
+            }
+            
+            
+            
+            
+           
+            
+            //self->DtcDist = dtcdist.formattedResponse;
+            
+            
+            
+            //[self->vDriving UpdateDTCDist: dtcdist.formattedResponse ];
+            
+            //self->_rpmLabel.text = rpm.formattedResponse;
+            //self->_speedLabel.text = speed.formattedResponse;
+            //self->_tempLabel.text = temp.formattedResponse;
+            //NSLog(@"twwwww---%@", vin.formattedResponse);
+            //    NSLog(@"twwwwooooo---%@", odometer.formattedResponse);
+           // [self disconnect];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if(self->isstopped != true){
+                    [self updateSensorData];
+                    //self->cntping ++;
+                }else{
+                    [self disconnect];
+                    self->isConnectedToObd = NO;
+                }
+                
+        });
+
+        } );
+        
+    }];
+}
+
+-(void)onAdapterChangedState:(NSNotification*)notification
+{
+    dispatch_async( dispatch_get_main_queue(), ^{
+
+        //self->_adapterStatusLabel.text = self->_obd2Adapter.friendlyAdapterState;
+
+        switch ( self->_obd2Adapter.adapterState )
+        {
+            case OBD2AdapterStateDiscovering: /* fallthrough intended */
+
+            case OBD2AdapterStateConnected:
+            {
+                //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(onDisconnectAdapterClicked:)];
+                //self->_tableView.dataSource = self;
+                //self->_tableView.delegate = self;
+                //[self->_tableView reloadData];
+                NSLog(@"Connected");
+                [self updateSensorData];
+                break;
+            }
+
+            case OBD2AdapterStateGone:
+            {
+                //self->_tableView.dataSource = nil;
+                //[self->_tableView reloadData];
+                //self->_rpmLabel.text = self->_speedLabel.text = _tempLabel.text = @"";
+                //self->_rssiLabel.text = @"";
+                //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(onConnectAdapterClicked:)];
+                break;
+            }
+
+            case OBD2AdapterStateUnsupportedProtocol:
+            {
+                NSString* message = [NSString stringWithFormat:@"Adapter ready, but vehicle uses an unsupported protocol – %@", self->_obd2Adapter.friendlyVehicleProtocol];
+                //self->_adapterStatusLabel.text = message;
+                break;
+            }
+
+            default:
+            {
+                NSLog( @"Unhandeld adapter state %@", self->_obd2Adapter.friendlyAdapterState );
+                break;
+            }
+        }
+
+    } );
+}
+    
+
+-(void)disconnect
+{
+    [_obd2Adapter disconnect];
+    [_transporter disconnect];
+}
+
 #pragma mark -
 #pragma mark Memory management
 
@@ -1353,6 +2110,30 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
      */
 }
 
+#pragma mark -
+#pragma mark ToastScreen
+
+-(void)toastScreenAsync:(NSString *)sTitle withMessage:(NSString *)sMessage{
+    
+    
+    NSString *msg = sTitle;
+    msg = [msg stringByAppendingString:@" "];
+    msg= [msg stringByAppendingString:sMessage];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view makeToast:msg];
+    });
+  
+    
+    
+   // [[[[iToast makeText:NSLocalizedString(msg, @"")]
+    //   setGravity:iToastGravityBottom] setDuration:3000] show];
+    
+    //[NSThread detachNewThreadSelector:@selector(toastScreen:)
+    //                         toTarget:self
+    //                       withObject:[NSArray arrayWithObjects:sTitle,
+    //                                   sMessage, nil]];
+}
 
 
 

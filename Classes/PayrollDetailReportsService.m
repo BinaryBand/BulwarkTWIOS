@@ -15,13 +15,13 @@
     BulwarkTWAppDelegate *delegate2;
 
     UIButton *webviewbutton;
-    UIAlertView *askOpenReport;
+    //UIAlertView *askOpenReport;
     UIWindow *window2;
 }
-static BOOL UIAlertShowing = false;
-static const NSString *UpdatePushTokenUrl = @"https://kpwebapi.bulwarkapp.com/api/bulwarktwapp/updatepushtoken?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&pushtoken=%@&deviceIdUUID=%@";
-static const NSString *CheckForAvailableReportUrl = @"https://kpwebapi.bulwarkapp.com/api/payrollreports/commissionreportreadytoview?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@";
-static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
+//static BOOL UIAlertShowing = false;
+NSString *UpdatePushTokenUrl = @"https://kpwebapi.bulwarkapp.com/api/bulwarktwapp/updatepushtoken?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&pushtoken=%@&deviceIdUUID=%@";
+NSString *CheckForAvailableReportUrl = @"https://kpwebapi.bulwarkapp.com/api/payrollreports/commissionreportreadytoview?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@";
+NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
 
 - (void) doneButtonTapped{
     @try{
@@ -40,7 +40,7 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
 
 - (void)viewDidAppear:(BOOL)animated{
     @try{
-        
+        /*
         CGRect nframe = CGRectMake(5, 24, delegate2.window.frame.size.width - 10, delegate2.window.frame.size.height - 32);
         self.view.frame = nframe;
         [HUD.superview bringSubviewToFront:HUD];
@@ -99,7 +99,7 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
             self.webView.userInteractionEnabled = YES;
             [self.view bringSubviewToFront:self->webviewbutton];
         }];
-        
+        */
         
         /* for (UIView *view in self.view.superview.subviews) {
          if (!view.hidden && view != self.view ){                            }
@@ -141,22 +141,22 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
-        HUD = [[MBProgressHUD alloc] initWithView:self.view];
-        [self.view addSubview:HUD];
+       // HUD = [[MBProgressHUD alloc] initWithView:self.view];
+       // [self.view addSubview:HUD];
         
         if(delegate2 == NULL  || delegate2 == nil){
             delegate2 = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
         }
-        if(askOpenReport == nil)
-            askOpenReport =  [[UIAlertView alloc] initWithTitle:@"Commission Report Available"
-                                                        message:@"Your commission report for the last payperiod is now available. Would you like to view it now?"
-                                                       delegate:self cancelButtonTitle:@"Later"
-                                              otherButtonTitles:@"View Commission Report",nil];
+       // if(askOpenReport == nil)
+        //    askOpenReport =  [[UIAlertView alloc] initWithTitle:@"Commission Report Available"
+        //                                                message:@"Your commission report for the last payperiod is now available. Would you like to view it now?"
+        //                                               delegate:self cancelButtonTitle:@"Later"
+         //                                     otherButtonTitles:@"View Commission Report",nil];
     }@catch(NSException *exc){}
 }
 
 
-
+/*
 - (void)webViewDidStartLoad:(UIWebView *)nWebView {
     [HUD show:YES];
 }
@@ -174,29 +174,29 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
     [self.view.superview bringSubviewToFront:self.view];
 }
 
+*/
 
-
-- (void)alertView : (UIAlertView *)alertView clickedButtonAtIndex : (NSInteger)buttonIndex
-{
-    @try{
-        NSLog(@"Clicked Alert Button: %ld",(long)buttonIndex);
+//- (void)alertView : (UIAlertView *)alertView clickedButtonAtIndex : (NSInteger)buttonIndex
+//{
+   // @try{
+     //   NSLog(@"Clicked Alert Button: %ld",(long)buttonIndex);
         
-        if(buttonIndex == 0){
-            NSLog(@"View Later Clicked - Not Displaying Commission Report");
+     //   if(buttonIndex == 0){
+     //       NSLog(@"View Later Clicked - Not Displaying Commission Report");
             
-        }
-        if(buttonIndex > 0){
+    //    }
+   //     if(buttonIndex > 0){
             
             
-            NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
-                  BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
-               NSString *hrempid = del.hrEmpId;
+            //NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=%@&viewedby=%@";
+             //     BulwarkTWAppDelegate *del = (BulwarkTWAppDelegate *)[[UIApplication sharedApplication] delegate];
+             //  NSString *hrempid = del.hrEmpId;
              
-                 NSString *url = [NSString stringWithFormat:ReportUrl, hrempid,hrempid];
+              //   NSString *url = [NSString stringWithFormat:ReportUrl, hrempid,hrempid];
                  
-            NSURL *qurl = [NSURL URLWithString:url];
+          //  NSURL *qurl = [NSURL URLWithString:url];
                  
-            [del.viewOne btnMyPay];
+            //[del.viewOne btnMyPay];
             //  NSURLRequest *request = [NSURLRequest requestWithURL:qurl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:(NSTimeInterval)10.0 ];
            // [del.viewOne handleOpenURL:qurl];
             /*  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -218,38 +218,38 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
             UIViewController *rootc = [wind rootViewController];
             [rootc.view addSubview:self.view];*/
             //[window2 addSubview:self.view];
-        }
+    //    }
         
-    }
-    @catch(NSException *exc) {
+  //  }
+  //  @catch(NSException *exc) {
         //  NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "OpenReportAlertView", [exc reason]];
         // NSLog(logmessage);
-    }
-}
+ //   }
+//}
 - (void) openReport:(UIWindow *)window{
-    @try{
-        window2 = window;
+    //@try{
+        //window2 = window;
         /*if([CommissionReportsService askOpenReport] == NULL){
          self.askOpenReport  = [[UIAlertView alloc] initWithTitle:@"Commission Report Available"
          message:@"Your commission report for the last payperiod is now available. Would you like to view it now?"
          delegate:self cancelButtonTitle:@"Later"
          otherButtonTitles:@"View Commission Report",nil];
          }*/
-        if(askOpenReport == nil)
-            askOpenReport  = [[UIAlertView alloc] initWithTitle:@"Payroll Detail Report Available"
-                                                        message:@"Your Payroll Detail report for the last payperiod is now available. Would you like to view it now?"
-                                                       delegate:self cancelButtonTitle:@"Later"
-                                              otherButtonTitles:@"View Payroll Detail Report",nil];
-        if(askOpenReport.isVisible == false && askOpenReport.visible == false){
-            [askOpenReport  show];
-        }
-    }
-    @catch(NSException *exc) {
-        @try{
-            NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "OpenPayrollDetailReport", [exc reason]];
-            NSLog(logmessage);
-        }@catch(NSException *exc){}
-    }
+       // if(askOpenReport == nil)
+        //    askOpenReport  = [[UIAlertView alloc] initWithTitle:@"Payroll Detail Report Available"
+        //                                                message:@"Your Payroll Detail report for the last payperiod is now available. Would you like to view it now?"
+        //                                               delegate:self cancelButtonTitle:@"Later"
+        //                                      otherButtonTitles:@"View Payroll Detail Report",nil];
+        //if(askOpenReport.isVisible == false && askOpenReport.visible == false){
+        //   [askOpenReport  show];
+       // }
+    //}
+    //@catch(NSException *exc) {
+        //@try{
+           // NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "OpenPayrollDetailReport", [exc reason]];
+          //  NSLog(logmessage);
+        //}@catch(NSException *exc){}
+   // }
     
 }
 
@@ -265,7 +265,7 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
 -(BOOL) techHasPendingCommisionReport{
     
     BOOL result = false;
-    @try{
+   /* @try{
         NSString *hrempid = [self getHrEmpId];
         if([hrempid length] == 0){
             NSLog(@"Comm. Report: No hr emp id");
@@ -303,7 +303,7 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
             NSLog(logmessage);
         }@catch(NSException *exc){}
     }
-    
+    */
     return result;
 }
 
@@ -334,7 +334,7 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
         NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error ];
         
         if([responseCode statusCode] != 200){
-            NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
+            NSLog(@"Error getting %@, HTTP status code %li", url, (long)[responseCode statusCode]);
             
         }else{
             NSString *response = [[NSString alloc] initWithData:oResponseData encoding:NSASCIIStringEncoding];
@@ -343,10 +343,10 @@ static const NSString *ReportUrl = @"https://kpwebapi.bulwarkapp.com/payrollrepo
         
     }
     @catch(NSException *exc) {
-        @try{
-            NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "UpdatePushToken", [exc reason]];
-            NSLog(logmessage);
-        }@catch(NSException *exc){}
+       // @try{
+        //    NSString *logmessage = [NSString stringWithFormat:@"Error %@: %@", "UpdatePushToken", [exc reason]];
+        //    NSLog(logmessage);
+       // }@catch(NSException *exc){}
         
     }
 }
