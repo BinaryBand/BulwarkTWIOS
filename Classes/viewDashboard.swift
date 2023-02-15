@@ -71,6 +71,18 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet var viewOntime: DesignableUIView!
     
+    @IBOutlet weak var viewFinisher: DesignableUIView!
+    
+    @IBOutlet weak var viewCompletin: DesignableUIView!
+    
+    
+    @IBOutlet weak var viewReviews: DesignableUIView!
+    @IBOutlet weak var viewProactiveAdds: DesignableUIView!
+    
+    @IBOutlet weak var viewThiryOnePlus: DesignableUIView!
+    
+    @IBOutlet weak var viewRolling: DesignableUIView!
+    
     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
     
    // var routeStop: RouteStop?{
@@ -103,12 +115,31 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.tapPhotoRatio (_:)))
-        
         self.viewPhotoRatio.addGestureRecognizer(gesture)
         
         let gestureot = UITapGestureRecognizer(target: self, action:  #selector (self.tapOnTime (_:)))
-        
         self.viewOntime.addGestureRecognizer(gestureot)
+        
+        let gestureFinisher = UITapGestureRecognizer(target: self, action:  #selector (self.tapFinisher (_:)))
+        self.viewFinisher.addGestureRecognizer(gestureFinisher)
+        
+        
+        let gestureCompletion = UITapGestureRecognizer(target: self, action:  #selector (self.tapCompletion (_:)))
+        self.viewCompletin.addGestureRecognizer(gestureCompletion)
+        
+        
+        let gestureReviews = UITapGestureRecognizer(target: self, action:  #selector (self.tapReviews (_:)))
+        self.viewReviews.addGestureRecognizer(gestureReviews)
+        
+        let gestureProactiveAdds = UITapGestureRecognizer(target: self, action:  #selector (self.tapProactiveAdds (_:)))
+        self.viewProactiveAdds.addGestureRecognizer(gestureProactiveAdds)
+       
+        let gestureThiryOnePlus = UITapGestureRecognizer(target: self, action:  #selector (self.tapDailyRetention (_:)))
+        self.viewThiryOnePlus.addGestureRecognizer(gestureThiryOnePlus)
+        
+        let gestureRolling = UITapGestureRecognizer(target: self, action:  #selector (self.tapDailyRetention (_:)))
+        self.viewRolling.addGestureRecognizer(gestureRolling)
+        
         
         //cvPhotos.reloadData()
         Task{
@@ -562,7 +593,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         // do other task
         
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/ontime?ipad=yes&h=" + hrempid
-        useCookieInWeb = false
+        useCookieInWeb = true
         performSegue(withIdentifier: "showWeb", sender: nil)
         
     }
@@ -574,6 +605,48 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         performSegue(withIdentifier: "showWeb", sender: nil)
         
     }
+    
+    /****/
+    
+    
+    
+    
+    
+    
+    @objc func tapCompletion(_ sender:UITapGestureRecognizer){
+        // do other task
+        
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/completionrate?ipad=yes&h=" + hrempid
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showWeb", sender: nil)
+        
+    }
+    
+    
+    @objc func tapReviews(_ sender:UITapGestureRecognizer){
+        // do other task
+        
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/finisherRatio?ipad=yes&h=" + hrempid
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showWeb", sender: nil)
+        
+    }
+    
+    
+    @objc func tapProactiveAdds(_ sender:UITapGestureRecognizer){
+        // do other task
+        
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/proactiveusage?ipad=yes&h=" + hrempid
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showWeb", sender: nil)
+        
+    }
+    
+    
+    
+    /****/
+    
+    
     @objc func tapDailyRetention(_ sender:UITapGestureRecognizer){
         // do other task
         
