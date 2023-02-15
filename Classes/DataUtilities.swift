@@ -331,6 +331,39 @@ struct DataUtilities {
         
         return true
     } //save route
+    static func saveGPSFile(gpsData: Data, filename: String) ->Bool{
+        
+        
+        //im not sure if theis will work check the logic 1-23-2023
+      if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+          let pathWithFileName = documentDirectory.appendingPathComponent("gpsData")
+          
+          
+          if !FileManager.default.fileExists(atPath: pathWithFileName.path) { //if does not exist
+                  do {
+                      try FileManager.default.createDirectory(atPath: pathWithFileName.path, withIntermediateDirectories: false, attributes: nil) //Create folder
+                  } catch {
+                      print(error)
+                  }
+              }
+
+          let rtfile = pathWithFileName.appendingPathComponent(filename)
+          
+
+          
+            do {
+                try gpsData.write(to: rtfile)
+            } catch {
+                // handle error
+                return false
+            }
+            return true
+            
+        }
+        
+        return true
+    } //save gps
+    
     
     
    static func getHomeGps(hrempid: String) async throws -> SPHomeGps{

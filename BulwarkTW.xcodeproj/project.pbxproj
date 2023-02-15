@@ -78,6 +78,7 @@
 		B36EC1B91A64887600F53D78 /* DFBlunoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B36EC1B41A64887600F53D78 /* DFBlunoDevice.m */; };
 		B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B36EC1B61A64887600F53D78 /* DFBlunoManager.m */; };
 		B3819D141BE179C4002B7F4B /* TWBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3819D131BE179C4002B7F4B /* TWBlunoManager.m */; };
+		B389828A299C1CBD00B24D09 /* GpsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3898289299C1CBD00B24D09 /* GpsModel.swift */; };
 		B38AA54A1C56A83900283461 /* viewReports.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AA5481C56A83900283461 /* viewReports.m */; };
 		B3964A6B2895ADE6005F638D /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B3964A6A2895ADE6005F638D /* Toast */; };
 		B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */; };
@@ -233,6 +234,7 @@
 		B36EC1B61A64887600F53D78 /* DFBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFBlunoManager.m; sourceTree = "<group>"; };
 		B3819D121BE179B5002B7F4B /* TWBlunoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBlunoManager.h; sourceTree = "<group>"; };
 		B3819D131BE179C4002B7F4B /* TWBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBlunoManager.m; sourceTree = "<group>"; };
+		B3898289299C1CBD00B24D09 /* GpsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsModel.swift; sourceTree = "<group>"; };
 		B38AA5471C56A83900283461 /* viewReports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewReports.h; sourceTree = "<group>"; };
 		B38AA5481C56A83900283461 /* viewReports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = viewReports.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRetReports.swift; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				B32AD0A5298D748000F1154D /* TimePunch.swift */,
 				B32AD0A929916AAA00F1154D /* isTerritorySteward.swift */,
 				B32AD0AD2991D46100F1154D /* FastCommModels.swift */,
+				B3898289299C1CBD00B24D09 /* GpsModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				B3440CBC28789588003E8C8E /* viewISExtendedOptIn.swift in Sources */,
 				B33229BA297A08B6008ECE5B /* viewRouteStop.swift in Sources */,
 				B337A93C1C73EDB300FBEE18 /* viewSettings.m in Sources */,
+				B389828A299C1CBD00B24D09 /* GpsModel.swift in Sources */,
 				B3B7F79228DBA16400B8F1F2 /* FBFSearch.swift in Sources */,
 				B33C58101CBC887F00CE2C72 /* viewDriving.m in Sources */,
 				B32AD0A4298D70CA00F1154D /* viewTimePunch.swift in Sources */,
@@ -811,7 +815,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.0;
+				CURRENT_PROJECT_VERSION = 5.0.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -865,7 +869,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.0;
+				CURRENT_PROJECT_VERSION = 5.0.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -959,7 +963,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.0;
+				CURRENT_PROJECT_VERSION = 5.0.1;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
