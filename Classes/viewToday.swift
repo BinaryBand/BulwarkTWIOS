@@ -440,72 +440,22 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
        
         
         
-        Task {
+        Task.detached { [self] in
             do{
                 
                 let rdate = DataUtilities.getCurrentRouteDateString()
                 
                 
-                routeStopList = try await JsonFetcher.fetchRouteStopsAsync(rdate: rdate, hrEmpId: h)
-                self.tableView.reloadData()
-                stopBarButtonIndicator()
-                if refreshControl.isRefreshing {
-                    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-                    refreshControl.endRefreshing()
-                }
-                
-                mapStops = [];
-                
-                var lastw = 0
-                var cntttl = 0;
-                var cntcomp = 0;
-                var notes = "";
-                
-                for r in routeStopList {
-                    if r.type == 2{
-                        notes = r.notes
-                    }
-                    
-                    if r.lat != 0{
-                        let tstr = r.account + " " + r.name
-                        let sstr = r.serviceType + " " + r.timeBlock
-                        
-                        var cid = 1
-                        
-                        if r.type == 10 {
-                            cid = 2
-                            cntcomp = cntcomp + 1;
-                        }
-                        if r.type == 11 {
-                            cid = 3
-                            cntcomp = cntcomp + 1;
-                        }
-                        
-                        cntttl = cntttl + 1
-                        
-                        
-                        let mp = MapStop(colorId:  cid, lat: r.lat, lon: r.lon, title: tstr, subtitle: sstr)
-                        if lastw != r.workorder_id{
-                            lastw = r.workorder_id
-                            mapStops.append(mp)
-                        }
-                    }
-                }
-                
-                let prg = cntcomp.toString() + "/" + cntttl.toString()
-                viewToday.delegate?.routeLoaded(ms: mapStops, routeNotes: notes, routeprogress: prg)
-                
+                let rtl = try await JsonFetcher.fetchRouteStopsAsync(rdate: rdate, hrEmpId: h)
+                await setRouteList(rtlist: rtl)
+               
                     
                 
             }catch{
                 
-                self.view.makeToast("Error Loading Route", duration: 4.0, position: .top)
-                
-                stopBarButtonIndicator()
-                if refreshControl.isRefreshing {
-                    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-                    refreshControl.endRefreshing()
-                }
+                await self.view.makeToast("Error Loading Route", duration: 4.0, position: .top)
+                await stopRefresh()
+               
             }
         }
         
@@ -548,7 +498,74 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
         
         
    // }
-    
+    func stopRefresh() async{
+        stopBarButtonIndicator()
+        if refreshControl.isRefreshing {
+            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            refreshControl.endRefreshing()
+        }
+    }
+    func setRouteList(rtlist:[RouteStop]) async{
+        
+        Utilities.delay(bySeconds: 0.1,dispatchLevel: .main){ [self] in
+            routeStopList = rtlist
+            
+            
+             tableView.reloadData()
+             stopBarButtonIndicator()
+            if  refreshControl.isRefreshing {
+                 refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+                refreshControl.endRefreshing()
+            }
+            
+            mapStops = [];
+            
+            var lastw = 0
+            var cntttl = 0;
+            var cntcomp = 0;
+            var notes = "";
+            
+            for r in routeStopList {
+                if r.type == 2{
+                    notes = r.notes
+                }
+                
+                if r.lat != 0{
+                    let tstr = r.account + " " + r.name
+                    let sstr = r.serviceType + " " + r.timeBlock
+                    
+                    var cid = 1
+                    
+                    if r.type == 10 {
+                        cid = 2
+                        cntcomp = cntcomp + 1;
+                    }
+                    if r.type == 11 {
+                        cid = 3
+                        cntcomp = cntcomp + 1;
+                    }
+                    
+                    cntttl = cntttl + 1
+                    
+                    
+                    let mp = MapStop(colorId:  cid, lat: r.lat, lon: r.lon, title: tstr, subtitle: sstr)
+                    if lastw != r.workorder_id{
+                        lastw = r.workorder_id
+                        mapStops.append(mp)
+                    }
+                }
+            }
+            
+            let prg = cntcomp.toString() + "/" + cntttl.toString()
+            viewToday.delegate?.routeLoaded(ms: mapStops, routeNotes: notes, routeprogress: prg)
+            
+            
+        }
+        
+        
+        
+        
+    }
     
     @IBAction func btnAddAction(_ sender: Any) {
         

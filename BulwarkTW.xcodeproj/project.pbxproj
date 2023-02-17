@@ -79,6 +79,7 @@
 		B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B36EC1B61A64887600F53D78 /* DFBlunoManager.m */; };
 		B3819D141BE179C4002B7F4B /* TWBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3819D131BE179C4002B7F4B /* TWBlunoManager.m */; };
 		B389828A299C1CBD00B24D09 /* GpsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3898289299C1CBD00B24D09 /* GpsModel.swift */; };
+		B389828C299D8CE500B24D09 /* viewMapToggles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389828B299D8CE500B24D09 /* viewMapToggles.swift */; };
 		B38AA54A1C56A83900283461 /* viewReports.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AA5481C56A83900283461 /* viewReports.m */; };
 		B3964A6B2895ADE6005F638D /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B3964A6A2895ADE6005F638D /* Toast */; };
 		B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */; };
@@ -235,6 +236,7 @@
 		B3819D121BE179B5002B7F4B /* TWBlunoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBlunoManager.h; sourceTree = "<group>"; };
 		B3819D131BE179C4002B7F4B /* TWBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBlunoManager.m; sourceTree = "<group>"; };
 		B3898289299C1CBD00B24D09 /* GpsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsModel.swift; sourceTree = "<group>"; };
+		B389828B299D8CE500B24D09 /* viewMapToggles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMapToggles.swift; sourceTree = "<group>"; };
 		B38AA5471C56A83900283461 /* viewReports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewReports.h; sourceTree = "<group>"; };
 		B38AA5481C56A83900283461 /* viewReports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = viewReports.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRetReports.swift; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 				B3574A112984A244006DC9E2 /* viewMap.swift */,
 				B3574A192988C89A006DC9E2 /* viewRetentionList.swift */,
 				B32AD0A3298D70CA00F1154D /* viewTimePunch.swift */,
+				B389828B299D8CE500B24D09 /* viewMapToggles.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */,
 				B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */,
 				1D3623260D0F684500981E51 /* BulwarkTWAppDelegate.m in Sources */,
+				B389828C299D8CE500B24D09 /* viewMapToggles.swift in Sources */,
 				B348C8AD1C7ACD48000BDC7A /* viewSchedule.m in Sources */,
 				B3CDC615292BF765008957B1 /* viewDashboard.swift in Sources */,
 				B3432072296C7D78005CFD18 /* LTOBD2ProtocolSAEJ1850.m in Sources */,

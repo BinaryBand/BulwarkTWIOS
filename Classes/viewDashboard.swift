@@ -142,11 +142,11 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         
         //cvPhotos.reloadData()
-        Task{
-            await loadPhotos()
-            await loadStats()
-            await loadHomeGPS()
-            await loadProactiveList()
+        Task.detached{
+            await self.loadPhotos()
+            await self.loadStats()
+            await self.loadHomeGPS()
+            await self.loadProactiveList()
         }
         splitViewController?.show(.primary)
         fastCommCheck()
