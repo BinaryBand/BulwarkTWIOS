@@ -181,10 +181,10 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @objc func sendFilesToServer()
     {
-        Task{
+        Task.detached{
             do{
                 
-                _ = try await JsonFetcher.SendPostingResultsAsync(hrEmpId: hrempid)
+                _ = try await JsonFetcher.SendPostingResultsAsync(hrEmpId: self.hrempid)
                 
                 
             } catch {
@@ -200,9 +200,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     @objc func fetchStats()
     {
-        Task{
+        Task.detached{
                            
-               await loadStats()
+            await self.loadStats()
                 
         }
     }
@@ -213,19 +213,25 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     @objc func fetchNewProactive(){
-        Task{
+        Task.detached{
             
-            do{
-                proactiveList = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
-            } catch {
-               print(error)
-            }
+           
+                 await self.fetchNewProactive()
+            
             
             
         }
         
         
         
+    }
+    
+    func fetchNewProactiveList() async {
+        do{
+        proactiveList =  try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+        } catch {
+           print(error)
+        }
     }
     func loadProactiveList() async{
         

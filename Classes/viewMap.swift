@@ -30,6 +30,8 @@ class viewMap: UIViewController {
         map.delegate = self
         map.showsUserLocation = true
         self.map.showAnnotations(self.map.annotations, animated: true)
+        
+        viewMapToggles.delegate = self
         //let annotation1 = MyPointAnnotation()
         //annotation1.coordinate = CLLocationCoordinate2D(latitude: 33.95, longitude: -117.34)
         //annotation1.title = "Example 0" // Optional
@@ -97,21 +99,7 @@ class viewMap: UIViewController {
     }
     
     
-    @IBAction func toggleSWProactive(_ sender: UISwitch) {
-        
-        
-        if sender.isOn == true{
-            addProactivePins()
-            
-        }else{
-            
-            removeProactivePins()
-        }
-        
-        
-        
-    }
-    
+   
 
     
     
@@ -589,6 +577,34 @@ extension viewMap : MKMapViewDelegate {
              */
         }
     }
+    
+    
+}
+extension viewMap : MapToggleDelegate {
+    func toggleProactive(isOn: Bool) {
+        if isOn == true{
+            addProactivePins()
+            
+        }else{
+            
+            removeProactivePins()
+        }
+    }
+    
+    func toggleCancels(isOn: Bool) {
+    
+    }
+    
+    func toggleCancelRequests(isOn: Bool) {
+        
+    }
+    
+    func toggleMapType(isOn: Bool) {
+        
+    }
+    
+    
+    
     
     
 }
