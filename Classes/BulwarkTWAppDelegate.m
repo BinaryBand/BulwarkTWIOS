@@ -1118,6 +1118,11 @@ NSString *kGCMMessageIDKey = @"";
   // Print full message.
   NSLog(@"%@", userInfo);
 
+    
+    [_viewDash updateChatNotificationBubble];
+    
+    
+    
   completionHandler(UIBackgroundFetchResultNewData);
 }
 // Receive displayed notifications for iOS 10 devices.

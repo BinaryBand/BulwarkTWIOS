@@ -457,8 +457,8 @@
             timestampString = "537764245.681434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1169"
-            endingLineNumber = "1169"
+            startingLineNumber = "1174"
+            endingLineNumber = "1174"
             landmarkName = "-configureFireBase"
             landmarkType = "7">
          </BreakpointContent>
@@ -508,8 +508,8 @@
             timestampString = "537764245.6820951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1327"
-            endingLineNumber = "1327"
+            startingLineNumber = "1332"
+            endingLineNumber = "1332"
             landmarkName = "-refreshSchedule"
             landmarkType = "7">
          </BreakpointContent>
@@ -525,8 +525,8 @@
             timestampString = "537764245.682273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1149"
-            endingLineNumber = "1149"
+            startingLineNumber = "1154"
+            endingLineNumber = "1154"
             landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +878,8 @@
             timestampString = "537764245.682952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1316"
-            endingLineNumber = "1316"
+            startingLineNumber = "1321"
+            endingLineNumber = "1321"
             landmarkName = "-HideDrivingFrm"
             landmarkType = "7">
          </BreakpointContent>
@@ -1065,8 +1065,8 @@
             timestampString = "537764245.685105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1349"
-            endingLineNumber = "1349"
+            startingLineNumber = "1354"
+            endingLineNumber = "1354"
             landmarkName = "-application:handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1320,8 +1320,8 @@
             timestampString = "537764245.685746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1148"
-            endingLineNumber = "1148"
+            startingLineNumber = "1153"
+            endingLineNumber = "1153"
             landmarkName = "-userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3592,8 +3592,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1262"
-            endingLineNumber = "1262"
+            startingLineNumber = "1267"
+            endingLineNumber = "1267"
             landmarkName = "-CallNowPressed:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3640,8 +3640,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1251"
-            endingLineNumber = "1251"
+            startingLineNumber = "1256"
+            endingLineNumber = "1256"
             landmarkName = "-application:didReceiveLocalNotification:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4686,34 +4686,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E40C4584-2544-4163-9A92-F03D7AE1969B - c36784baac3d80a1"
+                  uuid = "E40C4584-2544-4163-9A92-F03D7AE1969B - fb57e9fc83bf72b2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[BulwarkTWAppDelegate checkGpsAndBackground]"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/BulwarkTWAppDelegate.m"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/BulwarkTWAppDelegate.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "342"
                   endingLineNumber = "342"
-                  offsetFromSymbolStart = "440">
+                  offsetFromSymbolStart = "764">
                </Location>
                <Location
-                  uuid = "E40C4584-2544-4163-9A92-F03D7AE1969B - 9f2f532b6a4ce572"
+                  uuid = "E40C4584-2544-4163-9A92-F03D7AE1969B - a71f3e6d45ce1763"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__45-[BulwarkTWAppDelegate checkGpsAndBackground]_block_invoke_3"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/BulwarkTWAppDelegate.m"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/BulwarkTWAppDelegate.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "345"
                   endingLineNumber = "345"
-                  offsetFromSymbolStart = "60">
+                  offsetFromSymbolStart = "96">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4936,8 +4936,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1171"
-            endingLineNumber = "1171"
+            startingLineNumber = "1176"
+            endingLineNumber = "1176"
             landmarkName = "-configureFireBase"
             landmarkType = "7">
          </BreakpointContent>
@@ -5478,8 +5478,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "431"
+            endingLineNumber = "431"
             landmarkName = "loadPhotos()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5494,8 +5494,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
             landmarkName = "loadPhotos()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5510,8 +5510,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5526,8 +5526,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5590,8 +5590,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "463"
-            endingLineNumber = "463"
+            startingLineNumber = "486"
+            endingLineNumber = "486"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5606,8 +5606,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "464"
-            endingLineNumber = "464"
+            startingLineNumber = "487"
+            endingLineNumber = "487"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5622,8 +5622,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
+            startingLineNumber = "412"
+            endingLineNumber = "412"
             landmarkName = "loadPhotos()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5638,8 +5638,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5938,8 +5938,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1997"
-            endingLineNumber = "1997"
+            startingLineNumber = "2002"
+            endingLineNumber = "2002"
             landmarkName = "-updateSensorData"
             landmarkType = "7">
          </BreakpointContent>
@@ -5970,8 +5970,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2030"
-            endingLineNumber = "2030"
+            startingLineNumber = "2035"
+            endingLineNumber = "2035"
             landmarkName = "-updateSensorData"
             landmarkType = "7">
          </BreakpointContent>
@@ -6018,8 +6018,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1857"
-            endingLineNumber = "1857"
+            startingLineNumber = "1862"
+            endingLineNumber = "1862"
             landmarkName = "-ConnectOBD"
             landmarkType = "7">
          </BreakpointContent>
@@ -6098,8 +6098,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1343"
-            endingLineNumber = "1343"
+            startingLineNumber = "1348"
+            endingLineNumber = "1348"
             landmarkName = "-application:handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6114,8 +6114,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1341"
-            endingLineNumber = "1341"
+            startingLineNumber = "1346"
+            endingLineNumber = "1346"
             landmarkName = "-application:handleOpenURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6703,8 +6703,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "456"
-            endingLineNumber = "456"
+            startingLineNumber = "479"
+            endingLineNumber = "479"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -7180,8 +7180,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -8263,8 +8263,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -9124,49 +9124,79 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - 80a74628545b67eb"
+                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - 3f0528b221e31674"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Sendable () async -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in BulwarkTW.FBFCell.btnPressAddToRoute(Any) -&gt; ()"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/FBFCell.swift"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/FBFCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
                   endingLineNumber = "93"
-                  offsetFromSymbolStart = "256">
+                  offsetFromSymbolStart = "572">
                </Location>
                <Location
-                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - c1b6bdc2c885eff5"
+                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - 7e14d358bd3d9931"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in BulwarkTW.FBFCell.btnPressAddToRoute(Any) -&gt; ()"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/FBFCell.swift"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/FBFCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - 7e14d358bd3d9e6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in BulwarkTW.FBFCell.btnPressAddToRoute(Any) -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/FBFCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
                   endingLineNumber = "93"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - ed86a75ff704bcaa"
+                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - 5224c9c582bcca6e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in BulwarkTW.FBFCell.btnPressAddToRoute(Any) -&gt; ()"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/FBFCell.swift"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/FBFCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "9B3C943D-CDE7-4B0C-ABE6-B012DDDCC889 - 5224c9c582bccd35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in BulwarkTW.FBFCell.btnPressAddToRoute(Any) -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/FBFCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
                   endingLineNumber = "93"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "100">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -9386,8 +9416,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "918"
-            endingLineNumber = "918"
+            startingLineNumber = "944"
+            endingLineNumber = "944"
             landmarkName = "updateClockIn(punch:isIn:checklocal:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -9402,8 +9432,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "957"
-            endingLineNumber = "957"
+            startingLineNumber = "983"
+            endingLineNumber = "983"
             landmarkName = "updateClockIn(punch:isIn:checklocal:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -9434,8 +9464,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "843"
-            endingLineNumber = "843"
+            startingLineNumber = "869"
+            endingLineNumber = "869"
             landmarkName = "btnServiceSnapShot(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -9514,8 +9544,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "loadCancelList()"
             landmarkType = "7">
             <Locations>
@@ -9592,8 +9622,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "loadCancelList()"
             landmarkType = "7">
          </BreakpointContent>
@@ -9672,8 +9702,8 @@
             filePath = "Classes/viewDashboard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "sendFilesToServer()"
             landmarkType = "7">
             <Locations>
@@ -9802,49 +9832,49 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AA78F798-5724-4D07-BDB7-90D8F855A61D - c8fb30d2b7cd13e9"
+                  uuid = "AA78F798-5724-4D07-BDB7-90D8F855A61D - 16352460f1650f9e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(1) suspend resume partial function for static BulwarkTW.JsonFetcher.SendGPSAsync(hrEmpId: Swift.String) async throws -&gt; Swift.Bool"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/jsonFetcher.swift"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/jsonFetcher.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "541"
                   endingLineNumber = "541"
-                  offsetFromSymbolStart = "4624">
+                  offsetFromSymbolStart = "8652">
                </Location>
                <Location
-                  uuid = "AA78F798-5724-4D07-BDB7-90D8F855A61D - a58c1d908320bf9f"
+                  uuid = "AA78F798-5724-4D07-BDB7-90D8F855A61D - 7b420922c588a3e8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(3) suspend resume partial function for static BulwarkTW.JsonFetcher.SendGPSAsync(hrEmpId: Swift.String) async throws -&gt; Swift.Bool"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/jsonFetcher.swift"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/jsonFetcher.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "541"
                   endingLineNumber = "541"
-                  offsetFromSymbolStart = "8156">
+                  offsetFromSymbolStart = "17940">
                </Location>
                <Location
-                  uuid = "AA78F798-5724-4D07-BDB7-90D8F855A61D - e8c46f3176d2ed86"
+                  uuid = "AA78F798-5724-4D07-BDB7-90D8F855A61D - 360a7b83307af1f1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(4) suspend resume partial function for static BulwarkTW.JsonFetcher.SendGPSAsync(hrEmpId: Swift.String) async throws -&gt; Swift.Bool"
                   moduleName = "BulwarkTW"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/BulwarkTWIOS/Classes/jsonFetcher.swift"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/jsonFetcher.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "541"
                   endingLineNumber = "541"
-                  offsetFromSymbolStart = "3408">
+                  offsetFromSymbolStart = "6372">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -9922,8 +9952,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1428"
-            endingLineNumber = "1428"
+            startingLineNumber = "1433"
+            endingLineNumber = "1433"
             landmarkName = "-applicationDidBecomeActive:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9938,8 +9968,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1466"
-            endingLineNumber = "1466"
+            startingLineNumber = "1471"
+            endingLineNumber = "1471"
             landmarkName = "-openSelfFromBackOrTerm"
             landmarkType = "7">
          </BreakpointContent>
@@ -9954,8 +9984,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1417"
-            endingLineNumber = "1417"
+            startingLineNumber = "1422"
+            endingLineNumber = "1422"
             landmarkName = "-applicationWillEnterForeground:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9970,8 +10000,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1400"
-            endingLineNumber = "1400"
+            startingLineNumber = "1405"
+            endingLineNumber = "1405"
             landmarkName = "-applicationDidEnterBackground:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9986,8 +10016,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1390"
-            endingLineNumber = "1390"
+            startingLineNumber = "1395"
+            endingLineNumber = "1395"
             landmarkName = "-applicationWillResignActive:"
             landmarkType = "7">
          </BreakpointContent>
@@ -10002,8 +10032,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1497"
-            endingLineNumber = "1497"
+            startingLineNumber = "1502"
+            endingLineNumber = "1502"
             landmarkName = "-registerAppforDetectLockState"
             landmarkType = "7">
          </BreakpointContent>
@@ -10018,8 +10048,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1501"
-            endingLineNumber = "1501"
+            startingLineNumber = "1506"
+            endingLineNumber = "1506"
             landmarkName = "-registerAppforDetectLockState"
             landmarkType = "7">
          </BreakpointContent>
@@ -10034,8 +10064,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1465"
-            endingLineNumber = "1465"
+            startingLineNumber = "1470"
+            endingLineNumber = "1470"
             landmarkName = "-openSelfFromBackOrTerm"
             landmarkType = "7">
          </BreakpointContent>
@@ -10098,8 +10128,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1993"
-            endingLineNumber = "1993"
+            startingLineNumber = "1998"
+            endingLineNumber = "1998"
             landmarkName = "-updateSensorData"
             landmarkType = "7">
             <Locations>
@@ -10146,8 +10176,8 @@
             filePath = "Classes/BulwarkTWAppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1998"
-            endingLineNumber = "1998"
+            startingLineNumber = "2003"
+            endingLineNumber = "2003"
             landmarkName = "-updateSensorData"
             landmarkType = "7">
          </BreakpointContent>
@@ -10181,6 +10211,38 @@
             startingLineNumber = "175"
             endingLineNumber = "175"
             landmarkName = "-centralManager:didDiscoverPeripheral:advertisementData:RSSI:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE2A60F4-593F-47CC-AFDB-C11C8A07F4E1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewDashboard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "updateChatNotificationBubble()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D55D1015-87D7-4AED-93BB-D313605A81A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewDashboard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "588"
+            endingLineNumber = "588"
+            landmarkName = "ChatClicked()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

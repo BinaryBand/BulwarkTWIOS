@@ -87,6 +87,7 @@
 		B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */; };
 		B3A64D0C296CFBFA000D1C0B /* ApiPostObjs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A64D0B296CFBFA000D1C0B /* ApiPostObjs.swift */; };
 		B3A64D0E296D020E000D1C0B /* AuthCookieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A64D0D296D020E000D1C0B /* AuthCookieResult.swift */; };
+		B3A935BA29A6CEA200A5C48F /* BarButtonBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A935B929A6CEA200A5C48F /* BarButtonBadge.swift */; };
 		B3AE2E4229650A3F0026F911 /* ExcelentPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AE2E4129650A3F0026F911 /* ExcelentPhotos.swift */; };
 		B3AE2E4429652F900026F911 /* viewPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AE2E4329652F900026F911 /* viewPhoto.swift */; };
 		B3B7F79228DBA16400B8F1F2 /* FBFSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7F79128DBA16400B8F1F2 /* FBFSearch.swift */; };
@@ -246,6 +247,7 @@
 		B3A4E946286BA44600ADC3E5 /* viewPopupWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPopupWeb.swift; sourceTree = "<group>"; };
 		B3A64D0B296CFBFA000D1C0B /* ApiPostObjs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPostObjs.swift; sourceTree = "<group>"; };
 		B3A64D0D296D020E000D1C0B /* AuthCookieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCookieResult.swift; sourceTree = "<group>"; };
+		B3A935B929A6CEA200A5C48F /* BarButtonBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonBadge.swift; sourceTree = "<group>"; };
 		B3AE2E4129650A3F0026F911 /* ExcelentPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcelentPhotos.swift; sourceTree = "<group>"; };
 		B3AE2E4329652F900026F911 /* viewPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPhoto.swift; sourceTree = "<group>"; };
 		B3B7F79128DBA16400B8F1F2 /* FBFSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBFSearch.swift; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 				B3CDC61B292C4388008957B1 /* uiViewExtend.swift */,
 				B3CDC61D292C4F9E008957B1 /* DesignableLayout.swift */,
 				B30F46A5297F66A9008748E9 /* Utilities.swift */,
+				B3A935B929A6CEA200A5C48F /* BarButtonBadge.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				B343207D296C7D78005CFD18 /* LTOBD2ProtocolISO15765_4.m in Sources */,
 				B36EC1B81A64887600F53D78 /* BLEUtility.m in Sources */,
 				B33229BC297AFA51008ECE5B /* viewPosting.swift in Sources */,
+				B3A935BA29A6CEA200A5C48F /* BarButtonBadge.swift in Sources */,
 				B3574A162985CBD8006DC9E2 /* SPHomeGps.swift in Sources */,
 				B3432079296C7D78005CFD18 /* LTBTLEWriteCharacteristicStream.m in Sources */,
 				B3574A1A2988C89A006DC9E2 /* viewRetentionList.swift in Sources */,

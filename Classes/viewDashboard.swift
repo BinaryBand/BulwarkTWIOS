@@ -93,10 +93,13 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet var btnStartTraining: UIButton!
     
     
+    @IBOutlet var barBtnChat: UIBarButtonItem!
     
     
     
     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+    
+    var notificationstoview:Int = 0
     
    // var routeStop: RouteStop?{
    //     didSet {
@@ -176,11 +179,31 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         _ = Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(self.fastCommCheck), userInfo: nil, repeats: true)
                
         _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.sendGpsToServer), userInfo: nil, repeats: true)
+        updateChatNotificationBubble()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //tabbar.selectedItem = tabbar.items![0]
     }
+    
+    
+    
+    @objc func updateChatNotificationBubble(){
+        
+        notificationstoview = notificationstoview + 1
+        
+        
+        if notificationstoview > 0{
+            barBtnChat.setBadge(text: notificationstoview.toString())
+        }else{
+            barBtnChat.removeBadge()
+        }
+        
+        
+        
+        
+    }
+    
     
     
     
@@ -561,6 +584,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
        
 
     @IBAction func ChatClicked(){
+        notificationstoview = 0
+        barBtnChat.removeBadge()
+        
         tabUrl = "https://kpwebapi2.bulwarkapp.com/chat?hrempid=" + hrempid
         useCookieInWeb = true
         print(tabUrl!)

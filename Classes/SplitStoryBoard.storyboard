@@ -1779,6 +1779,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="barBtnChat" destination="gd1-tR-SSv" id="iKG-JY-gVF"/>
                         <outlet property="btnClockIn" destination="TdM-Qs-ULu" id="fMn-cu-hQJ"/>
                         <outlet property="btnFastComm" destination="qfg-dU-GGR" id="BBk-gQ-EeT"/>
                         <outlet property="btnStartTraining" destination="6TD-eg-dvg" id="rMu-Tv-uBA"/>
@@ -5829,7 +5830,7 @@
         <image name="arrow.turn.down.left" catalog="system" width="128" height="99"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="camera" catalog="system" width="128" height="93"/>
-        <image name="camera" width="21" height="16"/>
+        <image name="camera" width="16" height="12"/>
         <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="123"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
