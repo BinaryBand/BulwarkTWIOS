@@ -628,8 +628,8 @@ public extension Date {
             switch self {
             case .usDate: return "MM/dd/yyyy"
             case .usDateTime12WithSec: return "MM/dd/yyyy h:mm:ss a"
-            case .usDateTime12NoSec: return "MM/dd/yyyy h:mm:ss a"
-            case .usDateTime24WithSec: return "MM/dd/yyyy H:mm:ss a"
+            case .usDateTime12NoSec: return "MM/dd/yyyy h:mm a"
+            case .usDateTime24WithSec: return "MM/dd/yyyy H:mm:ss"
             case .usDateTime24NoSec: return "MM/dd/yyyy H:mm"
             case .isoYear: return "yyyy"
             case .isoYearMonth: return "yyyy-MM"

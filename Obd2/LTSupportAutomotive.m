@@ -29,7 +29,7 @@ void MyNSLog(const char *file, int lineNumber, const char *functionName, NSStrin
     va_end (ap);
     
     NSString* fileName = [[NSString stringWithUTF8String:file] lastPathComponent];
-    //fprintf( stderr, "%s (%s:%d) %s", functionName, [fileName UTF8String], lineNumber, body.UTF8String );
+    fprintf( stderr, "%s (%s:%d) %s", functionName, [fileName UTF8String], lineNumber, body.UTF8String );
 }
 
 NSString* LTDataToString( NSData* d )

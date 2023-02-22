@@ -9,7 +9,14 @@ import UIKit
 import WebKit
 import Toast
 
+
+protocol ModalWebDelegate: AnyObject{
+    func routeChangedMW()
+    func trainingCompletedMW()
+}
+
 class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
+    static var delegate:ModalWebDelegate?
 
     @IBOutlet var webView : WKWebView!
     //var HUD: MBProgressHUD!
@@ -28,6 +35,7 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
         
         super.viewDidLoad()
         
+        WKWebsiteDataStore.default().removeData(ofTypes: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache], modifiedSince: Date(timeIntervalSince1970: 0), completionHandler:{ })
         
         //HUD = MBProgressHUD(view: view)
         //view.addSubview(HUD)
@@ -248,6 +256,12 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 decisionHandler(.cancel)
                 self.dismissThis()
                 
+            }else if(dpage==49){
+                //Going Pro Completion Close the page
+                decisionHandler(.cancel)
+               
+                viewModalWeb.delegate?.trainingCompletedMW()
+                self.dismissThis()
             }else{
                 
                 UIApplication.shared.open(url!, options: [:], completionHandler: nil)
@@ -331,6 +345,8 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 
             }else if dpage==2{
                 //transfer soft contacted
+              /*
+                
                 let urlparamarr = param.split(separator: "&")
                 var customerId = 0
                 var workOrderId = 0
@@ -369,7 +385,7 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
                     
                 }
                         
-                
+                */
                 
                // self.transferService(routeId: routeId, workOrderId: workOrderId, fromPage: report)
                 

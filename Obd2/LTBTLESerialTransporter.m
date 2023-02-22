@@ -172,7 +172,7 @@ NSString* const LTBTLESerialTransporterDidUpdateSignalStrength = @"LTBTLESerialT
 {
     NSString* devName = peripheral.name;
     
-    if([devName containsString:@"OBD"]){
+   // if([devName containsString:@"OBD"]){
     
     if ( _adapter )
     {
@@ -184,7 +184,7 @@ NSString* const LTBTLESerialTransporterDidUpdateSignalStrength = @"LTBTLESerialT
     [_possibleAdapters addObject:peripheral];
     peripheral.delegate = self;
     [_manager connectPeripheral:peripheral options:nil];
-}
+//}
     
 }
 

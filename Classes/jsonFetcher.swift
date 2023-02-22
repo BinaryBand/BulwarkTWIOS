@@ -14,6 +14,9 @@ struct JsonFetcher {
         case missingData
     }
     
+    private static var isSendingGps:Bool = false
+    
+    
     static func getAuthToken(hrempid: String) -> String {
         
         
@@ -435,7 +438,160 @@ struct JsonFetcher {
     }
     
     
+    static func sendGpsDataToServer(hrEmpId: String) async -> Bool{
+        if isSendingGps == false{
+            do{
+                isSendingGps = true
+                let s = try await SendGPSAsync(hrEmpId: hrEmpId)
+                isSendingGps = false
+                return s
+            }catch{
+                isSendingGps = false
+                return false
+            }
+        }else{
+            return false
+        }
+        
+    }
     
+    private static func SendGPSAsync(hrEmpId: String) async throws -> Bool{
+      
+        
+        let fm = FileManager.default
+
+
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            let fileURL = dir.appendingPathComponent("gpsData")
+            
+            
+            do {
+                let items = try fm.contentsOfDirectory(atPath: fileURL.path)
+
+                for item in items {
+                    print("Found \(item)")
+                    
+                    if item.hasSuffix(".tw"){
+                        
+                        let fp = fileURL.appendingPathComponent(item)
+                        
+                        //if let fu =  URL(string: item) {
+                            
+                        do {
+                            let jdata = try Data(contentsOf: fp, options: .mappedIfSafe)
+                            
+                            
+                            
+                            print(item)
+                            
+                            let decoder = JSONDecoder()
+                            let mdl = try decoder.decode(GpsModel.self, from: jdata)
+                            
+                            let stl = try await postGps(gpsData: mdl)
+                            
+                            
+                            
+                            if stl == 1{
+                                
+                                
+                                try fm.removeItem(atPath: fp.path)
+                                
+                                
+                            }else{
+                                //check how old the file is and remove if greater then 4 days
+                                
+                                let attr = try FileManager.default.attributesOfItem(atPath: fp.path)
+                                let savedate = attr[FileAttributeKey.creationDate] as? Date
+                                
+                                
+                                if let s = savedate {
+                                    let d = Date()
+                                    
+                                    let ti = d.timeIntervalSince(s)
+                                    
+                                    let seconds = ti.rounded()
+                                    let tthours =  seconds / 3600
+                                    
+                                    
+                                    if tthours > 96 {
+                                        //it has been more then 80 hours remove the file
+                                        try fm.removeItem(atPath: fp.path)
+                                    }
+                                    
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                
+                                
+                                
+                            }
+                                
+                                
+                                
+                            }catch {
+                                print(error)
+                                
+                                let errstr:String = error.localizedDescription.lowercased()
+                                print(errstr)
+                                if errstr.contains("correct format"){
+                                    try fm.removeItem(atPath: fp.path)
+                                }
+                                
+                            }
+                            
+                        //}else {
+                        //    //invalid url conversion remove the file
+                        //    try fm.removeItem(atPath: item)
+                        //}
+                        
+                        
+                        
+                    }
+                    
+                    
+                    
+                }
+            } catch {
+                // failed to read directory – bad permissions, perhaps?
+            }
+            
+        }
+        
+        
+        return true
+    }
+    
+    static func postGps(gpsData: GpsModel) async throws ->Int{
+        
+        
+        
+            let url = "https://twubuntucore.bulwarkapp.com/api/SaveIpadGps"
+        
+            //let url = "http://10.211.55.4:5095/api/SaveIpadGps"
+            
+        let jd = GpsModel(hrempid: gpsData.hrempid, rollingKey: getAuthToken(hrempid: gpsData.hrempid), truck: gpsData.truck, office: gpsData.office, timeStamp: gpsData.timeStamp, lat: gpsData.lat, lon: gpsData.lon, course: gpsData.course, speed: gpsData.speed, distance: gpsData.distance, odometer: gpsData.odometer, odometerTimeStamp: gpsData.odometerTimeStamp)
+        
+            let jsonData = try JSONEncoder().encode(jd)
+        let request = URLRequest(urlStr: url, hrempid: gpsData.hrempid, jsonData: jsonData)!
+            
+            let (data, res) = try await URLSession.shared.data(for: request)
+        let httpResponse = res as! HTTPURLResponse
+        print(httpResponse.statusCode)
+        let str = String(decoding: data, as: UTF8.self)
+        print(str)
+            let result = try JSONDecoder().decode(GpsPostResult.self, from: data)
+        return result.success
+     
+        
+        
+        
+        
+        
+    }
     
     
     static func fetchDashStatsJson(hrEmpId: String) async throws -> DashStats {
@@ -574,7 +730,7 @@ struct JsonFetcher {
         let athtoken = getAuthToken(hrempid: hrEmpId)
         let ac = ProactiveApiPost(HrEmpId: hrEmpId, RollingKey: athtoken, lat: 0, lon: 0, reportType: 1, searchString: "")
         
-        return try await fetchProactiveWorkJson(urlStr: urlStr, proApiPost: ac)
+        return try await fetchProactiveWorkJson(urlStr: urlStr, proApiPost: ac, fname: "cancelsList.json")
         
     }
     static func fetchPoolJson(hrEmpId: String, lat:Double, lon:Double) async throws -> [ProactiveAccount]{
@@ -584,7 +740,7 @@ struct JsonFetcher {
         let athtoken = getAuthToken(hrempid: hrEmpId)
         let ac = ProactiveApiPost(HrEmpId: hrEmpId, RollingKey: athtoken, lat: 0, lon: 0, reportType: 2, searchString: "")
         
-        return try await fetchProactiveWorkJson(urlStr: urlStr, proApiPost: ac)
+        return try await fetchProactiveWorkJson(urlStr: urlStr, proApiPost: ac, fname:"poolList.json")
         
     }
     static func fetchAcctSearchJson(hrEmpId: String, searchStr: String) async throws -> [ProactiveAccount]{
@@ -594,12 +750,12 @@ struct JsonFetcher {
         let athtoken = getAuthToken(hrempid: hrEmpId)
         let ac = ProactiveApiPost(HrEmpId: hrEmpId, RollingKey: athtoken, lat: 0, lon: 0, reportType: 3, searchString: searchStr)
         
-        return try await fetchProactiveWorkJson(urlStr: urlStr, proApiPost: ac)
+        return try await fetchProactiveWorkJson(urlStr: urlStr, proApiPost: ac, fname:"acctSearch.json")
         
     }
     
     
-    static func fetchProactiveWorkJson(urlStr: String, proApiPost: ProactiveApiPost) async throws -> [ProactiveAccount] {
+    static func fetchProactiveWorkJson(urlStr: String, proApiPost: ProactiveApiPost, fname:String) async throws -> [ProactiveAccount] {
         
         
         //urlStr = "http://10.211.55.4:5095/GetAuthCookie"
@@ -626,6 +782,15 @@ struct JsonFetcher {
         // Parse the JSON data
         let acresult = try JSONDecoder().decode([ProactiveAccount].self, from: data)
 
+        if  acresult.count > 0{
+            
+            
+                _ = DataUtilities.saveJSONFile(list:data, filename: fname)
+            
+        }
+        
+        
+        
         return acresult
         
         

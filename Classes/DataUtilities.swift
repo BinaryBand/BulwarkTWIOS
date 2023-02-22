@@ -331,9 +331,9 @@ struct DataUtilities {
         
         return true
     } //save route
-    static func saveGPSFile(gpsData: Data, filename: String) ->Bool{
+    static func saveGPSFile(gpsData: Data) ->Bool{
         
-        
+        let fname = uniqueFileName()
         //im not sure if theis will work check the logic 1-23-2023
       if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
           let pathWithFileName = documentDirectory.appendingPathComponent("gpsData")
@@ -347,7 +347,7 @@ struct DataUtilities {
                   }
               }
 
-          let rtfile = pathWithFileName.appendingPathComponent(filename)
+          let rtfile = pathWithFileName.appendingPathComponent(fname)
           
 
           
@@ -473,7 +473,25 @@ struct DataUtilities {
     }
     
     
+    
+    
+    static func getRecentCancelList(hrempid:String) async throws -> [ProactiveAccount]{
+        
+        
+        return try await getRetentionList(hrempid: hrempid, type: 2, fname: "cancelsList.json")
+        
+        
+        
+        
+    }
     static func getProactiveRetentionList(hrempid: String) async throws -> [ProactiveAccount]{
+        
+        return try await getRetentionList(hrempid: hrempid, type: 1, fname: "proactiveList.json")
+        
+    }
+    
+    
+    static func getRetentionList(hrempid: String, type: Int, fname:String) async throws -> [ProactiveAccount]{
          
          
          let sph = [ProactiveAccount]()
@@ -485,13 +503,27 @@ struct DataUtilities {
         
         
          if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-             let pathWithFileName = documentDirectory.appendingPathComponent("jsonData").appendingPathComponent("proactiveList.json")
+             let pathWithFileName = documentDirectory.appendingPathComponent("jsonData").appendingPathComponent(fname)
               
              
              if !FileManager.default.fileExists(atPath: pathWithFileName.path) { //if does not exist
                      do {
-                         let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
-                         return list
+                         
+                         if type == 1{
+                             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                             return list
+                         }else if type == 2{
+                             let list = try await JsonFetcher.fetchCancelsJson(hrEmpId: hrempid)
+                             return list
+                         }else if type == 3{
+                             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                             return list
+                         }else {
+                             return sph
+                         }
+                                    
+                         
+                         
                      } catch {
                          return sph
                      }
@@ -518,8 +550,18 @@ struct DataUtilities {
                          
                          if tthours > 11 {
                              
-                             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
-                             return list
+                             if type == 1{
+                                 let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                                 return list
+                             }else if type == 2{
+                                 let list = try await JsonFetcher.fetchCancelsJson(hrEmpId: hrempid)
+                                 return list
+                             }else if type == 3{
+                                 let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                                 return list
+                             }else {
+                                 return sph
+                             }
                              
                          }else{
                              let data = try Data(contentsOf: pathWithFileName, options: .mappedIfSafe)
@@ -575,6 +617,24 @@ struct DataUtilities {
          
          
      }
+    
+    
+    
+    static func saveGpsJsonFile(gpsData: GpsModel){
+        do{
+            let jsonData = try JSONEncoder().encode(gpsData)
+            
+           _ = saveGPSFile(gpsData: jsonData)
+            
+            
+            
+        }catch{
+            print(error)
+        }
+        
+        
+        
+    }
     
     
     

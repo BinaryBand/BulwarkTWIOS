@@ -17,9 +17,16 @@ class viewMap: UIViewController {
     var routeCoordinates : [CLLocation] = []
     var homegps: SPHomeGps?
     var proactivList:[ProactiveAccount] =  []
+    var cancelList:[ProactiveAccount] =  []
     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
     
     @IBOutlet var tglProactive: UIBarButtonItem!
+    
+    
+    var proIsOn: Bool = false
+    var canIsOn: Bool = false
+    var recIsOn: Bool = false
+    var hybridIsOn: Bool = false
     
     
     @IBOutlet var proactiveswitch: UIBarButtonItem!
@@ -115,30 +122,34 @@ class viewMap: UIViewController {
                 
                 let pin = MyPointAnnotation()
                 pin.title = p.address
-                pin.subtitle = "Proactive"
+                
                 
                 
                 var tid = 10;
                 
                 if p.typeId == 1{
-                    // 31 Dormant
+                    //31 Dormant
                     tid = 10;
+                    pin.subtitle = "31 Dormant"
                     
                 }
                 
                 if p.typeId == 2{
                     // 31 Proactive
                     tid = 11;
+                    pin.subtitle = "31 Proactive"
                     
                 }
                 if p.typeId == 3{
                     // RR Extra
                     tid = 12;
+                    pin.subtitle = "Rolling Dormant"
                     
                 }
                 if p.typeId == 4{
                     // RR Going Dormant
                     tid = 13;
+                    pin.subtitle = "Rolling Proactive"
                     
                 }
                 
@@ -199,6 +210,141 @@ class viewMap: UIViewController {
         }
     }
     
+    
+    func addCancelPins(isMoved:Bool){
+        if cancelList.count > 0{
+            
+               
+            for p in cancelList {
+                let lat = p.lat ?? 0
+                let lon = p.lon ?? 0
+                
+                let coord = CLLocationCoordinate2D(latitude:lat, longitude: lon)
+                
+                let pin = MyPointAnnotation()
+                pin.title = p.address
+                
+                
+                
+                var tid = 29;
+                
+                let rct = p.status ?? "Recent Cancel"
+                
+                let rctl = rct.lowercased()
+                if rctl.starts(with: "move"){
+                    tid = 20
+                    
+                }
+                if rctl.starts(with: "one"){
+                    tid = 21
+                    
+                }
+                if rctl.starts(with: "do it"){
+                    tid = 21
+                    
+                }
+                if rctl.starts(with: "dis"){
+                    tid = 22
+                    
+                }
+                if rctl.starts(with: "coll"){
+                    tid = 23
+                    
+                }
+                if rctl.starts(with: "fina"){
+                    tid = 24
+                    
+                }
+                if rctl.starts(with: "switch"){
+                    tid = 25
+                    
+                }
+                if rctl.starts(with: "do not"){
+                    tid = 23
+                    
+                }
+                
+                pin.subtitle = rct
+                
+                
+             
+                                             
+                               
+                
+                
+                pin.identifier = tid
+                
+                
+                pin.stopNumber = 0
+                pin.coordinate = coord
+                pin.proactiveAcct = p
+                if isMoved {
+                    if tid == 20{
+                        Utilities.delay(bySeconds: 0.1, dispatchLevel: .main){
+                            self.map.addAnnotation(pin)
+                            
+                        }
+                    }
+                }else{
+                    if tid != 20{
+                        Utilities.delay(bySeconds: 0.1, dispatchLevel: .main){
+                            self.map.addAnnotation(pin)
+                            
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+    }
+    
+    func removeCancelPins(){
+        
+        let anno = map.annotations
+        
+        for a in anno{
+            if let p = a as? MyPointAnnotation{
+                
+                let pid = p.identifier ?? 0
+                if pid >= 21 && pid < 30 {
+                    
+                    map.removeAnnotation(a)
+                    
+                    
+                }
+                
+            }
+            
+            
+            
+            
+            
+        }
+    }
+    func removeMovedPins(){
+        
+        let anno = map.annotations
+        
+        for a in anno{
+            if let p = a as? MyPointAnnotation{
+                
+                let pid = p.identifier ?? 0
+                if pid == 20 {
+                    
+                    map.removeAnnotation(a)
+                    
+                    
+                }
+                
+            }
+            
+            
+            
+            
+            
+        }
+    }
     
     func addPins() {
             if mapStops.count != 0  {
@@ -343,7 +489,7 @@ class viewMap: UIViewController {
         
     func drawRoute(routeData: [CLLocation]) {
             if mapStops.count == 0 {
-                print("🟡 No Coordinates to draw")
+                print("No Coordinates to draw")
                 return
             }
             
@@ -366,15 +512,31 @@ class viewMap: UIViewController {
     
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+     
+         
+         
+         //viewMapToggles
+         
+         if segue.identifier == "viewMapToggles" {
+             
+             
+
+             
+                 let dc = segue.destination as! viewMapToggles
+                 dc.proIsOn = proIsOn
+                 dc.canIsOn = canIsOn
+                 dc.recIsOn = recIsOn
+                 dc.hybridIsOn  = hybridIsOn
+             
+         }
+         
      }
-     */
+     
     
     
    
@@ -494,8 +656,100 @@ extension viewMap : MKMapViewDelegate {
                       view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 return view
                 
+            }else if annotation.identifier == 20{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .orange
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "star.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .yellow // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }else if annotation.identifier == 21{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .orange
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "star.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }else if annotation.identifier == 22{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .orange
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "square.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .gray // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }else if annotation.identifier == 23{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .orange
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "square.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .red // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
             }
-            
+            else if annotation.identifier == 24{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .orange
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "circle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }else if annotation.identifier == 25{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .orange
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "circle.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .blue // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }
+            else if annotation.identifier == 29{
+                view.titleVisibility = .adaptive // Set Title to be always visible
+                view.subtitleVisibility = .adaptive // Set Subtitle to be always visible
+                view.markerTintColor = .orange
+                view.displayPriority = .required// Background color of the balloon shape pin
+                view.glyphImage = UIImage(systemName: "square.fill") // Change the image displayed on the pin (40x40 that will be sized down to 20x20 when is not tapped)
+                 //view.glyphText = annotation.stopNumber.toString() // Text instead of image
+                view.glyphTintColor = .white // The color of the image if this is a icon
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                      view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                return view
+                
+            }
         }
             
 
@@ -585,21 +839,56 @@ extension viewMap : MapToggleDelegate {
         if isOn == true{
             addProactivePins()
             
+            
         }else{
             
             removeProactivePins()
         }
+        
+        proIsOn = isOn
+        
     }
     
     func toggleCancels(isOn: Bool) {
-    
+    canIsOn = isOn
+        
+        if isOn == true{
+            addCancelPins(isMoved: true)
+            
+            
+        }else{
+            
+            removeMovedPins()
+            
+        }
+        
+        
+        
+        
     }
     
     func toggleCancelRequests(isOn: Bool) {
+        recIsOn = isOn
+        if isOn == true{
+            addCancelPins(isMoved: false)
+            
+            
+        }else{
+            
+            removeCancelPins()
+            
+        }
         
     }
     
     func toggleMapType(isOn: Bool) {
+        hybridIsOn = isOn
+        
+        if isOn{
+            map.mapType = .hybrid
+        }else{
+            map.mapType = .standard
+        }
         
     }
     

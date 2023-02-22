@@ -1391,15 +1391,51 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYF-Lz-gH7" customClass="DesignableUIView" customModule="BulwarkTW" customModuleProvider="target">
                                                         <rect key="frame" x="281" y="8" width="265" height="168"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Training" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="10e-Nr-qY4">
-                                                                <rect key="frame" x="99" y="8" width="66.5" height="21.5"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                                <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="10e-Nr-qY4">
+                                                                <rect key="frame" x="10" y="6" width="245" height="23"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                                <color key="textColor" name="Info800"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Technicians Earn up to $50 per hour with Fast Comm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="r7l-Qh-BMI">
+                                                                <rect key="frame" x="10" y="35" width="245" height="41"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <color key="textColor" white="0.18781887759999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Understanding how Fastcomm works" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ltu-c4-yQy">
+                                                                <rect key="frame" x="10" y="82" width="245" height="38.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TD-eg-dvg">
+                                                                <rect key="frame" x="69.5" y="125.5" width="126" height="34.5"/>
+                                                                <color key="tintColor" name="Danger600"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="Start Training"/>
+                                                                <connections>
+                                                                    <action selector="btnTrainingClick:" destination="oKd-iD-lfR" eventType="touchUpInside" id="rdt-AR-31m"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Ltu-c4-yQy" firstAttribute="top" secondItem="r7l-Qh-BMI" secondAttribute="bottom" constant="6" id="6hG-vv-QK4"/>
+                                                            <constraint firstAttribute="trailing" secondItem="r7l-Qh-BMI" secondAttribute="trailing" constant="10" id="DD7-sx-xlN"/>
+                                                            <constraint firstItem="r7l-Qh-BMI" firstAttribute="centerX" secondItem="ZYF-Lz-gH7" secondAttribute="centerX" id="K4J-on-k0T"/>
+                                                            <constraint firstItem="r7l-Qh-BMI" firstAttribute="leading" secondItem="ZYF-Lz-gH7" secondAttribute="leading" constant="10" id="M24-D7-oDb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="10e-Nr-qY4" secondAttribute="trailing" constant="10" id="Nxx-ZN-707"/>
+                                                            <constraint firstItem="10e-Nr-qY4" firstAttribute="centerX" secondItem="ZYF-Lz-gH7" secondAttribute="centerX" id="T0a-iE-hlf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Ltu-c4-yQy" secondAttribute="trailing" constant="10" id="VcL-A8-NgQ"/>
+                                                            <constraint firstItem="r7l-Qh-BMI" firstAttribute="top" secondItem="10e-Nr-qY4" secondAttribute="bottom" constant="6" id="aJR-cN-n5L"/>
+                                                            <constraint firstItem="10e-Nr-qY4" firstAttribute="leading" secondItem="ZYF-Lz-gH7" secondAttribute="leading" constant="10" id="gxk-IP-b8O"/>
+                                                            <constraint firstItem="10e-Nr-qY4" firstAttribute="top" secondItem="ZYF-Lz-gH7" secondAttribute="top" constant="6" id="j78-nB-hwl"/>
+                                                            <constraint firstItem="Ltu-c4-yQy" firstAttribute="centerX" secondItem="ZYF-Lz-gH7" secondAttribute="centerX" id="lja-qj-wL7"/>
+                                                            <constraint firstItem="6TD-eg-dvg" firstAttribute="top" secondItem="Ltu-c4-yQy" secondAttribute="bottom" constant="5" id="s2Y-Ma-Nyi"/>
+                                                            <constraint firstItem="Ltu-c4-yQy" firstAttribute="leading" secondItem="ZYF-Lz-gH7" secondAttribute="leading" constant="10" id="tE3-yf-vAJ"/>
+                                                            <constraint firstItem="6TD-eg-dvg" firstAttribute="centerX" secondItem="ZYF-Lz-gH7" secondAttribute="centerX" id="uKo-5R-cah"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="14"/>
@@ -1745,6 +1781,7 @@
                     <connections>
                         <outlet property="btnClockIn" destination="TdM-Qs-ULu" id="fMn-cu-hQJ"/>
                         <outlet property="btnFastComm" destination="qfg-dU-GGR" id="BBk-gQ-EeT"/>
+                        <outlet property="btnStartTraining" destination="6TD-eg-dvg" id="rMu-Tv-uBA"/>
                         <outlet property="cvPhotos" destination="KTF-2E-N4L" id="Lqu-Vp-iww"/>
                         <outlet property="lblClockIn" destination="lfY-CZ-Bja" id="hSM-j5-m0w"/>
                         <outlet property="lblCompletion" destination="eU8-jF-DhT" id="UIP-2u-ufF"/>
@@ -1770,6 +1807,9 @@
                         <outlet property="lblSalesMTDCount" destination="yRg-Kh-uwF" id="Kdv-Ba-DRb"/>
                         <outlet property="lblSalesYTD" destination="5Bm-ic-nOk" id="GcI-bM-HRJ"/>
                         <outlet property="lblSalesYTDCount" destination="WNz-HH-HCU" id="gK7-an-Aky"/>
+                        <outlet property="lblTrainingDescription" destination="Ltu-c4-yQy" id="sha-TC-Ugq"/>
+                        <outlet property="lblTrainingTitle" destination="r7l-Qh-BMI" id="iA5-j3-tUE"/>
+                        <outlet property="lblTrainingType" destination="10e-Nr-qY4" id="6Wl-0N-cFP"/>
                         <outlet property="txtRouteNotes" destination="9S5-lb-CRe" id="I9y-p2-97f"/>
                         <outlet property="viewCompletin" destination="0x2-a3-O5f" id="Vki-5Z-q2Q"/>
                         <outlet property="viewFinisher" destination="fqW-i5-5qH" id="Jhe-Pj-5OA"/>
@@ -1793,7 +1833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLS-C2-mQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253" y="555"/>
+            <point key="canvasLocation" x="1252.34375" y="554.8828125"/>
         </scene>
         <!--RouteStop-->
         <scene sceneID="ykM-8a-IU1">
@@ -4801,7 +4841,7 @@
                         <barButtonItem key="rightBarButtonItem" image="switch.2" catalog="system" id="la6-zF-El3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="cgp-bz-dKn" kind="popoverPresentation" popoverAnchorBarButtonItem="la6-zF-El3" id="iRC-Yn-ELR">
+                                <segue destination="cgp-bz-dKn" kind="popoverPresentation" identifier="viewMapToggles" popoverAnchorBarButtonItem="la6-zF-El3" id="iRC-Yn-ELR">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -4827,23 +4867,23 @@
                                 <rect key="frame" x="0.0" y="13" width="223" height="273"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Szj-S1-5cO">
-                                        <rect key="frame" x="21.5" y="35" width="180.5" height="190"/>
+                                        <rect key="frame" x="22" y="35" width="179" height="190"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7Qf-Ko-vBa">
-                                                <rect key="frame" x="0.0" y="0.0" width="180.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Proactive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hh-zH-Pre">
-                                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="118" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3wK-Ez-4Cb" customClass="DesignableUISwitch" customModule="BulwarkTW" customModuleProvider="target">
-                                                        <rect key="frame" x="131.5" y="0.0" width="51" height="31"/>
+                                                        <rect key="frame" x="130" y="0.0" width="51" height="31"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="Warning100"/>
                                                         <color key="onTintColor" name="Warning500"/>
-                                                        <color key="thumbTintColor" systemColor="systemPurpleColor"/>
+                                                        <color key="thumbTintColor" name="Info600"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="OffTint">
                                                                 <color key="value" name="Warning100"/>
@@ -4856,20 +4896,20 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="I2s-Zv-lzh">
-                                                <rect key="frame" x="0.0" y="53" width="180.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="53" width="179" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Cancels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D6-Yb-hV9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="31"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Moved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D6-Yb-hV9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="118" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IIT-Rs-Gvp" customClass="DesignableUISwitch" customModule="BulwarkTW" customModuleProvider="target">
-                                                        <rect key="frame" x="131.5" y="0.0" width="51" height="31"/>
+                                                        <rect key="frame" x="130" y="0.0" width="51" height="31"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="Warning100"/>
                                                         <color key="onTintColor" name="Warning500"/>
-                                                        <color key="thumbTintColor" systemColor="systemPurpleColor"/>
+                                                        <color key="thumbTintColor" name="Info600"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="OffTint">
                                                                 <color key="value" name="Warning100"/>
@@ -4882,20 +4922,20 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-3k-a6O">
-                                                <rect key="frame" x="0.0" y="106" width="180.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="106" width="179" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebj-z9-Zgr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="31"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Cancels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebj-z9-Zgr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="118" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tzs-mf-8IJ" customClass="DesignableUISwitch" customModule="BulwarkTW" customModuleProvider="target">
-                                                        <rect key="frame" x="131.5" y="0.0" width="51" height="31"/>
+                                                        <rect key="frame" x="130" y="0.0" width="51" height="31"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="Warning100"/>
                                                         <color key="onTintColor" name="Warning500"/>
-                                                        <color key="thumbTintColor" systemColor="systemPurpleColor"/>
+                                                        <color key="thumbTintColor" name="Info600"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="OffTint">
                                                                 <color key="value" name="Warning100"/>
@@ -4908,20 +4948,20 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gjs-xr-MmE">
-                                                <rect key="frame" x="0.0" y="159" width="180.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="159" width="179" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hybrid Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhR-yO-W4c">
-                                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="118" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j9J-Vt-FU1" customClass="DesignableUISwitch" customModule="BulwarkTW" customModuleProvider="target">
-                                                        <rect key="frame" x="131.5" y="0.0" width="51" height="31"/>
+                                                        <rect key="frame" x="130" y="0.0" width="51" height="31"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="Warning100"/>
                                                         <color key="onTintColor" name="Warning500"/>
-                                                        <color key="thumbTintColor" systemColor="systemPurpleColor"/>
+                                                        <color key="thumbTintColor" name="Info600"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="OffTint">
                                                                 <color key="value" name="Warning100"/>
@@ -4965,7 +5005,10 @@
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="223" height="273"/>
                     <connections>
+                        <outlet property="tglCancels" destination="IIT-Rs-Gvp" id="6wK-JP-VW3"/>
+                        <outlet property="tglHybrid" destination="j9J-Vt-FU1" id="ZhU-4f-yFG"/>
                         <outlet property="tglProactive" destination="3wK-Ez-4Cb" id="xCn-AL-rvA"/>
+                        <outlet property="tglRequest" destination="tzs-mf-8IJ" id="vTl-p8-KNj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pr2-7B-9n8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

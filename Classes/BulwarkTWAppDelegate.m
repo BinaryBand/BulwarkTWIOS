@@ -12,7 +12,7 @@
 #import "viewSettings.h"
 //#import "PayrollDetailReportsService.h"
 #import "BulwarkTW-Swift.h"
-
+#import <notify.h>
 
 
 
@@ -33,6 +33,7 @@
     BOOL updatesettingsvin;
     Boolean SendingFilesToServer;
 
+    Boolean islocked;
     //viewDashboard *viewDash;
 }
 //viewDashboard *viewDash;
@@ -50,7 +51,8 @@
 
 NSString *kGCMMessageIDKey = @"";
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    islocked = false;
     updatesettingsvin = false;
     isConnectedToObd = NO;
     cntping = 0;
@@ -78,6 +80,9 @@ NSString *kGCMMessageIDKey = @"";
     int cacheSizeDisk = 64*1024*1024; // 32MB
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
     [NSURLCache setSharedURLCache:sharedCache];
+    
+    
+    [self registerAppforDetectLockState];
     
     @try{
         [FIRApp configure];
@@ -635,9 +640,11 @@ NSString *kGCMMessageIDKey = @"";
                 
             }
             
+            double mph = newLocation.speed * 2.23694;
+            
             if(self.driving){
                 
-                double mph = newLocation.speed * 2.23694;
+                
                 
                 if(mph > 10.0){
                     
@@ -686,26 +693,45 @@ NSString *kGCMMessageIDKey = @"";
             [df_utc setDateFormat:@"MM/dd/yyyy,HH:mm:ss"];
             
             
-            double maxdist = 5;
+            double maxdist = 3;
             
-            if(newLocation.speed >30){
-                maxdist=240;
-            } else if (newLocation.speed >26){
+            if(mph >68){
+                maxdist=200;
+            }else if (mph >63){
                 maxdist=160;
-            } else if (newLocation.speed >22){
-                maxdist=100;
+            }else if (mph >55){
+                maxdist=130;
+            }else if (mph >48){
+                maxdist=90;
+            } else if (mph >40){
+                maxdist=62;
                 
-            } else if (newLocation.speed >17){
-                maxdist=60;
-                
-            } else if (newLocation.speed >13){
-                maxdist=30;
-                
-            } else if (newLocation.speed >9){
-                maxdist=20;
+            } else if (mph >35){
+                maxdist=45;
                 
             }
-            
+            else if (mph >30){
+                maxdist=37;
+                
+            }else if (mph >25){
+                maxdist=30;
+                
+            }else if (mph >21){
+                maxdist=25;
+                
+            }else if (mph >17){
+                maxdist=20;
+                
+            }else if (mph >14){
+                maxdist=15;
+                
+            }else if (mph >10){
+                maxdist = 10;
+                
+            }else if (mph >6){
+                maxdist = 5;
+                
+            }
             
 
             
@@ -768,7 +794,15 @@ NSString *kGCMMessageIDKey = @"";
                 if(newLocation.course >0){
                     
                     NSLog(@"gps received");
-                    [self SaveGPSFile:gpsStr];
+                    //[self SaveGPSFile:gpsStr];
+                    
+                    GpsModels *gm = [GpsModels alloc];
+                    
+                    bool b = [gm saveGpsFileWithHrempid:_hrEmpId truck:_Vin office:_office time:newLocation.timestamp lat:newLocation.coordinate.latitude lon:newLocation.coordinate.longitude course:newLocation.course speed:newLocation.speed distance:lastdist odo:_Odo odometerTime:_lastObdRead];
+                    
+                    
+                    
+                    
                 }
                 [self saveLastlatLng:custGps];
                 
@@ -1391,7 +1425,7 @@ NSString *kGCMMessageIDKey = @"";
     NSLog(@"active");
 
     
-	[viewOne sendFilesToServerAsync];
+	//[viewOne sendFilesToServerAsync];
     
     
     bool payrollDetailReportAvailable = [viewPayrollDetailReports techHasPendingCommisionReport];
@@ -1428,14 +1462,14 @@ NSString *kGCMMessageIDKey = @"";
  NSLog(@"openapp again");
          
     
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
-              NSObject * workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
-              BOOL isopen = [workspace performSelector:@selector(openApplicationWithBundleID:) withObject:@"com.bulwarkappTW.TechApp"];
-        NSLog(@"IsOpened");
-    });
-    
+    if(!islocked){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
+            NSObject * workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
+            BOOL isopen = [workspace performSelector:@selector(openApplicationWithBundleID:) withObject:@"com.bulwarkappTW.TechApp"];
+            NSLog(@"IsOpened");
+        });
+    }
     //Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
      //     NSObject * workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
      //     BOOL isopen = [workspace performSelector:@selector(openApplicationWithBundleID:) withObject:@"com.bulwarkappTW.TechApp"];
@@ -1449,7 +1483,26 @@ NSString *kGCMMessageIDKey = @"";
     
     
 }
+-(void)registerAppforDetectLockState {
 
+    int notify_token;
+        notify_register_dispatch("com.apple.springboard.lockstate",
+                             &notify_token,
+                             dispatch_get_main_queue(),
+                             ^(int token)
+                             {
+                                 uint64_t state = UINT64_MAX;
+                                 notify_get_state(token, &state);
+                                 if(state == 0) {
+                                     self->islocked = false;
+                                     NSLog(@"unlock device");
+                                 } else {
+                                     NSLog(@"lock device");
+                                     self->islocked = true;
+                                 }
+                             }
+                             );
+}
 
 #pragma mark -
 #pragma mark Send Files To Server

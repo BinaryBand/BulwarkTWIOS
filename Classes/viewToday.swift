@@ -10,9 +10,10 @@ import UIKit
 
 
 protocol StopSelectionDelegate: AnyObject{
-func stopSelected(selectedRouteStop: RouteStop)
-func routeSelected()
+    func stopSelected(selectedRouteStop: RouteStop)
+    func routeSelected()
     func routeLoaded(ms: [MapStop], routeNotes: String, routeprogress: String)
+    func loadTraining(source:Int, title:String, tid:Int, description:String, trainingProgram:String)
 }
 
 
@@ -375,7 +376,11 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
 
             return cell
         } else if routeStopList[indexPath.row].type == 20 {
+            //going pro training
             let cell = tableView.dequeueReusableCell(withIdentifier: "hiddenCell", for: indexPath)
+            
+            viewToday.delegate?.loadTraining(source: 1, title: routeStopList[indexPath.row].ttvTitle, tid: routeStopList[indexPath.row].ttvid, description: routeStopList[indexPath.row].ttvDescription, trainingProgram: routeStopList[indexPath.row].name)
+            
             return cell
         }else{
             

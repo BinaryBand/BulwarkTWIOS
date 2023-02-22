@@ -47,5 +47,6 @@ struct Stats:Codable {
             var salesMtdrank:Int
             var salesActiveAccount:Int
             var photoLottoTickets:Int
+            var photoLottoPot:Double
     
 }

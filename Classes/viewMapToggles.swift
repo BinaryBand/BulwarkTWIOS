@@ -16,7 +16,19 @@ protocol MapToggleDelegate: AnyObject{
 
 class viewMapToggles: UIViewController {
 
+    var proIsOn: Bool = false
+    var canIsOn: Bool = false
+    var recIsOn: Bool = false
+    var hybridIsOn: Bool = false
+    
+    
     @IBOutlet var tglProactive: DesignableUISwitch!
+    
+    @IBOutlet var tglCancels: DesignableUISwitch!
+    
+    @IBOutlet var tglRequest: DesignableUISwitch!
+    
+    @IBOutlet var tglHybrid: DesignableUISwitch!
     
     static var delegate: MapToggleDelegate?
     
@@ -24,6 +36,14 @@ class viewMapToggles: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let t = proIsOn
+        
+        tglProactive.setOn(proIsOn, animated: false)
+        tglHybrid.setOn(hybridIsOn, animated: false)
+        tglCancels.setOn(canIsOn, animated: false)
+        tglRequest.setOn(recIsOn, animated: false)
+        
+        
         // Do any additional setup after loading the view.
     }
     

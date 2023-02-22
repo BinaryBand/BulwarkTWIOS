@@ -11,6 +11,7 @@ import WebKit
 
 protocol RouteChangedDelegate: AnyObject{
     func routeChanged()
+    func trainingCompleted()
 }
 
  class viewRoutes: UIViewController,WKNavigationDelegate,WKUIDelegate  {
@@ -27,17 +28,7 @@ protocol RouteChangedDelegate: AnyObject{
         super.viewDidLoad()
         
         
-        if #available(iOS 15, *){
-          //  print("Create the collection view!")
-        }else{
-            
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
-            self.navigationController?.navigationBar.shadowImage = UIImage()
-            self.navigationController?.navigationBar.isTranslucent = true
-            self.navigationController?.view.backgroundColor = .clear
-        }
-
-        
+       
 
             
         webView.navigationDelegate = self
@@ -264,7 +255,7 @@ protocol RouteChangedDelegate: AnyObject{
             
             let urlparams = url?.absoluteString.components(separatedBy: "?")
             
-            if urlparams?.count ?? 0 > 2{
+            if urlparams?.count ?? 0 >= 2{
                 let dpage = Double(urlparams?[1] ?? "-1")
                 _ = UIApplication.shared.delegate as! BulwarkTWAppDelegate
                 
@@ -292,6 +283,12 @@ protocol RouteChangedDelegate: AnyObject{
                     viewRoutes.delegate?.routeChanged()
                     
                    self.dismiss(animated: true, completion: nil)
+                }else if(dpage==49){
+                    //Going Pro Completion Close the page
+                    decisionHandler(.cancel)
+                    
+                    viewRoutes.delegate?.trainingCompleted()
+                    self.dismiss(animated: true, completion: nil)
                 }
                     
                 

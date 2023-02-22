@@ -36,7 +36,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     var mapStops:[MapStop] = []
     var sphome:SPHomeGps!
     var proactiveList:[ProactiveAccount] = []
+    var cancelList:[ProactiveAccount] = []
     var RouteId = 0
+    var ttvid = 0
     
     @IBOutlet var btnFastComm: UIButton!
     
@@ -83,6 +85,17 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet weak var viewRolling: DesignableUIView!
     
+    @IBOutlet var lblTrainingType: UILabel!
+    @IBOutlet var lblTrainingTitle: UILabel!
+    
+    @IBOutlet var lblTrainingDescription: UILabel!
+    
+    @IBOutlet var btnStartTraining: UIButton!
+    
+    
+    
+    
+    
     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
     
    // var routeStop: RouteStop?{
@@ -106,7 +119,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         viewToday.delegate = self
         viewTimePunch.delegate = self
         viewRoutes.delegate = self
-     
+        viewModalWeb.delegate = self
         hrempid = appDelegate.hrEmpId ?? ""
         
         appDelegate.viewDash = self
@@ -147,11 +160,14 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             await self.loadStats()
             await self.loadHomeGPS()
             await self.loadProactiveList()
+            await self.loadCancelList()
         }
         splitViewController?.show(.primary)
         fastCommCheck()
         updateClockIn(punch: "", isIn: false, checklocal: true)
        // fastcommTimeCheck()
+        
+        sendFilesToServer()
         
         _ = Timer.scheduledTimer(timeInterval: 500.0, target: self, selector: #selector(self.sendFilesToServer), userInfo: nil, repeats: true)
 
@@ -159,7 +175,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         _ = Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(self.fastCommCheck), userInfo: nil, repeats: true)
                
-        
+        _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.sendGpsToServer), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -176,7 +192,11 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
     }
     
-    
+    @objc func sendGpsToServer(){
+        Task.detached{
+            _ = await JsonFetcher.sendGpsDataToServer(hrEmpId: self.hrempid)
+        }
+    }
 
     
     @objc func sendFilesToServer()
@@ -185,7 +205,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             do{
                 
                 _ = try await JsonFetcher.SendPostingResultsAsync(hrEmpId: self.hrempid)
-                
+                //_ = try await JsonFetcher.SendGPSAsync(hrEmpId: self.hrempid)
                 
             } catch {
                 print(error)
@@ -235,11 +255,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     func loadProactiveList() async{
         
-      
-            
-            
-            
-            
+
             
             do{
                 proactiveList = try await DataUtilities.getProactiveRetentionList(hrempid: hrempid)
@@ -247,10 +263,21 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
                 print(error)
             }
             
-            
-        
         
     }
+    func loadCancelList() async{
+        
+
+            
+            do{
+                cancelList = try await DataUtilities.getRecentCancelList(hrempid: hrempid)
+            }catch{
+                print(error)
+            }
+            
+        
+    }
+    
     func loadHomeGPS() async{
        
             
@@ -522,7 +549,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             dc.mapStops = mapStops
             dc.homegps = sphome
             dc.proactivList = proactiveList
-            
+            dc.cancelList = cancelList
             
         }
 
@@ -1065,11 +1092,45 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     
     
+    @IBAction func btnTrainingClick(_ sender: Any) {
+        
+        tabUrl = "https://fbf.bulwarkapp.com/gopro/VideoPlayQuestions.aspx?ipad=yes&h=" + hrempid + "&vid=" + ttvid.toString()
+        if ttvid == 0{
+            tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/SalesTrainingFiles?ipad=yes&h=" + hrempid
+        }
+        
+        
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showWeb", sender: nil)
+        
+    }
     
     
     
 }
+
+
 extension viewDashboard:StopSelectionDelegate{
+    func loadTraining(source: Int, title: String, tid: Int, description: String, trainingProgram: String) {
+        btnStartTraining.isHidden = false
+        lblTrainingType.text = trainingProgram
+        lblTrainingTitle.text = title
+        lblTrainingDescription.text = description
+        ttvid = tid
+        
+        if tid == 0{
+            btnStartTraining.setTitle("View Sales Training", for: .focused)
+            btnStartTraining.setTitle("View Sales Training", for: .disabled)
+            btnStartTraining.setTitle("View Sales Training", for: .normal)
+            btnStartTraining.setTitle("View Sales Training", for: .selected)
+            btnStartTraining.tintColor = .purple
+        }
+            
+        
+        
+    }
+    
+    
     func routeLoaded(ms: [MapStop], routeNotes: String, routeprogress: String) {
         mapStops = ms
         txtRouteNotes.text = routeNotes
@@ -1098,6 +1159,7 @@ extension viewDashboard:StopSelectionDelegate{
 
     
 }
+
 extension viewDashboard:TimePunchDelegate{
     func TimePunchSaved(timePunch: String, isIn: Bool) {
         updateClockIn(punch: timePunch, isIn: isIn, checklocal: false)
@@ -1105,10 +1167,31 @@ extension viewDashboard:TimePunchDelegate{
     
     
 }
+
 extension viewDashboard:RouteChangedDelegate{
+    func trainingCompleted() {
+        lblTrainingTitle.text = "Training Complete"
+        lblTrainingDescription.text = ""
+        btnStartTraining.isHidden = true
+    }
+    
     func routeChanged() {
         splitViewController?.show(.primary)
     }
-    
-    
 }
+
+extension viewDashboard:ModalWebDelegate{
+    func routeChangedMW() {
+        splitViewController?.show(.primary)
+    }
+    
+        func trainingCompletedMW() {
+            lblTrainingTitle.text = "Training Complete"
+            lblTrainingDescription.text = ""
+            btnStartTraining.isHidden = true
+        }
+        
+        
+        
+    }
+
