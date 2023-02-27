@@ -15,7 +15,7 @@ protocol RouteChangedDelegate: AnyObject{
 }
 
  class viewRoutes: UIViewController,WKNavigationDelegate,WKUIDelegate  {
-    
+     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
      static var delegate:RouteChangedDelegate?
      
     @IBOutlet var webView : WKWebView!
@@ -40,7 +40,7 @@ protocol RouteChangedDelegate: AnyObject{
         
 
         
-        let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+        
         appDelegate.viewSched = self
        
         //HUD = MBProgressHUD(view: view)
@@ -289,6 +289,146 @@ protocol RouteChangedDelegate: AnyObject{
                     
                     viewRoutes.delegate?.trainingCompleted()
                     self.dismiss(animated: true, completion: nil)
+                }else if(dpage==45){
+                    //field leader in
+                    decisionHandler(.cancel)
+                    
+                    showActivityIndicator(show: true)
+                    let d = Date()
+                    let ds = d.toString(format: .usDateTime24WithSec)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "1/1/1900"
+                    let lat = appDelegate.lat ?? "0"
+                    let lon = appDelegate.lon ?? "0"
+                    let h = appDelegate.hrEmpId ?? "123456"
+                    let turl = "https://fbf2.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=" + h + "&dt=" + ds
+                    
+                    let furl = turl + "&isin=YES&lat=" + lat + "&lon=" + lon
+                    
+                    
+                    Task{
+                        do{
+                            let res = try await StringFetcher.fetchStringFromUrlAsync(urlStr: furl, hrEmpId: h)
+                            
+                            showActivityIndicator(show: false)
+                            let alert = UIAlertController(title: "Field Work", message: res, preferredStyle: .alert)
+                            let title = NSLocalizedString("OK", comment: "OK")
+                            let ok = UIAlertAction(title: title, style: .default) { (action: UIAlertAction) -> Void in
+                                alert.dismiss(animated: true, completion: nil)
+                            }
+                            alert.addAction(ok)
+                            present(alert, animated: true)
+                            
+                            
+                            
+                            
+                        }catch{
+                                showActivityIndicator(show: false)
+                            }
+                        
+                        
+                    }
+                    
+                    
+                    
+                }else if(dpage==46){
+                    //field out
+                    decisionHandler(.cancel)
+                    
+                    showActivityIndicator(show: true)
+                    let d = Date()
+                    let ds = d.toString(format: .usDateTime24WithSec)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "1/1/1900"
+                    let lat = appDelegate.lat ?? "0"
+                    let lon = appDelegate.lon ?? "0"
+                    let h = appDelegate.hrEmpId ?? "123456"
+                    let turl = "https://fbf2.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?h=" + h + "&dt=" + ds
+                    
+                    let furl = turl + "&isin=NO&lat=" + lat + "&lon=" + lon
+                    
+                    
+                    Task{
+                        do{
+                            let res = try await StringFetcher.fetchStringFromUrlAsync(urlStr: furl, hrEmpId: h)
+                            
+                            showActivityIndicator(show: false)
+                            let alert = UIAlertController(title: "Field Work", message: res, preferredStyle: .alert)
+                            let title = NSLocalizedString("OK", comment: "OK")
+                            let ok = UIAlertAction(title: title, style: .default) { (action: UIAlertAction) -> Void in
+                                alert.dismiss(animated: true, completion: nil)
+                            }
+                            alert.addAction(ok)
+                            present(alert, animated: true)
+                            
+                            
+                            
+                            
+                        }catch{
+                                showActivityIndicator(show: false)
+                            }
+                        
+                        
+                    }
+                    
+                   
+                }else if(dpage==47){
+                    //field note
+                    decisionHandler(.cancel)
+                    let param = urlparams?[2] ?? Utilities.CurrentDateString()
+                    
+                    
+                    let alert = UIAlertController(title: nil, message: "Add Note", preferredStyle: .alert)
+
+                    alert.addTextField { (textField) in
+                        textField.text = ""
+                    }
+
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self] (action) in
+                        if let text = alert.textFields?.first?.text {
+                            showActivityIndicator(show: true)
+                            let txt = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+                            
+                            let turl = "https://fbf2.bulwarkapp.com/TechApp/FieldWorkInOut.aspx?id=" + param + "&N=" + txt
+                            Task{
+                                do{
+                                    let res = try await StringFetcher.fetchStringFromUrlAsync(urlStr: turl, hrEmpId: appDelegate.hrEmpId)
+                                    
+                                    showActivityIndicator(show: false)
+                                    
+                                    let alert = UIAlertController(title: "Field Work Note", message: res, preferredStyle: .alert)
+                                    let title = NSLocalizedString("OK", comment: "OK")
+                                    let ok = UIAlertAction(title: title, style: .default) { (action: UIAlertAction) -> Void in
+                                        alert.dismiss(animated: true, completion: nil)
+                                    }
+                                    alert.addAction(ok)
+                                    present(alert, animated: true)
+                                    
+                                    
+                                    
+                                }catch{
+                                    showActivityIndicator(show: false)
+                                }
+                                
+                                
+                            }
+                        }else{
+                            showActivityIndicator(show: false)
+                        }
+                        }))
+
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
+
+                        
+
+                    }))
+
+                     
+                
+                present(alert, animated: true)
+                
+                    
+                    
+                    
+                    
+                    
+                    
                 }
                     
                 

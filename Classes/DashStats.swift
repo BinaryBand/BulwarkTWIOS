@@ -48,5 +48,6 @@ struct Stats:Codable {
             var salesActiveAccount:Int
             var photoLottoTickets:Int
             var photoLottoPot:Double
+            var photoLottoRange:String = ""
     
 }

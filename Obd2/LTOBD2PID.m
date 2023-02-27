@@ -130,9 +130,17 @@
     uint C = responseFromAnyECU[2].unsignedIntValue;
     uint D = responseFromAnyECU[3].unsignedIntValue;
     
-    double original = (double)(( (A * 16777216) + (B * 65536) + (C * 256) + D ) / 10) * 0.621371;
+    //double original = (double)(((A * 16777216) + (B * 65536) + (C * 256) + D ) / 10) * 0.621371;
    
-    return [NSString stringWithFormat:formatString, original];
+    //double aCal = (double)(A * 16777216);
+    double bCal = (double)(B * 65536);
+    double cCal = (double)(C * 256);
+    double dCal = (double)(D * 1);
+    double numer = bCal + cCal + dCal;
+    double divTen = numer / 10.0;
+    double miles = divTen * 0.621371;
+    
+    return [NSString stringWithFormat:formatString, miles];
 }
 
 -(NSString*)formatSingleByteTextMappingWithString:(NSString*)formatString

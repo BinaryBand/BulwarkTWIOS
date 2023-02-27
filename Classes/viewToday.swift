@@ -143,142 +143,7 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
     }
 
 
-    var jsonDatastr = """
-[{
-    "serviceType": "",
-    "timeBlock": "",
-    "estArrival": "",
-    "account": "",
-    "name": "",
-    "contacted": "",
-    "redAlert": "",
-    "blueAlert": "",
-    "grid": "",
-    "type": 2,
-    "notes": "this is some notes and maybe some more text to fill out the rest of this"
-},{
-    "serviceType": "",
-    "timeBlock": "",
-    "estArrival": "",
-    "account": "",
-    "name": "",
-    "contacted": "",
-    "redAlert": "",
-    "blueAlert": "",
-    "grid": "",
-    "type": 4,
-    "notes": ""
-},{
-    "serviceType": "TQT",
-    "timeBlock": "12:00-3:00",
-    "estArrival": "12:12 PM",
-    "account": "145784",
-    "name": "Test McTesterson",
-    "contacted": "EML",
-    "redAlert": "Call: 30 Min Prior",
-    "blueAlert": "Some Notes",
-    "grid": "VC 12-34",
-    "type": 1,
-    "notes": ""
-}, {
-    "serviceType": "TRNL",
-    "timeBlock": "1:00-4:00",
-    "estArrival": "12:43 PM",
-    "account": "125663",
-    "name": "jon Testingfield",
-    "contacted": "TXT",
-    "redAlert": "Text: 15 Min Prior",
-    "blueAlert": "See Notes",
-    "grid": "VC 12-36",
-    "type": 1,
-    "notes": ""
-},{
-    "serviceType": "TRNL",
-    "timeBlock": "1:00-4:00",
-    "estArrival": "12:43 PM",
-    "account": "125663",
-    "name": "mike Testingstein",
-    "contacted": "Serviced",
-    "redAlert": "Text: 15 Min Prior",
-    "blueAlert": "See Notes",
-    "grid": "VC 12-36",
-    "type": 10,
-    "notes": ""
-},{
-    "serviceType": "TRNL",
-    "timeBlock": "1:00-4:00",
-    "estArrival": "12:43 PM",
-    "account": "124587",
-    "name": "Bill Testineaux",
-    "contacted": "Missed",
-    "redAlert": "Text: 15 Min Prior",
-    "blueAlert": "See Notes",
-    "grid": "VC 11-22",
-    "type": 11,
-    "notes": ""
-},{
-    "serviceType": "MO",
-    "timeBlock": "2:00-4:00",
-    "estArrival": "2:33 PM",
-    "account": "348745",
-    "name": "Steve Testington",
-    "contacted": "TT",
-    "redAlert": "",
-    "blueAlert": "See Notes",
-    "grid": "VC 12-31",
-    "type": 1,
-    "notes": ""
-}, {
-    "serviceType": "",
-    "timeBlock": "",
-    "estArrival": "",
-    "account": "",
-    "name": "",
-    "contacted": "",
-    "redAlert": "",
-    "blueAlert": "",
-    "grid": "",
-    "type": 3,
-    "notes": ""
-}, {
-    "serviceType": "",
-    "timeBlock": "",
-    "estArrival": "",
-    "account": "",
-    "name": "",
-    "contacted": "",
-    "redAlert": "",
-    "blueAlert": "",
-    "grid": "",
-    "type": 5,
-    "notes": ""
-},{
-    "serviceType": "",
-    "timeBlock": "",
-    "estArrival": "",
-    "account": "",
-    "name": "",
-    "contacted": "",
-    "redAlert": "",
-    "blueAlert": "",
-    "grid": "",
-    "type": 5,
-    "notes": ""
-},{
-    "serviceType": "",
-    "timeBlock": "",
-    "estArrival": "",
-    "account": "",
-    "name": "",
-    "contacted": "",
-    "redAlert": "",
-    "blueAlert": "",
-    "grid": "",
-    "type": 5,
-    "notes": ""
-},]
-"""
-    
+    var jsonDatastr = ""
     
     
     
@@ -370,7 +235,7 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
             cell.lblRedAlert.text = routeStopList[indexPath.row].redAlert
             cell.lblBlueAlert.text = routeStopList[indexPath.row].blueAlert
             cell.lblExtArrival.text = routeStopList[indexPath.row].estArrival
-            cell.lblTopBorder.backgroundColor = getColor(hex: routeStopList[indexPath.row].barcolor)
+            //cell.lblTopBorder.backgroundColor = getColor(hex: routeStopList[indexPath.row].barcolor)
             
                 
 
@@ -495,14 +360,7 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
         
     }
     
-    //func getRouteCopy() -> [RouteStop]{
-        
-        
-        
-        
-        
-        
-   // }
+
     func stopRefresh() async{
         stopBarButtonIndicator()
         if refreshControl.isRefreshing {

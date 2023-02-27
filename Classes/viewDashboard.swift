@@ -77,6 +77,11 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet weak var viewCompletin: DesignableUIView!
     
+    @IBOutlet var lblLottoPot: UILabel!
+    
+    @IBOutlet var lblLottoRange: UILabel!
+    
+    @IBOutlet var lblTicketsEarned: UILabel!
     
     @IBOutlet weak var viewReviews: DesignableUIView!
     @IBOutlet weak var viewProactiveAdds: DesignableUIView!
@@ -179,7 +184,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         _ = Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(self.fastCommCheck), userInfo: nil, repeats: true)
                
         _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.sendGpsToServer), userInfo: nil, repeats: true)
-        updateChatNotificationBubble()
+       // updateChatNotificationBubble()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -373,8 +378,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
                         lblSalesAK.text = "100 Sales = Cruise"
                     }
                         
-                        
-                    
+                    lblTicketsEarned.text = "Tickets Earned: " + stats.serviceprostats.photoLottoTickets.toString()
+                    lblLottoPot.text = "Lotto Pot: " + stats.serviceprostats.photoLottoPot.toMoneyString()
+                    lblLottoRange.text = stats.serviceprostats.photoLottoRange
                     
                     
                     
@@ -1133,6 +1139,43 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     
     
+    @IBAction func showMorwActionSheet(_ sender: UIBarButtonItem) {
+      let alertController = UIAlertController(title: nil, message: "Alert message.", preferredStyle: .actionSheet)
+
+      let settingsAction = UIAlertAction(title: "Settings", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+        //  Do some action here.
+          self.performSegue(withIdentifier: "showSettings", sender: nil)
+      })
+
+        settingsAction.setValue(UIImage(systemName: "gearshape"), forKey: "image")
+        
+        let gateAction = UIAlertAction(title: "Gate Codes", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            
+            
+        //  Do some destructive action here.
+      })
+
+        gateAction.setValue(UIImage(systemName: "lock"), forKey: "image")
+        
+        
+      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in
+        //  Do something here upon cancellation.
+      })
+
+      alertController.addAction(settingsAction)
+      alertController.addAction(gateAction)
+      alertController.addAction(cancelAction)
+      
+      if let popoverController = alertController.popoverPresentationController {
+        popoverController.barButtonItem = sender
+      }
+
+      self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
 }
 
 
@@ -1149,6 +1192,12 @@ extension viewDashboard:StopSelectionDelegate{
             btnStartTraining.setTitle("View Sales Training", for: .disabled)
             btnStartTraining.setTitle("View Sales Training", for: .normal)
             btnStartTraining.setTitle("View Sales Training", for: .selected)
+            btnStartTraining.tintColor = .purple
+        }else{
+            btnStartTraining.setTitle("Start Training", for: .focused)
+            btnStartTraining.setTitle("Start Training", for: .disabled)
+            btnStartTraining.setTitle("Start Training", for: .normal)
+            btnStartTraining.setTitle("Start Training", for: .selected)
             btnStartTraining.tintColor = .purple
         }
             
@@ -1181,6 +1230,12 @@ extension viewDashboard:StopSelectionDelegate{
         performSegue(withIdentifier: "showRoutes", sender: nil)
         splitViewController?.hide(.primary)
     }
+    
+    
+    
+    
+    
+    
     
 
     

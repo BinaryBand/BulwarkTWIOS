@@ -155,7 +155,7 @@
 
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    NSString* devName = peripheral.name;
+    //NSString* devName = peripheral.name;
     
     //NSLog(@"BLE Device: %@", devName);
     //NSLog(@"SUUID: %ld", (long)peripheral.state);

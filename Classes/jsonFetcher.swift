@@ -328,10 +328,10 @@ struct JsonFetcher {
                                 
                                 if urlStr.hasPrefix("https://"){
                                     
+                                print(urlStr)
+                                    let ntu = urlStr.replacingOccurrences(of: " ", with: "")
                                 
-                                    let ntu = urlStr.replacingOccurrences(of: "ipadapp.bulwarktechnician.com", with: "ipadapp.bulwarkapp.com")
-                                
-                                
+                                print(ntu)
                                     let tempurl = URL(string: ntu)!
 
                                 var tempRequest = URLRequest(
@@ -538,7 +538,7 @@ struct JsonFetcher {
                                 let errstr:String = error.localizedDescription.lowercased()
                                 print(errstr)
                                 if errstr.contains("correct format"){
-                                    try fm.removeItem(atPath: fp.path)
+                                    //try fm.removeItem(atPath: fp.path)
                                 }
                                 
                             }

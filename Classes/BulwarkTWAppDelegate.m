@@ -646,16 +646,16 @@ NSString *kGCMMessageIDKey = @"";
                 
                 
                 
-                if(mph > 10.0){
+                //if(mph > 10.0){
                     
-                    if(isConnectedToObd == false)
-                    {
+                    if(!isConnectedToObd)
+                   {
                         
                         [self connect];
                     }
                    
                     
-                }
+                //}
                 NSString *currsp = [NSString stringWithFormat:@"%.1f",mph];
                 
               currsp = [currsp stringByAppendingString:@" MPH"];
@@ -2002,7 +2002,7 @@ NSString *kGCMMessageIDKey = @"";
             long len1 = [self->_Vin length];
             long len2 = [vin.formattedResponse length];
             
-            if(len2 > len1){
+            if(len2 > len1-2){
                 self->_Vin = vin.formattedResponse;
                 //[self->vDriving UpdateVin: vin.formattedResponse];
             }
@@ -2012,6 +2012,9 @@ NSString *kGCMMessageIDKey = @"";
             BOOL isNumeric = [scan scanDouble:&d];
             BOOL isatend = [scan isAtEnd];
             double currOdo = 0.0;
+            
+            
+            NSString *OdoResp = odometer.formattedResponse;
             
             NSScanner *nsc = [NSScanner scannerWithString:odometer.formattedResponse];
             double dd;
@@ -2030,7 +2033,7 @@ NSString *kGCMMessageIDKey = @"";
                 currOdo =  [self->_Odo doubleValue];
                    
             }
-            if(newodo > currOdo){
+            if(newodo >= 10){
                 
                 self->_Odo = odometer.formattedResponse;
                 NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -2090,11 +2093,11 @@ NSString *kGCMMessageIDKey = @"";
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if(self->isstopped != true){
                     [self updateSensorData];
-                    //self->cntping ++;
+                    self->cntping ++;
                 }else{
                     [self disconnect];
                     self->isConnectedToObd = NO;
-                }
+               }
                 
         });
 

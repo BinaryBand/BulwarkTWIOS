@@ -113,7 +113,6 @@
 		B3CDC615292BF765008957B1 /* viewDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC614292BF765008957B1 /* viewDashboard.swift */; };
 		B3CDC617292C0A27008957B1 /* dewebber.png in Resources */ = {isa = PBXBuildFile; fileRef = B3CDC616292C0A27008957B1 /* dewebber.png */; };
 		B3CDC619292C11B2008957B1 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC618292C11B2008957B1 /* PhotoCell.swift */; };
-		B3CDC61C292C4388008957B1 /* uiViewExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC61B292C4388008957B1 /* uiViewExtend.swift */; };
 		B3CDC61E292C4F9E008957B1 /* DesignableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC61D292C4F9E008957B1 /* DesignableLayout.swift */; };
 		B3D5AE3428E50F5600FB3495 /* viewModalWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5AE3328E50F5600FB3495 /* viewModalWeb.swift */; };
 		B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCDD7327B1E00E00D93387 /* Images.xcassets */; };
@@ -273,7 +272,6 @@
 		B3CDC614292BF765008957B1 /* viewDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewDashboard.swift; sourceTree = "<group>"; };
 		B3CDC616292C0A27008957B1 /* dewebber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dewebber.png; sourceTree = "<group>"; };
 		B3CDC618292C11B2008957B1 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		B3CDC61B292C4388008957B1 /* uiViewExtend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiViewExtend.swift; sourceTree = "<group>"; };
 		B3CDC61D292C4F9E008957B1 /* DesignableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableLayout.swift; sourceTree = "<group>"; };
 		B3D5AE3328E50F5600FB3495 /* viewModalWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModalWeb.swift; sourceTree = "<group>"; };
 		B3DCDD7327B1E00E00D93387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BulwarkTW/Images.xcassets; sourceTree = "<group>"; };
@@ -570,7 +568,6 @@
 		B3CDC61A292C4355008957B1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B3CDC61B292C4388008957B1 /* uiViewExtend.swift */,
 				B3CDC61D292C4F9E008957B1 /* DesignableLayout.swift */,
 				B30F46A5297F66A9008748E9 /* Utilities.swift */,
 				B3A935B929A6CEA200A5C48F /* BarButtonBadge.swift */,
@@ -763,7 +760,6 @@
 				B343207B296C7D78005CFD18 /* LTOBD2Command.m in Sources */,
 				B343206D296C7D78005CFD18 /* LTBTLESerialTransporter.m in Sources */,
 				B3CDC596291C5A35008957B1 /* Formatter.swift in Sources */,
-				B3CDC61C292C4388008957B1 /* uiViewExtend.swift in Sources */,
 				B3432069296C7D78005CFD18 /* LTOBD2Adapter.m in Sources */,
 				B3819D141BE179C4002B7F4B /* TWBlunoManager.m in Sources */,
 				B30F46A0297B6BB4008748E9 /* PrintSend.swift in Sources */,

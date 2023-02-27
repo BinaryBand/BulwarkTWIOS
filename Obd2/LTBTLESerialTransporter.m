@@ -129,7 +129,7 @@ NSString* const LTBTLESerialTransporterDidUpdateSignalStrength = @"LTBTLESerialT
 
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    if ( central.state != CBCentralManagerStatePoweredOn )
+    if ( central.state != CBManagerStatePoweredOn)
     {
         return;
     }
@@ -172,7 +172,23 @@ NSString* const LTBTLESerialTransporterDidUpdateSignalStrength = @"LTBTLESerialT
 {
     NSString* devName = peripheral.name;
     
-   // if([devName containsString:@"OBD"]){
+    
+    
+    bool isobd = false;
+    if([devName containsString:@"car"]){
+        isobd = true;
+    }
+    if([devName containsString:@"OBD"]){
+        isobd = true;
+    }
+    if([devName containsString:@"Obd"]){
+        isobd = true;
+    }
+    if([devName containsString:@"obd"]){
+        isobd = true;
+    }
+    
+    if(isobd){
     
     if ( _adapter )
     {
@@ -184,7 +200,7 @@ NSString* const LTBTLESerialTransporterDidUpdateSignalStrength = @"LTBTLESerialT
     [_possibleAdapters addObject:peripheral];
     peripheral.delegate = self;
     [_manager connectPeripheral:peripheral options:nil];
-//}
+}
     
 }
 
