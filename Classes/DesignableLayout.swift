@@ -9,6 +9,11 @@ import Foundation
 
 @IBDesignable class DesignableUIView: UIView {
     
+    
+    
+    
+    
+    
     @IBInspectable var borderColor: UIColor? {
         get {
             guard let cgColor = layer.borderColor else {
@@ -53,19 +58,26 @@ import Foundation
        }
     
     @IBInspectable var cornerRadius: CGFloat {
-           get { return 9 //layer.cornerRadius
+           get {
+               return 6 //layer.cornerRadius
                
            }
            set {
                
-                 layer.cornerRadius = 9
+                 layer.cornerRadius = 6
 
                  // If masksToBounds is true, subviews will be
                  // clipped to the rounded corners.
-                 layer.masksToBounds = true//(newValue > 0)
+                 //layer.masksToBounds = true//(newValue > 0)
            }
     
        }
+    
+    @IBInspectable var maskToBounds: Bool {
+        get{ return layer.masksToBounds }
+        set{ layer.masksToBounds = newValue }
+    }
+    
 
 }
 

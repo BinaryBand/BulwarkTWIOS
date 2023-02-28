@@ -34,6 +34,8 @@
     Boolean SendingFilesToServer;
 
     Boolean islocked;
+    NSDate *lastReadTime;
+    
     //viewDashboard *viewDash;
 }
 //viewDashboard *viewDash;
@@ -76,6 +78,9 @@ NSString *kGCMMessageIDKey = @"";
     _lastObdRead = [[NSCalendar currentCalendar] dateFromComponents:comps];
     obdsecs = 0;
  
+    lastReadTime =[[NSCalendar currentCalendar] dateFromComponents:comps];
+    
+    
     int cacheSizeMemory = 16*1024*1024; // 4MB
     int cacheSizeDisk = 64*1024*1024; // 32MB
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
@@ -646,12 +651,22 @@ NSString *kGCMMessageIDKey = @"";
                 
                 
                 
+               
+                
+                long secsSinceLast = [[NSDate date] timeIntervalSinceDate:lastReadTime];
+                
+                if(secsSinceLast > 600){
+                    isConnectedToObd = false;
+                }
+                
+                
                 //if(mph > 10.0){
                     
                     if(!isConnectedToObd)
                    {
-                        
-                        [self connect];
+                       if(secsSinceLast > 180){
+                           [self connect];
+                       }
                     }
                    
                     
@@ -2002,10 +2017,12 @@ NSString *kGCMMessageIDKey = @"";
             long len1 = [self->_Vin length];
             long len2 = [vin.formattedResponse length];
             
-            if(len2 > len1-2){
+            if(len2 > 9){
                 self->_Vin = vin.formattedResponse;
                 //[self->vDriving UpdateVin: vin.formattedResponse];
             }
+            
+            self->lastReadTime = [NSDate date];
             
             NSScanner *scan = [NSScanner scannerWithString:self->_Odo];
             double d;
@@ -2033,7 +2050,9 @@ NSString *kGCMMessageIDKey = @"";
                 currOdo =  [self->_Odo doubleValue];
                    
             }
-            if(newodo >= 10){
+            
+            
+            if(newodo >= 5){
                 
                 self->_Odo = odometer.formattedResponse;
                 NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -2090,13 +2109,26 @@ NSString *kGCMMessageIDKey = @"";
             //NSLog(@"twwwww---%@", vin.formattedResponse);
             //    NSLog(@"twwwwooooo---%@", odometer.formattedResponse);
            // [self disconnect];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+               
+                
                 if(self->isstopped != true){
-                    [self updateSensorData];
-                    self->cntping ++;
+                    if(self->cntping < 15){
+                        
+                        [self updateSensorData];
+                        self->cntping ++;
+                        
+                    }else{
+                        
+                        self->isConnectedToObd = false;
+                        [self disconnect];
+                        
+                    }
                 }else{
+                    
+                    self->isConnectedToObd = false;
                     [self disconnect];
-                    self->isConnectedToObd = NO;
+                    
                }
                 
         });
@@ -2134,6 +2166,8 @@ NSString *kGCMMessageIDKey = @"";
                 //self->_rpmLabel.text = self->_speedLabel.text = _tempLabel.text = @"";
                 //self->_rssiLabel.text = @"";
                 //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(onConnectAdapterClicked:)];
+                self->isConnectedToObd = false;
+                
                 break;
             }
 
