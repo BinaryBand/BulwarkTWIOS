@@ -30,10 +30,10 @@ struct GpsPostResult:Codable{
     
     @objc func saveGpsFile(hrempid:String, truck:String, office:String, time:Date, lat:Double, lon:Double, course:Double, speed:Double, distance:Double, odo:String, odometerTime:Date) ->Bool{
         
-        let ts = time.toString(format: .usDateTime24WithSec) ?? "1/1/1970"
+        let ts = time.toString(format: .usDateTime24WithSec, timeZone: .utc) ?? "1/1/1970"
         
         let odometer = Double(odo) ?? 0
-        let ot = odometerTime.toString(format: .usDateTime24WithSec) ?? "1/1/1970"
+        let ot = odometerTime.toString(format: .usDateTime24WithSec, timeZone: .utc) ?? "1/1/1970"
         
         
         let gm = GpsModel(hrempid: hrempid, rollingKey: "", truck: truck, office: office, timeStamp: ts, lat: lat, lon: lon, course: course, speed: speed, distance: distance, odometer: odometer, odometerTimeStamp: ot)
@@ -42,6 +42,30 @@ struct GpsPostResult:Codable{
         
 
         return true
+        
+    }
+    
+}
+
+@objc public class CheckProducts:NSObject{
+    private override init(){}
+    
+    @objc func checkNow(officeCode: String?){
+        
+        let o = officeCode ?? "ME"
+        
+        Task{
+            do{
+                _ = try await DataUtilities.checkAndDownloadProductsFileAsync(officeCode: o)
+            }catch{
+                print(error)
+            }
+            
+            
+        }
+        
+        
+        
         
     }
     

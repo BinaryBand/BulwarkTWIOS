@@ -18,6 +18,8 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
     var rs:RouteStop!
     
     
+    var turl:String?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -163,6 +165,35 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
                         performSegue(withIdentifier: "showPosting", sender: nil)
                         
                     }
+                    
+                    if dpage == 36{
+                        //view notes
+                        turl = "https://ipadapp.bulwarkapp.com/hh/customernotes.aspx?c=" + param
+
+                        performSegue(withIdentifier: "showWeb", sender: nil)
+                        
+                    }
+                    
+                    if dpage == 37{
+                        //fup call
+                        turl = "https://ipadapp.bulwarkapp.com/hh/FUP/FollowUpCallIpad.aspx?cid=" + param
+                        performSegue(withIdentifier: "showWeb", sender: nil)
+                    }
+                    
+                    if dpage == 38{
+                        //fup call
+                        turl = "https://ipadapp.bulwarkapp.com/hh/AnyTime.aspx&Customer_Id=" + param
+                        performSegue(withIdentifier: "showWeb", sender: nil)
+                    }
+                    if dpage == 39{
+                        //fup call
+                        turl = "https://ipadapp.bulwarkapp.com/paymentipad.aspx?account=" + param
+                        performSegue(withIdentifier: "showWeb", sender: nil)
+                    }
+                    
+                    if dpage == 41{
+                        //found termites
+                    }
                         
                     
                 }
@@ -193,17 +224,19 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
             
             if url.scheme == "comgooglemaps"{
                 
-                var mapparam = url.absoluteString.replacingOccurrences(of: "comgooglemaps://?q=", with: "")
+                let mapparam = url.absoluteString.replacingOccurrences(of: "comgooglemaps://?q=", with: "")
                 
                 let mstr = "comgooglemaps://?directionsmode=driving&daddr=" + mapparam
                 
                 UIApplication.shared.open(URL(string: mstr)!)
                 decisionHandler(.cancel)
+                return
             }
             
             if url.scheme == "maps"{
                 UIApplication.shared.open(url)
                 decisionHandler(.cancel)
+                return
             }
             
             
@@ -249,6 +282,22 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
             dc.vin = appDelegate.vin ?? "N"
             dc.lastObdRead = appDelegate.lastObdRead
             dc.rs = self.rs
+            
+            
+            
+        }
+        
+        if segue.identifier == "showWeb" {
+            
+            
+
+            
+                let dc = segue.destination as! viewModalWeb
+                dc.url = turl
+            
+            dc.hrEmpId = appDelegate.hrEmpId ?? "123456"
+            dc.useCookie = false
+            
             
             
             

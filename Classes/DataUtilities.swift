@@ -12,13 +12,19 @@ struct DataUtilities {
     
     
     
-    static func SavePostingResults(UrlToStave: String, Lat: String, Lon: String, Vin: String, Odometer: String, OdoLastUpdated:String, Rdate: String) -> Bool {
+    static func SavePostingResults(UrlToStave: String, Lat: String, Lon: String, Vin: String, Odometer: String, OdoLastUpdated:String, Rdate: String, appversion:String) -> Bool {
         
-        let tt = UrlToStave.replacingOccurrences(of: " ", with: "%20") + "&date=" + Rdate.replacingOccurrences(of: " ", with: "%20")
+        let a = UrlToStave.replacingOccurrences(of: " ", with: "%20") + "&date=" + Rdate.replacingOccurrences(of: " ", with: "%20")
         
-        let t = tt + "&lat=" + Lat + "&lng=" + Lon + "&vin=" + Vin + "&odo=" + Odometer + "&ododate="
+        let vn = Vin.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         
-        let newUrl = t + (OdoLastUpdated.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "1/1/1900")
+        let b = a + "&lat=" + Lat + "&lng=" + Lon
+        
+        let c = b + "&vin=" + vn + "&odo="
+        
+        let d = c + (Odometer.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "") + "&ododate="
+        
+        let newUrl = d + (OdoLastUpdated.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "1/1/1900") + "&appBuild=" + (appversion.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")
         
         
         
@@ -369,7 +375,7 @@ struct DataUtilities {
    static func getHomeGps(hrempid: String) async throws -> SPHomeGps{
         
         
-        var sph = SPHomeGps(success: 0, lat: 0, lon: 0, address: "")
+       let sph = SPHomeGps(success: 0, lat: 0, lon: 0, address: "")
         
        
        
@@ -475,23 +481,23 @@ struct DataUtilities {
     
     
     
-    static func getRecentCancelList(hrempid:String) async throws -> [ProactiveAccount]{
+    static func getRecentCancelList(hrempid:String, refreshNow:Bool) async throws -> [ProactiveAccount]{
         
         
-        return try await getRetentionList(hrempid: hrempid, type: 2, fname: "cancelsList.json")
+        return try await getRetentionList(hrempid: hrempid, type: 2, fname: "cancelsList.json", refreshNow: refreshNow)
         
         
         
         
     }
-    static func getProactiveRetentionList(hrempid: String) async throws -> [ProactiveAccount]{
+    static func getProactiveRetentionList(hrempid: String, refreshNow:Bool) async throws -> [ProactiveAccount]{
         
-        return try await getRetentionList(hrempid: hrempid, type: 1, fname: "proactiveList.json")
+        return try await getRetentionList(hrempid: hrempid, type: 1, fname: "proactiveList.json", refreshNow: refreshNow)
         
     }
     
     
-    static func getRetentionList(hrempid: String, type: Int, fname:String) async throws -> [ProactiveAccount]{
+    static func getRetentionList(hrempid: String, type: Int, fname:String, refreshNow:Bool) async throws -> [ProactiveAccount]{
          
          
          let sph = [ProactiveAccount]()
@@ -510,13 +516,13 @@ struct DataUtilities {
                      do {
                          
                          if type == 1{
-                             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid) ?? sph
                              return list
                          }else if type == 2{
                              let list = try await JsonFetcher.fetchCancelsJson(hrEmpId: hrempid)
                              return list
                          }else if type == 3{
-                             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid) ?? sph
                              return list
                          }else {
                              return sph
@@ -548,16 +554,16 @@ struct DataUtilities {
                          let tthours =  seconds / 3600
                          
                          
-                         if tthours > 11 {
+                         if tthours > 11 || refreshNow{
                              
                              if type == 1{
-                                 let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                                 let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid) ?? sph
                                  return list
                              }else if type == 2{
                                  let list = try await JsonFetcher.fetchCancelsJson(hrEmpId: hrempid)
                                  return list
                              }else if type == 3{
-                                 let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                                 let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid) ?? sph
                                  return list
                              }else {
                                  return sph
@@ -592,7 +598,7 @@ struct DataUtilities {
                          
                          
                      }else{
-                         let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+                         let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid) ?? sph
                          return list
                      }
                      
@@ -607,7 +613,7 @@ struct DataUtilities {
              }
               
          }else{
-             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+             let list = try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid) ?? sph
              return list
          }
           
@@ -635,6 +641,178 @@ struct DataUtilities {
         
         
     }
+    
+    static func getProductsUsedFile(paramatersToReplace:String, officeCode:String) ->String{
+        
+        
+        let file = "productsused.html" //this is the file. we will write to and read from it
+
+        var retStr = "<!DOCTYPE html><html><body><br><br><h3>Missing Products Used file download it from settings</h3></body></html>"
+
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            let fileURL = dir.appendingPathComponent(file)
+            
+            
+            let fm = FileManager.default
+            if fm.fileExists(atPath: fileURL.path){
+                
+                do {
+                    let text2 = try String(contentsOf: fileURL, encoding: .utf8)
+                    
+                    
+                    
+                    retStr = text2.replacingOccurrences(of: "%paramaterstoreplace%", with: paramatersToReplace)
+                    
+                    
+                    
+                    
+                    
+                }
+                catch {
+                    print(error)
+                    
+                }
+            }else{
+                
+                
+                Task.detached{
+                    do{
+                        _ = try await checkAndDownloadProductsFileAsync(officeCode: officeCode)
+                    }catch{
+                        
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }
+            return retStr
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    static func checkAndDownloadProductsFileAsync(officeCode: String) async throws -> Bool {
+         
+        let oc = officeCode.prefix(2)
+         
+        let fname = "productsused.html"
+        let urlStr = "https://ipadapp.bulwarkapp.com/ProductsUsed" + oc + ".html"
+
+        
+        
+        
+         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+             let pathWithFileName = documentDirectory.appendingPathComponent(fname)
+              
+             
+             if !FileManager.default.fileExists(atPath: pathWithFileName.path) { //if does not exist
+                     do {
+                         
+                         
+                         
+                         let htmlStr = try await StringFetcher.fetchStringFromUrlAsync(urlStr: urlStr)
+                         return saveStringToFile(htmlStr: htmlStr, filename: pathWithFileName.path)
+                     
+                                    
+                         
+                         
+                     } catch {
+                         return false
+                     }
+             }else{
+                 
+                 
+                 
+                 
+                 
+                 
+                 do{
+                     let attr = try FileManager.default.attributesOfItem(atPath: pathWithFileName.path)
+                     let savedate = attr[FileAttributeKey.modificationDate] as? Date
+                     
+                     
+                     if let s = savedate {
+                         let d = Date()
+                         
+                         let ti = d.timeIntervalSince(s)
+                         
+                         let seconds = ti.rounded()
+                         let tthours =  seconds / 3600
+                         print(tthours)
+                         
+                         if tthours > 168 {
+                             
+                             let htmlStr = try await StringFetcher.fetchStringFromUrlAsync(urlStr: urlStr)
+                            return saveStringToFile(htmlStr: htmlStr, filename: pathWithFileName.path)
+                             
+                             
+                         }else{
+                            
+                
+                             
+                         }
+                         
+                         
+                         
+                     }else{
+                         
+                     }
+                     
+                     
+                     
+                     
+                 }catch {
+                     
+                     return false
+                   
+                 }
+             }
+              
+         }else{
+             
+         }
+          
+         
+            return true
+         
+         
+         
+     }
+    
+    static func saveStringToFile(htmlStr: String, filename: String) ->Bool{
+        
+        
+        //im not sure if theis will work check the logic 1-23-2023
+      if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+     
+          
+          let rtfile = documentDirectory.appendingPathComponent(filename)
+          
+
+          
+            do {
+                try htmlStr.write(to: rtfile, atomically: true, encoding: .utf8)
+            } catch {
+                // handle error
+                return false
+            }
+            return true
+            
+        }
+        
+        return true
+    } //save route
     
     
     

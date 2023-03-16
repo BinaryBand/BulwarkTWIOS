@@ -95,28 +95,9 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
 
     func getProductsFile() -> String{
         
-        let file = "chemicalsused.html" //this is the file. we will write to and read from it
 
-        var retStr = "<!DOCTYPE html><html><body><br><br><h3>Missing Products Used file download it from settings</h3></body></html>"
 
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-
-            let fileURL = dir.appendingPathComponent(file)
-
-            //writing
-            /*
-            do {
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
-            }
-            catch {/* error handling here */}
-            */
-            //reading
-            
-            let fm = FileManager.default
-            if fm.fileExists(atPath: fileURL.path){
-                
-                do {
-                    let text2 = try String(contentsOf: fileURL, encoding: .utf8)
+                    
                     
                     var p = ""
                      var h = ""
@@ -144,24 +125,13 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                     let ti = getArrivalTime()
                     let paramStr = p + "&techname=" + n + "&licnum=" + l + "&office=" + o + "&h=" + h  + "&timein=" + ti
                     
-                     retStr = text2.replacingOccurrences(of: "%paramaterstoreplace%", with: paramStr)
-                    
-                   
                     
                     
                     
-                }
-                catch {/* error handling here */}
-            }
-            
-            
-
-            
-            
-            
-        }
+                    let resp = DataUtilities.getProductsUsedFile(paramatersToReplace: paramStr, officeCode: o)
+      
         
-        let encoded = retStr.data(using: .utf8)?.base64EncodedString() ?? "<!DOCTYPE html><html><body><br><br><h3>Missing Products Used file download it from settings</h3></body></html>"
+        let encoded = resp.data(using: .utf8)?.base64EncodedString() ?? "<!DOCTYPE html><html><body><br><br><h3>Missing Products Used file download it from settings</h3></body></html>"
         
        let finalres = "data:text/html;charset=utf-8;base64," + encoded
         
@@ -417,10 +387,10 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                     
                 }
                 
-                
+                let av = appDelegate.appBuild ?? "none"
                 let obdDate = appDelegate.lastObdRead.toString(format: .usDateTime24WithSec) ?? "1/1/1900"
                 
-                let saveResults = DataUtilities.SavePostingResults(UrlToStave: pres.url, Lat: appDelegate.lat, Lon: appDelegate.lon, Vin: appDelegate.vin, Odometer: appDelegate.odo, OdoLastUpdated: obdDate, Rdate: rs.rdate)
+                let saveResults = DataUtilities.SavePostingResults(UrlToStave: pres.url, Lat: appDelegate.lat, Lon: appDelegate.lon, Vin: appDelegate.vin, Odometer: appDelegate.odo, OdoLastUpdated: obdDate, Rdate: rs.rdate, appversion: av)
                 
                 if saveResults == true {
                     

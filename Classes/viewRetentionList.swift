@@ -17,6 +17,7 @@ class viewRetentionList: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var btnReport: UISegmentedControl!
     
+    @IBOutlet var refreshButton: LoadingUIButton!
     
     var plist: [ProactiveAccount] = []
     var hrempid:String?
@@ -24,6 +25,10 @@ class viewRetentionList: UIViewController {
     var cancels: [ProactiveAccount] = []
     var appDelegate:BulwarkTWAppDelegate = (UIApplication.shared.delegate as? BulwarkTWAppDelegate)!
     var acctSearch: [ProactiveAccount] = []
+
+    @IBOutlet var btnsearch: UIButton!
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,18 +41,33 @@ class viewRetentionList: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        disablebuttonswhileloading()
         Task{
-           await loadData()
+            await loadData(refreshFromServer: false)
+            enablebuttonswhendone()
         }
         
         // Do any additional setup after loading the view.
     }
     
     
+    @IBAction func btnRefresh(_ sender: Any) {
+        disablebuttonswhileloading()
+       
+        Task{
+            
+            await self.loadData(refreshFromServer:true)
+            
+            self.enablebuttonswhendone()
+            
+          
+        }
+        
+        
+    }
     
     
-    func loadData() async{
+    func loadData(refreshFromServer: Bool) async{
         
         
         if btnReport.selectedSegmentIndex == 0{
@@ -56,7 +76,7 @@ class viewRetentionList: UIViewController {
             do{
                 
                 
-                let pa = try await DataUtilities.getProactiveRetentionList(hrempid: hrempid ?? "0")
+                let pa = try await DataUtilities.getProactiveRetentionList(hrempid: hrempid ?? "0", refreshNow: refreshFromServer)
                 plist = pa
                 for i in plist.indices {
                     let ulat = Double(appDelegate.lat) ?? 0
@@ -69,12 +89,12 @@ class viewRetentionList: UIViewController {
                 plist.sort()
                 
                 
-                self.tableView.reloadData()
-                self.view.hideToastActivity()
+                
+                
                 
             }catch{
                 print(error)
-                self.view.hideToastActivity()
+                
                 
             }
             
@@ -137,16 +157,20 @@ class viewRetentionList: UIViewController {
     }
     
     @IBAction func btnReportChange(_ sender: Any) {
+       disablebuttonswhileloading()
         Task{
-            self.view.makeToastActivity(.center)
-            await loadData()
-            tableView.reloadData()
-            self.view.hideToastActivity()
+            
+            await loadData(refreshFromServer: false)
+            
+           
+            enablebuttonswhendone()
         }
         
     }
     
     @IBAction func btnSearch(_ sender: Any) {
+       disablebuttonswhileloading()
+        
         lvlReportTitle.text = "Account Search"
         btnReport.selectedSegmentIndex = 3
         
@@ -154,11 +178,11 @@ class viewRetentionList: UIViewController {
         let searchstr = thtSearch.text ?? ""
         
         if searchstr != "" {
-            
+          
         
             Task{
                 do{
-                    self.view.makeToastActivity(.center)
+                    
                     acctSearch = try await JsonFetcher.fetchAcctSearchJson(hrEmpId: hr, searchStr: searchstr)
                     
                     for i in acctSearch.indices{
@@ -171,15 +195,48 @@ class viewRetentionList: UIViewController {
                     }
                     acctSearch.sort()
                     
-                    tableView.reloadData()
-                    self.view.hideToastActivity()
+                    
+                    
+                    enablebuttonswhendone()
+                    
                 }catch{
                     print(error)
+                    enablebuttonswhendone()
                 }
             }
         }
         
     }
+    
+    
+    func disablebuttonswhileloading(){
+        self.view.makeToastActivity(.center)
+        self.refreshButton.showLoading()
+        tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
+        btnsearch.isEnabled = false
+        thtSearch.isEnabled = false
+        btnReport.isEnabled = false
+        
+    }
+    
+    func enablebuttonswhendone(){
+        DispatchQueue.main.async() {
+            // your UI update code
+            self.tableView.reloadData()
+            self.refreshButton.hideLoading()
+            self.view.hideToastActivity()
+            self.btnsearch.isEnabled = true
+            self.thtSearch.isEnabled = true
+            self.btnReport.isEnabled = true
+            self.tableView.allowsSelection = true
+            self.tableView.isScrollEnabled = true
+        }
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
@@ -200,7 +257,7 @@ extension viewRetentionList: UITableViewDataSource, UITableViewDelegate {
         let customView = self.storyboard?.instantiateViewController(withIdentifier: "modalWeb") as? viewModalWeb
         
         
-        let d = "For Tomorrows Route"
+       // let d = "For Tomorrows Route"
         
         customView?.hrEmpId = appDelegate.hrEmpId
         
@@ -347,7 +404,7 @@ extension viewRetentionList: UITableViewDataSource, UITableViewDelegate {
         cell.lblMiles.text = d.toNumberString(decimalPlaces: 1) + " Miles"
         
         let sub = cancels[index].status ?? ""
-        let type = cancels[indexPath.row].typeId ?? 0
+        //let type = cancels[indexPath.row].typeId ?? 0
         
         
         if sub.starts(with: "Move"){

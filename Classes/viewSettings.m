@@ -452,6 +452,8 @@
     delegate.office = OffCode;
     delegate.phone = Phone;
     
+    
+    
     [dash fetchNewProactive];
     
     
@@ -756,7 +758,7 @@
     dispatch_async(dispatch_get_main_queue(), ^(){
 
         
-        viewModalWeb* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"viewModalWeb"];
+        viewModalWeb* customView = [[self storyboard] instantiateViewControllerWithIdentifier:@"modalWeb"];
         
         customView.url = @"https://endeavor.bulwarkapp.com?pronly=1";
         customView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -787,6 +789,8 @@
         // }
         
         
+        
+        
         NSString *downloadFile = @"https://ipadapp.bulwarkapp.com/ProductsUsed";
         downloadFile= [downloadFile stringByAppendingString:offcode];
         downloadFile= [downloadFile stringByAppendingString:@".html"];
@@ -808,7 +812,7 @@
            
            // dispatch_async(dispatch_get_main_queue(), ^{
                 // Your code to run on the main queue/thread
-                [self toastScreenAsync:@"Chemicals" withMessage:@"Unable to download try again later"];
+                [self toastScreenAsync:@"Products" withMessage:@"Unable to download try again later"];
            // });
             
         }
@@ -818,14 +822,14 @@
             
             
             
-            NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"chemicalsused.html"];
+            NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"productsused.html"];
             
             [myTxtFile writeToFile:appFile atomically:YES encoding:NSUTF8StringEncoding error:NULL];
             
             
             //dispatch_async(dispatch_get_main_queue(), ^{
                 // Your code to run on the main queue/thread
-                [self toastScreenAsync:@"Chemicals" withMessage:@"Download Complete"];
+                [self toastScreenAsync:@"Products" withMessage:@"Download Complete"];
             //});
           
         }

@@ -24,6 +24,10 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
     @objc var viewOne: ViewOne!
     
     
+    
+    
+    
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var acctLabel: UILabel!
     
@@ -75,8 +79,7 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
             cell.customer_id = self.CustomerId
             cell.service_id = self.ServiceId
             cell.isNC = isNC
-            
-            
+            cell.isMyRoute = false
             
             
             let rdate = Date(fromString: fbfList[indexPath.row].rDate, format: Date.DateFormatType.usDate)
@@ -85,7 +88,6 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
             cell.lblTitle.text = fbfList[indexPath.row].title
             cell.lblTimeBlock.text = (stb?.toString(format: .custom("h:mm a")) ??  "") + " to " + (etb?.toString(format: .custom("h:mm a")) ?? "")
             cell.lblDistance.text = String(format: "%.2f", fbfList[indexPath.row].dist)
-            
             
 
             
@@ -104,12 +106,21 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
             
             let stb = Date(fromString: fbfList[indexPath.row].tbStart, format: .usDateTime12WithSec)
           
-            cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy+HH:mm"))
+            cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy HH:mm"))
             cell.route_id = fbfList[indexPath.row].route_id
             cell.isNC = isNC
-                      
+            
+            cell.fromHrEMPId = self.HrEmpId
+            cell.fromPage = self.FromPage
+            cell.customer_id = self.CustomerId
+            cell.service_id = self.ServiceId
+            
+            
             cell.lblWeekDay.text = "Today"
             cell.lblDate.text = "My Route"
+         
+            cell.isMyRoute = true
+            
             
             return cell
             
@@ -121,13 +132,17 @@ class viewFBFSearch: UIViewController, UITableViewDelegate,UITableViewDataSource
             
             let stb = Date(fromString: fbfList[indexPath.row].tbStart, format: .usDateTime12WithSec)
           
-            cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy+HH:mm"))
+            cell.stTb = stb?.toString(format: .custom("MM/dd/yyyy HH:mm"))
             cell.route_id = fbfList[indexPath.row].route_id
-            
+            cell.fromHrEMPId = self.HrEmpId
+            cell.fromPage = self.FromPage
+            cell.customer_id = self.CustomerId
+            cell.service_id = self.ServiceId
             cell.isNC = isNC
             cell.lblWeekDay.text = "err"
             cell.lblDate.text = "err"
             cell.lblTitle.text = "err"
+            cell.isMyRoute = false
             return cell
             
             

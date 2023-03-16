@@ -152,13 +152,13 @@ struct JsonFetcher {
         }
             
         
-        var urlStr = "https://kpwebapi2.bulwarkapp.com/api/marketing/getrecenttopratedimages" + urlparam
+        let urlStr = "https://kpwebapi2.bulwarkapp.com/api/marketing/getrecenttopratedimages" + urlparam
         
         guard let tempurl = URL(string: urlStr) else {
             throw JsonFetcherError.invalidURL
         }
 
-        var tempRequest = URLRequest(
+        let tempRequest = URLRequest(
             url: tempurl
         )
         
@@ -203,7 +203,7 @@ struct JsonFetcher {
         
         
        
-        var urlStr = "https://twapiweb.bulwarkapp.com/GetAuthCookie"
+        let urlStr = "https://twapiweb.bulwarkapp.com/GetAuthCookie"
         
         //urlStr = "http://10.211.55.4:5095/GetAuthCookie"
         
@@ -214,7 +214,7 @@ struct JsonFetcher {
         var tempRequest = URLRequest(
             url: tempurl
         )
-        var athtoken = getAuthToken(hrempid: hrEmpId)
+        let athtoken = getAuthToken(hrempid: hrEmpId)
         let ac = AuthCookie(HrEmpId: hrEmpId, RollingKey: athtoken)
         
         
@@ -277,7 +277,7 @@ struct JsonFetcher {
         
         let (data, _) = try await URLSession.shared.data(for: tempRequest)
         
-        let sv = DataUtilities.saveRouteStopList(list: data)
+        _ = DataUtilities.saveRouteStopList(list: data)
         
         /*
         var (data, response) = try await URLSession.shared.data(for: tempRequest)
@@ -557,6 +557,7 @@ struct JsonFetcher {
                 }
             } catch {
                 // failed to read directory – bad permissions, perhaps?
+                print(error)
             }
             
         }
@@ -677,13 +678,13 @@ struct JsonFetcher {
         
     }
     
-    static func fetchProactiveRetentionJson(hrEmpId: String) async throws -> [ProactiveAccount] {
+    static func fetchProactiveRetentionJson(hrEmpId: String) async throws -> [ProactiveAccount]? {
         
         
        
         let urlStr = "https://twapiweb.bulwarkapp.com/api/GetProactiveList"
         
-        //urlStr = "http://10.211.55.4:5095/GetAuthCookie"
+        //let urlStr = "http://10.211.55.4:5095/api/GetProactiveList"
         
         guard let tempurl = URL(string: urlStr) else {
             throw JsonFetcherError.invalidURL
@@ -704,11 +705,13 @@ struct JsonFetcher {
         let jsonData = try JSONEncoder().encode(ac)
         
         tempRequest.httpBody = jsonData
+        do{
+            
         
         let (data, _) = try await URLSession.shared.data(for: tempRequest)
 
-        
-        
+        //let str = String(decoding: data, as: UTF8.self)
+        //print(str)
         // Parse the JSON data
         let acresult = try JSONDecoder().decode([ProactiveAccount].self, from: data)
         if  acresult.count > 0{
@@ -719,7 +722,10 @@ struct JsonFetcher {
         }
         
         return acresult
-        
+        }catch{
+            print(error)
+            return nil
+        }
         
     }
     
@@ -825,17 +831,88 @@ struct JsonFetcher {
     static func submitFastComm(hrempid: String, fctime: Date) async throws -> FastCommSubmitResult{
         let url = "https://twapiweb.bulwarkapp.com/api/SubmitFastComm"
         
-        let athtoken = JsonFetcher.getAuthToken(hrempid: hrempid)
-        var jd = FastCommPunch(HrEmpId: hrempid, RollingKey: getAuthToken(hrempid: hrempid), PunchTime: fctime.toString(format: .usDateTime24NoSec)!)
+        //let athtoken = JsonFetcher.getAuthToken(hrempid: hrempid)
+        let jd = FastCommPunch(HrEmpId: hrempid, RollingKey: getAuthToken(hrempid: hrempid), PunchTime: fctime.toString(format: .usDateTime24NoSec)!)
         let jsonData = try JSONEncoder().encode(jd)
-        var request = URLRequest(urlStr: url, hrempid: hrempid, jsonData: jsonData)!
+        let request = URLRequest(urlStr: url, hrempid: hrempid, jsonData: jsonData)!
         
         let (data, _) = try await URLSession.shared.data(for: request)
         let result = try JSONDecoder().decode(FastCommSubmitResult.self, from: data)
         return result
     }
     
+    static func submitCreativePhoto(creativePhotoId:String) async throws-> String{
+        
+        let url = "https://kpwebapi2.bulwarkapp.com/api/marketing/SubmitAsExcellentPhoto?photoId=" + creativePhotoId
+        
+        guard let tempurl = URL(string: url) else {
+            throw JsonFetcherError.invalidURL
+        }
+        var tempRequest = URLRequest(
+            url: tempurl
+        )
+        
+        tempRequest.httpMethod = "POST"
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let (data, _) = try await URLSession.shared.data(for: tempRequest)
+ 
+        let str = String(decoding: data, as: UTF8.self)
+        return str
+        
+        
+        
+    }
     
+    
+    static func checkLastZipHomeSales(zipCode:String, hrEmpId:String) async throws -> ZipReturn{
+        
+        
+        let url = "https://twubuntucore.bulwarkapp.com/api/HomeSaleZipCheck"
+    
+        //let url = "http://10.211.55.4:5095/api/HomeSaleZipCheck"
+        
+        let jd = HomeZipCheck(hrempid: hrEmpId, rollingKey: getAuthToken(hrempid: hrEmpId), zipCode: zipCode)
+    
+        let jsonData = try JSONEncoder().encode(jd)
+    let request = URLRequest(urlStr: url, hrempid: hrEmpId, jsonData: jsonData)!
+        
+        let (data, res) = try await URLSession.shared.data(for: request)
+    let httpResponse = res as! HTTPURLResponse
+    print(httpResponse.statusCode)
+    let str = String(decoding: data, as: UTF8.self)
+        
+    print(str)
+        
+    let result = try JSONDecoder().decode(ZipReturn.self, from: data)
+    return result
+   
+    }
+    
+    static func postHomeSales(hrEmpId:String, homeData:[RecentHomeSold]) async throws -> Int{
+        
+        
+        let url = "https://twubuntucore.bulwarkapp.com/api/SaveRecentlySoldHomes"
+    
+        //let url = "http://10.211.55.4:5095/api/SaveRecentlySoldHomes"
+        
+        let jd = RecentHomeSoldPostObj(hrempid: hrEmpId, rollingKey: getAuthToken(hrempid: hrEmpId), homeData: homeData)
+    
+        let jsonData = try JSONEncoder().encode(jd)
+    let request = URLRequest(urlStr: url, hrempid: hrEmpId, jsonData: jsonData)!
+        
+        let (data, res) = try await URLSession.shared.data(for: request)
+    let httpResponse = res as! HTTPURLResponse
+    print(httpResponse.statusCode)
+    let str = String(decoding: data, as: UTF8.self)
+        
+    print(str)
+        
+    //let result = try JSONDecoder().decode(ZipReturn.self, from: data)
+    return 1
+   
+    }
     
     
 }

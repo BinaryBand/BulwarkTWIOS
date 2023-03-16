@@ -13,6 +13,27 @@ import Foundation
         case missingData
     }
     
+    
+    @objc public static func fetchStringFromUrlAsync(urlStr: String) async throws -> String {
+        
+        guard let tempurl = URL(string: urlStr) else {
+            throw StringFetcherError.invalidURL
+        }
+        
+        let tempRequest = URLRequest(
+            url: tempurl
+        )
+        
+        let (data, _) = try await URLSession.shared.data(for: tempRequest)
+        
+        let str = String(decoding: data, as: UTF8.self)
+       
+        
+        return str
+               
+        
+    }
+    
   @objc public static func fetchStringFromUrlAsync(urlStr: String, hrEmpId: String) async throws -> String {
         
         guard let tempurl = URL(string: urlStr) else {
@@ -41,4 +62,17 @@ import Foundation
         
         return str
     }
+    
+    
+    
+    @objc public static func downloadProductListAsync(officeCode: String) async throws ->Bool{
+        
+        
+        
+        
+        
+        return true;
+    }
+    
+    
 }

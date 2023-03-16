@@ -36,7 +36,7 @@ class FBFCell: UITableViewCell {
     var customer_id: Int!
     var service_id: Int!
     var isNC: Bool!
-    
+    var isMyRoute:Bool!
     
     
     
@@ -53,7 +53,13 @@ class FBFCell: UITableViewCell {
 
     @IBAction func btnPressAddToRoute(_ sender: Any) {
         
-        let message = "Add to Route " + (lblTitle.text ?? "") + " between " + (lblTimeBlock.text ?? "")
+        var message = ""
+        
+        if isMyRoute{
+            message = "Add to my route for today?"
+        }else{
+            message = "Add to Route " + (lblTitle.text ?? "") + " between " + (lblTimeBlock.text ?? "")
+        }
         
         
         let alertController = UIAlertController(title: "Confirm", message: message, preferredStyle: .alert)
@@ -68,7 +74,9 @@ class FBFCell: UITableViewCell {
             let atrp = AddToRouteParams(RouteId: self.route_id, StartAt: self.stTb, FromHrEmpId: self.fromHrEMPId, RollingKey: "", FromPage: self.fromPage, CustomerId: self.customer_id, ServiceId: self.service_id, isNC: self.isNC, isTransfer: false, workOrderId: 0)
         
         
-            let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+            print(atrp)
+            
+            //let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
             //appDelegate.viewSched = self
            
 
@@ -83,7 +91,7 @@ class FBFCell: UITableViewCell {
             
             let urlStr = "https://twapiweb.bulwarkapp.com/AddToRoute"
             
-            //urlStr = "http://10.211.55.4:5095/AddToRoute"
+            //let urlStr = "http://10.211.55.4:5095/AddToRoute"
             
             
             Task {
@@ -98,6 +106,8 @@ class FBFCell: UITableViewCell {
                     //HUD.hide(true)
                     if(auResult.success == false){
                         print(auResult.error)
+                        
+                        self.viewController?.view.hideToastActivity()
                         
                         let msg = "Error adding with reason " + auResult.error + " Contact the support center to add this service to route"
                         

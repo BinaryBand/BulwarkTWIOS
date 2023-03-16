@@ -54,6 +54,9 @@
 NSString *kGCMMessageIDKey = @"";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+   
+    self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    
     islocked = false;
     updatesettingsvin = false;
     isConnectedToObd = NO;
@@ -70,6 +73,11 @@ NSString *kGCMMessageIDKey = @"";
     _Odo = @"";
     DtcDist = @"";
     SendingFilesToServer = false;
+    
+    
+    
+    
+    _appBuild = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:1];
@@ -156,13 +164,16 @@ NSString *kGCMMessageIDKey = @"";
         
         self.locationManager.delegate=self;
         //_locationManager.purpose = @"Gps is used to find customer locations";
-        self.locationManager.desiredAccuracy=kCLLocationAccuracyBest;
-        self.locationManager.distanceFilter = 1;
+        self.locationManager.desiredAccuracy=kCLLocationAccuracyNearestTenMeters;
+        self.locationManager.distanceFilter = 3;
         
  
         
         self.locationManager.allowsBackgroundLocationUpdates = YES;
+     
         
+        
+        [self.locationManager setPausesLocationUpdatesAutomatically:YES];
         
         NSMutableArray<CBUUID*>* ma = [NSMutableArray array];
             [@[ @"FFF0", @"FFE0", @"BEEF" , @"E7810A71-73AE-499D-8C15-FAA9AEF0C3F2"] enumerateObjectsUsingBlock:^(NSString* _Nonnull uuid, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -313,6 +324,17 @@ NSString *kGCMMessageIDKey = @"";
         self.phone = @"";
     }
     
+    NSDictionary *keysAndValues =
+        @{@"office_key" : self.office,
+          @"hrempid_key" : self.hrEmpId,
+          @"name_key" : self.name,
+          @"phone_key" : self.phone,
+          @"license_key" : self.license,
+          @"appbuild_key" : self.appBuild
+        };
+
+    
+    [[FIRCrashlytics crashlytics] setCustomKeysAndValues:keysAndValues];
     
     
 }
@@ -594,6 +616,9 @@ NSString *kGCMMessageIDKey = @"";
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *newLocation = locations.lastObject;
+    
+    
+    
     //CLLocation *oldLocation;
     //if (locations.count > 1) {
     //    oldLocation = locations[locations.count - 2];
@@ -602,7 +627,7 @@ NSString *kGCMMessageIDKey = @"";
     
     NSDate* eventDate = newLocation.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    if (fabs(howRecent) < 15.0)
+    if (howRecent > -15.0)
     {
         //Location timestamp is within the last 15.0 seconds, let's use it!
         
@@ -699,13 +724,19 @@ NSString *kGCMMessageIDKey = @"";
                 
             }
             
+            double lastlat = [_lat doubleValue];
+            double lastlon = [_lon doubleValue];
+
+           // double currlat = newLocation.coordinate.latitude;
+            //double currlon = newLocation.coordinate.longitude;
+            
             
             self.lon = [NSString stringWithFormat:@"%.8f",newLocation.coordinate.longitude];
             self.lat = [NSString stringWithFormat:@"%.8f",newLocation.coordinate.latitude];
             
-            NSDateFormatter* df_utc = [[NSDateFormatter alloc] init];
-            [df_utc setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-            [df_utc setDateFormat:@"MM/dd/yyyy,HH:mm:ss"];
+            //NSDateFormatter* df_utc = [[NSDateFormatter alloc] init];
+            //[df_utc setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+            //[df_utc setDateFormat:@"MM/dd/yyyy,HH:mm:ss"];
             
             
             double maxdist = 3;
@@ -750,18 +781,18 @@ NSString *kGCMMessageIDKey = @"";
             
 
             
-            double lastlat = [[self Getlat] doubleValue];
-            double lastlon = [[self GetLon] doubleValue];
+
             
             
             double lastdist = [self distanceBetweenLat1:lastlat lon1:lastlon lat2:newLocation.coordinate.latitude lon2:newLocation.coordinate.longitude];
             
             
             Boolean speedZero = NO;
-            if(newLocation.speed == 0 && isstopped == NO){
+            if(newLocation.speed < 1 && isstopped == NO){
                 isstopped = YES;
                 speedZero = YES;
                 NSLog(@"Stopped");
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
                 
             }
             if(newLocation.speed == 0){
@@ -773,9 +804,9 @@ NSString *kGCMMessageIDKey = @"";
             if (lastdist > maxdist || speedZero){
                 
                 
-                if (newLocation.speed > 5){
+                if (newLocation.speed > 4){
                     isstopped = NO;
-                    
+                    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
                 }
                 
                 [self SaveLat:[NSString stringWithFormat:@"%.8f",newLocation.coordinate.latitude]];
@@ -783,20 +814,20 @@ NSString *kGCMMessageIDKey = @"";
                 
                 
                 
-                NSString *gpsStr = @"&t=0&data=";
+               // NSString *gpsStr = @"&t=0&data=";
                 
                 
-                gpsStr = [gpsStr stringByAppendingString:[df_utc stringFromDate:eventDate]];
-                gpsStr = [gpsStr stringByAppendingString:@","];
-                gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.8f",newLocation.coordinate.latitude]];
-                gpsStr = [gpsStr stringByAppendingString:@","];
-                gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.8f",newLocation.coordinate.longitude]];
-                gpsStr = [gpsStr stringByAppendingString:@","];
-                gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.1f",newLocation.course]];
-                gpsStr = [gpsStr stringByAppendingString:@","];
-                gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.1f",newLocation.speed]];
-                gpsStr = [gpsStr stringByAppendingString:@","];
-                gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.1f",lastdist]];
+               // gpsStr = [gpsStr stringByAppendingString:[df_utc stringFromDate:eventDate]];
+               // gpsStr = [gpsStr stringByAppendingString:@","];
+               // gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.8f",newLocation.coordinate.latitude]];
+               // gpsStr = [gpsStr stringByAppendingString:@","];
+               // gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.8f",newLocation.coordinate.longitude]];
+               // gpsStr = [gpsStr stringByAppendingString:@","];
+               // gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.1f",newLocation.course]];
+               // gpsStr = [gpsStr stringByAppendingString:@","];
+               // gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.1f",newLocation.speed]];
+               // gpsStr = [gpsStr stringByAppendingString:@","];
+               // gpsStr = [gpsStr stringByAppendingString:[NSString stringWithFormat:@"%.1f",lastdist]];
                 
                 
                 NSString *custGps = @"&lat=";
@@ -895,6 +926,8 @@ NSString *kGCMMessageIDKey = @"";
 
 
 -(void)SaveLat:(NSString *)lat {
+    _lat = lat;
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"lat.tw"];
@@ -905,6 +938,7 @@ NSString *kGCMMessageIDKey = @"";
     
 }
 -(void)SaveLon:(NSString *)lon {
+    _lon = lon;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"lon.tw"];

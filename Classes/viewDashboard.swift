@@ -7,6 +7,7 @@
 
 import UIKit
 import Toast
+import WebKit
 
 class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
     
@@ -20,7 +21,8 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     var photoList: [ExcelentPhotos] = []
     var photoListImages:[UIImage] = []
     
-    var hrempid:String!
+    
+    var officeCode:String?
     
     var useCookieInWeb:Bool!
     
@@ -39,6 +41,11 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     var cancelList:[ProactiveAccount] = []
     var RouteId = 0
     var ttvid = 0
+    
+    
+    @IBOutlet var tmpview: UIView!
+    
+    
     
     @IBOutlet var btnFastComm: UIButton!
     
@@ -100,12 +107,21 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet var barBtnChat: UIBarButtonItem!
     
+    var invwebView: WKWebView!
+    
+    
+    private let invhandler = "handler"
+    
+    
+    var zip:String!
     
     
     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
     
     var notificationstoview:Int = 0
     
+    
+    var invRequest:URLRequest?
    // var routeStop: RouteStop?{
    //     didSet {
    //         refreshRouteStopSelected()
@@ -116,6 +132,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     //@IBOutlet var cvSales: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        zip = ""
+        
+        //setupWebView()
         
         // Do any additional setup after loading the view.
         //cvSales.delegate = self
@@ -128,7 +147,9 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         viewTimePunch.delegate = self
         viewRoutes.delegate = self
         viewModalWeb.delegate = self
-        hrempid = appDelegate.hrEmpId ?? ""
+        //hrempid = appDelegate.hrEmpId ?? ""
+        officeCode = appDelegate.office
+        
         
         appDelegate.viewDash = self
         
@@ -169,6 +190,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             await self.loadHomeGPS()
             await self.loadProactiveList()
             await self.loadCancelList()
+            await self.checkProducts()
         }
         splitViewController?.show(.primary)
         fastCommCheck()
@@ -184,7 +206,30 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         _ = Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(self.fastCommCheck), userInfo: nil, repeats: true)
                
         _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.sendGpsToServer), userInfo: nil, repeats: true)
+        
+        
+        _ = Timer.scheduledTimer(timeInterval: 1800.0, target: self, selector: #selector(self.backgroundHomeSaleCheck), userInfo: nil, repeats: true)
+
+        
+        Utilities.delay(bySeconds: 9.0, dispatchLevel: .main){
+            self.setupWebView()
+        }
+        
+        
        // updateChatNotificationBubble()
+    }
+    
+    
+    func checkProducts() async {
+        
+        do{
+            let o = officeCode ?? "ME"
+            _ = try await DataUtilities.checkAndDownloadProductsFileAsync(officeCode: o)
+        }catch{
+            print(error)
+        }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -222,7 +267,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @objc func sendGpsToServer(){
         Task.detached{
-            _ = await JsonFetcher.sendGpsDataToServer(hrEmpId: self.hrempid)
+            _ = await JsonFetcher.sendGpsDataToServer(hrEmpId: self.appDelegate.hrEmpId ?? "")
         }
     }
 
@@ -232,7 +277,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         Task.detached{
             do{
                 
-                _ = try await JsonFetcher.SendPostingResultsAsync(hrEmpId: self.hrempid)
+                _ = try await JsonFetcher.SendPostingResultsAsync(hrEmpId: self.appDelegate.hrEmpId ?? "")
                 //_ = try await JsonFetcher.SendGPSAsync(hrEmpId: self.hrempid)
                 
             } catch {
@@ -276,7 +321,8 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func fetchNewProactiveList() async {
         do{
-        proactiveList =  try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: hrempid)
+            let pl = [ProactiveAccount]()
+            proactiveList =  try await JsonFetcher.fetchProactiveRetentionJson(hrEmpId: appDelegate.hrEmpId ?? "") ?? pl
         } catch {
            print(error)
         }
@@ -286,7 +332,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
 
             
             do{
-                proactiveList = try await DataUtilities.getProactiveRetentionList(hrempid: hrempid)
+                proactiveList = try await DataUtilities.getProactiveRetentionList(hrempid: appDelegate.hrEmpId ?? "", refreshNow: false)
             }catch{
                 print(error)
             }
@@ -298,7 +344,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
 
             
             do{
-                cancelList = try await DataUtilities.getRecentCancelList(hrempid: hrempid)
+                cancelList = try await DataUtilities.getRecentCancelList(hrempid: appDelegate.hrEmpId ?? "", refreshNow: false)
             }catch{
                 print(error)
             }
@@ -311,7 +357,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             
             do{
               
-                let h = try await DataUtilities.getHomeGps(hrempid: hrempid)
+                let h = try await DataUtilities.getHomeGps(hrempid: appDelegate.hrEmpId ?? "")
                 sphome = h
                 
                 
@@ -333,7 +379,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             
             do {
                 
-                let stats = try await JsonFetcher.fetchDashStatsJson(hrEmpId: hrempid)
+                let stats = try await JsonFetcher.fetchDashStatsJson(hrEmpId: appDelegate.hrEmpId ?? "")
                 
                 Utilities.delay(bySeconds: 0.5, dispatchLevel: .main){ [self] in
                     
@@ -539,7 +585,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             
                 let destinationController = segue.destination as! viewModalWeb
                 destinationController.url = tabUrl
-            destinationController.hrEmpId = hrempid
+            destinationController.hrEmpId = appDelegate.hrEmpId ?? ""
           
             if let uc = useCookieInWeb{
                 destinationController.useCookie = uc
@@ -566,7 +612,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
                    
             
                 let destinationController = segue.destination as! viewMyPhotos
-                destinationController.hrempid = hrempid
+                destinationController.hrempid = appDelegate.hrEmpId ?? ""
    
             
         }
@@ -592,7 +638,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBAction func ChatClicked(){
         notificationstoview = 0
         barBtnChat.removeBadge()
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://kpwebapi2.bulwarkapp.com/chat?hrempid=" + hrempid
         useCookieInWeb = true
         print(tabUrl!)
@@ -601,7 +647,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     @IBAction func btnIsExtended(_ sender: Any) {
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://dashboard.bulwarkapp.com/mgrapp2/isextendeddaysoff2.aspx?h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -610,12 +656,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
-    @IBAction func btnTodaysMap(_ sender: Any) {
-        
-        
-        performSegue(withIdentifier: "showMap", sender: nil)
-        
-    }
+
     
     
     
@@ -648,7 +689,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @objc func tapPhotoRatio(_ sender:UITapGestureRecognizer){
         // do other task
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://servicesnapshot.bulwarkapp.com?&hrempid=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -656,7 +697,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     @objc func tapOnTime(_ sender:UITapGestureRecognizer){
         // do other task
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/ontime?ipad=yes&h=" + hrempid
         useCookieInWeb = true
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -664,7 +705,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     @objc func tapFinisher(_ sender:UITapGestureRecognizer){
         // do other task
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/finisherRatio?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -680,7 +721,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @objc func tapCompletion(_ sender:UITapGestureRecognizer){
         // do other task
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/completionrate?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -690,8 +731,8 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @objc func tapReviews(_ sender:UITapGestureRecognizer){
         // do other task
-        
-        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/finisherRatio?ipad=yes&h=" + hrempid
+        let hrempid = appDelegate.hrEmpId ?? ""
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/techreviews?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
         
@@ -700,7 +741,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @objc func tapProactiveAdds(_ sender:UITapGestureRecognizer){
         // do other task
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/proactiveusage?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -714,7 +755,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @objc func tapDailyRetention(_ sender:UITapGestureRecognizer){
         // do other task
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/DailyRetention?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -729,7 +770,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         let customView = self.storyboard?.instantiateViewController(withIdentifier: "viewRetentionLists") as? viewRetentionList
         
-        customView?.hrempid = hrempid;
+        customView?.hrempid = appDelegate.hrEmpId ?? "";
         customView?.plist = proactiveList
         
         //customView.istoday = 1;
@@ -757,14 +798,14 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         let alert = UIAlertController(title: "My Pay", message: "Please Select an Option", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Pay Details", style: .default, handler: { (_) in
-                    self.tabUrl = "https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=" + self.hrempid + "&viewedby=" + self.hrempid
+                    self.tabUrl = "https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=" + self.appDelegate.hrEmpId
                     self.useCookieInWeb = true
                     print(self.tabUrl!)
                     self.performSegue(withIdentifier: "showWeb", sender: nil)
                 }))
 
         alert.addAction(UIAlertAction(title: "24 Month Compare", style: .default, handler: { [self] (_) in
-                    tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/TwentyFourMonth?ipad=yes&h=" + hrempid
+            tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/TwentyFourMonth?ipad=yes&h=" + appDelegate.hrEmpId
                     useCookieInWeb = false
                     performSegue(withIdentifier: "showWeb", sender: nil)
                 }))
@@ -865,7 +906,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBAction func btnServiceSnapShot(_ sender: Any) {
         
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://servicesnapshot.bulwarkapp.com?&hrempid=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
@@ -927,7 +968,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         self.present(customView!,animated:true, completion:nil)
         
         */
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         let modalViewController = storyboard?.instantiateViewController(withIdentifier: "viewTimePunch") as! viewTimePunch
         
         modalViewController.hrempid = hrempid
@@ -1011,6 +1052,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBAction func btnFastCommSubmit(_ sender: Any) {
         
         Task{
+            let hrempid = appDelegate.hrEmpId ?? ""
            await fastCommSubmit(hrempid:hrempid)
         }
     }
@@ -1108,7 +1150,8 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
             }
                     
                 Task{
-                    let lbl = await FastComm.fastcommBtnLabel(hrempid: self.hrempid)
+                    let hrempid = self.appDelegate.hrEmpId ?? ""
+                    let lbl = await FastComm.fastcommBtnLabel(hrempid: hrempid)
                     self.btnFastComm.setTitle(lbl, for: .disabled)
                     self.btnFastComm.setTitle(lbl, for: .normal)
                     self.btnFastComm.setTitle(lbl, for: .selected)
@@ -1125,7 +1168,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     
     @IBAction func btnTrainingClick(_ sender: Any) {
-        
+        let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://fbf.bulwarkapp.com/gopro/VideoPlayQuestions.aspx?ipad=yes&h=" + hrempid + "&vid=" + ttvid.toString()
         if ttvid == 0{
             tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/SalesTrainingFiles?ipad=yes&h=" + hrempid
@@ -1149,10 +1192,18 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
 
         settingsAction.setValue(UIImage(systemName: "gearshape"), forKey: "image")
         
-        let gateAction = UIAlertAction(title: "Gate Codes", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+        let gateAction = UIAlertAction(title: "Gate Codes", style: .default, handler: { [self] (alert: UIAlertAction!) -> Void in
             
             
         //  Do some destructive action here.
+            
+            
+            showGateCodes()
+            
+
+            
+            
+            
       })
 
         gateAction.setValue(UIImage(systemName: "lock"), forKey: "image")
@@ -1173,11 +1224,362 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
       self.present(alertController, animated: true, completion: nil)
     }
     
+    func showGateCodes(){
+        let h = appDelegate.hrEmpId ?? ""
+        let lat = appDelegate.lat ?? ""
+        let lon = appDelegate.lon ?? ""
+        
+       tabUrl = "https://ipadapp.bulwarkapp.com/hh/retention/rptgatecodes.aspx?hr_emp_id=" + h + "&lat=" + lat + "&lon=" + lon
+        
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showWeb", sender: nil)
+    }
     
+   
+    
+
+    
+    
+    func reverseGeocoding(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+            let geocoder = CLGeocoder()
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+                if error != nil {
+                    print("Failed to retrieve address")
+                    return
+                }
+                
+                if let placemarks = placemarks, let placemark = placemarks.first {
+                    print(placemark.postalCode ?? "")
+                    self.zip = placemark.postalCode ?? ""
+                    
+                    let zc = placemark.postalCode ?? ""
+                    
+                    Task.detached {
+                        if zc.count > 3{
+                            var check = false
+                            let h = await self.appDelegate.hrEmpId ?? ""
+                            if h.count > 3{
+                                
+                            
+                            do{
+                                
+                                let zipresp = try await JsonFetcher.checkLastZipHomeSales(zipCode: zc, hrEmpId: h)
+                                
+                                check = zipresp.check
+                                
+                                
+                                
+                                
+                                
+                            }catch{
+                                print(error)
+                            }
+                            
+                            if check {
+                                
+                                await self.checkForHomeSales(zipCode: zc)
+                                
+                            }
+                        }
+                        }
+                    }
+                
+                    
+                    
+                    
+                }
+                else
+                {
+                    print("No Matching Address Found")
+                }
+            })
+        }
+    
+    
+    
+    func injectjs()-> String{
+        
+        
+        if let filepath = Bundle.main.path(forResource: "ajaxHandler", ofType: "js") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                print(contents)
+                return contents
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // example.txt not found!
+        }
+        
+        
+        let str = "var open = XMLHttpRequest.prototype.open; XMLHttpRequest.prototype.open = function() { this.addEventListener(\"load\", function() {\n var message = {\"status\" : this.status, \"responseURL\" : this.responseURL };\n webkit.messageHandlers.test.postMessage(message); }); \n open.apply(this, arguments); \n};"
+        
+        return str
+        
+        
+    }
+    
+    
+    func checkForHomeSales(zipCode:String){
+        
+        
+        //var lat1
+        //var bbox1 =
+        
+        //let urlstr = "https://www.trulia.com/sold/85297_zip/33.25069,33.33843,-111.77237,-111.7183_xy/14_zm/"
+        
+        let urlstr = "https://www.trulia.com/sold/" + zipCode + "_zip/"
+        let url = URL(string: urlstr)!
+        self.invwebView.load(URLRequest(url: url))
+        
+
+        
+        
+    }
+    
+    @objc func backgroundHomeSaleCheck(){
+        
+        
+        Utilities.delay(bySeconds: 1.2, dispatchLevel: .background){
+            let clat = Double(self.appDelegate.lat) ?? 0
+            let clon = Double(self.appDelegate.lon) ?? 0
+            
+            self.reverseGeocoding(latitude: clat, longitude: clon)
+        }
+        
+    }
+    
+    func setupWebView(){
+        
+
+        
+        
+        
+        
+        let config = WKWebViewConfiguration()
+        let js = injectjs()
+        
+        
+        
+        
+        let userScript = WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+        
+        let userController:WKUserContentController = WKUserContentController()
+        userController.addUserScript(userScript)
+        userController.add(self, name:"truliaHandler")
+        config.userContentController = userController;
+        
+        let frm:CGRect = CGRect(x: 0, y: 0, width: 1920, height: 1080)
+
+        invwebView = WKWebView(frame:  frm, configuration: config)
+        
+                invwebView.navigationDelegate = self
+        invwebView.uiDelegate = self
+        //tmpview.addSubview(invwebView)
+       
+        let clat = Double(appDelegate.lat) ?? 0
+        let clon = Double(appDelegate.lon) ?? 0
+        
+       reverseGeocoding(latitude: clat, longitude: clon)
+        
+    }
     
     
 }
 
+extension viewDashboard: WKScriptMessageHandler {
+  func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+      if message.name == "truliaHandler", let messageBody = message.body as? String {
+      //print(message.name)
+          
+          let mb = messageBody
+          
+          print(mb.count)
+          
+          
+          do{
+              let hs = try HomeSalesList(mb)
+              
+              print("hscount: " + (hs.data?.searchResultMap?.homes?.count.toString() ?? "0"))
+              
+              let count = hs.data?.searchResultMap?.homes?.count ?? 0
+              
+              if count > 1 {
+                  
+                  var recenthomesales = [RecentHomeSold]()
+                  
+                  if let homes = hs.data?.searchResultMap?.homes {
+                      
+                      for h in homes {
+                          
+                          var zid = ""
+                          var salePrice = ""
+                          var address = ""
+                          var city = ""
+                          var state = ""
+                          var fulladdress = ""
+                          
+                          var zip = ""
+                          var soldon = ""
+                          var lat = 0.0
+                          var lon = 0.0
+                          var sqft = ""
+                          var lotsize = ""
+                          
+                          if let loc = h.location {
+                              if let z = loc.zipCode{
+                                  zip = z
+                              }
+                              if let coord = loc.coordinates{
+                                  if let latitude = coord.latitude{
+                                      lat = latitude
+                                  }
+                                  if let longitude = coord.longitude{
+                                      lon = longitude
+                                  }
+                                  
+                              }
+                              
+                              if let addr = loc.partialLocation {
+                                  address = addr
+                              }
+                              if let cty = loc.city{
+                                  city = cty
+                              }
+                              if let fa = loc.fullLocation{
+                                  fulladdress = fa
+                              }
+                              
+                              if let st = loc.stateCode{
+                                  state = st
+                              }
+                              
+                          }
+                          
+                          if let track = h.tracking{
+                              
+                              for t in track {
+                                  
+                                  if let k = t.key {
+                                      
+                                      if k == "zPID" {
+                                              if let v = t.value{
+                                                  zid = v
+                                              }
+                                          }
+                                      
+                                      
+                                      
+                                      
+                                            
+                                  }
+                                  
+                              }
+                               
+                              
+                          }
+                          
+                          
+                          if let tag = h.tags{
+                              
+                              for t in tag {
+                                  if let l = t.level{
+                                      if l == "NORMAL"{
+                                          soldon = t.formattedName ?? "1/1/1970"
+                                      }
+                                      
+                                      
+                                      
+                                  }
+                                  
+                                  
+                              }
+                              
+                              
+                              
+                          }
+                          
+                          
+                          if let price = h.price{
+                              if let fp = price.formattedPrice{
+                                  salePrice = fp
+                              }
+                              
+                              
+                          }
+                          
+                          
+                          if let fs = h.floorSpace{
+                              if let fd = fs.formattedDimension{
+                                  sqft = fd
+                              }
+                              
+                          }
+                          
+                          
+                          if let ls = h.lotSize{
+                              if let fd = ls.formattedDimension{
+                                  lotsize = fd
+                                  
+                              }
+                                    
+                          }
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                         print(zid, fulladdress, soldon, salePrice, zip)
+                          
+                          let hsv = RecentHomeSold(zid: zid, salePrice: salePrice, address: address, city: city, state: state, zip: zip, soldon: soldon, lat: lat, lon: lon, sqft: sqft, lotsize: lotsize, fullAddress: fulladdress)
+                          recenthomesales.append(hsv)
+                          
+                          
+                          
+                          
+                          
+                      }
+                  }
+                  
+                  
+                  if recenthomesales.count > 0{
+                      
+                      Task{
+                          
+                          do{
+                              
+                              let hrem = self.appDelegate.hrEmpId ?? ""
+                              if hrem.count > 3{
+                                  _ = try await JsonFetcher.postHomeSales(hrEmpId: hrem, homeData: recenthomesales)
+                              }
+                              
+                              
+                          }catch{
+                              print(error)
+                          }
+                          
+                      }
+                      
+                      
+                  }
+                  
+                  
+              }
+              
+            
+              
+              
+          }catch{
+              print(error)
+          }
+          
+      }
+  }
+}
 
 extension viewDashboard:StopSelectionDelegate{
     func loadTraining(source: Int, title: String, tid: Int, description: String, trainingProgram: String) {
@@ -1241,6 +1643,9 @@ extension viewDashboard:StopSelectionDelegate{
     
 }
 
+
+
+
 extension viewDashboard:TimePunchDelegate{
     func TimePunchSaved(timePunch: String, isIn: Bool) {
         updateClockIn(punch: timePunch, isIn: isIn, checklocal: false)
@@ -1275,4 +1680,129 @@ extension viewDashboard:ModalWebDelegate{
         
         
     }
+
+extension viewDashboard:WKNavigationDelegate, WKUIDelegate,  WKDownloadDelegate {
+    func download(_ download: WKDownload, decideDestinationUsing response: URLResponse, suggestedFilename: String, completionHandler: @escaping (URL?) -> Void) {
+        
+        let urlstr = response.url?.absoluteString ?? ""
+        
+        
+        if urlstr.contains("graph"){
+            
+            
+            let c = ""
+            
+            
+        }
+        
+        
+        
+    }
+    
+
+    
+
+    
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    
+        
+       
+        
+        /*
+        
+        invwebView.evaluateJavaScript("document.getElementById('__NEXT_DATA__').innerHTML") {(result, error) in
+            guard error == nil else {
+                // print(error!)
+                return
+            }
+            
+            if let json = result as? String {
+                
+                let newjson = json.replacingOccurrences(of: "\"", with: "'").replacingOccurrences(of: "\\", with: "").replacingOccurrences(of: "\",\"", with: "").replacingOccurrences(of: "'control',", with: "")
+                
+                print(newjson)
+                
+                
+                
+                
+            }
+            
+            */
+            // if let ir = invRequest{
+            //     invwebView.load(ir)
+            //     invRequest = nil
+            
+            // }
+            
+            
+        //}
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+       
+    }
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+
+            
+            
+            completionHandler()
+        
+        }
+    
+    
+    
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+
+        
+                completionHandler(nil)
+
+    }
+    
+    
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+
+            completionHandler(false)
+            
+        
+        }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        
+        var urlstr = navigationAction.request.url?.absoluteString ?? ""
+        
+        if urlstr.contains("graph"){
+            
+            
+            invRequest = navigationAction.request
+            
+        }
+        
+        
+        
+        decisionHandler(.allow)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        var urlstr = navigationResponse.response.url?.absoluteString ?? ""
+        
+        if urlstr.contains("graph"){
+            
+            
+            let c = ""
+            
+            
+        }
+        
+        
+
+        decisionHandler(.allow)
+    }
+}
+
 

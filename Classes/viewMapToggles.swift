@@ -36,7 +36,7 @@ class viewMapToggles: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let t = proIsOn
+        _ = proIsOn
         
         tglProactive.setOn(proIsOn, animated: false)
         tglHybrid.setOn(hybridIsOn, animated: false)

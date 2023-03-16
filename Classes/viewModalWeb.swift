@@ -345,15 +345,15 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 
             }else if dpage==2{
                 //transfer soft contacted
-              /*
+              
                 
                 let urlparamarr = param.split(separator: "&")
-                var customerId = 0
+               
                 var workOrderId = 0
-                var serviceType = ""
-                var report = ""
-                var account = ""
                 
+                var report = ""
+                
+                var todayrouteid = ""
                 for p in urlparamarr{
                     
                     
@@ -363,20 +363,17 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
                         let v = String(ss[1])
                         
                         
-                        if k == "customerId"{
-                            customerId = Int(v) ?? 0
-                        }
+                       
                         if k == "workorderid"{
                             workOrderId = Int(v) ?? 0
                         }
-                        if k == "servicetype" {
-                            serviceType = v
-                        }
+                        
                         if k == "report"{
                             report = v
                         }
-                        if k == "account"{
-                            account = v
+                        
+                        if k == "todayRouteId"{
+                            todayrouteid = v
                         }
                         
                     }
@@ -385,9 +382,9 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
                     
                 }
                         
-                */
                 
-               // self.transferService(routeId: routeId, workOrderId: workOrderId, fromPage: report)
+                
+                self.transferService(routeId: Int(todayrouteid) ?? 0, workOrderId: workOrderId, fromPage: report)
                 
                 
                 
@@ -411,11 +408,28 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
             
             
             
+        }else if url?.scheme == "comgooglemaps"{
+            
+            let mapparam = url?.absoluteString.replacingOccurrences(of: "comgooglemaps://?q=", with: "") ?? ""
+            
+            let mstr = "comgooglemaps://?directionsmode=driving&daddr=" + mapparam
+            
+            UIApplication.shared.open(URL(string: mstr)!)
+            decisionHandler(.cancel)
+            return
+        }else if url?.scheme == "maps"{
+            UIApplication.shared.open(url!)
+            decisionHandler(.cancel)
+            return
         }else{
             
             decisionHandler(.allow)
             
         }
+        
+        
+        
+        
         
         
         
@@ -431,6 +445,26 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     func transferService(routeId: Int, workOrderId:Int, fromPage: String){
+       
+        
+        if routeId == 0{
+            
+            let alertController = UIAlertController(title: "Error", message: "No Route To Add To", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+              
+                
+
+                
+            }))
+
+
+            self.present(alertController, animated: true)
+        }else{
+            
+        
+        
+        
+        
         let message = "Transfer the service to my route today?"
         
         
@@ -443,7 +477,7 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
             let atrp = AddToRouteParams(RouteId: routeId, StartAt: "8:00 AM", FromHrEmpId: hrEmpId, RollingKey: "", FromPage: fromPage, CustomerId: 0, ServiceId: 0, isNC: false, isTransfer: true, workOrderId: workOrderId)
         
         
-            let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
+            //let appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
             //appDelegate.viewSched = self
            
 
@@ -456,7 +490,7 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
             //let fbfSamp = FBFSearch.sampleData
            
             
-            var urlStr = "https://twapiweb.bulwarkapp.com/AddToRoute"
+            let urlStr = "https://twapiweb.bulwarkapp.com/AddToRoute"
             
             //urlStr = "http://10.211.55.4:5095/AddToRoute"
             
@@ -531,7 +565,7 @@ class viewModalWeb: UIViewController,WKNavigationDelegate,WKUIDelegate {
         self.present(alertController, animated: true)
         
         
-        
+        }
         
         
     }

@@ -22,15 +22,19 @@ struct  ExcelentPhotos: Codable {
     var Date:String?
     var ProName:String?
     var OfficeName:String?
-    
+    var SubmittedAsExcellentPhoto:Bool?
     
 }
 struct PhotoCatagories:Codable{
     
     
-    var Id:Int
-    var Name:String
+    var Id:Int?
+    var Name:String?
     
     
 }
-
+struct ExcelentPhotoImage{
+    var img:UIImage?
+    var id:Int?
+    
+}

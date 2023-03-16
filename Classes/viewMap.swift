@@ -36,6 +36,11 @@ class viewMap: UIViewController {
         
         map.delegate = self
         map.showsUserLocation = true
+        
+       // #if targetEnvironment(simulator)
+       // map.showsTraffic = false
+       // #endif
+        
         self.map.showAnnotations(self.map.annotations, animated: true)
         
         viewMapToggles.delegate = self

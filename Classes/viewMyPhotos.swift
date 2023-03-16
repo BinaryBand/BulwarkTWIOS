@@ -9,11 +9,13 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
+
+
 class viewMyPhotos: UICollectionViewController {
 
     var photoList: [ExcelentPhotos] = []
     var hrempid:String!
-    
+    var photoImages: [ExcelentPhotoImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,8 @@ class viewMyPhotos: UICollectionViewController {
         
         
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+ 
+        viewMyPhoto.delegate = self
    
         
         
@@ -102,14 +105,12 @@ class viewMyPhotos: UICollectionViewController {
         if let url = photoList[indexPath.row].MediaUrl {
             Task {
                 
-                do {
+                
                     
-                    let img = try await JsonFetcher.fetchPhotoAsync(urlStr: url)
+                    let img = await getImage(id: photoList[indexPath.row].Id ?? 0, url: url)
                     cell.img.image = img
                     
-                } catch {
-                    print("Request failed with error: \(error)")
-                }
+                
             }
             
         }
@@ -118,11 +119,69 @@ class viewMyPhotos: UICollectionViewController {
             cell.lblAccounht.text = actstr
             
             cell.lblDate.text = photoList[indexPath.row].Date
+        
+        if let s = photoList[indexPath.row].SubmittedAsExcellentPhoto{
+            if s {
+                
+                cell.layer.borderWidth = 3
+                cell.layer.cornerRadius = 3
+                cell.layer.borderColor = UIColor.yellow.cgColor
+                
+                
+                
+            }else{
+                cell.layer.borderWidth = 0
+            }
+            
+            
+        }else{
+            cell.layer.borderWidth = 0
+        }
+        
         // Configure the cell
     
         return cell
     }
 
+    func getImage(id:Int, url:String) async -> UIImage{
+        
+        for p in photoImages{
+            if let pid = p.id{
+                if pid == id{
+                    return p.img!
+                }
+            }
+        }
+        
+        
+        
+        do{
+            let img = try await JsonFetcher.fetchPhotoAsync(urlStr: url)
+            return img
+        }catch{
+            print(error)
+            return UIImage(systemName: "multiply.circle.fill")!
+        }
+        
+        
+        
+        
+    }
+    
+    func getImgfromCache(id:Int) -> UIImage?{
+        
+        for p in photoImages{
+            if let pid = p.id{
+                if pid == id{
+                    return p.img!
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
            performSegue(withIdentifier: "showMyPhoto", sender: nil)
        }
@@ -138,6 +197,9 @@ class viewMyPhotos: UICollectionViewController {
                    //destinationController.image.image = photoListImages[indexPaths[0].row]
                    destinationController.MediaUrl = photoList[indexPaths[0].row].MediaUrl
                    destinationController.Office1 = photoList[indexPaths[0].row].OfficeName
+                   destinationController.PhotoId = photoList[indexPaths[0].row].Id?.toString()
+                   destinationController.alreadySubmitted = photoList[indexPaths[0].row].SubmittedAsExcellentPhoto
+                   destinationController.img = getImgfromCache(id: photoList[indexPaths[0].row].Id ?? 0)
                    collectionView.deselectItem(at: indexPaths[0], animated: false)
                }
            }
@@ -181,4 +243,25 @@ class viewMyPhotos: UICollectionViewController {
     }
     */
 
+}
+extension viewMyPhotos:MyPhotoDelegate{
+    func PhotoSubmittedAsCreative(PhotoId: String) {
+        
+        
+        for i in photoList.indices {
+            let pid = Int(PhotoId)
+            
+            if photoList[i].Id == pid{
+                photoList[i].SubmittedAsExcellentPhoto = true
+                self.collectionView.reloadData()
+            }
+            
+            
+        }
+        
+        
+        
+    }
+    
+    
 }

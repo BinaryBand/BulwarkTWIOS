@@ -115,6 +115,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong) NSString *Vin;
 @property (nonatomic,strong) NSString *Odo;
 @property (nonatomic,strong) NSDate *lastObdRead;
+@property (nonatomic,strong) NSString *appBuild;
 
 @property (nonatomic) Boolean driving;
 @property (nonatomic,strong) NSMutableArray *placesArray;

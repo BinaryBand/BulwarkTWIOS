@@ -114,11 +114,40 @@
 		B3CDC617292C0A27008957B1 /* dewebber.png in Resources */ = {isa = PBXBuildFile; fileRef = B3CDC616292C0A27008957B1 /* dewebber.png */; };
 		B3CDC619292C11B2008957B1 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC618292C11B2008957B1 /* PhotoCell.swift */; };
 		B3CDC61E292C4F9E008957B1 /* DesignableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC61D292C4F9E008957B1 /* DesignableLayout.swift */; };
+		B3D3DF4829B9045900B4C17F /* ajaxHandler.js in Resources */ = {isa = PBXBuildFile; fileRef = B3D3DF4729B9045900B4C17F /* ajaxHandler.js */; };
+		B3D3DF4A29C1123000B4C17F /* HomeSales.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF4929C1123000B4C17F /* HomeSales.swift */; };
+		B3D3DF4C29C140B100B4C17F /* RecentHomeSold.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF4B29C140B100B4C17F /* RecentHomeSold.swift */; };
+		B3D3DF6729C26CD600B4C17F /* LastSold.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF4E29C26CD300B4C17F /* LastSold.swift */; };
+		B3D3DF6829C26CD600B4C17F /* FloorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF4F29C26CD300B4C17F /* FloorSpace.swift */; };
+		B3D3DF6929C26CD600B4C17F /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5029C26CD300B4C17F /* Photos.swift */; };
+		B3D3DF6A29C26CD600B4C17F /* CurrentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5129C26CD300B4C17F /* CurrentStatus.swift */; };
+		B3D3DF6B29C26CD600B4C17F /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5229C26CD400B4C17F /* Tags.swift */; };
+		B3D3DF6C29C26CD600B4C17F /* FullTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5329C26CD400B4C17F /* FullTags.swift */; };
+		B3D3DF6D29C26CD600B4C17F /* Bathrooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5429C26CD400B4C17F /* Bathrooms.swift */; };
+		B3D3DF6E29C26CD600B4C17F /* HeroImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5529C26CD400B4C17F /* HeroImage.swift */; };
+		B3D3DF6F29C26CD600B4C17F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5629C26CD400B4C17F /* Location.swift */; };
+		B3D3DF7029C26CD600B4C17F /* hsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5729C26CD400B4C17F /* hsData.swift */; };
+		B3D3DF7129C26CD600B4C17F /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5829C26CD400B4C17F /* Price.swift */; };
+		B3D3DF7229C26CD600B4C17F /* DisplayFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5929C26CD400B4C17F /* DisplayFlags.swift */; };
+		B3D3DF7329C26CD600B4C17F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5A29C26CD400B4C17F /* Preferences.swift */; };
+		B3D3DF7429C26CD600B4C17F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5B29C26CD400B4C17F /* Provider.swift */; };
+		B3D3DF7529C26CD600B4C17F /* HomeSalesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5C29C26CD500B4C17F /* HomeSalesList.swift */; };
+		B3D3DF7629C26CD600B4C17F /* SearchResultMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5D29C26CD500B4C17F /* SearchResultMap.swift */; };
+		B3D3DF7729C26CD600B4C17F /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5E29C26CD500B4C17F /* Tracking.swift */; };
+		B3D3DF7829C26CD600B4C17F /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF5F29C26CD500B4C17F /* Coordinates.swift */; };
+		B3D3DF7929C26CD600B4C17F /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF6029C26CD500B4C17F /* Media.swift */; };
+		B3D3DF7A29C26CD600B4C17F /* ListingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF6129C26CD500B4C17F /* ListingSource.swift */; };
+		B3D3DF7B29C26CD600B4C17F /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF6229C26CD500B4C17F /* Metadata.swift */; };
+		B3D3DF7C29C26CD600B4C17F /* Bedrooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF6329C26CD500B4C17F /* Bedrooms.swift */; };
+		B3D3DF7D29C26CD600B4C17F /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF6429C26CD500B4C17F /* Url.swift */; };
+		B3D3DF7E29C26CD600B4C17F /* WebpUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF6529C26CD500B4C17F /* WebpUrl.swift */; };
+		B3D3DF7F29C26CD600B4C17F /* Homes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3DF6629C26CD600B4C17F /* Homes.swift */; };
 		B3D5AE3428E50F5600FB3495 /* viewModalWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5AE3328E50F5600FB3495 /* viewModalWeb.swift */; };
 		B3DCDD7427B1E00E00D93387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCDD7327B1E00E00D93387 /* Images.xcassets */; };
 		B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCDD7827B1E8AC00D93387 /* viewChat.swift */; };
 		B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */; };
 		B3E3AE7727BDB0B900A76EE3 /* viewMySales.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AE7627BDB0B900A76EE3 /* viewMySales.swift */; };
+		B3EC9FCF29B2CE6A00689CAE /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC9FCE29B2CE6A00689CAE /* LoadingButton.swift */; };
 		B3F309851FABB762008AD53F /* viewMissedClockIn.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F309831FABB762008AD53F /* viewMissedClockIn.m */; };
 		B3F309861FABB762008AD53F /* viewMissedClockIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F309841FABB762008AD53F /* viewMissedClockIn.xib */; };
 		B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD0457283C1721006A1EE6 /* viewAddSale.swift */; };
@@ -273,11 +302,40 @@
 		B3CDC616292C0A27008957B1 /* dewebber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dewebber.png; sourceTree = "<group>"; };
 		B3CDC618292C11B2008957B1 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		B3CDC61D292C4F9E008957B1 /* DesignableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableLayout.swift; sourceTree = "<group>"; };
+		B3D3DF4729B9045900B4C17F /* ajaxHandler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ajaxHandler.js; sourceTree = "<group>"; };
+		B3D3DF4929C1123000B4C17F /* HomeSales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSales.swift; sourceTree = "<group>"; };
+		B3D3DF4B29C140B100B4C17F /* RecentHomeSold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentHomeSold.swift; sourceTree = "<group>"; };
+		B3D3DF4E29C26CD300B4C17F /* LastSold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSold.swift; sourceTree = "<group>"; };
+		B3D3DF4F29C26CD300B4C17F /* FloorSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorSpace.swift; sourceTree = "<group>"; };
+		B3D3DF5029C26CD300B4C17F /* Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		B3D3DF5129C26CD300B4C17F /* CurrentStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentStatus.swift; sourceTree = "<group>"; };
+		B3D3DF5229C26CD400B4C17F /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		B3D3DF5329C26CD400B4C17F /* FullTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullTags.swift; sourceTree = "<group>"; };
+		B3D3DF5429C26CD400B4C17F /* Bathrooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bathrooms.swift; sourceTree = "<group>"; };
+		B3D3DF5529C26CD400B4C17F /* HeroImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroImage.swift; sourceTree = "<group>"; };
+		B3D3DF5629C26CD400B4C17F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B3D3DF5729C26CD400B4C17F /* hsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hsData.swift; sourceTree = "<group>"; };
+		B3D3DF5829C26CD400B4C17F /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		B3D3DF5929C26CD400B4C17F /* DisplayFlags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayFlags.swift; sourceTree = "<group>"; };
+		B3D3DF5A29C26CD400B4C17F /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		B3D3DF5B29C26CD400B4C17F /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		B3D3DF5C29C26CD500B4C17F /* HomeSalesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSalesList.swift; sourceTree = "<group>"; };
+		B3D3DF5D29C26CD500B4C17F /* SearchResultMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultMap.swift; sourceTree = "<group>"; };
+		B3D3DF5E29C26CD500B4C17F /* Tracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracking.swift; sourceTree = "<group>"; };
+		B3D3DF5F29C26CD500B4C17F /* Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		B3D3DF6029C26CD500B4C17F /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		B3D3DF6129C26CD500B4C17F /* ListingSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingSource.swift; sourceTree = "<group>"; };
+		B3D3DF6229C26CD500B4C17F /* Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
+		B3D3DF6329C26CD500B4C17F /* Bedrooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bedrooms.swift; sourceTree = "<group>"; };
+		B3D3DF6429C26CD500B4C17F /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
+		B3D3DF6529C26CD500B4C17F /* WebpUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebpUrl.swift; sourceTree = "<group>"; };
+		B3D3DF6629C26CD600B4C17F /* Homes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homes.swift; sourceTree = "<group>"; };
 		B3D5AE3328E50F5600FB3495 /* viewModalWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModalWeb.swift; sourceTree = "<group>"; };
 		B3DCDD7327B1E00E00D93387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BulwarkTW/Images.xcassets; sourceTree = "<group>"; };
 		B3DCDD7827B1E8AC00D93387 /* viewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewChat.swift; sourceTree = "<group>"; };
 		B3E3AE7427BDA30100A76EE3 /* viewMyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMyStats.swift; sourceTree = "<group>"; };
 		B3E3AE7627BDB0B900A76EE3 /* viewMySales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMySales.swift; sourceTree = "<group>"; };
+		B3EC9FCE29B2CE6A00689CAE /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		B3F309821FABB762008AD53F /* viewMissedClockIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewMissedClockIn.h; sourceTree = "<group>"; };
 		B3F309831FABB762008AD53F /* viewMissedClockIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = viewMissedClockIn.m; sourceTree = "<group>"; };
 		B3F309841FABB762008AD53F /* viewMissedClockIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewMissedClockIn.xib; sourceTree = "<group>"; };
@@ -366,6 +424,7 @@
 				B3BBF58719BA400C0088C777 /* blank.html */,
 				348D9A2012C1133B00FB51D0 /* results.html */,
 				8D1107310486CEB800E47090 /* BulwarkTW-Info.plist */,
+				B3D3DF4729B9045900B4C17F /* ajaxHandler.js */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -517,6 +576,7 @@
 		B3B7F79028DBA13300B8F1F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B3D3DF4D29C26CA800B4C17F /* HomesSold */,
 				B3B7F79128DBA16400B8F1F2 /* FBFSearch.swift */,
 				B352E35529074FC100FF55DD /* RouteStop.swift */,
 				B3CDC5992927100F008957B1 /* AddToRouteParams.swift */,
@@ -533,6 +593,8 @@
 				B32AD0A929916AAA00F1154D /* isTerritorySteward.swift */,
 				B32AD0AD2991D46100F1154D /* FastCommModels.swift */,
 				B3898289299C1CBD00B24D09 /* GpsModel.swift */,
+				B3D3DF4929C1123000B4C17F /* HomeSales.swift */,
+				B3D3DF4B29C140B100B4C17F /* RecentHomeSold.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -571,8 +633,41 @@
 				B3CDC61D292C4F9E008957B1 /* DesignableLayout.swift */,
 				B30F46A5297F66A9008748E9 /* Utilities.swift */,
 				B3A935B929A6CEA200A5C48F /* BarButtonBadge.swift */,
+				B3EC9FCE29B2CE6A00689CAE /* LoadingButton.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		B3D3DF4D29C26CA800B4C17F /* HomesSold */ = {
+			isa = PBXGroup;
+			children = (
+				B3D3DF5429C26CD400B4C17F /* Bathrooms.swift */,
+				B3D3DF6329C26CD500B4C17F /* Bedrooms.swift */,
+				B3D3DF5F29C26CD500B4C17F /* Coordinates.swift */,
+				B3D3DF5129C26CD300B4C17F /* CurrentStatus.swift */,
+				B3D3DF5729C26CD400B4C17F /* hsData.swift */,
+				B3D3DF5929C26CD400B4C17F /* DisplayFlags.swift */,
+				B3D3DF4F29C26CD300B4C17F /* FloorSpace.swift */,
+				B3D3DF5329C26CD400B4C17F /* FullTags.swift */,
+				B3D3DF5529C26CD400B4C17F /* HeroImage.swift */,
+				B3D3DF6629C26CD600B4C17F /* Homes.swift */,
+				B3D3DF5C29C26CD500B4C17F /* HomeSalesList.swift */,
+				B3D3DF4E29C26CD300B4C17F /* LastSold.swift */,
+				B3D3DF6129C26CD500B4C17F /* ListingSource.swift */,
+				B3D3DF5629C26CD400B4C17F /* Location.swift */,
+				B3D3DF6029C26CD500B4C17F /* Media.swift */,
+				B3D3DF6229C26CD500B4C17F /* Metadata.swift */,
+				B3D3DF5029C26CD300B4C17F /* Photos.swift */,
+				B3D3DF5A29C26CD400B4C17F /* Preferences.swift */,
+				B3D3DF5829C26CD400B4C17F /* Price.swift */,
+				B3D3DF5B29C26CD400B4C17F /* Provider.swift */,
+				B3D3DF5D29C26CD500B4C17F /* SearchResultMap.swift */,
+				B3D3DF5229C26CD400B4C17F /* Tags.swift */,
+				B3D3DF5E29C26CD500B4C17F /* Tracking.swift */,
+				B3D3DF6429C26CD500B4C17F /* Url.swift */,
+				B3D3DF6529C26CD500B4C17F /* WebpUrl.swift */,
+			);
+			name = HomesSold;
 			sourceTree = "<group>";
 		};
 		B3FF793E2836F64A0030A22E /* Frameworks */ = {
@@ -686,6 +781,7 @@
 				B337A8E71C64FD2D00FBEE18 /* cancel_filled-50.png in Resources */,
 				B3CDC60B29283021008957B1 /* LaunchScreen.storyboard in Resources */,
 				B33C58111CBC887F00CE2C72 /* viewDriving.xib in Resources */,
+				B3D3DF4829B9045900B4C17F /* ajaxHandler.js in Resources */,
 				B3BBF59619BE52560088C777 /* clockin.png in Resources */,
 				E55D833727EE45AE003A63CF /* GoogleService-Info.plist in Resources */,
 				B3CDC617292C0A27008957B1 /* dewebber.png in Resources */,
@@ -707,11 +803,18 @@
 				B36EC1B91A64887600F53D78 /* DFBlunoDevice.m in Sources */,
 				B3440CBC28789588003E8C8E /* viewISExtendedOptIn.swift in Sources */,
 				B33229BA297A08B6008ECE5B /* viewRouteStop.swift in Sources */,
+				B3D3DF6E29C26CD600B4C17F /* HeroImage.swift in Sources */,
+				B3D3DF4C29C140B100B4C17F /* RecentHomeSold.swift in Sources */,
 				B337A93C1C73EDB300FBEE18 /* viewSettings.m in Sources */,
 				B389828A299C1CBD00B24D09 /* GpsModel.swift in Sources */,
 				B3B7F79228DBA16400B8F1F2 /* FBFSearch.swift in Sources */,
+				B3D3DF7329C26CD600B4C17F /* Preferences.swift in Sources */,
 				B33C58101CBC887F00CE2C72 /* viewDriving.m in Sources */,
+				B3D3DF7429C26CD600B4C17F /* Provider.swift in Sources */,
+				B3D3DF6F29C26CD600B4C17F /* Location.swift in Sources */,
 				B32AD0A4298D70CA00F1154D /* viewTimePunch.swift in Sources */,
+				B3D3DF4A29C1123000B4C17F /* HomeSales.swift in Sources */,
+				B3EC9FCF29B2CE6A00689CAE /* LoadingButton.swift in Sources */,
 				B3B7F79428DBA47100B8F1F2 /* viewFBFSearch.swift in Sources */,
 				B3E3AE7527BDA30100A76EE3 /* viewMyStats.swift in Sources */,
 				B30F46A6297F66A9008748E9 /* Utilities.swift in Sources */,
@@ -724,19 +827,23 @@
 				B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */,
 				B3CDC59A2927100F008957B1 /* AddToRouteParams.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				B3D3DF6B29C26CD600B4C17F /* Tags.swift in Sources */,
 				B3574A1C2988D291006DC9E2 /* ProactiveCell.swift in Sources */,
 				B3122E8727DA88410003C75D /* viewMyPay.swift in Sources */,
 				B3574A18298623D8006DC9E2 /* ProactiveItems.swift in Sources */,
 				B34320362966630C005CFD18 /* viewMyPhoto.swift in Sources */,
 				B3432070296C7D78005CFD18 /* LTBTLEReadCharacteristicStream.m in Sources */,
+				B3D3DF7A29C26CD600B4C17F /* ListingSource.swift in Sources */,
 				B3432076296C7D78005CFD18 /* LTOBD2PerformanceTrackingResult.m in Sources */,
 				B3CDC594291ACF23008957B1 /* jsonFetcher.swift in Sources */,
 				E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */,
 				B3574A122984A244006DC9E2 /* viewMap.swift in Sources */,
 				B3CDC6132928522E008957B1 /* UIView+Toast.m in Sources */,
 				B352E35A2907770600FF55DD /* RouteNotesCell.swift in Sources */,
+				B3D3DF7629C26CD600B4C17F /* SearchResultMap.swift in Sources */,
 				B32AD0AE2991D46100F1154D /* FastCommModels.swift in Sources */,
 				B343206E296C7D78005CFD18 /* LTOBD2ProtocolISO9141_2.m in Sources */,
+				B3D3DF6729C26CD600B4C17F /* LastSold.swift in Sources */,
 				B32AD0A6298D748000F1154D /* TimePunch.swift in Sources */,
 				B3432032296638BC005CFD18 /* viewMyPhotos.swift in Sources */,
 				B3574A0C2983278A006DC9E2 /* DashStats.swift in Sources */,
@@ -745,11 +852,15 @@
 				B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */,
 				1D3623260D0F684500981E51 /* BulwarkTWAppDelegate.m in Sources */,
 				B389828C299D8CE500B24D09 /* viewMapToggles.swift in Sources */,
+				B3D3DF7829C26CD600B4C17F /* Coordinates.swift in Sources */,
+				B3D3DF7229C26CD600B4C17F /* DisplayFlags.swift in Sources */,
 				B348C8AD1C7ACD48000BDC7A /* viewSchedule.m in Sources */,
 				B3CDC615292BF765008957B1 /* viewDashboard.swift in Sources */,
 				B3432072296C7D78005CFD18 /* LTOBD2ProtocolSAEJ1850.m in Sources */,
+				B3D3DF7E29C26CD600B4C17F /* WebpUrl.swift in Sources */,
 				B3CDC61E292C4F9E008957B1 /* DesignableLayout.swift in Sources */,
 				B343207C296C7D78005CFD18 /* LTOBD2ProtocolISO14230_4.m in Sources */,
+				B3D3DF7F29C26CD600B4C17F /* Homes.swift in Sources */,
 				348DA0E912CA6F9F00FB51D0 /* ViewOne.m in Sources */,
 				B3FEFAC127D01FF3004BF1A1 /* viewServiceSnapShot.swift in Sources */,
 				B343203429663CAF005CFD18 /* MyPhotosCell.swift in Sources */,
@@ -757,6 +868,8 @@
 				B3CDC619292C11B2008957B1 /* PhotoCell.swift in Sources */,
 				B343206F296C7D78005CFD18 /* LTOBD2AdapterELM327.m in Sources */,
 				B3432071296C7D78005CFD18 /* LTOBD2PID.m in Sources */,
+				B3D3DF7929C26CD600B4C17F /* Media.swift in Sources */,
+				B3D3DF7529C26CD600B4C17F /* HomeSalesList.swift in Sources */,
 				B343207B296C7D78005CFD18 /* LTOBD2Command.m in Sources */,
 				B343206D296C7D78005CFD18 /* LTBTLESerialTransporter.m in Sources */,
 				B3CDC596291C5A35008957B1 /* Formatter.swift in Sources */,
@@ -777,20 +890,29 @@
 				B343206B296C7D78005CFD18 /* LTOBD2O2Sensor.m in Sources */,
 				B3CDC5912919AD55008957B1 /* FBFCell.swift in Sources */,
 				B36D89FB1C0268F800A5F7DB /* viewMissedClockOut.m in Sources */,
+				B3D3DF7D29C26CD600B4C17F /* Url.swift in Sources */,
+				B3D3DF6A29C26CD600B4C17F /* CurrentStatus.swift in Sources */,
+				B3D3DF7029C26CD600B4C17F /* hsData.swift in Sources */,
 				B32AD0AC29919D5600F1154D /* FastComm.swift in Sources */,
+				B3D3DF6929C26CD600B4C17F /* Photos.swift in Sources */,
 				B3432073296C7D78005CFD18 /* LTOBD2AdapterCaptureFile.m in Sources */,
 				B352E3542907443200FF55DD /* RouteStopCell.swift in Sources */,
 				B32AD0A829915B8A00F1154D /* StartOffTimeCell.swift in Sources */,
+				B3D3DF7B29C26CD600B4C17F /* Metadata.swift in Sources */,
 				B343206C296C7D78005CFD18 /* LTVIN.m in Sources */,
 				B3A64D0C296CFBFA000D1C0B /* ApiPostObjs.swift in Sources */,
 				B38AA54A1C56A83900283461 /* viewReports.m in Sources */,
 				B3DCDD7927B1E8AC00D93387 /* viewChat.swift in Sources */,
+				B3D3DF7729C26CD600B4C17F /* Tracking.swift in Sources */,
 				B352E3572907521000FF55DD /* RouteStop.swift in Sources */,
 				B3122E8527DA77700003C75D /* viewRouteMap.swift in Sources */,
 				B343207D296C7D78005CFD18 /* LTOBD2ProtocolISO15765_4.m in Sources */,
 				B36EC1B81A64887600F53D78 /* BLEUtility.m in Sources */,
+				B3D3DF7129C26CD600B4C17F /* Price.swift in Sources */,
 				B33229BC297AFA51008ECE5B /* viewPosting.swift in Sources */,
 				B3A935BA29A6CEA200A5C48F /* BarButtonBadge.swift in Sources */,
+				B3D3DF7C29C26CD600B4C17F /* Bedrooms.swift in Sources */,
+				B3D3DF6829C26CD600B4C17F /* FloorSpace.swift in Sources */,
 				B3574A162985CBD8006DC9E2 /* SPHomeGps.swift in Sources */,
 				B3432079296C7D78005CFD18 /* LTBTLEWriteCharacteristicStream.m in Sources */,
 				B3574A1A2988C89A006DC9E2 /* viewRetentionList.swift in Sources */,
@@ -798,9 +920,11 @@
 				B3432074296C7D78005CFD18 /* LTOBD2Mode6TestResult.m in Sources */,
 				E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */,
 				B3432075296C7D78005CFD18 /* LTSupportAutomotive.m in Sources */,
+				B3D3DF6D29C26CD600B4C17F /* Bathrooms.swift in Sources */,
 				B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */,
 				B32AD0AA29916AAA00F1154D /* isTerritorySteward.swift in Sources */,
 				B3A64D0E296D020E000D1C0B /* AuthCookieResult.swift in Sources */,
+				B3D3DF6C29C26CD600B4C17F /* FullTags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,7 +943,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.1;
+				CURRENT_PROJECT_VERSION = 5.0.17;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -844,7 +968,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5;
+				MARKETING_VERSION = 5.0.18;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;
@@ -873,7 +997,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.1;
+				CURRENT_PROJECT_VERSION = 5.0.17;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -896,7 +1020,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5;
+				MARKETING_VERSION = 5.0.18;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;
@@ -967,7 +1091,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.1;
+				CURRENT_PROJECT_VERSION = 5.0.17;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -990,7 +1114,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5;
+				MARKETING_VERSION = 5.0.18;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;

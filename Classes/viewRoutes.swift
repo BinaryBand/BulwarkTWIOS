@@ -283,15 +283,21 @@ protocol RouteChangedDelegate: AnyObject{
                     viewRoutes.delegate?.routeChanged()
                     
                    self.dismiss(animated: true, completion: nil)
+                   // decisionHandler(.cancel)
+                   // return
                 }else if(dpage==49){
                     //Going Pro Completion Close the page
-                    decisionHandler(.cancel)
+                 
                     
                     viewRoutes.delegate?.trainingCompleted()
-                    self.dismiss(animated: true, completion: nil)
+                    //decisionHandler(.cancel)
+                  //  self.dismiss(animated: true, completion: nil)
+                    
+                  //  return
+                    
                 }else if(dpage==45){
                     //field leader in
-                    decisionHandler(.cancel)
+                    
                     
                     showActivityIndicator(show: true)
                     let d = Date()
@@ -327,11 +333,12 @@ protocol RouteChangedDelegate: AnyObject{
                         
                     }
                     
-                    
+                   // decisionHandler(.cancel)
+                   // return
                     
                 }else if(dpage==46){
                     //field out
-                    decisionHandler(.cancel)
+                    
                     
                     showActivityIndicator(show: true)
                     let d = Date()
@@ -367,10 +374,12 @@ protocol RouteChangedDelegate: AnyObject{
                         
                     }
                     
-                   
+                    //decisionHandler(.cancel)
+                   // return
+                    
                 }else if(dpage==47){
                     //field note
-                    decisionHandler(.cancel)
+                    
                     let param = urlparams?[2] ?? Utilities.CurrentDateString()
                     
                     
@@ -426,8 +435,8 @@ protocol RouteChangedDelegate: AnyObject{
                     
                     
                     
-                    
-                    
+                    //decisionHandler(.cancel)
+                    //return
                     
                 }
                     
@@ -435,17 +444,15 @@ protocol RouteChangedDelegate: AnyObject{
             }
                 
             decisionHandler(.cancel)
-            return
-        }
-        
-        if(url?.scheme == "bulwarktwmap"){
+            
+        }else if(url?.scheme == "bulwarktwmap"){
             
             let urlparams = url?.absoluteString.components(separatedBy: "?")
             
             if urlparams?.count ?? 0 > 2{
                 let dpage = Double(urlparams?[1] ?? "-1")
                 
-                let param = urlparams?[2]
+                _ = urlparams?[2]
                 if dpage == 1 {
                     
                     
@@ -458,12 +465,12 @@ protocol RouteChangedDelegate: AnyObject{
             }
                 
             decisionHandler(.cancel)
-            return
+            
+        }else{
+            
+            decisionHandler(.allow)
+            
         }
-        
-        decisionHandler(.allow)
-        
-
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
@@ -511,3 +518,4 @@ protocol RouteChangedDelegate: AnyObject{
     
 
 }
+

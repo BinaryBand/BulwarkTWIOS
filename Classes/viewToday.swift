@@ -121,10 +121,12 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          currentIndex = indexPath.row
          
-         let selectedStop = routeStopList[indexPath.row]
-         viewToday.delegate?.stopSelected(selectedRouteStop: selectedStop)
+         let type = routeStopList[indexPath.row].type
          
-         
+         if type == 1 || type == 11 || type == 10 || type == 0{
+             let selectedStop = routeStopList[indexPath.row]
+             viewToday.delegate?.stopSelected(selectedRouteStop: selectedStop)
+         }
          
          //performSegue(withIdentifier: "showWeb2", sender: self)
      }
@@ -374,6 +376,7 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
             routeStopList = rtlist
             
             
+            
              tableView.reloadData()
              stopBarButtonIndicator()
             if  refreshControl.isRefreshing {
@@ -387,7 +390,7 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
             var cntttl = 0;
             var cntcomp = 0;
             var notes = "";
-            
+         
             for r in routeStopList {
                 if r.type == 2{
                     notes = r.notes
