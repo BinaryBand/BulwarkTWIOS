@@ -36,7 +36,8 @@
     
     IBOutlet UIView *officeView;
     
-
+    IBOutlet UILabel *lblTroubleCodes;
+    
     IBOutlet UIPickerView *picker;
     
     viewDashboard *dash;
@@ -64,6 +65,6 @@
 
 -(void)UpdateOfficeList;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
--(void)UpdateObdField:(NSString *)readtime withVin:(NSString *)Vin withOdometer:(NSString *)odo; 
+-(void)UpdateObdField:(NSString *)readtime withVin:(NSString *)Vin withOdometer:(NSString *)odo withTroubleCodes:(NSString *)troubleCodes; 
 
 @end

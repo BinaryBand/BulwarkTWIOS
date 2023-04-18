@@ -712,12 +712,13 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
     }
     
-    /****/
-    
-    
-    
-    
-    
+    @IBAction func btnFastCommDetails(_ sender: Any) {
+        let hrempid = appDelegate.hrEmpId ?? ""
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/fastcommuse?ipad=yes&h=" + hrempid
+        useCookieInWeb = false
+        performSegue(withIdentifier: "showWeb", sender: nil)
+           
+    }
     
     @objc func tapCompletion(_ sender:UITapGestureRecognizer){
         // do other task
@@ -728,11 +729,10 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
     }
     
-    
     @objc func tapReviews(_ sender:UITapGestureRecognizer){
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
-        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/techreviews?ipad=yes&h=" + hrempid
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/TechReviews?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
         
@@ -747,8 +747,6 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         performSegue(withIdentifier: "showWeb", sender: nil)
         
     }
-    
-    
     
     /****/
     
@@ -1684,16 +1682,16 @@ extension viewDashboard:ModalWebDelegate{
 extension viewDashboard:WKNavigationDelegate, WKUIDelegate,  WKDownloadDelegate {
     func download(_ download: WKDownload, decideDestinationUsing response: URLResponse, suggestedFilename: String, completionHandler: @escaping (URL?) -> Void) {
         
-        let urlstr = response.url?.absoluteString ?? ""
+      //  let urlstr = response.url?.absoluteString ?? ""
         
         
-        if urlstr.contains("graph"){
+      //  if urlstr.contains("graph"){
             
             
-            let c = ""
+      //      let c = ""
             
             
-        }
+      //  }
         
         
         
@@ -1774,14 +1772,14 @@ extension viewDashboard:WKNavigationDelegate, WKUIDelegate,  WKDownloadDelegate 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
         
-        var urlstr = navigationAction.request.url?.absoluteString ?? ""
+       // var urlstr = navigationAction.request.url?.absoluteString ?? ""
         
-        if urlstr.contains("graph"){
+      //  if urlstr.contains("graph"){
             
             
-            invRequest = navigationAction.request
+       //     invRequest = navigationAction.request
             
-        }
+     //   }
         
         
         
@@ -1789,15 +1787,15 @@ extension viewDashboard:WKNavigationDelegate, WKUIDelegate,  WKDownloadDelegate 
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        var urlstr = navigationResponse.response.url?.absoluteString ?? ""
+      //  var urlstr = navigationResponse.response.url?.absoluteString ?? ""
         
-        if urlstr.contains("graph"){
+    //    if urlstr.contains("graph"){
             
             
-            let c = ""
+     //       let c = ""
             
             
-        }
+     //   }
         
         
 

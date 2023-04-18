@@ -122,7 +122,7 @@
 }
 
 
--(void)UpdateObdField:(NSString *)readtime withVin:(NSString *)Vin withOdometer:(NSString *)odo
+-(void)UpdateObdField:(NSString *)readtime withVin:(NSString *)Vin withOdometer:(NSString *)odo withTroubleCodes:(NSString *)troubleCodes
 {
    
     
@@ -144,6 +144,10 @@
     NSString * str2 = [@"Odometer: " stringByAppendingString:odo];
     
         self->lblOdo.text = str2;
+        
+        
+    NSString * strTC = [@"Last Read: " stringByAppendingString:troubleCodes];
+        self->lblTroubleCodes.text = strTC;
     
     });
     

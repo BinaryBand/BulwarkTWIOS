@@ -150,6 +150,7 @@
 		B3EC9FCF29B2CE6A00689CAE /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC9FCE29B2CE6A00689CAE /* LoadingButton.swift */; };
 		B3F309851FABB762008AD53F /* viewMissedClockIn.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F309831FABB762008AD53F /* viewMissedClockIn.m */; };
 		B3F309861FABB762008AD53F /* viewMissedClockIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F309841FABB762008AD53F /* viewMissedClockIn.xib */; };
+		B3F314A129EF61AC00703A94 /* viewTermiteBidPosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F314A029EF61AC00703A94 /* viewTermiteBidPosting.swift */; };
 		B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD0457283C1721006A1EE6 /* viewAddSale.swift */; };
 		B3FEFAC127D01FF3004BF1A1 /* viewServiceSnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */; };
 		E55D833727EE45AE003A63CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55D833627EE45AE003A63CF /* GoogleService-Info.plist */; };
@@ -339,6 +340,7 @@
 		B3F309821FABB762008AD53F /* viewMissedClockIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewMissedClockIn.h; sourceTree = "<group>"; };
 		B3F309831FABB762008AD53F /* viewMissedClockIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = viewMissedClockIn.m; sourceTree = "<group>"; };
 		B3F309841FABB762008AD53F /* viewMissedClockIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewMissedClockIn.xib; sourceTree = "<group>"; };
+		B3F314A029EF61AC00703A94 /* viewTermiteBidPosting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTermiteBidPosting.swift; sourceTree = "<group>"; };
 		B3FD0457283C1721006A1EE6 /* viewAddSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewAddSale.swift; sourceTree = "<group>"; };
 		B3FEFAC027D01FF3004BF1A1 /* viewServiceSnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewServiceSnapShot.swift; sourceTree = "<group>"; };
 		E55D833627EE45AE003A63CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				B3574A192988C89A006DC9E2 /* viewRetentionList.swift */,
 				B32AD0A3298D70CA00F1154D /* viewTimePunch.swift */,
 				B389828B299D8CE500B24D09 /* viewMapToggles.swift */,
+				B3F314A029EF61AC00703A94 /* viewTermiteBidPosting.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				B36D89FB1C0268F800A5F7DB /* viewMissedClockOut.m in Sources */,
 				B3D3DF7D29C26CD600B4C17F /* Url.swift in Sources */,
 				B3D3DF6A29C26CD600B4C17F /* CurrentStatus.swift in Sources */,
+				B3F314A129EF61AC00703A94 /* viewTermiteBidPosting.swift in Sources */,
 				B3D3DF7029C26CD600B4C17F /* hsData.swift in Sources */,
 				B32AD0AC29919D5600F1154D /* FastComm.swift in Sources */,
 				B3D3DF6929C26CD600B4C17F /* Photos.swift in Sources */,
@@ -943,7 +947,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.17;
+				CURRENT_PROJECT_VERSION = 5.0.19;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -968,7 +972,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5.0.18;
+				MARKETING_VERSION = 5.0.19;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;
@@ -997,7 +1001,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.17;
+				CURRENT_PROJECT_VERSION = 5.0.19;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -1020,7 +1024,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5.0.18;
+				MARKETING_VERSION = 5.0.19;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;
@@ -1091,7 +1095,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.17;
+				CURRENT_PROJECT_VERSION = 5.0.19;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -1114,7 +1118,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5.0.18;
+				MARKETING_VERSION = 5.0.19;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;

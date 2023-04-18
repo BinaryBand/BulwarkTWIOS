@@ -116,6 +116,10 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong) NSString *Odo;
 @property (nonatomic,strong) NSDate *lastObdRead;
 @property (nonatomic,strong) NSString *appBuild;
+@property (nonatomic,strong) NSString *obdTroubleCodes;
+
+@property (nonatomic) double lastSavedLat;
+@property (nonatomic) double lastSavedLon;
 
 @property (nonatomic) Boolean driving;
 @property (nonatomic,strong) NSMutableArray *placesArray;

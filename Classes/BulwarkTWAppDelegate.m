@@ -73,8 +73,11 @@ NSString *kGCMMessageIDKey = @"";
     _Odo = @"";
     DtcDist = @"";
     SendingFilesToServer = false;
+    _obdTroubleCodes = @"";
     
-    
+ 
+    _lastSavedLat = [_lat doubleValue];
+    _lastSavedLon = [_lon doubleValue];
     
     
     _appBuild = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
@@ -784,7 +787,7 @@ NSString *kGCMMessageIDKey = @"";
 
             
             
-            double lastdist = [self distanceBetweenLat1:lastlat lon1:lastlon lat2:newLocation.coordinate.latitude lon2:newLocation.coordinate.longitude];
+            double lastdist = [self distanceBetweenLat1:_lastSavedLat lon1:_lastSavedLon lat2:newLocation.coordinate.latitude lon2:newLocation.coordinate.longitude];
             
             
             Boolean speedZero = NO;
@@ -837,7 +840,7 @@ NSString *kGCMMessageIDKey = @"";
                 custGps = [custGps stringByAppendingString:[NSString stringWithFormat:@"%.8f",newLocation.coordinate.longitude]];
                 
                 //[self toastScreenAsync:@"GPS" withMessage:custGps];
-                if(newLocation.course >0){
+               // if(newLocation.course >0){
                     
                     NSLog(@"gps received");
                     //[self SaveGPSFile:gpsStr];
@@ -846,10 +849,11 @@ NSString *kGCMMessageIDKey = @"";
                     
                     bool b = [gm saveGpsFileWithHrempid:_hrEmpId truck:_Vin office:_office time:newLocation.timestamp lat:newLocation.coordinate.latitude lon:newLocation.coordinate.longitude course:newLocation.course speed:newLocation.speed distance:lastdist odo:_Odo odometerTime:_lastObdRead];
                     
+                _lastSavedLat = newLocation.coordinate.latitude;
+                _lastSavedLon = newLocation.coordinate.longitude;
                     
                     
-                    
-                }
+               // }
                 [self saveLastlatLng:custGps];
                 
                 NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -2042,12 +2046,29 @@ NSString *kGCMMessageIDKey = @"";
     LTOBD2PID_VIN_CODE_0902* vin = [LTOBD2PID_VIN_CODE_0902 pid];
     LTOBD2PID_VEHICLE_ODOMETER_A6* odometer = [LTOBD2PID_VEHICLE_ODOMETER_A6 pidForMode1];
     LTOBD2PID_DISTANCE_SINCE_DTC_CLEARED_31* dtcdist = [LTOBD2PID_DISTANCE_SINCE_DTC_CLEARED_31 pidForMode1];
+    LTOBD2PID_STORED_DTC_03* storedDtc = [LTOBD2PID_STORED_DTC_03 pid];
     
-    
-    [_obd2Adapter transmitMultipleCommands:@[ vin, odometer, dtcdist ] completionHandler:^(NSArray<LTOBD2Command *> * _Nonnull commands) {
+    [_obd2Adapter transmitMultipleCommands:@[ vin, odometer, storedDtc ] completionHandler:^(NSArray<LTOBD2Command *> * _Nonnull commands) {
     
         dispatch_async( dispatch_get_main_queue(), ^{
                 
+            
+            long lendtc = [storedDtc.formattedResponse length];
+            
+            if(lendtc > 3){
+                //self->_obdTroubleCodes = storedDtc.troubleCodes.count;
+                
+                int a;
+                   for( a = 0; a < storedDtc.troubleCodes.count; a = a + 1 ) {
+                       self->_obdTroubleCodes = [self->_obdTroubleCodes stringByAppendingString:storedDtc.troubleCodes[a].code];
+                   }
+                
+                
+                
+                
+            }
+            
+            
             long len1 = [self->_Vin length];
             long len2 = [vin.formattedResponse length];
             
@@ -2086,7 +2107,7 @@ NSString *kGCMMessageIDKey = @"";
             }
             
             
-            if(newodo >= 5){
+            if(len2 >= 5 || lendtc > 3){
                 
                 self->_Odo = odometer.formattedResponse;
                 NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -2118,7 +2139,7 @@ NSString *kGCMMessageIDKey = @"";
                 bool upodate = self->updatesettingsvin;
                 
                 if(upodate){
-                    [self->viewsett UpdateObdField:stringFromDate withVin:self->_Vin withOdometer:self->_Odo];
+                    [self->viewsett UpdateObdField:stringFromDate withVin:self->_Vin withOdometer:self->_Odo withTroubleCodes: self->_obdTroubleCodes];
                     
                     self->updatesettingsvin = false;
                 }
