@@ -162,7 +162,11 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
                         
                         
                         paramsToPass = param
-                        performSegue(withIdentifier: "showPosting", sender: nil)
+                        performSegue(withIdentifier: "showTermiteBid", sender: nil)
+                        
+                        
+                        //paramsToPass = param
+                        //performSegue(withIdentifier: "showPosting", sender: nil)
                         
                     }
                     
