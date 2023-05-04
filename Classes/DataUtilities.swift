@@ -12,11 +12,13 @@ struct DataUtilities {
     
     
     
-    static func SavePostingResults(UrlToStave: String, Lat: String, Lon: String, Vin: String, Odometer: String, OdoLastUpdated:String, Rdate: String, appversion:String) -> Bool {
+    static func SavePostingResults(UrlToStave: String, Lat: String, Lon: String, Vin: String, Odometer: String, OdoLastUpdated:String, Rdate: String, appversion:String, troubleCode:String) -> Bool {
         
         let a = UrlToStave.replacingOccurrences(of: " ", with: "%20") + "&date=" + Rdate.replacingOccurrences(of: " ", with: "%20")
         
         let vn = Vin.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        
+        let tc = troubleCode.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         
         let b = a + "&lat=" + Lat + "&lng=" + Lon
         
@@ -24,7 +26,7 @@ struct DataUtilities {
         
         let d = c + (Odometer.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "") + "&ododate="
         
-        let newUrl = d + (OdoLastUpdated.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "1/1/1900") + "&appBuild=" + (appversion.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")
+        let newUrl = d + (OdoLastUpdated.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "1/1/1900") + "&appBuild=" + (appversion.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "") + "&troublecode=" + tc
         
         
         
@@ -691,14 +693,6 @@ struct DataUtilities {
         }
             return retStr
         
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -813,6 +807,54 @@ struct DataUtilities {
         
         return true
     } //save route
+    
+    
+    
+   static func getArrivalTime() -> String{
+        
+        var retStr = "00:00"
+        let file = "ArriveTime"
+
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent(file)
+            do {
+                let tmp = try String(contentsOf: fileURL, encoding: .utf8)
+                
+                let ta = tmp.components(separatedBy: " ")
+                if ta.count > 1{
+                    retStr = ta[1]
+                }
+                
+                
+            }catch {}
+        }
+        
+        return retStr
+        
+    }
+    
+   static func getArrivalTimeAsDate() -> Date?{
+        
+        let time = getArrivalTime()
+       
+       if time == "00:00"{
+           return Date()
+       }else{
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat =  "HH:mm"
+           let date = dateFormatter.date(from: time)
+           return date
+       }
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
     
     
     

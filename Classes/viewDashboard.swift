@@ -732,7 +732,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     @objc func tapReviews(_ sender:UITapGestureRecognizer){
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
-        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/TechReviews?ipad=yes&h=" + hrempid
+        tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/TechReviews?ipad=yes&hideComp=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
         

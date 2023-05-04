@@ -572,7 +572,7 @@ struct JsonFetcher {
         
             let url = "https://twubuntucore.bulwarkapp.com/api/SaveIpadGps"
         
-            //let url = "http://10.211.55.4:5095/api/SaveIpadGps"
+           // let url = "http://10.211.55.4:5095/api/SaveIpadGps"
             
         let jd = GpsModel(hrempid: gpsData.hrempid, rollingKey: getAuthToken(hrempid: gpsData.hrempid), truck: gpsData.truck, office: gpsData.office, timeStamp: gpsData.timeStamp, lat: gpsData.lat, lon: gpsData.lon, course: gpsData.course, speed: gpsData.speed, distance: gpsData.distance, odometer: gpsData.odometer, odometerTimeStamp: gpsData.odometerTimeStamp)
         
@@ -913,6 +913,37 @@ struct JsonFetcher {
     return 1
    
     }
+    static func postTermiteBid(bidData:TermiteBid) async throws -> Int{
+        
+        
+        let url = "https://twapiweb.bulwarkapp.com/api/SaveTermiteBid"
     
+        //let url = "http://10.211.55.4:5095/api/SaveTermiteBid"
+        
+        let authtoken = getAuthToken(hrempid: bidData.hrEmpId)
+        
+        let jd = TermiteBid(rollingKey: authtoken, workOrderId: bidData.workOrderId, serviceType: bidData.serviceType, hrEmpId: bidData.hrEmpId, mediaBase64: bidData.mediaBase64, status: bidData.status, address: bidData.address, bidType: bidData.bidType, isPrice: bidData.isPrice, recPrice: bidData.recPrice, notes: bidData.notes)
+        
+        //let jd = RecentHomeSoldPostObj(hrempid: hrEmpId, rollingKey: getAuthToken(hrempid: hrEmpId), homeData: homeData)
+    
+        let jsonData = try JSONEncoder().encode(jd)
+        
+        let str11 = String(decoding: jsonData, as: UTF8.self)
+       // print(str11)
+        
+        
+    let request = URLRequest(urlStr: url, jsonData: jsonData)!
+        
+        let (data, res) = try await URLSession.shared.data(for: request)
+    let httpResponse = res as! HTTPURLResponse
+    //print(httpResponse.statusCode)
+    let str = String(decoding: data, as: UTF8.self)
+        
+    //print(str)
+        
+    //let result = try JSONDecoder().decode(ZipReturn.self, from: data)
+    return 1
+   
+    }
     
 }

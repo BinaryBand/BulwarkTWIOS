@@ -180,6 +180,27 @@ public extension Int {
     
 }
 
+public extension String {
+    
+    
+    func toBase64() -> String {
+        
+        let encodedString = Base64FS.encodeString(str: self)
+        return encodedString
+
+    }
+    
+    func fromBase64() -> String {
+        let decodedString = Base64FS.decodeString(str: self)
+        return decodedString
+        
+        
+    }
+    
+    
+}
+
+
 extension Calendar {
   func startOfDay(byAdding component: Calendar.Component,
                 value: Int,
@@ -212,6 +233,21 @@ extension Calendar {
 }
 extension URLRequest {
     init?(urlStr: String, hrempid:String, jsonData: Data){
+        
+        let tempurl = URL(string: urlStr)!
+        
+        var tempRequest = URLRequest(
+            url: tempurl
+        )
+        
+        tempRequest.httpBody = jsonData
+        tempRequest.httpMethod = "POST"
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        self = tempRequest
+        return
+    }
+    init?(urlStr: String, jsonData: Data){
         
         let tempurl = URL(string: urlStr)!
         

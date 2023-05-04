@@ -71,7 +71,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A4D99F18-F2E9-424E-A7A9-D846F58DB94A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/jsonFetcher.swift"
@@ -95,7 +95,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "353"
                   endingLineNumber = "353"
-                  offsetFromSymbolStart = "8464">
+                  offsetFromSymbolStart = "4268">
                </Location>
                <Location
                   uuid = "A4D99F18-F2E9-424E-A7A9-D846F58DB94A - 4092824af3307a23"
@@ -110,7 +110,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "353"
                   endingLineNumber = "353"
-                  offsetFromSymbolStart = "100">
+                  offsetFromSymbolStart = "44">
                </Location>
                <Location
                   uuid = "A4D99F18-F2E9-424E-A7A9-D846F58DB94A - e278e9a217215010"
@@ -125,7 +125,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "353"
                   endingLineNumber = "353"
-                  offsetFromSymbolStart = "392">
+                  offsetFromSymbolStart = "364">
                </Location>
                <Location
                   uuid = "A4D99F18-F2E9-424E-A7A9-D846F58DB94A - 3fa1df7b928cb611"
@@ -140,7 +140,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "353"
                   endingLineNumber = "353"
-                  offsetFromSymbolStart = "252">
+                  offsetFromSymbolStart = "220">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -149,7 +149,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "041ADB39-F8E1-4D82-87A8-FE32D2E648F2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/jsonFetcher.swift"
@@ -361,8 +361,8 @@
             filePath = "Classes/DataUtilities.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "741"
-            endingLineNumber = "741"
+            startingLineNumber = "735"
+            endingLineNumber = "735"
             landmarkName = "checkAndDownloadProductsFileAsync(officeCode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -377,8 +377,8 @@
             filePath = "Classes/DataUtilities.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "715"
-            endingLineNumber = "715"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
             landmarkName = "checkAndDownloadProductsFileAsync(officeCode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -601,8 +601,8 @@
             filePath = "Classes/DataUtilities.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "515"
-            endingLineNumber = "515"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
             landmarkName = "getRetentionList(hrempid:type:fname:refreshNow:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1006,8 +1006,8 @@
             filePath = "Classes/DataUtilities.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "saveGPSFile(gpsData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,8 +1022,8 @@
             filePath = "Classes/DataUtilities.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "saveGPSFile(gpsData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1038,8 +1038,8 @@
             filePath = "Classes/DataUtilities.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "saveJSONFile(list:filename:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1741,8 +1741,8 @@
             filePath = "Classes/viewTermiteBidPosting.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "viewTermiteBidPosting"
             landmarkType = "3">
          </BreakpointContent>
@@ -1760,6 +1760,437 @@
             startingLineNumber = "202"
             endingLineNumber = "202"
             landmarkName = "showList()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7BA3B5B8-0026-49D2-8EB3-DBD3AD595F5B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4785B6B-00C3-4724-B58E-24B31B1DA8B9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "scale(newWidth:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DD406A0-D95E-47F1-A79E-6F2C726DCB62"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "scale(newWidth:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27C1E01F-AA3D-4D0F-AD1F-E41716B5AECE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC18C43D-8368-45EE-A478-4C296BCF19A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "btnSubmit(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1E4C644-DFCE-41B4-A6FF-625C2B40EFA3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "btnSubmit(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E1E4C644-DFCE-41B4-A6FF-625C2B40EFA3 - e0cef0ef02631d9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in BulwarkTW.viewTermiteBidPosting.btnSubmit(Any) -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBidPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "E1E4C644-DFCE-41B4-A6FF-625C2B40EFA3 - 372ebdbeaffa8853"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in BulwarkTW.viewTermiteBidPosting.btnSubmit(Any) -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBidPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "E1E4C644-DFCE-41B4-A6FF-625C2B40EFA3 - f571cfe58b143635"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in BulwarkTW.viewTermiteBidPosting.btnSubmit(Any) -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBidPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "220A17EB-0A1B-4A28-952D-78B1D1F880FC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
+            landmarkName = "btnSubmit(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "220A17EB-0A1B-4A28-952D-78B1D1F880FC - 28d14ec6b655d2c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for function signature specialization &lt;Arg[2] = Value Promoted from Box&gt; of closure #5 @Sendable () async -&gt; () in BulwarkTW.viewTermiteBidPosting.btnSubmit(Any) -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBidPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "220A17EB-0A1B-4A28-952D-78B1D1F880FC - 70966c37de420cc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for function signature specialization &lt;Arg[2] = Value Promoted from Box&gt; of closure #5 @Sendable () async -&gt; () in BulwarkTW.viewTermiteBidPosting.btnSubmit(Any) -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBidPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "300">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06978EBB-1D12-48E6-A918-9AD70948570F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "btnSubmit(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96864687-D7AF-4FFC-8D2C-3EB371266FF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewRouteStop.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63382DEE-5FB2-4CBC-A5C6-A34675A0FD9B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "pageAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "63382DEE-5FB2-4CBC-A5C6-A34675A0FD9B - 98a49e70a80aae3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BulwarkTW.viewPosting.pageAction(Swift.String) -&gt; Swift.Bool"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "374"
+                  endingLineNumber = "374"
+                  offsetFromSymbolStart = "3284">
+               </Location>
+               <Location
+                  uuid = "63382DEE-5FB2-4CBC-A5C6-A34675A0FD9B - 98a49e70a80aae3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BulwarkTW.viewPosting.pageAction(Swift.String) -&gt; Swift.Bool"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "374"
+                  endingLineNumber = "374"
+                  offsetFromSymbolStart = "4856">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A1912105-BEEB-4721-9943-B24E9CB83D7A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "pageAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26CE7999-B54C-4690-87D6-EB383DD30256"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/DataUtilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "838"
+            endingLineNumber = "838"
+            landmarkName = "getArrivalTimeAsDate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "333A5831-944F-4F47-A596-A37DF92CD3C4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "validateForm()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "333A5831-944F-4F47-A596-A37DF92CD3C4 - b9100cc7b3e8803a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BulwarkTW.viewTermiteBidPosting.validateForm() -&gt; Swift.Bool"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBidPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1472">
+               </Location>
+               <Location
+                  uuid = "333A5831-944F-4F47-A596-A37DF92CD3C4 - b9100cc7b3e8803a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BulwarkTW.viewTermiteBidPosting.validateForm() -&gt; Swift.Bool"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBidPosting.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1668">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B582BBE-655D-45BF-8669-8A16435EA080"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "validateForm()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "948B7C96-9C2E-4E46-B1FD-3F2747E3F94D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "validateForm()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD7AB696-9DB2-4605-813B-10661E540007"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "validateForm()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74A3E486-EA13-4F61-B520-0CC89E393A6B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "btnSubmit(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74BD9AA9-1047-4946-86E7-3DDB8F57AF4C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTermiteBidPosting.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

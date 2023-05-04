@@ -122,7 +122,7 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                         p = pp
                     }
                     
-                    let ti = getArrivalTime()
+        let ti = DataUtilities.getArrivalTime()
                     let paramStr = p + "&techname=" + n + "&licnum=" + l + "&office=" + o + "&h=" + h  + "&timein=" + ti
                     
                     
@@ -140,28 +140,7 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
 
     }
     
-    func getArrivalTime() -> String{
-        
-        var retStr = "00:00"
-        let file = "ArriveTime"
 
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(file)
-            do {
-                let tmp = try String(contentsOf: fileURL, encoding: .utf8)
-                
-                let ta = tmp.components(separatedBy: " ")
-                if ta.count > 1{
-                    retStr = ta[1]
-                }
-                
-                
-            }catch {}
-        }
-        
-        return retStr
-        
-    }
     
 
 
@@ -390,7 +369,9 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                 let av = appDelegate.appBuild ?? "none"
                 let obdDate = appDelegate.lastObdRead.toString(format: .usDateTime24WithSec) ?? "1/1/1900"
                 
-                let saveResults = DataUtilities.SavePostingResults(UrlToStave: pres.url, Lat: appDelegate.lat, Lon: appDelegate.lon, Vin: appDelegate.vin, Odometer: appDelegate.odo, OdoLastUpdated: obdDate, Rdate: rs.rdate, appversion: av)
+                let tc = appDelegate.obdTroubleCodes ?? ""
+                
+                let saveResults = DataUtilities.SavePostingResults(UrlToStave: pres.url, Lat: appDelegate.lat, Lon: appDelegate.lon, Vin: appDelegate.vin, Odometer: appDelegate.odo, OdoLastUpdated: obdDate, Rdate: rs.rdate, appversion: av, troubleCode: tc)
                 
                 if saveResults == true {
                     

@@ -161,12 +161,38 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
                     if dpage == 11 {
                         
                         
+                        var sttype = ""
+                        
+                        let tmpurlstr = "https://ipadapp.bulwarkapp.com?" + param
+                        
+                        
                         paramsToPass = param
-                        performSegue(withIdentifier: "showTermiteBid", sender: nil)
                         
+                       
+                        if let urlComponent = URLComponents(string: tmpurlstr) {
+                            // queryItems is an array of "key name" and "value"
+                            let queryItems = urlComponent.queryItems
+                            // to find "success" value, we need to find based on key name
+                            
+                            
+                             sttype = queryItems?.first(where: { $0.name == "servicetypecode" })?.value ?? ""
+                            
+                        }
                         
-                        //paramsToPass = param
-                        //performSegue(withIdentifier: "showPosting", sender: nil)
+                        if sttype.starts(with: "TTI"){
+                            
+                            //show termite bid
+                            
+                            performSegue(withIdentifier: "showTermiteBid", sender: nil)
+                            
+                        }else{
+                            
+                            
+                            //performSegue(withIdentifier: "showTermiteBid", sender: nil)
+                            performSegue(withIdentifier: "showPosting", sender: nil)
+                            
+                        }
+                        
                         
                     }
                     
@@ -198,6 +224,16 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
                     if dpage == 41{
                         //found termites
                     }
+                    
+                    if dpage == 50 {
+                        // sign contract
+                        
+                        //Customer Service Agreement
+                        turl = "https://my.bulwarkpest.com/s?k=" + param
+                        performSegue(withIdentifier: "showWeb", sender: nil)
+                        
+                    }
+                    
                         
                     
                 }
@@ -276,6 +312,26 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
 
             
                 let dc = segue.destination as! viewPosting
+                dc.urlParams = paramsToPass
+            
+            dc.hrEmpId = appDelegate.hrEmpId ?? "1234"
+            dc.name = appDelegate.name ?? "NOName"
+            dc.office = appDelegate.office ?? "NA"
+            dc.license = appDelegate.license ?? ""
+            dc.odometer = appDelegate.odo ?? "-1"
+            dc.vin = appDelegate.vin ?? "N"
+            dc.lastObdRead = appDelegate.lastObdRead
+            dc.rs = self.rs
+            
+            
+            
+        }
+        if segue.identifier == "showTermiteBid" {
+            
+            
+
+            
+                let dc = segue.destination as! viewTermiteBidPosting
                 dc.urlParams = paramsToPass
             
             dc.hrEmpId = appDelegate.hrEmpId ?? "1234"

@@ -5004,8 +5004,54 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XiA-nE-yI1">
                                 <rect key="frame" x="0.0" y="70" width="768" height="954"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-QL-lq8">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="75"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abl-aN-qG3" customClass="DesignableUIView" customModule="BulwarkTW" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="8" width="748" height="67"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Termite Bid Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-76-qfx">
+                                                        <rect key="frame" x="255.5" y="17" width="237" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                        <color key="textColor" name="Info900"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="OIQ-76-qfx" firstAttribute="centerX" secondItem="abl-aN-qG3" secondAttribute="centerX" id="afP-JQ-14F"/>
+                                                    <constraint firstItem="OIQ-76-qfx" firstAttribute="centerY" secondItem="abl-aN-qG3" secondAttribute="centerY" id="c3Y-jR-lD2"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="1" height="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" name="Info900"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="abl-aN-qG3" secondAttribute="trailing" constant="10" id="HAk-jP-3nz"/>
+                                            <constraint firstAttribute="bottom" secondItem="abl-aN-qG3" secondAttribute="bottom" id="KEC-Y6-Dm5"/>
+                                            <constraint firstAttribute="height" constant="75" id="ZZ7-pA-WHp"/>
+                                            <constraint firstItem="abl-aN-qG3" firstAttribute="leading" secondItem="1ar-QL-lq8" secondAttribute="leading" constant="10" id="ftw-3r-GdY"/>
+                                            <constraint firstItem="abl-aN-qG3" firstAttribute="top" secondItem="1ar-QL-lq8" secondAttribute="top" constant="8" id="gEX-6d-9zR"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7qK-yX-eyT">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="252"/>
+                                        <rect key="frame" x="0.0" y="85" width="768" height="252"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XU9-VW-Ugt">
                                                 <rect key="frame" x="0.0" y="0.0" width="768" height="252"/>
@@ -5076,6 +5122,9 @@
                                                                                                 <color key="value" name="Info800"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
+                                                                                        <connections>
+                                                                                            <action selector="resultediting:" destination="r3O-az-i8B" eventType="editingDidBegin" id="T5E-Kd-5pb"/>
+                                                                                        </connections>
                                                                                     </textField>
                                                                                 </subviews>
                                                                             </stackView>
@@ -5114,6 +5163,9 @@
                                                                                                         <color key="value" name="Info800"/>
                                                                                                     </userDefinedRuntimeAttribute>
                                                                                                 </userDefinedRuntimeAttributes>
+                                                                                                <connections>
+                                                                                                    <action selector="bidediting:" destination="r3O-az-i8B" eventType="editingDidBegin" id="NzA-4t-mbg"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                     </stackView>
@@ -5138,11 +5190,17 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="117.5" height="47"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                                                                <connections>
+                                                                                                    <action selector="ispriceediting:" destination="r3O-az-i8B" eventType="editingDidBegin" id="QAW-m0-Iwo"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recurring Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-jQ-T1L" customClass="CurrencyTextField" customModule="BulwarkTW" customModuleProvider="target">
                                                                                                 <rect key="frame" x="123.5" y="0.0" width="117.5" height="47"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                                                                <connections>
+                                                                                                    <action selector="recdidedit:" destination="r3O-az-i8B" eventType="editingDidBegin" id="cif-rK-rgf"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                     </stackView>
@@ -5162,11 +5220,13 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qW5-eJ-Nv9">
+                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q31-yT-eaR">
                                                                                 <rect key="frame" x="0.0" y="35" width="352" height="177"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
-                                                                            </textField>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="textColor" systemColor="labelColor"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                            </textView>
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
@@ -5217,25 +5277,25 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-gW-mM8">
-                                        <rect key="frame" x="0.0" y="262" width="768" height="612"/>
+                                        <rect key="frame" x="0.0" y="347" width="768" height="527"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vrO-Vc-yZJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="612"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="527"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5vB-o2-h70" customClass="DesignableUIView" customModule="BulwarkTW" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="0.0" width="748" height="612"/>
+                                                        <rect key="frame" x="10" y="0.0" width="748" height="527"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ixZ-Rg-Mq3">
-                                                                <rect key="frame" x="0.0" y="0.0" width="748" height="612"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="748" height="527"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Cs-7O-jhI">
-                                                                        <rect key="frame" x="0.0" y="-5.5" width="748" height="557"/>
+                                                                        <rect key="frame" x="0.0" y="-5.5" width="748" height="472"/>
                                                                         <color key="tintColor" name="Warning500"/>
                                                                         <imageReference key="image" image="camera" catalog="system" symbolScale="large"/>
                                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="large" weight="medium"/>
                                                                     </imageView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zF6-J5-eiD">
-                                                                        <rect key="frame" x="0.0" y="547" width="748" height="65"/>
+                                                                        <rect key="frame" x="0.0" y="462" width="748" height="65"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYj-z1-vIV">
                                                                                 <rect key="frame" x="544" y="8" width="190" height="34.5"/>
@@ -5244,6 +5304,9 @@
                                                                                 <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Add Bid Image" imagePadding="10">
                                                                                     <imageReference key="image" image="camera.fill" catalog="system" symbolScale="medium"/>
                                                                                 </buttonConfiguration>
+                                                                                <connections>
+                                                                                    <action selector="btnAddImage:" destination="r3O-az-i8B" eventType="touchUpInside" id="IvQ-3R-YsZ"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5307,6 +5370,9 @@
                                                                 <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Submit Results" imagePadding="20">
                                                                     <imageReference key="image" image="paperplane" catalog="system" symbolScale="medium"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="btnSubmit:" destination="r3O-az-i8B" eventType="touchUpInside" id="mo9-gS-MAH"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5349,8 +5415,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MML-Ae-CxY"/>
+                    <connections>
+                        <outlet property="arrivalTime" destination="gP2-Ab-24o" id="7eU-jf-Dsz"/>
+                        <outlet property="bidDropDown" destination="SFZ-oI-NgN" id="0mn-em-pUI"/>
+                        <outlet property="btnAddImage" destination="nYj-z1-vIV" id="arc-Fg-tUr"/>
+                        <outlet property="btnSubmit" destination="yU7-vF-mWc" id="W4v-A5-wMP"/>
+                        <outlet property="imgView" destination="3Cs-7O-jhI" id="JCl-iS-fh3"/>
+                        <outlet property="isPrice" destination="EDV-v8-MVu" id="MJC-O8-FD3"/>
+                        <outlet property="recPrice" destination="cG0-jQ-T1L" id="2AP-1V-0Da"/>
+                        <outlet property="resultDropDown" destination="wiW-cd-7fD" id="21H-jj-DKZ"/>
+                        <outlet property="txtNotes" destination="Q31-yT-eaR" id="RW2-f5-uoY"/>
+                        <segue destination="XX3-6s-ajr" kind="unwind" identifier="unwindToDash" unwindAction="unwindToMainWithSegue:" id="ydd-8j-iM3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKg-QR-YS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="XX3-6s-ajr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2464.0625" y="-540.234375"/>
         </scene>
@@ -6435,8 +6514,8 @@
         <image name="arrow.turn.down.left" catalog="system" width="128" height="99"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
-        <image name="camera" width="16" height="12"/>
         <image name="camera" catalog="system" width="128" height="93"/>
+        <image name="camera" width="16" height="12"/>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <image name="clock" catalog="system" width="128" height="123"/>

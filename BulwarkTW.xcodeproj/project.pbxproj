@@ -81,6 +81,8 @@
 		B389828A299C1CBD00B24D09 /* GpsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3898289299C1CBD00B24D09 /* GpsModel.swift */; };
 		B389828C299D8CE500B24D09 /* viewMapToggles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389828B299D8CE500B24D09 /* viewMapToggles.swift */; };
 		B38AA54A1C56A83900283461 /* viewReports.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AA5481C56A83900283461 /* viewReports.m */; };
+		B391F7CD29F0A53700C5AC82 /* TermiteBid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B391F7CC29F0A53700C5AC82 /* TermiteBid.swift */; };
+		B391F7CF29F8487300C5AC82 /* Base64FS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B391F7CE29F8487300C5AC82 /* Base64FS.swift */; };
 		B3964A6B2895ADE6005F638D /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B3964A6A2895ADE6005F638D /* Toast */; };
 		B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */; };
 		B396D78E27DC2878009DD9B6 /* viewSalesTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */; };
@@ -271,6 +273,8 @@
 		B389828B299D8CE500B24D09 /* viewMapToggles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewMapToggles.swift; sourceTree = "<group>"; };
 		B38AA5471C56A83900283461 /* viewReports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewReports.h; sourceTree = "<group>"; };
 		B38AA5481C56A83900283461 /* viewReports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = viewReports.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B391F7CC29F0A53700C5AC82 /* TermiteBid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermiteBid.swift; sourceTree = "<group>"; };
+		B391F7CE29F8487300C5AC82 /* Base64FS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64FS.swift; sourceTree = "<group>"; };
 		B396D78B27DC0B57009DD9B6 /* viewRetReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewRetReports.swift; sourceTree = "<group>"; };
 		B396D78D27DC2878009DD9B6 /* viewSalesTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewSalesTraining.swift; sourceTree = "<group>"; };
 		B39FD19B1DF9C50F009DB4B5 /* BulwarkTW.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BulwarkTW.entitlements; sourceTree = "<group>"; };
@@ -602,6 +606,7 @@
 				B3898289299C1CBD00B24D09 /* GpsModel.swift */,
 				B3D3DF4929C1123000B4C17F /* HomeSales.swift */,
 				B3D3DF4B29C140B100B4C17F /* RecentHomeSold.swift */,
+				B391F7CC29F0A53700C5AC82 /* TermiteBid.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 				B34F6D1C293A659800CFBC8F /* stringFetcher.swift */,
 				B30F46A1297EEE78008748E9 /* DataUtilities.swift */,
 				B32AD0AB29919D5600F1154D /* FastComm.swift */,
+				B391F7CE29F8487300C5AC82 /* Base64FS.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				B3CDC594291ACF23008957B1 /* jsonFetcher.swift in Sources */,
 				E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */,
 				B3574A122984A244006DC9E2 /* viewMap.swift in Sources */,
+				B391F7CF29F8487300C5AC82 /* Base64FS.swift in Sources */,
 				B3CDC6132928522E008957B1 /* UIView+Toast.m in Sources */,
 				B352E35A2907770600FF55DD /* RouteNotesCell.swift in Sources */,
 				B3D3DF7629C26CD600B4C17F /* SearchResultMap.swift in Sources */,
@@ -866,6 +873,7 @@
 				B3D3DF7229C26CD600B4C17F /* DisplayFlags.swift in Sources */,
 				B348C8AD1C7ACD48000BDC7A /* viewSchedule.m in Sources */,
 				B3CDC615292BF765008957B1 /* viewDashboard.swift in Sources */,
+				B391F7CD29F0A53700C5AC82 /* TermiteBid.swift in Sources */,
 				B3432072296C7D78005CFD18 /* LTOBD2ProtocolSAEJ1850.m in Sources */,
 				B3D3DF7E29C26CD600B4C17F /* WebpUrl.swift in Sources */,
 				B3CDC61E292C4F9E008957B1 /* DesignableLayout.swift in Sources */,
@@ -955,7 +963,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.19;
+				CURRENT_PROJECT_VERSION = 5.1.3;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -980,7 +988,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5.0.19;
+				MARKETING_VERSION = 5.1.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;
@@ -1009,7 +1017,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.19;
+				CURRENT_PROJECT_VERSION = 5.1.3;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -1032,7 +1040,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5.0.19;
+				MARKETING_VERSION = 5.1.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;
@@ -1103,7 +1111,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5.0.19;
+				CURRENT_PROJECT_VERSION = 5.1.3;
 				DEVELOPMENT_TEAM = 96ATNRR9CD;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -1126,7 +1134,7 @@
 					"\"$(SRCROOT)/lib\"",
 					"$(PROJECT_DIR)/lib",
 				);
-				MARKETING_VERSION = 5.0.19;
+				MARKETING_VERSION = 5.1.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulwarkappTW.TechApp;

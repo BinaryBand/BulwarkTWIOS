@@ -20,7 +20,7 @@ class CurrencyTextField: UITextField {
     }*/
 
     //Used to send clean double value back
-    private var amountAsDouble: Double?
+    var amountAsDouble: Double?
     
     var startingValue: Double? {
         didSet {
