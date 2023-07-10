@@ -329,8 +329,10 @@ struct JsonFetcher {
                                 if urlStr.hasPrefix("https://"){
                                     
                                 print(urlStr)
-                                    let ntu = urlStr.replacingOccurrences(of: " ", with: "")
+                                    let ntu = urlStr.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\"", with: "")
                                 
+                                    
+                                    
                                 print(ntu)
                                     let tempurl = URL(string: ntu)!
 

@@ -78,8 +78,10 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 let jsonData = contents.data(using: .utf8)!
                 let tempKey: TempKey = try! JSONDecoder().decode(TempKey.self, from: jsonData)
 
-                print(tempKey.token)
+                //print(tempKey.token)
                 
+                if let tk = tempKey.token{
+                    
                 
                 
                 let tempurl = URL(string: "https://pro.tem-pest.com/login.php")!
@@ -93,7 +95,7 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 )
 
                 tempRequest.setValue( //3
-                    "Bearer \(tempKey.token)",
+                    "Bearer \(tk)",
                     forHTTPHeaderField: "authorization"
                 )
                 
@@ -112,7 +114,18 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 Utilities.delay(bySeconds: 45){
                    // self.displayAlert()
                 }
-                
+                    
+                }else{
+                    //did not reveive authentication from tempest
+                    
+                    let alert = UIAlertController(title: nil, message: " Did not receive proper authentication token from tools.tem-pest", preferredStyle: .alert)
+                    let title = NSLocalizedString("OK", comment: "OK Button")
+                    let ok = UIAlertAction(title: title, style: .default) { (action: UIAlertAction) -> Void in
+                        alert.dismiss(animated: true, completion: nil)
+                    }
+                    alert.addAction(ok)
+                    present(alert, animated: true)
+                }
                 
             } catch {
                  print("contents could not be loaded")
@@ -533,9 +546,9 @@ class viewAddSale: UIViewController,WKNavigationDelegate,WKUIDelegate {
             case swift, combine, debugging, xcode
         }
 
-        let status: Bool
-        let token: String
-        let message: String
+        let status: Bool?
+        let token: String?
+        let message: String?
     }
     
 }

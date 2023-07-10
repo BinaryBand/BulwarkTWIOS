@@ -109,7 +109,10 @@ class viewPosting: UIViewController ,WKNavigationDelegate,WKUIDelegate,TWBlunoDe
                         h = hh
                     }
                     if let nn = name{
-                        n = nn
+                        n = nn.replacingOccurrences(of: "\"", with: "")
+                        
+                        
+                        
                     }
                     if let oo = office{
                         o = oo
