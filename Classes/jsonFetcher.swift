@@ -105,8 +105,6 @@ struct JsonFetcher {
         return fbfResult
     }
     
-
-    
     static func postAddToRouteJson(urlStr: String, addToRouteParam: AddToRouteParams) async throws -> AddUpdateApiResult {
         
         guard let tempurl = URL(string: urlStr) else {
@@ -119,30 +117,22 @@ struct JsonFetcher {
         
         var atpr = addToRouteParam
         
-        
         atpr.RollingKey = getAuthToken(hrempid: addToRouteParam.FromHrEmpId)
      
-    
-        
         tempRequest.httpMethod = "POST"
         tempRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         tempRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        
         let jsonData = try JSONEncoder().encode(atpr)
         
         tempRequest.httpBody = jsonData
         
         let (data, _) = try await URLSession.shared.data(for: tempRequest)
         
-        
         // Parse the JSON data
         let auResult = try JSONDecoder().decode(AddUpdateApiResult.self, from: data)
         return auResult
-        
-        
     }
-    
     
     static func fetchExcelentPhotosAsync(hrempid: String) async throws -> [ExcelentPhotos] {
 
@@ -164,14 +154,14 @@ struct JsonFetcher {
         
        
         
-        //let token = String(decoding: utoken, as: UTF8.self)
-      //  let btoken = getAuthToken(hrempid: hrEmpId)
-      //  print(btoken)
-        
-      //  tempRequest.setValue(
-       //     btoken,
-       //     forHTTPHeaderField: "authorization"
-       // )
+        // let token = String(decoding: utoken, as: UTF8.self)
+        //   let btoken = getAuthToken(hrempid: hrEmpId)
+        //  print(btoken)
+
+        //  tempRequest.setValue(
+        //     btoken,
+        //     forHTTPHeaderField: "authorization"
+        // )
         
         let (data, _) = try await URLSession.shared.data(for: tempRequest)
         
@@ -255,6 +245,7 @@ struct JsonFetcher {
         
         
         let urlstr = "https://ipadapp.bulwarkapp.com/getRouteByHRempidAndDate.ashx?date=" + rdate + "&hr_emp_id=" + hrEmpId
+//        print(urlstr)
         
         let tempurl = URL(string: urlstr)!
             
@@ -293,6 +284,8 @@ struct JsonFetcher {
         
         // Parse the JSON data
         let rsResult = try JSONDecoder().decode([RouteStop].self, from: data)
+        
+        
         return rsResult
     }
     
@@ -301,141 +294,141 @@ struct JsonFetcher {
     
     static func SendPostingResultsAsync(hrEmpId: String) async throws -> Bool{
       
-        
-        let fm = FileManager.default
-
-
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            
-            let fileURL = dir.appendingPathComponent("services")
-            
-            
-            do {
-                let items = try fm.contentsOfDirectory(atPath: fileURL.path)
-
-                for item in items {
-                    print("Found \(item)")
-                    
-                    if item.hasSuffix(".tw"){
-                        
-                        let fp = fileURL.appendingPathComponent(item)
-                        
-                        //if let fu =  URL(string: item) {
-                            
-                            do {
-                                let urlStr = try String(contentsOf: fp, encoding: .utf8)
-                                
-                                
-                                if urlStr.hasPrefix("https://"){
-                                    
-                                print(urlStr)
-                                    let ntu = urlStr.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\"", with: "")
-                                
-                                    
-                                    
-                                print(ntu)
-                                    let tempurl = URL(string: ntu)!
-
-                                var tempRequest = URLRequest(
-                                    url: tempurl
-                                )
-                                
-                               
-                                
-                                //let token = String(decoding: utoken, as: UTF8.self)
-                                let btoken = getAuthToken(hrempid: hrEmpId)
-                                print(btoken)
-                                
-                                tempRequest.setValue(
-                                    btoken,
-                                    forHTTPHeaderField: "authorization"
-                                )
-                                   
-                                    
-                                let (data, _) = try await URLSession.shared.data(for: tempRequest)
-                                            
-                                   
-                                            
-                                
-                                
-                                
-                                // Parse the JSON data
-                                    let resStr = String(decoding: data, as: UTF8.self)
-                                
-                                    let stl = resStr.lowercased()
-                                    
-                                    if stl.contains("success"){
-                                        
-                                        
-                                        try fm.removeItem(atPath: fp.path)
-                                        
-                                        
-                                    }else{
-                                        //check how old the file is and remove if greater then 4 days
-                                        
-                                        let attr = try FileManager.default.attributesOfItem(atPath: fp.path)
-                                        let savedate = attr[FileAttributeKey.creationDate] as? Date
-                                        
-                                        
-                                        if let s = savedate {
-                                            let d = Date()
-                                            
-                                            let ti = d.timeIntervalSince(s)
-                                            
-                                            let seconds = ti.rounded()
-                                            let tthours =  seconds / 3600
-                                            
-                                            
-                                            if tthours > 80 {
-                                                //it has been more then 80 hours remove the file
-                                                try fm.removeItem(atPath: fp.path)
-                                            }
-                                            
-                                            
-                                            
-                                        }
-                                        
-                                        
-                                        
-                                    }
-                                        
-                                    
-                                    
-                                    
-                                    
-                                }else{
-                                    //invalid url remove the file
-                                    try fm.removeItem(atPath: fp.path)
-                                    
-                                }
-                                
-                                
-                                
-                                
-                            }
-                                catch {
-                                print(error)
-                            }
-                            
-                        //}else {
-                        //    //invalid url conversion remove the file
-                        //    try fm.removeItem(atPath: item)
-                        //}
-                        
-                        
-                        
-                    }
-                    
-                    
-                    
-                }
-            } catch {
-                // failed to read directory – bad permissions, perhaps?
-            }
-            
-        }
-        
-        
+//
+//        let fm = FileManager.default
+//
+//
+//        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+//
+//            let fileURL = dir.appendingPathComponent("services")
+//
+//
+//            do {
+//                let items = try fm.contentsOfDirectory(atPath: fileURL.path)
+//
+//                for item in items {
+//                    print("Found \(item)")
+//
+//                    if item.hasSuffix(".tw"){
+//
+//                        let fp = fileURL.appendingPathComponent(item)
+//
+//                        //if let fu =  URL(string: item) {
+//
+//                            do {
+//                                let urlStr = try String(contentsOf: fp, encoding: .utf8)
+//
+//
+//                                if urlStr.hasPrefix("https://"){
+//
+//                                print(urlStr)
+//                                    let ntu = urlStr.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\"", with: "")
+//
+//
+//
+//                                print(ntu)
+//                                    let tempurl = URL(string: ntu)!
+//
+//                                var tempRequest = URLRequest(
+//                                    url: tempurl
+//                                )
+//
+//
+//
+//                                //let token = String(decoding: utoken, as: UTF8.self)
+//                                let btoken = getAuthToken(hrempid: hrEmpId)
+//                                print(btoken)
+//
+//                                tempRequest.setValue(
+//                                    btoken,
+//                                    forHTTPHeaderField: "authorization"
+//                                )
+//
+//
+//                                let (data, _) = try await URLSession.shared.data(for: tempRequest)
+//
+//
+//
+//
+//
+//
+//                                // Parse the JSON data
+//                                    let resStr = String(decoding: data, as: UTF8.self)
+//
+//                                    let stl = resStr.lowercased()
+//
+//                                    if stl.contains("success"){
+//
+//
+//                                        try fm.removeItem(atPath: fp.path)
+//
+//
+//                                    }else{
+//                                        //check how old the file is and remove if greater then 4 days
+//
+//                                        let attr = try FileManager.default.attributesOfItem(atPath: fp.path)
+//                                        let savedate = attr[FileAttributeKey.creationDate] as? Date
+//
+//
+//                                        if let s = savedate {
+//                                            let d = Date()
+//
+//                                            let ti = d.timeIntervalSince(s)
+//
+//                                            let seconds = ti.rounded()
+//                                            let tthours =  seconds / 3600
+//
+//
+//                                            if tthours > 80 {
+//                                                //it has been more then 80 hours remove the file
+//                                                try fm.removeItem(atPath: fp.path)
+//                                            }
+//
+//
+//
+//                                        }
+//
+//
+//
+//                                    }
+//
+//
+//
+//
+//
+//                                }else{
+//                                    //invalid url remove the file
+//                                    try fm.removeItem(atPath: fp.path)
+//
+//                                }
+//
+//
+//
+//
+//                            }
+//                                catch {
+//                                print(error)
+//                            }
+//
+//                        //}else {
+//                        //    //invalid url conversion remove the file
+//                        //    try fm.removeItem(atPath: item)
+//                        //}
+//
+//
+//
+//                    }
+//
+//
+//
+//                }
+//            } catch {
+//                // failed to read directory – bad permissions, perhaps?
+//            }
+//
+//        }
+//
+//
         return true
     }
     
@@ -460,109 +453,109 @@ struct JsonFetcher {
     private static func SendGPSAsync(hrEmpId: String) async throws -> Bool{
       
         
-        let fm = FileManager.default
-
-
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            
-            let fileURL = dir.appendingPathComponent("gpsData")
-            
-            
-            do {
-                let items = try fm.contentsOfDirectory(atPath: fileURL.path)
-
-                for item in items {
-                    print("Found \(item)")
-                    
-                    if item.hasSuffix(".tw"){
-                        
-                        let fp = fileURL.appendingPathComponent(item)
-                        
-                        //if let fu =  URL(string: item) {
-                            
-                        do {
-                            let jdata = try Data(contentsOf: fp, options: .mappedIfSafe)
-                            
-                            
-                            
-                            print(item)
-                            
-                            let decoder = JSONDecoder()
-                            let mdl = try decoder.decode(GpsModel.self, from: jdata)
-                            
-                            let stl = try await postGps(gpsData: mdl)
-                            
-                            
-                            
-                            if stl == 1{
-                                
-                                
-                                try fm.removeItem(atPath: fp.path)
-                                
-                                
-                            }else{
-                                //check how old the file is and remove if greater then 4 days
-                                
-                                let attr = try FileManager.default.attributesOfItem(atPath: fp.path)
-                                let savedate = attr[FileAttributeKey.creationDate] as? Date
-                                
-                                
-                                if let s = savedate {
-                                    let d = Date()
-                                    
-                                    let ti = d.timeIntervalSince(s)
-                                    
-                                    let seconds = ti.rounded()
-                                    let tthours =  seconds / 3600
-                                    
-                                    
-                                    if tthours > 96 {
-                                        //it has been more then 80 hours remove the file
-                                        try fm.removeItem(atPath: fp.path)
-                                    }
-                                    
-                                    
-                                    
-                                }
-                                
-                                
-                                
-                                
-                                
-                                
-                            }
-                                
-                                
-                                
-                            }catch {
-                                print(error)
-                                
-                                let errstr:String = error.localizedDescription.lowercased()
-                                print(errstr)
-                                if errstr.contains("correct format"){
-                                    //try fm.removeItem(atPath: fp.path)
-                                }
-                                
-                            }
-                            
-                        //}else {
-                        //    //invalid url conversion remove the file
-                        //    try fm.removeItem(atPath: item)
-                        //}
-                        
-                        
-                        
-                    }
-                    
-                    
-                    
-                }
-            } catch {
-                // failed to read directory – bad permissions, perhaps?
-                print(error)
-            }
-            
-        }
+//        let fm = FileManager.default
+//
+//
+//        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+//
+//            let fileURL = dir.appendingPathComponent("gpsData")
+//
+//
+//            do {
+//                let items = try fm.contentsOfDirectory(atPath: fileURL.path)
+//
+//                for item in items {
+//                    print("Found \(item)")
+//
+//                    if item.hasSuffix(".tw"){
+//
+//                        let fp = fileURL.appendingPathComponent(item)
+//
+//                        //if let fu =  URL(string: item) {
+//
+//                        do {
+//                            let jdata = try Data(contentsOf: fp, options: .mappedIfSafe)
+//
+//
+//
+//                            print(item)
+//
+//                            let decoder = JSONDecoder()
+//                            let mdl = try decoder.decode(GpsModel.self, from: jdata)
+//
+//                            let stl = try await postGps(gpsData: mdl)
+//
+//
+//
+//                            if stl == 1{
+//
+//
+//                                try fm.removeItem(atPath: fp.path)
+//
+//
+//                            }else{
+//                                //check how old the file is and remove if greater then 4 days
+//
+//                                let attr = try FileManager.default.attributesOfItem(atPath: fp.path)
+//                                let savedate = attr[FileAttributeKey.creationDate] as? Date
+//
+//
+//                                if let s = savedate {
+//                                    let d = Date()
+//
+//                                    let ti = d.timeIntervalSince(s)
+//
+//                                    let seconds = ti.rounded()
+//                                    let tthours =  seconds / 3600
+//
+//
+//                                    if tthours > 96 {
+//                                        //it has been more then 80 hours remove the file
+//                                        try fm.removeItem(atPath: fp.path)
+//                                    }
+//
+//
+//
+//                                }
+//
+//
+//
+//
+//
+//
+//                            }
+//
+//
+//
+//                            }catch {
+//                                print(error)
+//
+//                                let errstr:String = error.localizedDescription.lowercased()
+//                                print(errstr)
+//                                if errstr.contains("correct format"){
+//                                    //try fm.removeItem(atPath: fp.path)
+//                                }
+//
+//                            }
+//
+//                        //}else {
+//                        //    //invalid url conversion remove the file
+//                        //    try fm.removeItem(atPath: item)
+//                        //}
+//
+//
+//
+//                    }
+//
+//
+//
+//                }
+//            } catch {
+//                // failed to read directory – bad permissions, perhaps?
+//                print(error)
+//            }
+//
+//        }
         
         
         return true

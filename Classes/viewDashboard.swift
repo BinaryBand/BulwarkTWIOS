@@ -13,21 +13,17 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet var cvPhotos: UICollectionView!
     
-  
-    
     var wichUrl:Int!
     var tabUrl:String!
     
     var photoList: [ExcelentPhotos] = []
     var photoListImages:[UIImage] = []
     
-    
     var officeCode:String?
     
     var useCookieInWeb:Bool!
     
     @IBOutlet var lblVin: UILabel!
-    
     
     @IBOutlet var lblOdo: UILabel!
     
@@ -42,10 +38,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     var RouteId = 0
     var ttvid = 0
     
-    
     @IBOutlet var tmpview: UIView!
-    
-    
     
     @IBOutlet var btnFastComm: UIButton!
     
@@ -112,14 +105,11 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     private let invhandler = "handler"
     
-    
     var zip:String!
-    
     
     var appDelegate = UIApplication.shared.delegate as! BulwarkTWAppDelegate
     
     var notificationstoview:Int = 0
-    
     
     var invRequest:URLRequest?
    // var routeStop: RouteStop?{
@@ -150,11 +140,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         //hrempid = appDelegate.hrEmpId ?? ""
         officeCode = appDelegate.office
         
-        
         appDelegate.viewDash = self
-        
-        //let obd =
-        
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.tapPhotoRatio (_:)))
         self.viewPhotoRatio.addGestureRecognizer(gesture)
@@ -165,10 +151,8 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         let gestureFinisher = UITapGestureRecognizer(target: self, action:  #selector (self.tapFinisher (_:)))
         self.viewFinisher.addGestureRecognizer(gestureFinisher)
         
-        
         let gestureCompletion = UITapGestureRecognizer(target: self, action:  #selector (self.tapCompletion (_:)))
         self.viewCompletin.addGestureRecognizer(gestureCompletion)
-        
         
         let gestureReviews = UITapGestureRecognizer(target: self, action:  #selector (self.tapReviews (_:)))
         self.viewReviews.addGestureRecognizer(gestureReviews)
@@ -556,125 +540,88 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
         
     @IBAction func unwindToMain(segue: UIStoryboardSegue){
-           // let temp = "temp message"
-           // print(temp)
-       }
-        
-    
+       // let temp = "temp message"
+       // print(temp)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "showPhoto" {
-               if let indexPaths = cvPhotos.indexPathsForSelectedItems{
-                   let destinationController = segue.destination as! viewPhoto
-                   destinationController.TakenBy = photoList[indexPaths[0].row].AccountNumber
-                   destinationController.TakenOn = photoList[indexPaths[0].row].Date
-                   destinationController.Rating = photoList[indexPaths[0].row].MarketingGrade
-                   destinationController.TakenBy = photoList[indexPaths[0].row].ProName
-                   //destinationController.image.image = photoListImages[indexPaths[0].row]
-                   destinationController.MediaUrl = photoList[indexPaths[0].row].MediaUrl
-                   destinationController.Office1 = photoList[indexPaths[0].row].OfficeName
-                   cvPhotos.deselectItem(at: indexPaths[0], animated: false)
-               }
-           }
         
+        print("Calling prepare function:", (segue.identifier ?? "unidentified") as String)
         
+        if segue.identifier == "showPhoto" {
+            
+            if let indexPaths = cvPhotos.indexPathsForSelectedItems{
+                
+                let destinationController = segue.destination as! viewPhoto
+                destinationController.TakenBy = photoList[indexPaths[0].row].AccountNumber
+                destinationController.TakenOn = photoList[indexPaths[0].row].Date
+                destinationController.Rating = photoList[indexPaths[0].row].MarketingGrade
+                destinationController.TakenBy = photoList[indexPaths[0].row].ProName
+                //destinationController.image.image = photoListImages[indexPaths[0].row]
+                destinationController.MediaUrl = photoList[indexPaths[0].row].MediaUrl
+                destinationController.Office1 = photoList[indexPaths[0].row].OfficeName
+                cvPhotos.deselectItem(at: indexPaths[0], animated: false)
+            }
+        }
         
         if segue.identifier == "showWeb" {
             
-            
-
-            
-                let destinationController = segue.destination as! viewModalWeb
-                destinationController.url = tabUrl
+            let destinationController = segue.destination as! viewModalWeb
+            destinationController.url = tabUrl
             destinationController.hrEmpId = appDelegate.hrEmpId ?? ""
           
             if let uc = useCookieInWeb{
                 destinationController.useCookie = uc
             }
-            
-            
         }
+        
         if segue.identifier == "showRouteStop" {
             
-            
-
-            
-                let destinationController = segue.destination as! viewRouteStop
-                destinationController.url = tabUrl
+            let destinationController = segue.destination as! viewRouteStop
+            destinationController.url = tabUrl
             destinationController.rs = self.rs
-            //destinationController.hrEmpId = hrempid
-          
-
-            
+            // destinationController.hrEmpId = hrempid
         }
+        
         if segue.identifier == "showMyPhotos" {
             
-            
-                   
-            
-                let destinationController = segue.destination as! viewMyPhotos
-                destinationController.hrempid = appDelegate.hrEmpId ?? ""
-   
-            
+            let destinationController = segue.destination as! viewMyPhotos
+            destinationController.hrempid = appDelegate.hrEmpId ?? ""
         }
         
         if segue.identifier == "showMap"{
-            
             
             let dc = segue.destination as! viewMap
             dc.mapStops = mapStops
             dc.homegps = sphome
             dc.proactivList = proactiveList
             dc.cancelList = cancelList
-            
         }
+    }
 
+    @IBAction func ChatClicked() {
         
-        
-       }
-    
-    
-       
-
-    @IBAction func ChatClicked(){
         notificationstoview = 0
         barBtnChat.removeBadge()
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://kpwebapi2.bulwarkapp.com/chat?hrempid=" + hrempid
         useCookieInWeb = true
-        print(tabUrl!)
         performSegue(withIdentifier: "showWeb", sender: nil)
-       
     }
     
     @IBAction func btnIsExtended(_ sender: Any) {
+        
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://dashboard.bulwarkapp.com/mgrapp2/isextendeddaysoff2.aspx?h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
-        
-        
     }
-    
-    
-
-    
-    
     
     @IBAction func btnTabMap(_ sender: Any) {
-        
         performSegue(withIdentifier: "showMap", sender: nil)
-        
-        
     }
     
-    
-    
-    
-    
-    
-    
     @IBAction func myPhotosClick(_ sender: Any) {
-        
         performSegue(withIdentifier: "showMyPhotos", sender: nil)   
     }
     
@@ -683,63 +630,63 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         //tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/salesstats?ipad=yes&h=" + hrempid
         //useCookieInWeb = false
         performSegue(withIdentifier: "showSales", sender: nil)
-        
-        
     }
     
-    @objc func tapPhotoRatio(_ sender:UITapGestureRecognizer){
+    @objc func tapPhotoRatio(_ sender:UITapGestureRecognizer) {
+        
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://servicesnapshot.bulwarkapp.com?&hrempid=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
-        
     }
-    @objc func tapOnTime(_ sender:UITapGestureRecognizer){
+    
+    @objc func tapOnTime(_ sender:UITapGestureRecognizer) {
+        
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/ontime?ipad=yes&h=" + hrempid
         useCookieInWeb = true
         performSegue(withIdentifier: "showWeb", sender: nil)
-        
     }
-    @objc func tapFinisher(_ sender:UITapGestureRecognizer){
+    
+    @objc func tapFinisher(_ sender:UITapGestureRecognizer) {
+        
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/finisherRatio?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
-        
     }
     
     @IBAction func btnFastCommDetails(_ sender: Any) {
+        
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/fastcommuse?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
-           
     }
     
-    @objc func tapCompletion(_ sender:UITapGestureRecognizer){
+    @objc func tapCompletion(_ sender:UITapGestureRecognizer) {
+        
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/completionrate?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
-        
     }
     
-    @objc func tapReviews(_ sender:UITapGestureRecognizer){
+    @objc func tapReviews(_ sender:UITapGestureRecognizer) {
+        
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/TechReviews?ipad=yes&hideComp=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
-        
     }
     
     
-    @objc func tapProactiveAdds(_ sender:UITapGestureRecognizer){
+    @objc func tapProactiveAdds(_ sender:UITapGestureRecognizer) {
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/proactiveusage?ipad=yes&h=" + hrempid
@@ -751,13 +698,13 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     /****/
     
     
-    @objc func tapDailyRetention(_ sender:UITapGestureRecognizer){
+    @objc func tapDailyRetention(_ sender:UITapGestureRecognizer) {
+        
         // do other task
         let hrempid = appDelegate.hrEmpId ?? ""
         tabUrl = "https://twreportcore.bulwarkapp.com/dashboardsharedreports/DailyRetention?ipad=yes&h=" + hrempid
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
-        
     }
     
     
@@ -791,14 +738,10 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBAction func btnMyPay(_ sender: Any) {
         
-        
-        
-        
         let alert = UIAlertController(title: "My Pay", message: "Please Select an Option", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Pay Details", style: .default, handler: { (_) in
                     self.tabUrl = "https://kpwebapi.bulwarkapp.com/payrollreports/employee?apikey=aeb9ce4f-f8af-4ced-a4b3-683b6d29864d&hrempid=" + self.appDelegate.hrEmpId
                     self.useCookieInWeb = true
-                    print(self.tabUrl!)
                     self.performSegue(withIdentifier: "showWeb", sender: nil)
                 }))
 
@@ -1302,7 +1245,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         if let filepath = Bundle.main.path(forResource: "ajaxHandler", ofType: "js") {
             do {
                 let contents = try String(contentsOfFile: filepath)
-                print(contents)
+//                print(contents)
                 return contents
             } catch {
                 // contents could not be loaded
@@ -1331,10 +1274,6 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         let urlstr = "https://www.trulia.com/sold/" + zipCode + "_zip/"
         let url = URL(string: urlstr)!
         self.invwebView.load(URLRequest(url: url))
-        
-
-        
-        
     }
     
     @objc func backgroundHomeSaleCheck(){
@@ -1581,52 +1520,51 @@ extension viewDashboard: WKScriptMessageHandler {
 
 extension viewDashboard:StopSelectionDelegate{
     func loadTraining(source: Int, title: String, tid: Int, description: String, trainingProgram: String) {
+        
         btnStartTraining.isHidden = false
         lblTrainingType.text = trainingProgram
         lblTrainingTitle.text = title
         lblTrainingDescription.text = description
         ttvid = tid
         
-        if tid == 0{
+        if tid == 0 {
+            
             btnStartTraining.setTitle("View Sales Training", for: .focused)
             btnStartTraining.setTitle("View Sales Training", for: .disabled)
             btnStartTraining.setTitle("View Sales Training", for: .normal)
             btnStartTraining.setTitle("View Sales Training", for: .selected)
             btnStartTraining.tintColor = .purple
-        }else{
+        }
+        else{
+            
             btnStartTraining.setTitle("Start Training", for: .focused)
             btnStartTraining.setTitle("Start Training", for: .disabled)
             btnStartTraining.setTitle("Start Training", for: .normal)
             btnStartTraining.setTitle("Start Training", for: .selected)
             btnStartTraining.tintColor = .purple
         }
-            
-        
-        
     }
     
-    
     func routeLoaded(ms: [MapStop], routeNotes: String, routeprogress: String) {
+        
         mapStops = ms
         txtRouteNotes.text = routeNotes
         lblRouteProgress.text = routeprogress
     }
     
-
-    
-    
-    func stopSelected(selectedRouteStop: RouteStop){
+    func stopSelected(selectedRouteStop: RouteStop) {
         
         rs = selectedRouteStop
         
         tabUrl = selectedRouteStop.encodedurl
+        
         useCookieInWeb = false
         performSegue(withIdentifier: "showRouteStop", sender: nil)
         splitViewController?.hide(.primary)
-        
     }
     
-    func routeSelected(){
+    func routeSelected() {
+        
         performSegue(withIdentifier: "showRoutes", sender: nil)
         splitViewController?.hide(.primary)
     }

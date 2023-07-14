@@ -19,7 +19,6 @@ protocol StopSelectionDelegate: AnyObject{
 
 class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UITableViewDragDelegate  {
     
-    
     @IBOutlet var btnNavigationLeft: UIBarButtonItem!
     var activityIndicator = UIActivityIndicatorView()
 
@@ -41,17 +40,9 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
     
     static var delegate: StopSelectionDelegate?
     
-    
-
     @IBAction func btnEditPress(_ sender: Any) {
-        
-        
         tableView.dragInteractionEnabled = true
-        
-        
-        
     }
-    
     
     @IBAction func btnSelectRoute(_ sender: Any) {
         viewToday.delegate?.routeSelected()
@@ -59,7 +50,6 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
         //DataUtilities.saveCurrentRouteDate(dateStr: "2/1/2023")
         // lblRouteTotal.isEnabled = false
@@ -70,13 +60,11 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
         
         tableView.dragInteractionEnabled = false
         
-//loadData()
+        //loadData()
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl) // not required when using UITableViewController
-        
-
      }
 
     

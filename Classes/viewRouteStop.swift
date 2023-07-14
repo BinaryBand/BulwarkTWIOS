@@ -7,16 +7,15 @@
 
 import UIKit
 
-class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
+class viewRouteStop: UIViewController, WKNavigationDelegate, WKUIDelegate {
 
     @IBOutlet var webView : WKWebView!
     //var HUD: MBProgressHUD!
-    @objc  var url:String!
+    @objc var url: String!
     
-    var paramsToPass:String!
-    var appDelegate:BulwarkTWAppDelegate!
-    var rs:RouteStop!
-    
+    var paramsToPass: String!
+    var appDelegate: BulwarkTWAppDelegate!
+    var rs: RouteStop!
     
     var turl:String?
     
@@ -25,38 +24,34 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
         super.viewDidLoad()
         paramsToPass = ""
         appDelegate = UIApplication.shared.delegate as? BulwarkTWAppDelegate
-        
-
 
         //HUD = MBProgressHUD(view: view)
-       // view.addSubview(HUD)
-       // HUD.hide(true)
+        // view.addSubview(HUD)
+        // HUD.hide(true)
         
+        webView.navigationDelegate = self
+        //view = webView
         
-        
-    webView.navigationDelegate = self
-    //view = webView
-    
-    webView.uiDelegate = self
-        
+        webView.uiDelegate = self
         
         self.title = "Account: " + rs.account
         
+//        print("URL: ", url as String)
         
         let turl = URL(string: url)!
-       webView.load(URLRequest(url: turl))
+        webView.load(URLRequest(url: turl))
         // Do any additional setup after loading the view.
     }
     
 
     func showActivityIndicator(show: Bool) {
-            if show {
-                //HUD.show(true)
-                self.view.makeToastActivity(.center)
-            } else {
-                self.view.hideToastActivity()
-                //HUD.hide(true)
-            }
+        if show {
+            //HUD.show(true)
+            self.view.makeToastActivity(.center)
+        } else {
+            self.view.hideToastActivity()
+            //HUD.hide(true)
+        }
     }
     
     
@@ -74,19 +69,16 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
 
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
 
-            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            let title = NSLocalizedString("OK", comment: "OK Button")
-            let ok = UIAlertAction(title: title, style: .default) { (action: UIAlertAction) -> Void in
-                alert.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(ok)
-            present(alert, animated: true)
-            completionHandler()
-        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let title = NSLocalizedString("OK", comment: "OK Button")
+        let ok = UIAlertAction(title: title, style: .default) {
+            (action: UIAlertAction) -> Void in alert.dismiss(animated: true, completion: nil)
         }
-
-   
-    
+        
+        alert.addAction(ok)
+        present(alert, animated: true)
+        completionHandler()
+    }
     
     func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
 
@@ -102,24 +94,29 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
                 } else {
                     completionHandler(defaultText)
                 }
-
             }))
 
             alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
-
                 completionHandler(nil)
-
             }))
 
              
         
         present(alert, animated: true)
-        
     }
-
     
     
-
+    @IBAction func goToTbsMap(_ sender: Any) {
+        
+        let newStoryBoard = UIStoryboard(name: "TBSPage", bundle: nil)
+        let newViewController = newStoryBoard.instantiateViewController(withIdentifier: "TBS_vs") as! TBSController
+        
+        newViewController.accountId = rs.account
+        newViewController.customerName = rs.name
+        newViewController.address = rs.address
+        
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
     
     
     
@@ -127,7 +124,7 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
 
             let alertController = UIAlertController(title: "Confirm", message: message, preferredStyle: .alert)
 
-        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
                 completionHandler(true)
             }))
 
@@ -165,43 +162,32 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
                         
                         let tmpurlstr = "https://ipadapp.bulwarkapp.com?" + param
                         
-                        
                         paramsToPass = param
+//                        print("Params to pass: ", paramsToPass as String)
                         
-                       
                         if let urlComponent = URLComponents(string: tmpurlstr) {
                             // queryItems is an array of "key name" and "value"
                             let queryItems = urlComponent.queryItems
+                            
                             // to find "success" value, we need to find based on key name
-                            
-                            
                              sttype = queryItems?.first(where: { $0.name == "servicetypecode" })?.value ?? ""
                             
                         }
                         
                         if sttype.starts(with: "TTI"){
-                            
                             //show termite bid
-                            
                             performSegue(withIdentifier: "showTermiteBid", sender: nil)
-                            
-                        }else{
-                            
-                            
+                        }
+                        else{
                             //performSegue(withIdentifier: "showTermiteBid", sender: nil)
                             performSegue(withIdentifier: "showPosting", sender: nil)
-                            
                         }
-                        
-                        
                     }
                     
                     if dpage == 36{
                         //view notes
                         turl = "https://ipadapp.bulwarkapp.com/hh/customernotes.aspx?c=" + param
-
                         performSegue(withIdentifier: "showWeb", sender: nil)
-                        
                     }
                     
                     if dpage == 37{
