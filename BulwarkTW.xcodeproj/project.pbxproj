@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* BulwarkTWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BulwarkTWAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		33DD7FDC2A6094DE0047BD23 /* TBSPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DD7FDB2A6094DE0047BD23 /* TBSPage.storyboard */; };
-		33DD7FDE2A6094F20047BD23 /* TBSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD7FDD2A6094F20047BD23 /* TBSController.swift */; };
+		339444D32A65A7F500585AA5 /* BaitTrapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339444D22A65A7F500585AA5 /* BaitTrapView.storyboard */; };
+		339444D52A65A80D00585AA5 /* BaitTrapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339444D42A65A80D00585AA5 /* BaitTrapController.swift */; };
+		33C9A8872A6717AE0091D8A6 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9A8862A6717AE0091D8A6 /* CustomMapView.swift */; };
+		33C9A88B2A68535B0091D8A6 /* NewTrapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9A88A2A68535B0091D8A6 /* NewTrapController.swift */; };
+		33C9A88D2A686A330091D8A6 /* ScannerViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9A88C2A686A330091D8A6 /* ScannerViewContoller.swift */; };
+		33C9A88F2A6873B90091D8A6 /* ObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9A88E2A6873B90091D8A6 /* ObjectView.swift */; };
+		33C9A8912A6886030091D8A6 /* UploadPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9A8902A6886030091D8A6 /* UploadPhotoController.swift */; };
 		348D9A2112C1133B00FB51D0 /* results.html in Resources */ = {isa = PBXBuildFile; fileRef = 348D9A2012C1133B00FB51D0 /* results.html */; };
 		348DA0E912CA6F9F00FB51D0 /* ViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 348DA0E712CA6F9F00FB51D0 /* ViewOne.m */; };
 		B30A15002A4E4B3A001C81CE /* viewTBSMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A14FF2A4E4B3A001C81CE /* viewTBSMap.swift */; };
@@ -172,8 +177,13 @@
 		1D6058910D05DD3D006BFB54 /* BulwarkTW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BulwarkTW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* BulwarkTW_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulwarkTW_Prefix.pch; sourceTree = "<group>"; };
-		33DD7FDB2A6094DE0047BD23 /* TBSPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TBSPage.storyboard; sourceTree = "<group>"; };
-		33DD7FDD2A6094F20047BD23 /* TBSController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBSController.swift; sourceTree = "<group>"; };
+		339444D22A65A7F500585AA5 /* BaitTrapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BaitTrapView.storyboard; sourceTree = "<group>"; };
+		339444D42A65A80D00585AA5 /* BaitTrapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaitTrapController.swift; sourceTree = "<group>"; };
+		33C9A8862A6717AE0091D8A6 /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
+		33C9A88A2A68535B0091D8A6 /* NewTrapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrapController.swift; sourceTree = "<group>"; };
+		33C9A88C2A686A330091D8A6 /* ScannerViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewContoller.swift; sourceTree = "<group>"; };
+		33C9A88E2A6873B90091D8A6 /* ObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectView.swift; sourceTree = "<group>"; };
+		33C9A8902A6886030091D8A6 /* UploadPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoController.swift; sourceTree = "<group>"; };
 		348D9A2012C1133B00FB51D0 /* results.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = results.html; sourceTree = SOURCE_ROOT; };
 		348DA0E612CA6F9F00FB51D0 /* ViewOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewOne.h; sourceTree = "<group>"; };
 		348DA0E712CA6F9F00FB51D0 /* ViewOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ViewOne.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -450,7 +460,11 @@
 		33DD7FDA2A6093D00047BD23 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				33DD7FDD2A6094F20047BD23 /* TBSController.swift */,
+				339444D42A65A80D00585AA5 /* BaitTrapController.swift */,
+				33C9A8862A6717AE0091D8A6 /* CustomMapView.swift */,
+				33C9A88A2A68535B0091D8A6 /* NewTrapController.swift */,
+				33C9A88C2A686A330091D8A6 /* ScannerViewContoller.swift */,
+				33C9A8902A6886030091D8A6 /* UploadPhotoController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -458,7 +472,8 @@
 		33F70D312A5F700700243821 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				33DD7FDB2A6094DE0047BD23 /* TBSPage.storyboard */,
+				339444D22A65A7F500585AA5 /* BaitTrapView.storyboard */,
+				33C9A88E2A6873B90091D8A6 /* ObjectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -817,11 +832,11 @@
 				B3CDC60A29283021008957B1 /* SplitStoryBoard.storyboard in Resources */,
 				B337A8E91C650CBB00FBEE18 /* blue_close.png in Resources */,
 				B3BBF59A19BE54290088C777 /* clockin1.png in Resources */,
+				339444D32A65A7F500585AA5 /* BaitTrapView.storyboard in Resources */,
 				B3BBF59419BE518E0088C777 /* clock-7.png in Resources */,
 				B337A8E71C64FD2D00FBEE18 /* cancel_filled-50.png in Resources */,
 				B3CDC60B29283021008957B1 /* LaunchScreen.storyboard in Resources */,
 				B33C58111CBC887F00CE2C72 /* viewDriving.xib in Resources */,
-				33DD7FDC2A6094DE0047BD23 /* TBSPage.storyboard in Resources */,
 				B3D3DF4829B9045900B4C17F /* ajaxHandler.js in Resources */,
 				B3BBF59619BE52560088C777 /* clockin.png in Resources */,
 				E55D833727EE45AE003A63CF /* GoogleService-Info.plist in Resources */,
@@ -880,6 +895,7 @@
 				B3CDC594291ACF23008957B1 /* jsonFetcher.swift in Sources */,
 				E55EAD1624E1E55300063BD5 /* PayrollDetailReportsService.m in Sources */,
 				B3574A122984A244006DC9E2 /* viewMap.swift in Sources */,
+				33C9A88B2A68535B0091D8A6 /* NewTrapController.swift in Sources */,
 				B391F7CF29F8487300C5AC82 /* Base64FS.swift in Sources */,
 				B3CDC6132928522E008957B1 /* UIView+Toast.m in Sources */,
 				B352E35A2907770600FF55DD /* RouteNotesCell.swift in Sources */,
@@ -894,6 +910,7 @@
 				B396D78C27DC0B57009DD9B6 /* viewRetReports.swift in Sources */,
 				B3FD0458283C1721006A1EE6 /* viewAddSale.swift in Sources */,
 				1D3623260D0F684500981E51 /* BulwarkTWAppDelegate.m in Sources */,
+				33C9A88D2A686A330091D8A6 /* ScannerViewContoller.swift in Sources */,
 				B389828C299D8CE500B24D09 /* viewMapToggles.swift in Sources */,
 				B3D3DF7829C26CD600B4C17F /* Coordinates.swift in Sources */,
 				B3D3DF7229C26CD600B4C17F /* DisplayFlags.swift in Sources */,
@@ -932,7 +949,6 @@
 				B36EC1BA1A64887600F53D78 /* DFBlunoManager.m in Sources */,
 				B3AE2E4429652F900026F911 /* viewPhoto.swift in Sources */,
 				B3AE2E4229650A3F0026F911 /* ExcelentPhotos.swift in Sources */,
-				33DD7FDE2A6094F20047BD23 /* TBSController.swift in Sources */,
 				B343206B296C7D78005CFD18 /* LTOBD2O2Sensor.m in Sources */,
 				B3CDC5912919AD55008957B1 /* FBFCell.swift in Sources */,
 				B30A15002A4E4B3A001C81CE /* viewTBSMap.swift in Sources */,
@@ -947,6 +963,7 @@
 				B352E3542907443200FF55DD /* RouteStopCell.swift in Sources */,
 				B32AD0A829915B8A00F1154D /* StartOffTimeCell.swift in Sources */,
 				B3D3DF7B29C26CD600B4C17F /* Metadata.swift in Sources */,
+				33C9A8912A6886030091D8A6 /* UploadPhotoController.swift in Sources */,
 				B343206C296C7D78005CFD18 /* LTVIN.m in Sources */,
 				B3A64D0C296CFBFA000D1C0B /* ApiPostObjs.swift in Sources */,
 				B38AA54A1C56A83900283461 /* viewReports.m in Sources */,
@@ -965,13 +982,16 @@
 				B3432079296C7D78005CFD18 /* LTBTLEWriteCharacteristicStream.m in Sources */,
 				B3574A1A2988C89A006DC9E2 /* viewRetentionList.swift in Sources */,
 				B34F6D1D293A659800CFBC8F /* stringFetcher.swift in Sources */,
+				33C9A88F2A6873B90091D8A6 /* ObjectView.swift in Sources */,
 				B3432074296C7D78005CFD18 /* LTOBD2Mode6TestResult.m in Sources */,
 				E55D834827F23B0E003A63CF /* WorkOrderPhotos.m in Sources */,
 				B3432075296C7D78005CFD18 /* LTSupportAutomotive.m in Sources */,
 				B3D3DF6D29C26CD600B4C17F /* Bathrooms.swift in Sources */,
 				B3A4E947286BA44600ADC3E5 /* viewPopupWeb.swift in Sources */,
 				B32AD0AA29916AAA00F1154D /* isTerritorySteward.swift in Sources */,
+				33C9A8872A6717AE0091D8A6 /* CustomMapView.swift in Sources */,
 				B3A64D0E296D020E000D1C0B /* AuthCookieResult.swift in Sources */,
+				339444D52A65A80D00585AA5 /* BaitTrapController.swift in Sources */,
 				B3D3DF6C29C26CD600B4C17F /* FullTags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

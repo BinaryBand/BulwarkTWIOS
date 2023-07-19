@@ -108,8 +108,8 @@ class viewRouteStop: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     @IBAction func goToTbsMap(_ sender: Any) {
         
-        let newStoryBoard = UIStoryboard(name: "TBSPage", bundle: nil)
-        let newViewController = newStoryBoard.instantiateViewController(withIdentifier: "TBS_vs") as! TBSController
+        let newStoryBoard = UIStoryboard(name: "BaitTrapView", bundle: nil)
+        let newViewController = newStoryBoard.instantiateViewController(withIdentifier: "TBS_vs") as! BaitTrapController
         
         newViewController.accountId = rs.account
         newViewController.customerName = rs.name
@@ -131,7 +131,6 @@ class viewRouteStop: UIViewController, WKNavigationDelegate, WKUIDelegate {
             alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in
                 completionHandler(false)
             }))
-
 
             present(alertController, animated: true)
         }

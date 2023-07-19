@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bait Trap Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TBS_vs" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="BaitTrapController" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xI-NR-gvh" customClass="CustomMapView" customModule="BulwarkTW" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24" width="820" height="1136"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFl-Pa-E9T">
+                                <rect key="frame" x="50" y="1066" width="122" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GJX-nu-beb"/>
+                                    <constraint firstAttribute="width" constant="122" id="YZq-Ww-GOH"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="New Trap" cornerStyle="large"/>
+                                <connections>
+                                    <action selector="newTrapClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cBG-w7-qwD"/>
+                                    <segue destination="njb-vz-LCX" kind="presentation" id="dJw-fk-fQn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2xI-NR-gvh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3Km-HJ-y16"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="tFl-Pa-E9T" secondAttribute="bottom" constant="50" id="K9E-m4-48q"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2xI-NR-gvh" secondAttribute="trailing" id="L7r-aV-jbu"/>
+                            <constraint firstItem="2xI-NR-gvh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Tb6-Ns-raR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2xI-NR-gvh" secondAttribute="bottom" id="bnr-qH-Dhy"/>
+                            <constraint firstItem="tFl-Pa-E9T" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="ydI-T5-6KW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appleMap" destination="2xI-NR-gvh" id="kRe-LD-RXP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="-34"/>
+        </scene>
+        <!--New Trap Controller-->
+        <scene sceneID="tUI-au-Blo">
+            <objects>
+                <viewController storyboardIdentifier="NewTrap_vc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="njb-vz-LCX" customClass="NewTrapController" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mzf-uR-GsZ">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="426-eZ-b1o">
+                                <rect key="frame" x="50" y="242.5" width="604" height="510.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan Barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG3-3C-Eqf">
+                                        <rect key="frame" x="0.0" y="0.0" width="604" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umz-wf-yk6">
+                                        <rect key="frame" x="0.0" y="58" width="604" height="61"/>
+                                        <string key="text">Hover your camera over the barcode on the new termite bait station, wait for the app to detect and display the barcode onscreen, and verify that the displayed code matches the trap's barcode.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kSl-tb-9tw">
+                                        <rect key="frame" x="0.0" y="154" width="604" height="108.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="rHG-hS-ldU">
+                                                <rect key="frame" x="0.0" y="0.0" width="604" height="72"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="72" id="nC1-vo-rXP"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the camera icon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhR-IA-sD3">
+                                                <rect key="frame" x="0.0" y="88" width="604" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUm-Mr-K3k">
+                                        <rect key="frame" x="0.0" y="297.5" width="604" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="B4k-8p-8qu">
+                                        <rect key="frame" x="0.0" y="382.5" width="604" height="128"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9wh-dA-asN">
+                                                <rect key="frame" x="0.0" y="0.0" width="604" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="YkU-jQ-KJ8"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="B4k-8p-8qu" firstAttribute="leading" secondItem="426-eZ-b1o" secondAttribute="leading" id="5wQ-0b-0iN"/>
+                                    <constraint firstAttribute="trailing" secondItem="B4k-8p-8qu" secondAttribute="trailing" id="j9v-oy-NJ8"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="G0n-0h-sg8">
+                                <rect key="frame" x="298" y="903.5" width="108" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="Uej-6I-Hqj"/>
+                                    <constraint firstAttribute="height" constant="44" id="fzD-0w-VO0"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next" cornerStyle="large"/>
+                                <connections>
+                                    <segue destination="gGb-qt-pj6" kind="show" id="MEC-Xw-IMY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AWq-DZ-vCd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AWq-DZ-vCd" firstAttribute="bottom" secondItem="G0n-0h-sg8" secondAttribute="bottom" constant="48" id="7vx-yV-2D2"/>
+                            <constraint firstItem="426-eZ-b1o" firstAttribute="leading" secondItem="AWq-DZ-vCd" secondAttribute="leading" constant="50" id="AOI-vp-4Tf"/>
+                            <constraint firstItem="AWq-DZ-vCd" firstAttribute="trailing" secondItem="426-eZ-b1o" secondAttribute="trailing" constant="50" id="BIe-Vh-I0T"/>
+                            <constraint firstItem="G0n-0h-sg8" firstAttribute="centerX" secondItem="mzf-uR-GsZ" secondAttribute="centerX" id="d2f-gi-Vr7"/>
+                            <constraint firstItem="AWq-DZ-vCd" firstAttribute="bottom" secondItem="G0n-0h-sg8" secondAttribute="bottom" constant="48" id="nM9-qQ-mu3"/>
+                            <constraint firstItem="426-eZ-b1o" firstAttribute="centerY" secondItem="mzf-uR-GsZ" secondAttribute="centerY" id="ufh-zf-StF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Q0U-6P-DjA"/>
+                    <connections>
+                        <outlet property="barcodeImage" destination="9wh-dA-asN" id="gaM-fL-oMS"/>
+                        <outlet property="barcodeText" destination="sUm-Mr-K3k" id="CY9-wG-EdD"/>
+                        <outlet property="continueButton" destination="G0n-0h-sg8" id="jRL-gJ-nd9"/>
+                        <outlet property="openCameraImage" destination="rHG-hS-ldU" id="wiL-Ef-lxw"/>
+                        <outlet property="openCameraStack" destination="kSl-tb-9tw" id="mml-CH-UaF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BY0-Wn-Z1D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fcx-K2-PZO">
+                    <rect key="frame" x="0.0" y="0.0" width="604" height="61"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <string key="text">Hover your camera over the barcode on the new termite bait station, wait for the app to detect and display the barcode onscreen, and verify that the displayed code matches the trap's barcode.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </objects>
+            <point key="canvasLocation" x="953.41463414634143" y="-34.067796610169495"/>
+        </scene>
+        <!--Upload Photo Controller-->
+        <scene sceneID="yXG-rf-Rue">
+            <objects>
+                <viewController id="gGb-qt-pj6" customClass="UploadPhotoController" customModule="BulwarkTW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UlX-u5-eNq">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="XVR-80-KWj">
+                                <rect key="frame" x="70" y="239.5" width="564" height="517"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload a Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6N-e9-NQf">
+                                        <rect key="frame" x="0.0" y="0.0" width="564" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="35" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVX-8k-BPC">
+                                        <rect key="frame" x="0.0" y="58" width="564" height="61"/>
+                                        <string key="text">Capture a photo of the installed trap using your device's camera. Make sure the captured image to ensure clarity and visibility before going to the next step.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Y4m-7Q-Udt">
+                                        <rect key="frame" x="0.0" y="154" width="564" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="2jA-ro-gNZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICF-rY-hqT">
+                                        <rect key="frame" x="0.0" y="261" width="564" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="256" id="Eas-bb-fb5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="3OL-8k-CNa">
+                                <rect key="frame" x="209" y="901.5" width="286" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="HLi-0K-C38">
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="neM-gg-7cy">
+                                        <rect key="frame" x="178" y="0.0" width="108" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2tX-L3-7NE"/>
+                                            <constraint firstAttribute="width" constant="108" id="Yr0-UW-qlB"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Next" cornerStyle="large"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TQT-Vx-LPU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XVR-80-KWj" secondAttribute="trailing" constant="50" id="9Mv-0X-Ldn"/>
+                            <constraint firstItem="3OL-8k-CNa" firstAttribute="centerX" secondItem="UlX-u5-eNq" secondAttribute="centerX" id="BN7-AS-PKm"/>
+                            <constraint firstItem="TQT-Vx-LPU" firstAttribute="bottom" secondItem="3OL-8k-CNa" secondAttribute="bottom" constant="50" id="WxD-A7-7TO"/>
+                            <constraint firstItem="XVR-80-KWj" firstAttribute="leading" secondItem="UlX-u5-eNq" secondAttribute="leadingMargin" constant="50" id="q2z-UC-S4z"/>
+                            <constraint firstItem="XVR-80-KWj" firstAttribute="centerY" secondItem="UlX-u5-eNq" secondAttribute="centerY" id="taF-mh-cLM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="x13-3r-Jrr"/>
+                    <connections>
+                        <outlet property="imagePreview" destination="ICF-rY-hqT" id="Wkl-eP-bGB"/>
+                        <outlet property="nextButton" destination="neM-gg-7cy" id="qUn-Ll-qvL"/>
+                        <outlet property="uploadImageButton" destination="Y4m-7Q-Udt" id="hra-L5-ouD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TtV-3P-0Nc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="-34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" width="16" height="12"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
