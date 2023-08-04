@@ -2901,8 +2901,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1658"
-            endingLineNumber = "1658"
+            startingLineNumber = "1664"
+            endingLineNumber = "1664"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2917,8 +2917,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1659"
-            endingLineNumber = "1659"
+            startingLineNumber = "1665"
+            endingLineNumber = "1665"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2949,8 +2949,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2074"
-            endingLineNumber = "2074"
+            startingLineNumber = "2080"
+            endingLineNumber = "2080"
             landmarkName = "mapView(_:annotationView:calloutAccessoryControlTapped:)"
             landmarkType = "7">
             <Locations>
@@ -3140,8 +3140,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1739"
-            endingLineNumber = "1739"
+            startingLineNumber = "1745"
+            endingLineNumber = "1745"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3156,8 +3156,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "906"
-            endingLineNumber = "906"
+            startingLineNumber = "910"
+            endingLineNumber = "910"
             landmarkName = "drawPolylineOrPolygon(pgNum:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3172,8 +3172,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1796"
-            endingLineNumber = "1796"
+            startingLineNumber = "1802"
+            endingLineNumber = "1802"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3419,8 +3419,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2241"
-            endingLineNumber = "2241"
+            startingLineNumber = "2254"
+            endingLineNumber = "2254"
             landmarkName = "didUpdateStationCheck(stationInfo:)"
             landmarkType = "7">
             <Locations>
@@ -3497,8 +3497,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2243"
-            endingLineNumber = "2243"
+            startingLineNumber = "2256"
+            endingLineNumber = "2256"
             landmarkName = "didUpdateStationCheck(stationInfo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3513,8 +3513,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2242"
-            endingLineNumber = "2242"
+            startingLineNumber = "2255"
+            endingLineNumber = "2255"
             landmarkName = "didUpdateStationCheck(stationInfo:)"
             landmarkType = "7">
             <Locations>
@@ -3576,26 +3576,42 @@
             filePath = "Classes/viewStationCheck.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "531909D2-65E3-407F-80AF-AF2D7CED5FCD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewStationCheck.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "btnClickScanBarcode(_:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2FF86874-FDCE-4176-8150-75B1710AE20F - 83049fc646208ce8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BulwarkTW.viewStationCheck.viewDidLoad() -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewStationCheck.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "660">
+               </Location>
+               <Location
+                  uuid = "2FF86874-FDCE-4176-8150-75B1710AE20F - 83049fc646208ce8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BulwarkTW.viewStationCheck.viewDidLoad() -&gt; ()"
+                  moduleName = "BulwarkTW"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewStationCheck.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3608,8 +3624,8 @@
             filePath = "Classes/viewStationCheck.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "didScanBarcode(barcode:)"
             landmarkType = "7">
             <Locations>
@@ -3656,8 +3672,8 @@
             filePath = "Classes/viewStationCheck.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -3704,8 +3720,8 @@
             filePath = "Classes/viewStationCheck.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "viewDidDisappear(_:)"
             landmarkType = "7">
             <Locations>
@@ -3745,38 +3761,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DD937AB3-644E-4DBF-92F4-672A68840EAB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewStationCheck.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "viewDidDisappear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CB01CF83-4163-4B7D-8467-F7D8ACDBFF1C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewStationCheck.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "viewDidDisappear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9334B41D-33B3-44CF-BF5B-6582363D6517"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -3784,8 +3768,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2235"
-            endingLineNumber = "2235"
+            startingLineNumber = "2241"
+            endingLineNumber = "2241"
             landmarkName = "mapView(_:annotationView:didChange:fromOldState:)"
             landmarkType = "7">
             <Locations>
@@ -3863,8 +3847,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2371"
-            endingLineNumber = "2371"
+            startingLineNumber = "2384"
+            endingLineNumber = "2384"
             landmarkName = "setSelected(_:animated:)"
             landmarkType = "7">
             <Locations>
@@ -3911,8 +3895,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2406"
-            endingLineNumber = "2406"
+            startingLineNumber = "2419"
+            endingLineNumber = "2419"
             landmarkName = "setSelected(_:animated:)"
             landmarkType = "7">
             <Locations>
@@ -3959,106 +3943,10 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2447"
-            endingLineNumber = "2447"
+            startingLineNumber = "2460"
+            endingLineNumber = "2460"
             landmarkName = "setDragState(_:animated:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "24471E1A-62F6-405F-88A7-3C0E54A8C513"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewTBSMap.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "999"
-            endingLineNumber = "999"
-            landmarkName = "drawPolylineOrPolygon(pgNum:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "24471E1A-62F6-405F-88A7-3C0E54A8C513 - ac536a0ce9add299"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BulwarkTW.viewTBSMap.drawPolylineOrPolygon() -&gt; ()"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTBSMap.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "4304">
-               </Location>
-               <Location
-                  uuid = "24471E1A-62F6-405F-88A7-3C0E54A8C513 - 1abaf170f34db258"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BulwarkTW.viewTBSMap.drawPolylineOrPolygon(pgNum: Swift.Int) -&gt; ()"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTBSMap.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "4160">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BDA4D76F-895E-45D5-8087-C9421C41F623"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewTBSMap.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1014"
-            endingLineNumber = "1014"
-            landmarkName = "drawPolylineOrPolygon(pgNum:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BDA4D76F-895E-45D5-8087-C9421C41F623 - 1abaf170f34db02a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BulwarkTW.viewTBSMap.drawPolylineOrPolygon(pgNum: Swift.Int) -&gt; ()"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTBSMap.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "481"
-                  endingLineNumber = "481"
-                  offsetFromSymbolStart = "5800">
-               </Location>
-               <Location
-                  uuid = "BDA4D76F-895E-45D5-8087-C9421C41F623 - 1abaf170f34db02a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BulwarkTW.viewTBSMap.drawPolylineOrPolygon(pgNum: Swift.Int) -&gt; ()"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTBSMap.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "481"
-                  endingLineNumber = "481"
-                  offsetFromSymbolStart = "5768">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4135,8 +4023,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1058"
-            endingLineNumber = "1058"
+            startingLineNumber = "1062"
+            endingLineNumber = "1062"
             landmarkName = "addTempAnnotationsForPoly(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4151,8 +4039,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1071"
-            endingLineNumber = "1071"
+            startingLineNumber = "1075"
+            endingLineNumber = "1075"
             landmarkName = "addTempAnnotationsForPoly(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4167,8 +4055,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1100"
-            endingLineNumber = "1100"
+            startingLineNumber = "1105"
+            endingLineNumber = "1105"
             landmarkName = "addTempAnnotationsForPoly(_:)"
             landmarkType = "7">
             <Locations>
@@ -4230,8 +4118,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2368"
-            endingLineNumber = "2368"
+            startingLineNumber = "2381"
+            endingLineNumber = "2381"
             landmarkName = "setSelected(_:animated:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4514,8 +4402,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "981"
-            endingLineNumber = "981"
+            startingLineNumber = "985"
+            endingLineNumber = "985"
             landmarkName = "drawPolylineOrPolygon(pgNum:)"
             landmarkType = "7">
             <Locations>
@@ -4594,8 +4482,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1521"
-            endingLineNumber = "1521"
+            startingLineNumber = "1527"
+            endingLineNumber = "1527"
             landmarkName = "mapView(_:didUpdate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4830,8 +4718,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1981"
-            endingLineNumber = "1981"
+            startingLineNumber = "1987"
+            endingLineNumber = "1987"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4846,8 +4734,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1966"
-            endingLineNumber = "1966"
+            startingLineNumber = "1972"
+            endingLineNumber = "1972"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4862,8 +4750,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1348"
-            endingLineNumber = "1348"
+            startingLineNumber = "1354"
+            endingLineNumber = "1354"
             landmarkName = "distTrench()"
             landmarkType = "7">
             <Locations>
@@ -4910,8 +4798,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2224"
-            endingLineNumber = "2224"
+            startingLineNumber = "2230"
+            endingLineNumber = "2230"
             landmarkName = "mapView(_:annotationView:didChange:fromOldState:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4926,8 +4814,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1275"
-            endingLineNumber = "1275"
+            startingLineNumber = "1281"
+            endingLineNumber = "1281"
             landmarkName = "distTrench()"
             landmarkType = "7">
             <Locations>
@@ -5070,8 +4958,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2184"
-            endingLineNumber = "2184"
+            startingLineNumber = "2190"
+            endingLineNumber = "2190"
             landmarkName = "mapView(_:annotationView:didChange:fromOldState:)"
             landmarkType = "7">
             <Locations>
@@ -5118,8 +5006,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2183"
-            endingLineNumber = "2183"
+            startingLineNumber = "2189"
+            endingLineNumber = "2189"
             landmarkName = "mapView(_:annotationView:didChange:fromOldState:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5134,8 +5022,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "888"
-            endingLineNumber = "888"
+            startingLineNumber = "891"
+            endingLineNumber = "891"
             landmarkName = "drawPolylineOrPolygon(pgNum:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5198,8 +5086,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1439"
-            endingLineNumber = "1439"
+            startingLineNumber = "1445"
+            endingLineNumber = "1445"
             landmarkName = "takeScreenShotOfHome()"
             landmarkType = "7">
             <Locations>
@@ -5246,8 +5134,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2005"
-            endingLineNumber = "2005"
+            startingLineNumber = "2011"
+            endingLineNumber = "2011"
             landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5262,8 +5150,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2006"
-            endingLineNumber = "2006"
+            startingLineNumber = "2012"
+            endingLineNumber = "2012"
             landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5278,8 +5166,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2061"
-            endingLineNumber = "2061"
+            startingLineNumber = "2067"
+            endingLineNumber = "2067"
             landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5294,8 +5182,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2021"
-            endingLineNumber = "2021"
+            startingLineNumber = "2027"
+            endingLineNumber = "2027"
             landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5310,8 +5198,8 @@
             filePath = "Classes/viewTBSMap.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2053"
-            endingLineNumber = "2053"
+            startingLineNumber = "2059"
+            endingLineNumber = "2059"
             landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5479,54 +5367,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "860A915C-DA18-4C90-8F07-65CDA630FF39"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/viewTermiteBaitCheckResults.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
-            landmarkName = "sendStringToPrint(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "860A915C-DA18-4C90-8F07-65CDA630FF39 - de58e0af3d6d72dd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in BulwarkTW.viewTermiteBaitCheckResults.sendStringToPrint(Swift.String) -&gt; Swift.Bool"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBaitCheckResults.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "355"
-                  endingLineNumber = "355"
-                  offsetFromSymbolStart = "1988">
-               </Location>
-               <Location
-                  uuid = "860A915C-DA18-4C90-8F07-65CDA630FF39 - de58e0af3d6d731f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in BulwarkTW.viewTermiteBaitCheckResults.sendStringToPrint(Swift.String) -&gt; Swift.Bool"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/viewTermiteBaitCheckResults.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "357"
-                  endingLineNumber = "357"
-                  offsetFromSymbolStart = "1988">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2BEAA9E4-05F1-4804-A661-6090070AFD28"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -5650,54 +5490,6 @@
             endingLineNumber = "1020"
             landmarkName = "postTermiteService(checkData:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "82FC7BAA-35A1-4450-BC16-0FBAF4FD5DA2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/jsonFetcher.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1010"
-            endingLineNumber = "1010"
-            landmarkName = "postTermiteService(checkData:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "82FC7BAA-35A1-4450-BC16-0FBAF4FD5DA2 - 8b77d3d78e78b382"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for static BulwarkTW.JsonFetcher.postTermiteService(checkData: BulwarkTW.TBSStationCheckPost) async throws -&gt; Swift.Int"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/jsonFetcher.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1010"
-                  endingLineNumber = "1010"
-                  offsetFromSymbolStart = "2596">
-               </Location>
-               <Location
-                  uuid = "82FC7BAA-35A1-4450-BC16-0FBAF4FD5DA2 - 8b77d3d78e78b382"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for static BulwarkTW.JsonFetcher.postTermiteService(checkData: BulwarkTW.TBSStationCheckPost) async throws -&gt; Swift.Int"
-                  moduleName = "BulwarkTW"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/terrywhipple/Documents/Documents%20-%20Terry%E2%80%99s%20MacBook%20Pro/BulwarkTWIOS/Classes/jsonFetcher.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1010"
-                  endingLineNumber = "1010"
-                  offsetFromSymbolStart = "2420">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5830,7 +5622,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3A5980B3-315C-499D-B3E3-E468BC415554"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/jsonFetcher.swift"
@@ -5888,6 +5680,22 @@
                   offsetFromSymbolStart = "116">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F1D7265-1625-44AD-8D3B-19E1D96F1593"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/viewTBSMap.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1060"
+            endingLineNumber = "1060"
+            landmarkName = "addTempAnnotationsForPoly(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

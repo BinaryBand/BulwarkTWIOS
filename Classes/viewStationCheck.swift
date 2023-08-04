@@ -11,7 +11,7 @@ import MapKit
 protocol StationCheckDelegate: AnyObject{
     
     func didUpdateStationCheck(stationInfo: StationCheck)
-    
+    func didDeleteStation(stationInfo:StationCheck)
     
 }
 
@@ -37,12 +37,14 @@ class viewStationCheck: UIViewController {
     @IBOutlet var arrowImageView: UIImageView!
     @IBOutlet var lblDistance: UILabel!
     
+    @IBOutlet var btnDelete: UIButton!
     var stationData:StationCheck?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+     
         
         resultDropDown.optionArray = resultList
         appDelegate = UIApplication.shared.delegate as? BulwarkTWAppDelegate
@@ -67,13 +69,24 @@ class viewStationCheck: UIViewController {
                 if stationData?.result == ""{
                     resultDropDown.text = "Installed New Station"
                     stationData?.result = "Installed New Station"
+                    
                 }
+                btnDelete.isHidden = false
+            }else{
+                btnDelete.isHidden = true
             }
         }
         
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func btnDeletePressed(_ sender: Any) {
+        
+        viewStationCheck.delegate?.didDeleteStation(stationInfo: stationData!)
+        
+        
+        
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         
@@ -209,8 +222,12 @@ extension viewStationCheck: UIImagePickerControllerDelegate, UINavigationControl
         
         self.dismiss(animated: true, completion: nil)
         let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        imgView.image = img //img?.scale(newWidth: 640)
-        let base64 = imgView.image?.jpegData(compressionQuality: 0.25)?.base64EncodedString() ?? ""
+        let resize = img?.resizeWithScaleAspectFitMode(to: 1300)
+        imgView.image = resize
+        
+        
+        
+        let base64 = resize?.jpegData(compressionQuality: 0.4)?.base64EncodedString() ?? ""
         //let imgData = NSData(data: (img?.jpegData(compressionQuality: 0.5)!)!)
         //var imageSize: Int = imgData.count
         //print("actual size of image in KB: %f ", Double(imageSize) / 1000.0)

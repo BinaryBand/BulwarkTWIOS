@@ -778,7 +778,7 @@ Utilities.delay(bySeconds: 0.5, dispatchLevel: .main, closure: {
             
             }
             
-            if stage==4{
+            if stage==4 || stage == 5{
                
                 let touchPoint = gestureRecognizer.location(in: self.map)
                 
@@ -885,6 +885,9 @@ Utilities.delay(bySeconds: 0.5, dispatchLevel: .main, closure: {
         
         let fpv = footprintNeedsVerified
         
+        
+        
+        
         if footprintNeedsVerified {
 
                 for polys in annotations{
@@ -892,6 +895,7 @@ Utilities.delay(bySeconds: 0.5, dispatchLevel: .main, closure: {
                         map.addAnnotation(corner)
                     }
             }
+            
         }
         
         
@@ -1089,16 +1093,18 @@ Utilities.delay(bySeconds: 0.5, dispatchLevel: .main, closure: {
                     pin.coordinate = ncoord
                 if feet > 5.5{
                     
-                
-                    map.addAnnotation(pin)
-                    //annotations[polygonNumber].append(pin)
-                    //coords.append(touchMapCoordinate)
-                    
-                    //drawPolylineOrPolygon(pgNum: polygonNumber)
-                    //let inAt = i - 1;
-                   // map.addAnnotation(pin)
-                annotationsPoly[polyNum].append(pin)
-                    //i = i + 1
+                    if footprintNeedsVerified {
+                        map.addAnnotation(pin)
+                        
+                        //annotations[polygonNumber].append(pin)
+                        //coords.append(touchMapCoordinate)
+                        
+                        //drawPolylineOrPolygon(pgNum: polygonNumber)
+                        //let inAt = i - 1;
+                        // map.addAnnotation(pin)
+                        annotationsPoly[polyNum].append(pin)
+                        //i = i + 1
+                    }
                 }
                // }
             }
@@ -2238,6 +2244,13 @@ extension viewTBSMap : MKMapViewDelegate {
     
 }
 extension viewTBSMap:StationCheckDelegate{
+    func didDeleteStation(stationInfo: StationCheck) {
+        if let row = self.baitStations.firstIndex(where: {$0.stationNumber == stationInfo.stationNumber}) {
+            baitStations.remove(at: row)
+            updateStationMarkerColor()
+        }
+    }
+    
     func didUpdateStationCheck(stationInfo: StationCheck) {
         if let row = self.baitStations.firstIndex(where: {$0.stationNumber == stationInfo.stationNumber}) {
                baitStations[row] = stationInfo
