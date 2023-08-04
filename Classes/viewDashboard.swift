@@ -1181,7 +1181,7 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     
     @IBAction func showMorwActionSheet(_ sender: UIBarButtonItem) {
-      let alertController = UIAlertController(title: nil, message: "Alert message.", preferredStyle: .actionSheet)
+      let alertController = UIAlertController(title: nil, message: "More", preferredStyle: .actionSheet)
 
       let settingsAction = UIAlertAction(title: "Settings", style: .default, handler: { (alert: UIAlertAction!) -> Void in
         //  Do some action here.
@@ -1207,12 +1207,25 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         gateAction.setValue(UIImage(systemName: "lock"), forKey: "image")
         
         
+        
+        let routehistoryAction = UIAlertAction(title: "Route History", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+          //  Do some action here.
+           
+            self.showRouteHistory()
+            
+            
+        })
+
+          routehistoryAction.setValue(UIImage(systemName: "clock.arrow.circlepath"), forKey: "image")
+        
+        
       let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in
         //  Do something here upon cancellation.
       })
 
       alertController.addAction(settingsAction)
       alertController.addAction(gateAction)
+        alertController.addAction(routehistoryAction)
       alertController.addAction(cancelAction)
       
       if let popoverController = alertController.popoverPresentationController {
@@ -1231,6 +1244,14 @@ class viewDashboard: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         useCookieInWeb = false
         performSegue(withIdentifier: "showWeb", sender: nil)
+    }
+    func showRouteHistory(){
+        
+        let hrempid = self.appDelegate.hrEmpId ?? ""
+        self.tabUrl = "https://jcdev1.bulwarkapp.com/RouteHistoryMobile.aspx?HRID=" + hrempid
+        self.useCookieInWeb = false
+        self.performSegue(withIdentifier: "showWeb", sender: nil)
+        
     }
     
    

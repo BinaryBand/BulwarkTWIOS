@@ -363,6 +363,11 @@ class viewRouteStop: UIViewController ,WKNavigationDelegate,WKUIDelegate {
             
         }
         
+        if segue.identifier == "showTBSMap"{
+            let dc = segue.destination as! viewTBSMap
+            dc.routeStop = rs
+        }
+        
         
         
     }

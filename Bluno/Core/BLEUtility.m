@@ -15,7 +15,7 @@
         if ([service.UUID isEqual:[CBUUID UUIDWithString:sUUID]]) {
             for ( CBCharacteristic *characteristic in service.characteristics ) {
                 if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:cUUID]]) {
-                    [peripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
+                    [peripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
                     
                 }
             }
@@ -28,7 +28,7 @@
         if ([service.UUID isEqual:sCBUUID]) {
             for ( CBCharacteristic *characteristic in service.characteristics ) {
                 if ([characteristic.UUID isEqual:cCBUUID]) {
-                    [peripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
+                    [peripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
                     
                 }
             }

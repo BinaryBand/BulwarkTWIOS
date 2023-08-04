@@ -948,4 +948,82 @@ struct JsonFetcher {
    
     }
     
+    
+    static func fetchHomeFootPrint(workorderid: Int, hrEmpId:String) async throws -> [[GpsPoint]] {
+        
+        
+       
+        let urlStr = "https://twapiweb.bulwarkapp.com/GetHomeFootPrint"
+        
+        //urlStr = "http://10.211.55.4:5095/GetAuthCookie"
+        
+        guard let tempurl = URL(string: urlStr) else {
+            throw JsonFetcherError.invalidURL
+        }
+
+        var tempRequest = URLRequest(
+            url: tempurl
+        )
+        let athtoken = getAuthToken(hrempid: hrEmpId)
+        let ac = HomeFootPrintPost(HrEmpId: hrEmpId, RollingKey: athtoken, WorkOrderId: workorderid)
+        
+        
+        tempRequest.httpMethod = "POST"
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        tempRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        
+        let jsonData = try JSONEncoder().encode(ac)
+        
+        tempRequest.httpBody = jsonData
+        
+        let (data, _) = try await URLSession.shared.data(for: tempRequest)
+
+       // _ = DataUtilities.saveJSONFile(list:data, filename: "employeeHome.json")
+    
+        // Parse the JSON data
+        let acresult: [[GpsPoint]] = try JSONDecoder().decode([[GpsPoint]].self, from: data)
+
+        return acresult
+        
+        
+    }
+    
+    static func postTermiteService(checkData:TBSStationCheckPost) async throws -> Int{
+        
+        
+        //let url = "https://twapiweb.bulwarkapp.com/api/SaveTBSCheckData"
+    
+        let url = "http://192.168.43.98:5095/api/SaveTBSCheckData"
+        
+        let authtoken = getAuthToken(hrempid: checkData.HrEmpId)
+        
+        var cd = checkData
+        cd.RollingKey = authtoken
+    
+        let jsonData = try JSONEncoder().encode(cd)
+        
+        let str11 = String(decoding: jsonData, as: UTF8.self)
+        //print(str11)
+        
+        
+    let request = URLRequest(urlStr: url, jsonData: jsonData)!
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+
+    let str = String(decoding: data, as: UTF8.self)
+        
+    //print(str)
+        
+    //let result = try JSONDecoder().decode(ZipReturn.self, from: data)
+    return 1
+   
+    }
+    
+    
+    
+    
+    
+    
 }

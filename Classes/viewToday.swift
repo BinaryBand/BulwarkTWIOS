@@ -310,6 +310,8 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
         
         
        
+        Utilities.delay(bySeconds: 0.2,dispatchLevel: .background, closure:{
+            
         
         
         Task.detached { [self] in
@@ -330,7 +332,7 @@ class viewToday: UIViewController, UITableViewDelegate,UITableViewDataSource, UI
                
             }
         }
-        
+        })
         /*
         if let url = URL(string: "https://ipadapp.bulwarkapp.com/getRouteByHRempidAndDate.ashx?date=6/08/2021&hr_emp_id=481217") {
             do {

@@ -167,8 +167,8 @@ NSString *kGCMMessageIDKey = @"";
         
         self.locationManager.delegate=self;
         //_locationManager.purpose = @"Gps is used to find customer locations";
-        self.locationManager.desiredAccuracy=kCLLocationAccuracyNearestTenMeters;
-        self.locationManager.distanceFilter = 3;
+        self.locationManager.desiredAccuracy=kCLLocationAccuracyBestForNavigation;
+        //self.locationManager.distanceFilter = 3;
         
  
         
@@ -795,7 +795,7 @@ NSString *kGCMMessageIDKey = @"";
                 isstopped = YES;
                 speedZero = YES;
                 NSLog(@"Stopped");
-                self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
                 
             }
             if(newLocation.speed == 0){

@@ -45,4 +45,18 @@ struct RouteStop : Codable {
     var lon:Double
     
     
+    var homeFootPrint:[[GpsPoint]]?
+    var baitStations:[StationCheck]?
+    var serviceId:Int?
+    var customerId:Int?
+    var isNC:Bool?
+    
+    var city:String?
+    var state:String?
+    var zip:String?
+    var email:String?
+    var phone1:String?
+    var phone2:String?
+    
+    
 }
