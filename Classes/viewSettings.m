@@ -839,6 +839,29 @@
         }
         
         
+        downloadFile = @"https://ipadapp.bulwarkapp.com/TermiteBid/TermiteBid";
+        downloadFile= [downloadFile stringByAppendingString:offcode];
+        downloadFile= [downloadFile stringByAppendingString:@".jpg"];
+        
+        
+        //downloadFile =
+        //[downloadFile stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+        
+       // NSError *err1 = [[NSError alloc] init];
+        NSData *pdfData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:downloadFile]];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        
+        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"termiteBid.pdf"];
+        [pdfData writeToFile:filePath atomically:YES];
+        //NSString *url = [downloadFile stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+       // NSString *mytermiteFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:downloadFile] encoding:NSUTF8StringEncoding error:&err1];
+        
+        
+        
+        
+        
         
         
         

@@ -7,6 +7,8 @@
 
 import Foundation
 import Toast
+
+
 struct Utilities {
     
     
@@ -25,7 +27,20 @@ struct Utilities {
         
         return R * c
     }
-
+    static func haversineFeet(lat1:Double, lon1:Double, lat2:Double, lon2:Double) -> Double {
+        let lat1rad = lat1 * Double.pi/180
+        let lon1rad = lon1 * Double.pi/180
+        let lat2rad = lat2 * Double.pi/180
+        let lon2rad = lon2 * Double.pi/180
+        
+        let dLat = lat2rad - lat1rad
+        let dLon = lon2rad - lon1rad
+        let a = sin(dLat/2) * sin(dLat/2) + sin(dLon/2) * sin(dLon/2) * cos(lat1rad) * cos(lat2rad)
+        let c = 2 * asin(sqrt(a))
+        let R = 20902230.971129
+        
+        return R * c
+    }
 
     static func CurrentDateString() -> String {
         
@@ -90,6 +105,58 @@ struct Utilities {
         
     }
     
+    func sortConvex(input: [CLLocationCoordinate2D]) -> [CLLocationCoordinate2D] {
+        
+        // X = longitude
+        // Y = latitude
+        
+        // 2D cross product of OA and OB vectors, i.e. z-component of their 3D cross product.
+        // Returns a positive value, if OAB makes a counter-clockwise turn,
+        // negative for clockwise turn, and zero if the points are collinear.
+        func cross(P: CLLocationCoordinate2D, _ A: CLLocationCoordinate2D, _ B: CLLocationCoordinate2D) -> Double {
+            let part1 = (A.longitude - P.longitude) * (B.latitude - P.latitude)
+            let part2 = (A.latitude - P.latitude) * (B.longitude - P.longitude)
+            return part1 - part2;
+        }
+        
+        // Sort points lexicographically
+        let points: [CLLocationCoordinate2D] = input.sorted { a, b in
+            a.longitude < b.longitude || a.longitude == b.longitude && a.longitude < b.longitude
+        }
+        
+        // Build the lower hull
+        var lower: [CLLocationCoordinate2D] = []
+        
+        for p in points {
+            while lower.count >= 2 {
+                let a = lower[lower.count - 2]
+                let b = lower[lower.count - 1]
+                if cross(P: p, a, b) > 0 { break }
+                lower.removeLast()
+            }
+            lower.append(p)
+        }
+        
+        // Build upper hull
+        var upper: [CLLocationCoordinate2D] = []
+        
+        for p in points.lazy.reversed() {
+            while upper.count >= 2 {
+                let a = upper[upper.count - 2]
+                let b = upper[upper.count - 1]
+                if cross(P: p, a, b) > 0 { break }
+                upper.removeLast()
+            }
+            upper.append(p)
+        }
+        
+        // Last point of upper list is omitted because it is repeated at the
+        // beginning of the lower list.
+        upper.removeLast()
+        
+        // Concatenation of the lower and upper hulls gives the convex hull.
+        return (upper + lower)
+    }
     
     static func toastStyleCheckmark() -> ToastStyle{
         var style = ToastStyle()
@@ -129,7 +196,10 @@ struct Utilities {
 
 public extension Double {
     
-    
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
     
     func toPercentString(decimalPlaces:Int = 2) -> String {
         
@@ -166,7 +236,18 @@ public extension Double {
         
     }
     
+    var degreesToRadians: Self { return self * .pi / 180 }
+    var radiansToDegrees: Self { return self * 180 / .pi }
     
+}
+extension FloatingPoint {
+
+    var degreesToRadians: Self { return self * .pi / 180 }
+    var radiansToDegrees: Self { return self * 180 / .pi }
+}
+extension Float{
+    var degreesToRadians: Self { return self * .pi / 180 }
+    var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
 public extension Int {
@@ -195,6 +276,26 @@ public extension String {
         return decodedString
         
         
+    }
+    
+    func index(from: Int) -> Index {
+        return self.index(startIndex, offsetBy: from)
+    }
+
+    func substring(from: Int) -> String {
+        let fromIndex = index(from: from)
+        return String(self[fromIndex...])
+    }
+
+    func substring(to: Int) -> String {
+        let toIndex = index(from: to)
+        return String(self[..<toIndex])
+    }
+
+    func substring(with r: Range<Int>) -> String {
+        let startIndex = index(from: r.lowerBound)
+        let endIndex = index(from: r.upperBound)
+        return String(self[startIndex..<endIndex])
     }
     
     
@@ -261,5 +362,83 @@ extension URLRequest {
         tempRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         self = tempRequest
         return
+    }
+}
+extension UIImage {
+
+  func colorized(color : UIColor) -> UIImage {
+
+    let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+
+    UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+    if let context = UIGraphicsGetCurrentContext() {
+        context.setBlendMode(.multiply)
+        context.translateBy(x: 0, y: self.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.draw(self.cgImage!, in: rect)
+        context.clip(to: rect, mask: self.cgImage!)
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+    }
+
+    let colorizedImage = UIGraphicsGetImageFromCurrentImageContext()
+
+    UIGraphicsEndImageContext()
+    return colorizedImage!
+
+  }
+    func resizeWithScaleAspectFitMode(to dimension: CGFloat) -> UIImage? {
+
+        if max(size.width, size.height) <= dimension { return self }
+
+        var newSize: CGSize!
+        let aspectRatio = size.width/size.height
+
+        if aspectRatio > 1 {
+            // Landscape image
+            newSize = CGSize(width: dimension, height: dimension / aspectRatio)
+        } else {
+            // Portrait image
+            newSize = CGSize(width: dimension * aspectRatio, height: dimension)
+        }
+
+        return resize(to: newSize)
+    }
+   private func resize(to newSize: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(newSize, true, 1.0)
+            self.draw(in: CGRect(origin: .zero, size: newSize))
+            defer { UIGraphicsEndImageContext() }
+            return UIGraphicsGetImageFromCurrentImageContext()
+        }
+
+
+
+
+
+    
+
+    
+    
+    
+    
+}
+extension CLLocationCoordinate2D {
+    func bearing(to point: CLLocationCoordinate2D) -> Double {
+        func degreesToRadians(_ degrees: Double) -> Double { return degrees * Double.pi / 180.0 }
+        func radiansToDegrees(_ radians: Double) -> Double { return radians * 180.0 / Double.pi }
+
+        let lat1 = degreesToRadians(latitude)
+        let lon1 = degreesToRadians(longitude)
+
+        let lat2 = degreesToRadians(point.latitude);
+        let lon2 = degreesToRadians(point.longitude);
+
+        let dLon = lon2 - lon1;
+
+        let y = sin(dLon) * cos(lat2);
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+        let radiansBearing = atan2(y, x);
+
+        return radiansToDegrees(radiansBearing)
     }
 }

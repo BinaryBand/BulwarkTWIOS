@@ -306,13 +306,88 @@ struct DataUtilities {
         
     }
     
+    static func getTBSListFromFile(workOrderId: Int) -> StationHomeData?{
+           let fname = "TBS" + workOrderId.toString() + ".json"
+           let subFolder = "tbsJsonData"
+           
+            
+        if let data = getJSONFileData(subFolder: subFolder, fileName: fname){
+            do{
+                
+           
+            let list = try JSONDecoder().decode(StationHomeData.self, from: data)
+            
+            return list
+                
+            }catch{
+                print(error)
+            }
+            
+        }
+            return nil
+  
+    }
+    
+    
+    
+    
+    static func saveTBSCheckData(tbsList: StationHomeData, workOrderId:Int) {
+
+        
+        do{
+            let fname = "TBS" + workOrderId.toString() + ".json"
+            
+            let data = try JSONEncoder().encode(tbsList)
+            _ = saveJSONFile(list: data, filename: fname, subFolder:"tbsJsonData")
+            
+        }catch{
+            print(error)
+        }
+        
+        
+        
+        
+        
+        
+    }
+    static func getJSONFileData(subFolder:String, fileName:String) -> Data?{
+        
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            
+            let pathWithFileName = documentDirectory.appendingPathComponent(subFolder).appendingPathComponent(fileName)
+             
+
+             
+             do{
+                 let data = try Data(contentsOf: pathWithFileName, options: .mappedIfSafe)
+                 return data
+                 
+                 
+             }catch {
+                 
+                 print(error)
+                 return nil
+             }
+             
+        }else{
+            
+            return nil
+        }
+         
+        
+        
+    }
     
     static func saveJSONFile(list: Data, filename: String) ->Bool{
+        return saveJSONFile(list: list, filename: filename, subFolder: "jsonData")
+    }
+    static func saveJSONFile(list: Data, filename: String, subFolder:String) ->Bool{
         
         
         //im not sure if theis will work check the logic 1-23-2023
       if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-          let pathWithFileName = documentDirectory.appendingPathComponent("jsonData")
+          let pathWithFileName = documentDirectory.appendingPathComponent(subFolder)
           
           
           if !FileManager.default.fileExists(atPath: pathWithFileName.path) { //if does not exist
@@ -480,6 +555,7 @@ struct DataUtilities {
         
     }
     
+
     
     
     

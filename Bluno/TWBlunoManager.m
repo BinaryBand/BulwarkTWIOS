@@ -7,10 +7,15 @@
 
 #import "TWBlunoManager.h"
 
-//#define kBlunoService @"49535343-FE7D-4AE5-8FA9-9FAFD205E455" //@"F000FFC0-0451-4000-B000-000000000000"//
-//#define kBlunoDataCharacteristic @"49535343-8841-43F4-A8D4-ECBE34729BB3" //@"F000FFC2-0451-4000-B000-000000000000"//
+//#define tBTPrintService @"49535343-FE7D-4AE5-8FA9-9FAFD205E455" //@"F000FFC0-0451-4000-B000-000000000000"//
+//#define tBTPrintCharisteristic @"49535343-8841-43F4-A8D4-ECBE34729BB3" //@"F000FFC2-0451-4000-B000-000000000000"//
+//    private let writablecharacteristicUUID = "BEF8D6C9-9C21-4C9E-B632-BD58C1009F9F"
+
 #define tBTPrintService @"18f0"
 #define tBTPrintCharisteristic @"2af1"
+
+//#define tBTPrintService @"FF10"
+//#define tBTPrintCharisteristic @"FF11"
 
 @interface TWBlunoManager ()
 {
